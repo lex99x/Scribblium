@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DrawView: View {
     
+    @State private var drawing = [Line]()
+
     var body: some View {
         ZStack {
             
@@ -18,9 +20,25 @@ struct DrawView: View {
             VStack {
 
                 Canvas { context, size in
-                    
-                    
+                    for line in drawing {
+                        var path  = Path()
+                        path.addLines(line.points)
+                        
+                        context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+                    }
                 }
+                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                            let newPoint = value.location
+                            if value.translation.width + value.translation.height == 0 {
+                                drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
+                            } else {
+                                let index = drawing.count - 1
+                                drawing[index].points.append(newPoint)
+                            }
+                            
+                        })
+                        
+                        )
                 .frame(width: 338, height: 501)
                 //padrão em todos os modos
                 .background(Color(UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)))
