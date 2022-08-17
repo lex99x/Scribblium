@@ -45,6 +45,21 @@ struct DrawView: View {
                 .border(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)))
                 
                 .padding()
+                
+                HStack {
+                    Button(action: {
+                        drawing = [Line]()}) {
+                            ZStack{
+                                Circle()
+                                    .frame(width: 83, height: 83)
+                                    .foregroundColor(Color(UIColor(red: 0.86, green: 0.86, blue: 0.85, alpha: 1.00)))
+                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)))
+                                        .frame(width: 85, height: 85))
+                                Image(systemName: "trash.fill")
+                                    .foregroundColor(Color.black)
+                            }
+                        }
+                }
             }
         }
         
