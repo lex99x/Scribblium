@@ -56,11 +56,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1714CB8428ABD62C0089D1B5 /* Services */ = {
+		1714CB8428ABD62C0089D1B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Services;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		1714CB8528ABD63D0089D1B5 /* Repositories */ = {
@@ -70,6 +70,15 @@
 				17F3A44B28ABC271002E9047 /* Persistence.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1714CB8A28AD17490089D1B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17F3A44628ABC271002E9047 /* Assets.xcassets */,
+				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		17F3A43628ABC270002E9047 = {
@@ -95,20 +104,11 @@
 				1714CB8128ABD6020089D1B5 /* Models */,
 				1714CB8228ABD6120089D1B5 /* Views */,
 				1714CB8528ABD63D0089D1B5 /* Repositories */,
-				1714CB8428ABD62C0089D1B5 /* Services */,
+				1714CB8428ABD62C0089D1B5 /* Utilities */,
+				1714CB8A28AD17490089D1B5 /* Resources */,
 				17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */,
-				17F3A44628ABC271002E9047 /* Assets.xcassets */,
-				17F3A44828ABC271002E9047 /* Preview Content */,
 			);
 			path = ProjectPompeii;
-			sourceTree = "<group>";
-		};
-		17F3A44828ABC271002E9047 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
