@@ -52,11 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				1714CB8828ACDF300089D1B5 /* UserModel.swift */,
-<<<<<<< Updated upstream
 				1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */,
-=======
 				BD443B5228AD1EE000495FDE /* Line.swift */,
->>>>>>> Stashed changes
 			);
 			path = Models;
 			sourceTree = "<group>";
