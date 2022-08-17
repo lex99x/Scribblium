@@ -15,6 +15,7 @@
 		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
 		17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
+		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		17F3A44B28ABC271002E9047 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectPompeii.xcdatamodel; sourceTree = "<group>"; };
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				17F3A44428ABC270002E9047 /* ContentView.swift */,
+				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
+				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				1714CB8928ACDF300089D1B5 /* UserModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
