@@ -11,13 +11,12 @@ struct DrawView: View {
     
     @State private var drawing = [Line]()
     @State private var suggestion = DrawModel.getRandomDrawing()
-    @State private var isTapped =  false
     
     var body: some View {
         ZStack {
             Color("DrawBackground")
                 .ignoresSafeArea()
-            Image("padrao lighmode")
+            Image("padraoPortrait")
             
             VStack {
                 ZStack {
@@ -48,9 +47,15 @@ struct DrawView: View {
                     .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
                     .border(Color("Contorno"), width: 3)
                     .cornerRadius(31)
-                    //.foregroundColor(.blue)
                     
                     .padding()
+                    VStack {
+                        Image("Fitinhas de cima")
+                            .offset(y: -150)
+                        Image("Fitinhas de baixo")
+                            .offset(y: 150)
+                    }
+
                 }
                 
                 Text(suggestion)
@@ -67,10 +72,9 @@ struct DrawView: View {
                                 Circle()
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
+                                    .background(Circle().foregroundColor(Color("Contorno"))
                                         .frame(width: 87, height: 87))
                                 Image("lixeira fechada")
-                                        .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
                         .padding(.horizontal)
@@ -84,10 +88,9 @@ struct DrawView: View {
                                 Circle()
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
+                                    .background(Circle().foregroundColor(Color("Contorno"))
                                         .frame(width: 87, height: 87))
                                 Image("enviar")
-                                    .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
                     .padding(.horizontal)
@@ -95,6 +98,7 @@ struct DrawView: View {
                     .padding(.horizontal)
                 }
             }
+            .statusBar(hidden: true)
         }
         
     }
