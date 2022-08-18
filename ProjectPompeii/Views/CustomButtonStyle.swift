@@ -14,8 +14,12 @@ struct CustomButtonStyle: ButtonStyle {
         
         configuration.label
             .padding()
-            .background(Color(red: 1.0, green: 0.25, blue: 0.71))
-            .clipShape(Capsule())
+            .background(Color("DrawBackground"))
+            .border(Color("Contorno"), width: 4).cornerRadius(31)
+            .overlay(
+                RoundedRectangle(cornerRadius: 31)
+                    .strokeBorder(Color("Contorno"), lineWidth: 4)
+            )
         
     }
     

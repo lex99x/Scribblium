@@ -15,6 +15,7 @@ struct ProjectPompeiiApp: App {
         WindowGroup {
             DrawView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            NicknameView()
         }
     }
 }
