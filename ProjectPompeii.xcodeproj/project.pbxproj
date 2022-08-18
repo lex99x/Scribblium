@@ -12,7 +12,8 @@
 		1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */; };
 		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
 		1714CBA428AE930C0089D1B5 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA328AE930C0089D1B5 /* NicknameView.swift */; };
-		1714CBA628AE932D0089D1B5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButton.swift */; };
+		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
+		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -31,7 +32,8 @@
 		1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		1714CBA328AE930C0089D1B5 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameView.swift; path = ../../NicknameView.swift; sourceTree = "<group>"; };
-		1714CBA528AE932D0089D1B5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
 				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
 				1714CBA328AE930C0089D1B5 /* NicknameView.swift */,
-				1714CBA528AE932D0089D1B5 /* CustomButton.swift */,
+				1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -93,6 +95,7 @@
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
 				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
+				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
+				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1714CBA628AE932D0089D1B5 /* CustomButton.swift in Sources */,
+				1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */,
 				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
 				17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */,
 				1714CB9528AD20080089D1B5 /* PlaceholderUtil.swift in Sources */,
