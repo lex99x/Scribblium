@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct PlayerModel {
     
     let nickname: String
     

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1714CB8928ACDF300089D1B5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB8828ACDF300089D1B5 /* UserModel.swift */; };
 		1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */; };
 		1714CB9528AD20080089D1B5 /* PlaceholderUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9428AD20080089D1B5 /* PlaceholderUtil.swift */; };
+		1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */; };
+		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
+		1714CBA428AE930C0089D1B5 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA328AE930C0089D1B5 /* NicknameView.swift */; };
+		1714CBA628AE932D0089D1B5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButton.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -23,9 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1714CB8828ACDF300089D1B5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawModel.swift; sourceTree = "<group>"; };
 		1714CB9428AD20080089D1B5 /* PlaceholderUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderUtil.swift; sourceTree = "<group>"; };
+		1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
+		1714CBA328AE930C0089D1B5 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameView.swift; path = ../../NicknameView.swift; sourceTree = "<group>"; };
+		1714CBA528AE932D0089D1B5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		1714CB8128ABD6020089D1B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1714CB8828ACDF300089D1B5 /* UserModel.swift */,
+				1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */,
 				1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */,
 				BD443B5228AD1EE000495FDE /* Line.swift */,
 			);
@@ -66,6 +72,8 @@
 				17F3A44428ABC270002E9047 /* ContentView.swift */,
 				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
 				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
+				1714CBA328AE930C0089D1B5 /* NicknameView.swift */,
+				1714CBA528AE932D0089D1B5 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -75,6 +83,7 @@
 			children = (
 				17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */,
 				17F3A44B28ABC271002E9047 /* Persistence.swift */,
+				1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -197,14 +206,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1714CBA628AE932D0089D1B5 /* CustomButton.swift in Sources */,
+				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
 				17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */,
 				1714CB9528AD20080089D1B5 /* PlaceholderUtil.swift in Sources */,
+				1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
+				1714CBA428AE930C0089D1B5 /* NicknameView.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */,
 				BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */,
-				1714CB8928ACDF300089D1B5 /* UserModel.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 			);
@@ -336,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
@@ -367,7 +379,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
