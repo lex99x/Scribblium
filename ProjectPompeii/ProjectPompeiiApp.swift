@@ -13,7 +13,7 @@ struct ProjectPompeiiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DrawView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

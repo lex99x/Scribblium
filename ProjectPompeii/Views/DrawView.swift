@@ -15,7 +15,7 @@ struct DrawView: View {
     var body: some View {
         ZStack {
             
-            Color(UIColor(red: 0.71, green: 0.71, blue: 0.71, alpha: 1.00))
+            Color("DrawBackground")
                 .ignoresSafeArea()
             
             VStack {
@@ -43,15 +43,17 @@ struct DrawView: View {
                         )
                 .frame(width: 318, height: 482.51)
                 //padrão em todos os modos
-                .background(Color(UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)))
-                .border(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)))
+                .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
+                .border(Color("Contorno"))
                 .cornerRadius(31)
+                .foregroundColor(.blue)
                 
                 .padding()
                 
                 Text(suggestion)
                     .frame(width: 142, height: 36.05)
-                    .font(.system(.title))
+                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                    .font(.system(size: 32))
                 
                     .padding()
                 
@@ -61,25 +63,33 @@ struct DrawView: View {
                             ZStack{
                                 Circle()
                                     .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.86, green: 0.86, blue: 0.85, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)))
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                                         .frame(width: 85, height: 85))
                                 Image(systemName: "trash.fill")
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
                     Button(action: {
-                        suggestion = DrawModel.getRandomDrawing()}) {
+                        suggestion = DrawModel.getRandomDrawing()
+                        drawing = [Line]()
+                    }) {
                             ZStack{
                                 Circle()
                                     .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.86, green: 0.86, blue: 0.85, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)))
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                                         .frame(width: 85, height: 85))
                                 Image(systemName: "checkmark")
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
                 }
             }
         }
@@ -90,5 +100,6 @@ struct DrawView: View {
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
         DrawView()
+            .previewInterfaceOrientation(.portrait)
     }
 }

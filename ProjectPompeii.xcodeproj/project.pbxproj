@@ -19,6 +19,7 @@
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* Line.swift */; };
+		BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLandscapeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				17F3A44428ABC270002E9047 /* ContentView.swift */,
 				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
+				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */,
+				BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */,
 				1714CB8928ACDF300089D1B5 /* UserModel.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
@@ -332,7 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
@@ -363,7 +367,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
