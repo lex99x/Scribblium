@@ -6,9 +6,3 @@
 //
 
 import Foundation
-
-struct PlayerRepository {
-    
-    
-    
-}
