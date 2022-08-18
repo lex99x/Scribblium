@@ -11,49 +11,52 @@ struct DrawView: View {
     
     @State private var drawing = [Line]()
     @State private var suggestion = DrawModel.getRandomDrawing()
-
+    @State private var isTapped =  false
+    
     var body: some View {
         ZStack {
-            
             Color("DrawBackground")
                 .ignoresSafeArea()
+            Image("padrao lighmode")
             
             VStack {
-                
-                Canvas { context, size in
-                    for line in drawing {
-                        var path  = Path()
-                        path.addLines(line.points)
-                        
-                        context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-
-                    }
-                }
-                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                            let newPoint = value.location
-                            if value.translation.width + value.translation.height == 0 {
-                                drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
-                            } else {
-                                let index = drawing.count - 1
-                                drawing[index].points.append(newPoint)
-                            }
+                ZStack {
+                    Image("MolduraCanvas")
+                    Canvas { context, size in
+                        for line in drawing {
+                            var path  = Path()
+                            path.addLines(line.points)
                             
-                        })
-                        
-                        )
-                .frame(width: 318, height: 482.51)
-                //padrão em todos os modos
-                .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
-                .border(Color("Contorno"))
-                .cornerRadius(31)
-                .foregroundColor(.blue)
-                
-                .padding()
+                            context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+
+                        }
+                    }
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                                let newPoint = value.location
+                                if value.translation.width + value.translation.height == 0 {
+                                    drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
+                                } else {
+                                    let index = drawing.count - 1
+                                    drawing[index].points.append(newPoint)
+                                }
+                                
+                            })
+                            
+                            )
+                    .frame(width: 318, height: 482.51)
+                    //padrão em todos os modos
+                    .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
+                    .border(Color("Contorno"), width: 3)
+                    .cornerRadius(31)
+                    //.foregroundColor(.blue)
+                    
+                    .padding()
+                }
                 
                 Text(suggestion)
                     .frame(width: 142, height: 36.05)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                    .font(.system(size: 32))
+                    .font(.custom("RubikMarkerHatch-Regular", size: 32))
                 
                     .padding()
                 
@@ -65,9 +68,9 @@ struct DrawView: View {
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
-                                        .frame(width: 85, height: 85))
-                                Image(systemName: "trash.fill")
-                                    .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
+                                        .frame(width: 87, height: 87))
+                                Image("lixeira fechada")
+                                        .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
                         .padding(.horizontal)
@@ -82,8 +85,8 @@ struct DrawView: View {
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .background(Circle().foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
-                                        .frame(width: 85, height: 85))
-                                Image(systemName: "checkmark")
+                                        .frame(width: 87, height: 87))
+                                Image("enviar")
                                     .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
                             }
                         }
