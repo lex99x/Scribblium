@@ -14,11 +14,23 @@ struct DrawView: View {
     
     var body: some View {
         ZStack {
+            
             Color("DrawBackground")
                 .ignoresSafeArea()
             Image("padraoPortrait")
             
-            VStack {
+            VStack {/*
+                HStack {
+                    Button(action: {
+                        }) {
+                            Circle()
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)))
+                                .overlay(Capsule().inset(by: 3).foregroundColor(Color(UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00))))
+                                //.border(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00)), width: 3)
+                        }
+                }
+                */
                 ZStack {
                     Image("MolduraCanvas")
                     Canvas { context, size in
@@ -43,12 +55,11 @@ struct DrawView: View {
                             
                             )
                     .frame(width: 318, height: 482.51)
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
+                    .background(Color("Contorno"))
                     //padrão em todos os modos
-                    .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
-                    .border(Color("Contorno"), width: 3)
                     .cornerRadius(31)
-                    
-                    .padding()
+
                     VStack {
                         Image("Fitinhas de cima")
                             .offset(y: -150)
