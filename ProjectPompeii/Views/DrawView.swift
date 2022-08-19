@@ -13,13 +13,16 @@ struct DrawView: View {
     @State private var suggestion = DrawModel.getRandomDrawing()
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .center){
             
             Color("DrawBackground")
                 .ignoresSafeArea()
             Image("padraoPortrait")
+                .resizable()
+                .ignoresSafeArea()
+                //.scaledToFill()
             
-            VStack {/*
+            VStack (alignment: .center){/*
                 HStack {
                     Button(action: {
                         }) {
@@ -31,7 +34,7 @@ struct DrawView: View {
                         }
                 }
                 */
-                ZStack {
+                ZStack(alignment: .center) {
                     Image("MolduraCanvas")
                     Canvas { context, size in
                         for line in drawing {
@@ -60,37 +63,31 @@ struct DrawView: View {
                     //padrão em todos os modos
                     .cornerRadius(31)
 
-                    VStack {
+                    VStack(alignment: .center, spacing: 317.06) {
                         Image("Fitinhas de cima")
-                            .offset(y: -150)
                         Image("Fitinhas de baixo")
-                            .offset(y: 150)
                     }
 
                 }
+                .offset(y: 35)
                 
                 Text(suggestion)
-                    .frame(width: 142, height: 36.05)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
-                
-                    .padding()
-                
-                HStack {
+                            
+                HStack(alignment: .bottom, spacing: 172) {
                     Button(action: {
                         drawing = [Line]()}) {
                             ZStack{
                                 Circle()
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color("Contorno"))
-                                        .frame(width: 87, height: 87))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
                                 Image("lixeira fechada")
                             }
                         }
-                        .padding(.horizontal)
-                        .padding(.horizontal)
-                        .padding(.horizontal)
                     Button(action: {
                         suggestion = DrawModel.getRandomDrawing()
                         drawing = [Line]()
@@ -99,14 +96,13 @@ struct DrawView: View {
                                 Circle()
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color("Contorno"))
-                                        .frame(width: 87, height: 87))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                        )
                                 Image("enviar")
                             }
-                        }
-                    .padding(.horizontal)
-                    .padding(.horizontal)
-                    .padding(.horizontal)
+                    }
                 }
             }
             .statusBar(hidden: true)

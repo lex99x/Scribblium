@@ -12,51 +12,76 @@ struct DrawLandscapeView: View {
     @State private var suggestion = DrawModel.getRandomDrawing()
 
     var body: some View {
-        ZStack {
+        ZStack (alignment: .center){
             
-            Color(UIColor(red: 0.71, green: 0.71, blue: 0.71, alpha: 1.00))
+            Color("DrawBackground")
                 .ignoresSafeArea()
-            HStack {
-                VStack {
-                    Canvas { context, size in
-                        for line in drawing {
-                            var path  = Path()
-                            path.addLines(line.points)
-                            
-                            context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+            Image("padraoLandscape")
+                .resizable()
+                .ignoresSafeArea()
+                //.scaledToFill()
+            
+            HStack (alignment: .center, spacing: 54){
+                VStack (alignment: .center){
+                    ZStack (alignment: .center){
+                        Image("MolduraLandscape")
+                        Canvas { context, size in
+                            for line in drawing {
+                                var path  = Path()
+                                path.addLines(line.points)
+                                
+                                context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
 
+                            }
+                        }
+                        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                                    let newPoint = value.location
+                                    if value.translation.width + value.translation.height == 0 {
+                                        drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
+                                    } else {
+                                        let index = drawing.count - 1
+                                        drawing[index].points.append(newPoint)
+                                    }
+                                    
+                                })
+                                
+                                )
+                        .frame(width: 502.74, height: 272.84)
+                        //padrão em todos os modos
+                        .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
+                        .background(Color("Contorno"))
+                        //padrão em todos os modos
+                        .cornerRadius(31)
+
+                        HStack (alignment: .center, spacing: 349.06){
+                            Image("Fitinhas esquerdas")
+                            Image("Fitinhas Direitas")
                         }
                     }
-                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                                let newPoint = value.location
-                                if value.translation.width + value.translation.height == 0 {
-                                    drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
-                                } else {
-                                    let index = drawing.count - 1
-                                    drawing[index].points.append(newPoint)
-                                }
-                                
-                            })
-                            
-                            )
-                    .frame(width: 482.51, height: 250)
-                    //padrão em todos os modos
-                    .background(Color(UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)))
-                    .border(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)))
-                    .cornerRadius(31)
-                    .padding(.horizontal)
-                    .padding(.horizontal)
-                    .padding(.horizontal)
-                    .padding(.horizontal)
-                    .padding(.vertical)
-
+                    .offset(x: 54, y: 32)
 
                                         
                     Text(suggestion)
-                        .frame(width: 142, height: 36.05)
-                        .font(.system(.title))
+                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                        .offset(x: 54)
                 }
-                VStack {
+                VStack (alignment: .trailing, spacing: 129){
+                    Button(action: {
+                        drawing = [Line]()}) {
+                            ZStack{
+                                Circle()
+                                    .frame(width: 83, height: 83)
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                        )
+                                Image("lixeira fechada")
+                            }
+                        }
+                        //.offset(x: 29.06)
+                    
                     Button(action: {
                         suggestion = DrawModel.getRandomDrawing()
                         drawing = [Line]()
@@ -64,34 +89,19 @@ struct DrawLandscapeView: View {
                             ZStack{
                                 Circle()
                                     .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.86, green: 0.86, blue: 0.85, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)))
-                                        .frame(width: 85, height: 85))
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                        )
+                                Image("enviar")
                             }
                         }
-                    .padding(.vertical)
-                    .padding(.vertical)
-                    .padding(.vertical)
-                    
-                    Button(action: {
-                        drawing = [Line]()}) {
-                            ZStack{
-                                Circle()
-                                    .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.86, green: 0.86, blue: 0.85, alpha: 1.00)))
-                                    .background(Circle().foregroundColor(Color(UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)))
-                                        .frame(width: 85, height: 85))
-                                Image(systemName: "trash.fill")
-                                    .foregroundColor(Color.black)
-                            }
-                        }
-                        .padding(.vertical)
-                        .padding(.vertical)
-                        .padding(.vertical)                    
+                    //.offset(x: 29.06)
+
                 }
             }
+            .statusBar(hidden: true)
         }
     }
 }
