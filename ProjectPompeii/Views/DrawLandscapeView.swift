@@ -25,6 +25,7 @@ struct DrawLandscapeView: View {
                 VStack (alignment: .center){
                     ZStack (alignment: .center){
                         Image("MolduraLandscape")
+                            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                         Canvas { context, size in
                             for line in drawing {
                                 var path  = Path()
@@ -55,7 +56,9 @@ struct DrawLandscapeView: View {
 
                         HStack (alignment: .center, spacing: 349.06){
                             Image("Fitinhas esquerdas")
+                                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: -4, y: 6)
                             Image("Fitinhas Direitas")
+                                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: -4, y: 6)
                         }
                     }
                     .offset(x: 54, y: 32)

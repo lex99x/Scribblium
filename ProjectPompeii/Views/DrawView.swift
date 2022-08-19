@@ -36,6 +36,7 @@ struct DrawView: View {
                 */
                 ZStack(alignment: .center) {
                     Image("MolduraCanvas")
+                        .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                     Canvas { context, size in
                         for line in drawing {
                             var path  = Path()
@@ -58,14 +59,18 @@ struct DrawView: View {
                             
                             )
                     .frame(width: 318, height: 482.51)
+                    
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
                     //padrão em todos os modos
                     .cornerRadius(31)
+                    
 
                     VStack(alignment: .center, spacing: 317.06) {
                         Image("Fitinhas de cima")
+                            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: -4, y: 6)
                         Image("Fitinhas de baixo")
+                            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: -4, y: 6)
                     }
 
                 }
