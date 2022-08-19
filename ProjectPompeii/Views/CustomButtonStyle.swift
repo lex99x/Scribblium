@@ -21,6 +21,7 @@ struct CustomButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: 31)
                     .strokeBorder(Color("Contorno"), lineWidth: 4)
             )
+            .offset(x: 0, y: 35)
             .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
             .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
             .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)

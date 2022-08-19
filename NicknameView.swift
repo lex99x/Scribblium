@@ -8,16 +8,36 @@
 import Foundation
 import SwiftUI
 
+struct AppContentView: View {
+    
+    @State var isNicknameReady = false
+    
+    var body: some View {
+        
+        return Group {
+        
+            if isNicknameReady {
+                DrawView()
+            } else {
+                NicknameView(isNicknameReady: $isNicknameReady)
+            }
+        }
+    }
+    
+}
+
 struct NicknameView: View {
     
-    @State private var nickname: String = ""
-    @State private var showCanvas: Bool = false
+    @State private var nickname = ""
+    @Binding var isNicknameReady: Bool
+//    @State private var $linkSelection: String? = nil
     
     var body: some View {
         
         ZStack {
             
             Color("DrawBackground")
+                .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable()
                 .scaledToFill()
@@ -54,10 +74,6 @@ struct NicknameView: View {
                                     .strokeBorder(Color("TertiaryColor-1"), lineWidth: 3)
                             )
                         
-//                            .onSubmit {
-//                                print(nickname)
-//                            }
-                        
                     }
                     .padding([.horizontal], 10)
                     .frame(width: 342, height: 211)
@@ -65,32 +81,37 @@ struct NicknameView: View {
                         Image("postItNickname")
                     )
                     
-                    Button(action: saveNickname) {
+                    Button(action: {
+                        
+                        if !(nickname.isEmpty) {
+                            self.isNicknameReady = true
+                            UserDefaults.standard.set(nickname, forKey: "playerNickname")
+                        } else {
+                            print("Nickname vazio!")
+                        }
+                        
+                    }) {
                         Text("ok, go!")
                             .font(.custom("RubikMarkerHatch-Regular", size: 32))
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color("SecondaryColor-1"))
                     }
                     .buttonStyle(CustomButtonStyle())
-                    .offset(x: 0, y: 35)
                     
                 }
-                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
-                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
-                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
                 
             }
+            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+            .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
             
         }
         
     }
     
-    private func saveNickname() {
-        
-        UserDefaults.standard.set(nickname, forKey: "playerNickname")
-//        showCanvas = true
-        
-    }
+//    private func saveNickname() {
+//        UserDefaults.standard.set(nickname, forKey: "playerNickname")
+//    }
     
 }
 
@@ -110,7 +131,7 @@ extension View {
 
 //struct NicknameView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        NicknameView().preferredColorScheme(.dark)
-//        NicknameView().preferredColorScheme(.light)
+//        NicknameView(isNicknameReady: false).preferredColorScheme(.dark)
+//        NicknameView(false).preferredColorScheme(.light)
 //    }
 //}

@@ -15,10 +15,9 @@ struct ProjectPompeiiApp: App {
         WindowGroup {
             
             if (UserDefaults.standard.string(forKey: "playerNickname") == nil) {
-                NicknameView()
+                AppContentView()
             } else {
-                DrawView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
             
         }
