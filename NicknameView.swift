@@ -17,7 +17,7 @@ struct AppContentView: View {
         return Group {
         
             if isNicknameReady {
-                DrawView()
+                ContentView()
             } else {
                 NicknameView(isNicknameReady: $isNicknameReady)
             }
