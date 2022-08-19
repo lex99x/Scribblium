@@ -30,7 +30,7 @@ struct NicknameView: View {
     
     @State private var nickname = ""
     @Binding var isNicknameReady: Bool
-//    @State private var $linkSelection: String? = nil
+    @State private var showAlert = false
     
     var body: some View {
         
@@ -88,6 +88,7 @@ struct NicknameView: View {
                             UserDefaults.standard.set(nickname, forKey: "playerNickname")
                         } else {
                             print("Nickname vazio!")
+                            self.showAlert = true
                         }
                         
                     }) {
@@ -97,6 +98,9 @@ struct NicknameView: View {
                             .foregroundColor(Color("SecondaryColor-1"))
                     }
                     .buttonStyle(CustomButtonStyle())
+                    .alert("Nickname field is empty!", isPresented: $showAlert) {
+                        Button("Ok", role: .cancel) {}
+                    }
                     
                 }
                 
