@@ -13,12 +13,14 @@ struct ProjectPompeiiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            /*
-            DrawView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            NicknameView()
-             */
-            ContentView()
+            
+            if (UserDefaults.standard.string(forKey: "playerNickname") == nil) {
+                NicknameView()
+            } else {
+                DrawView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
+            
         }
     }
 }

@@ -11,48 +11,73 @@ import SwiftUI
 struct NicknameView: View {
     
     @State private var nickname: String = ""
+    @State private var showCanvas: Bool = false
     
     var body: some View {
         
-        ZStack{
+        ZStack {
             
-            Color("DrawBackground").ignoresSafeArea()
+            Color("DrawBackground")
             Image("padraoPortrait")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
-            VStack {
-
+            VStack(alignment: .center) {
+                
                 Text("Enter your nickname to start drawing!")
                     .font(.custom("RubikMarkerHatch-Regular", size: 38))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("SecondaryColor-1"))
-                    .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 10, x: 8, y: 7)
+                    .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+                    .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+                    .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
                 
-                ZStack {
+                ZStack(alignment: .bottom) {
                     
-                    Image("postItNickname")
-                    
-                    VStack {
-//
-//                        TextField(
-//                            "Nickname",
-//                            text: $nickname
-//                        )
-//                        .onSubmit {
-//                            print(nickname)
-//                        }
-//                        .textFieldStyle(.roundedBorder)
-
-                        Button (action: {print(true)}) {
-                            Text("ok, go")
-                                .font(.custom("RubikMarkerHatch-Regular", size: 32))
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(Color("SecondaryColor-1"))
-                                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 10, x: 8, y: 7)
-                        }.buttonStyle(CustomButtonStyle())
-
+                    VStack(alignment: .center) {
+                        
+                        TextField("", text: $nickname)
+                            .padding()
+                            .placeholder(when: nickname.isEmpty) {
+                                Text("nickname")
+                                    .font(.custom("RubikMarkerHatch-Regular", size: 18))
+                                    .foregroundColor(.gray)
+                            }
+                            .font(.custom("RubikMarkerHatch-Regular", size: 18))
+                            .foregroundColor(.gray)
+                            .background(.white)
+                            .border(Color("TertiaryColor-1"), width: 3)
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .strokeBorder(Color("TertiaryColor-1"), lineWidth: 3)
+                            )
+                        
+//                            .onSubmit {
+//                                print(nickname)
+//                            }
+                        
                     }
+                    .padding([.horizontal], 10)
+                    .frame(width: 342, height: 211)
+                    .background(
+                        Image("postItNickname")
+                    )
+                    
+                    Button(action: saveNickname) {
+                        Text("ok, go!")
+                            .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color("SecondaryColor-1"))
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .offset(x: 0, y: 35)
                     
                 }
+                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
+                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
                 
             }
             
@@ -60,11 +85,32 @@ struct NicknameView: View {
         
     }
     
+    private func saveNickname() {
+        
+        UserDefaults.standard.set(nickname, forKey: "playerNickname")
+//        showCanvas = true
+        
+    }
+    
 }
 
-struct NicknameView_Previews: PreviewProvider {
-    static var previews: some View {
-        NicknameView().preferredColorScheme(.dark)
-        NicknameView().preferredColorScheme(.light)
-    }
+extension View {
+    
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .center,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
+        }
 }
+
+//struct NicknameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NicknameView().preferredColorScheme(.dark)
+//        NicknameView().preferredColorScheme(.light)
+//    }
+//}
