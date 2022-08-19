@@ -9,14 +9,25 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    /*
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+*/
+    @Environment (\.verticalSizeClass) var verticalSizeClass
+    @Environment (\.horizontalSizeClass) var horizontalSizeClass
+    
+    var isLandscape: Bool { verticalSizeClass == .compact }
     var body: some View {
+        if isLandscape {
+            DrawLandscapeView()
+        }
+        else {
+            DrawView()
+        /*
         NavigationView {
             List {
                 ForEach(items) { item in
@@ -70,19 +81,20 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            */
         }
     }
 }
-
+/*
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium
     return formatter
 }()
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).previewInterfaceOrientation(.portraitUpsideDown)
-//    }
-//}
+*/
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).previewInterfaceOrientation(.portraitUpsideDown)
+    }
+}
