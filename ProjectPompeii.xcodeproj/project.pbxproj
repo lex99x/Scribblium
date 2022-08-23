@@ -22,7 +22,7 @@
 		17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
-		BD443B5328AD1EE000495FDE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* Line.swift */; };
+		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
 		BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectPompeii.xcdatamodel; sourceTree = "<group>"; };
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		BD443B5228AD1EE000495FDE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
 		BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLandscapeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +63,7 @@
 			children = (
 				1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */,
 				1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */,
-				BD443B5228AD1EE000495FDE /* Line.swift */,
+				BD443B5228AD1EE000495FDE /* LineModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
 				1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */,
 				BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */,
-				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
+				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
