@@ -9,6 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
+    var body: some View {
+        DrawView()
     /*
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -17,6 +20,7 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 */
+    /*
     @Environment (\.verticalSizeClass) var verticalSizeClass
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
@@ -27,6 +31,7 @@ struct ContentView: View {
         }
         else {
             DrawView()
+     */
         /*
         NavigationView {
             List {
@@ -82,7 +87,6 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
             */
-        }
     }
 }
 /*
@@ -95,6 +99,6 @@ private let itemFormatter: DateFormatter = {
 */
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).previewInterfaceOrientation(.portraitUpsideDown)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).previewInterfaceOrientation(.portrait)
     }
 }

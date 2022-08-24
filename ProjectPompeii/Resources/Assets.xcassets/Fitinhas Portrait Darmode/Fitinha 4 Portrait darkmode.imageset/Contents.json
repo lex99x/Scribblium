@@ -1,6 +1,16 @@
 {
   "images" : [
     {
+      "filename" : "Fitinha portrait 4.svg",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "filename" : "Fitinha 4 Portrait darkmode.svg",
       "idiom" : "universal"
     }
