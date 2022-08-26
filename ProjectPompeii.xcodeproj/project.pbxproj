@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */; };
-		1714CB9528AD20080089D1B5 /* PlaceholderUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9428AD20080089D1B5 /* PlaceholderUtil.swift */; };
 		1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */; };
 		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
 		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
 		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
 		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
+		17D5D4DA28B8F362004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */; };
+		17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
+		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
+		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -23,20 +25,20 @@
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
-		BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD95572C28B893EF00DFE639 /* PercentualModel.swift */; };
 		BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */; };
 		BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* ClioView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawModel.swift; sourceTree = "<group>"; };
-		1714CB9428AD20080089D1B5 /* PlaceholderUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderUtil.swift; sourceTree = "<group>"; };
 		1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
+		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
+		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,8 +70,8 @@
 		1714CB8128ABD6020089D1B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				17D5D4E328B8F633004DC247 /* DrawingModel.swift */,
 				1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */,
-				1714CB8F28AD1FAE0089D1B5 /* DrawModel.swift */,
 				BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */,
 				BD95572C28B893EF00DFE639 /* PercentualModel.swift */,
 				BD443B5228AD1EE000495FDE /* LineModel.swift */,
@@ -114,7 +116,8 @@
 		1714CB9328AD1FF20089D1B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1714CB9428AD20080089D1B5 /* PlaceholderUtil.swift */,
+				17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */,
+				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -225,16 +228,17 @@
 				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
 				BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */,
 				17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */,
+				17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */,
 				BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */,
-				1714CB9528AD20080089D1B5 /* PlaceholderUtil.swift in Sources */,
 				1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
+				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
-				1714CB9028AD1FAE0089D1B5 /* DrawModel.swift in Sources */,
-				BD5037EE28AE6D57000CD18E /* DrawLandscapeView.swift in Sources */,
+				17D5D4DA28B8F362004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
+				17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 			);

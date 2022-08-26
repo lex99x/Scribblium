@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DrawLandscapeView: View {
     @State private var drawing = [Line]()
-    @State private var suggestion = DrawModel.getRandomDrawing()
-
+    @State private var suggestion = DrawingModel.getRandomDrawing()
+    
     var body: some View {
         ZStack (alignment: .center){
             
@@ -86,7 +86,7 @@ struct DrawLandscapeView: View {
                         //.offset(x: 29.06)
                     
                     Button(action: {
-                        suggestion = DrawModel.getRandomDrawing()
+                        suggestion = DrawingModel.getRandomDrawing()
                         drawing = [Line]()
                     }) {
                             ZStack{

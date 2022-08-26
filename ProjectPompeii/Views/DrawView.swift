@@ -20,8 +20,17 @@ struct DrawView: View {
     //var isLandscape: Bool { verticalSizeClass == .compact }
     
     @State private var drawing = [Line]()
-    @State private var suggestion = DrawModel.getRandomDrawing()
-    @State private var feedback = FeedbackModel.getRandomFeedback()
+    @State private var suggestion = DrawingModel.getRandomDrawing()
+    @State private var feedback = ""
+        
+    @State private var prediction = ""
+    @State private var predictionConfidence = 0
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    private let drawingModel = DrawingModel()
+    private let drawingPredictor = DrawingPredictor()
+    
+    @State private var disableButtons = false
     
     var body: some View {
         ZStack(alignment: .center){
@@ -152,8 +161,13 @@ struct DrawView: View {
                                     if (maxTime > 0 && timerRunning) {
                                         maxTime -= 1
                                     }
-                                    else {
-                                        timerRunning = false
+                                    else if (maxTime == 0) {
+                                        self.alertMessage = "Time's up!!!"
+                                        self.showAlert = true
+//                                        self.maxTime = 30
+//                                        self.timerRunning = false
+                                        timer.upstream.connect().cancel()
+                                        self.disableButtons = true
                                     }
                                 }
                                 .font(.custom("RubikMarkerHatch-Regular", size: 21))
@@ -200,10 +214,21 @@ struct DrawView: View {
                                     let index = drawing.count - 1
                                     drawing[index].points.append(newPoint)
                                 }
-                                    
-                            })
-                                
-                    )
+                                                            
+                                drawingModel.add(point: value.location)
+                        
+                    })
+                        .onEnded({ value in
+                            drawingModel.endStroke()
+                            let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
+                            
+                            if !predictions.isEmpty {
+                                self.prediction = predictions.first!.classification
+                                self.predictionConfidence = Int(predictions.first!.confidence * 100)
+                                feedback = "Is it a " + self.prediction + "?"
+                            }
+                        })
+                    ).disabled(disableButtons)
                     .frame(width: 318, height: 482.51)
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
@@ -230,8 +255,11 @@ struct DrawView: View {
                 
                 HStack(alignment: .bottom, spacing: 172) {
                     Button(action: {
-                        drawing = [Line]()}) {
-                            ZStack{
+                        drawing = [Line]()
+                        drawingModel.drawing = []
+                        feedback = ""
+                    }) {
+                            ZStack {
                                 Circle()
                                     .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
@@ -240,13 +268,32 @@ struct DrawView: View {
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
                                 Image("lixeira fechada")
                             }
-                    }
+                    }.disabled(disableButtons)
                     Button(action: {
-                        if(drawing.isEmpty){
-                            suggestion = DrawModel.getRandomDrawing()
+                        if(!drawing.isEmpty){
+//                            suggestion = DrawingModel.getRandomDrawing()
+                            
+                            if self.prediction == self.suggestion {
+                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + "!"
+                                self.showAlert = true
+//                                timer.upstream.connect().cancel()
+                                self.timerRunning = false
+                                self.maxTime = 30
+                                feedback = ""
+                                drawing = [Line]()
+                                suggestion = DrawingModel.getRandomDrawing()
+                                
+                            } else {
+                                self.alertMessage = "Oops, that's not a " + suggestion + " :("
+                                self.showAlert = true
+                            }
+                            
+                        } else {
+                            print("Desenho vazio!")
+                            self.alertMessage = "You can't proceed with an empty drawing!"
+                            self.showAlert = true
                         }
                         //drawing = [Line]()
-                        timer.upstream.connect().cancel()
                     }) {
                         ZStack(alignment: .center){
                                 Circle()
@@ -258,10 +305,15 @@ struct DrawView: View {
                                         )
                                 Image("enviar")
                             }
-                        }
+                    }.disabled(disableButtons)
                     }
             }
             .statusBar(hidden: true)
+        }
+        .alert(alertMessage, isPresented: $showAlert) {
+            Button("Ok", role: .cancel) {
+                self.timerRunning = true
+            }
         }
         
     }
