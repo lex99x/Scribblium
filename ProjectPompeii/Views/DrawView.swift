@@ -9,18 +9,19 @@ import SwiftUI
 
 struct DrawView: View {
     
-    @Environment (\.verticalSizeClass) var verticalSizeClass
-    @Environment (\.horizontalSizeClass) var horizontalSizeClass
+//    @Environment (\.verticalSizeClass) var verticalSizeClass
+//    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
     @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
 
-    var isLandscape: Bool { verticalSizeClass == .compact }
+    //var isLandscape: Bool { verticalSizeClass == .compact }
     
     @State private var drawing = [Line]()
     @State private var suggestion = DrawModel.getRandomDrawing()
+    @State private var feedback = FeedbackModel.getRandomFeedback()
     
     var body: some View {
         ZStack(alignment: .center){
@@ -132,7 +133,7 @@ struct DrawView: View {
                 
                 HStack(alignment: .center, spacing: 7) {
                     
-                        Text("Isso é um potato?")
+                        Text(feedback)
                         .font(.custom("RubikMarkerHatch-Regular", size: 26))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
@@ -226,7 +227,7 @@ struct DrawView: View {
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
-                                
+                
                 HStack(alignment: .bottom, spacing: 172) {
                     Button(action: {
                         drawing = [Line]()}) {
@@ -241,8 +242,10 @@ struct DrawView: View {
                             }
                     }
                     Button(action: {
-                        suggestion = DrawModel.getRandomDrawing()
-                        drawing = [Line]()
+                        if(drawing.isEmpty){
+                            suggestion = DrawModel.getRandomDrawing()
+                        }
+                        //drawing = [Line]()
                         timer.upstream.connect().cancel()
                     }) {
                         ZStack(alignment: .center){

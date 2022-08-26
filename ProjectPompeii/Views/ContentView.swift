@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     
     var body: some View {
-        DrawView()
+        ClioView()
     /*
     @Environment(\.managedObjectContext) private var viewContext
 

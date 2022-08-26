@@ -1,6 +1,16 @@
 {
   "images" : [
     {
+      "filename" : "Clio negativa olhos fechados.svg",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "filename" : "Clio negativa olhos fechados darkmode.svg",
       "idiom" : "universal"
     }
