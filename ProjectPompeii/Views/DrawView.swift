@@ -225,7 +225,12 @@ struct DrawView: View {
                             if !predictions.isEmpty {
                                 self.prediction = predictions.first!.classification
                                 self.predictionConfidence = Int(predictions.first!.confidence * 100)
-                                feedback = "Is it a " + self.prediction + "?"
+                                if self.prediction != suggestion {
+                                    feedback = "It looks like " + self.prediction + "."
+                                }
+                                else {
+                                    feedback = "It is a " + self.prediction + "!"
+                                }
                             }
                         })
                     ).disabled(disableButtons)
@@ -274,7 +279,7 @@ struct DrawView: View {
 //                            suggestion = DrawingModel.getRandomDrawing()
                             
                             if self.prediction == self.suggestion {
-                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + "!"
+                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + "! Your time was " + String(30 - maxTime)
                                 self.showAlert = true
 //                                timer.upstream.connect().cancel()
                                 self.timerRunning = false
