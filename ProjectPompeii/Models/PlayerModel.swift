@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 
-struct PlayerModel {
+class DevicesList: ObservableObject {
+    @Published var devices: [PlayerModel] = []
+}
+
+struct PlayerModel: Identifiable {
+    
+    var id = UUID()
     
     let nickname: String
     

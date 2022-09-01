@@ -64,7 +64,8 @@ class DrawingModel {
     static func getRandomDrawing() -> String {
         
 //        let drawings = ["Apple", "Orange", "Sun", "Moon", "Door", "Chair", "Dog", "Cat", "Book", "Pencil"]
-        let drawings = ["hand", "pickup truck", "yoga", "picture frame", "circle", "wheel", "megaphone", "mermaid", "parachute", "dumbbell"]
+//        let drawings = ["hand", "pickup truck", "yoga", "picture frame", "circle", "wheel", "megaphone", "mermaid", "parachute", "dumbbell"]
+        let drawings = ["airplane", "apple", "alarm clock", "angel", "bathtub", "beard", "bed", "binoculars", "book", "bus", "cactus", "cake", "candle", "elephant", "eyeglasses", "fish", "flashlight", "frog", "headphones", "key", "lighthouse", "lipstick", "microphone", "mouth", "panda", "parrot", "popsicle", "postcard", "purse", "rain", "rabbit", "remote control", "rollerskates", "sailboat", "skull", "snowman", "stairs", "sun", "sword", "stop sign", "table", "train", "television", "tornado", "underwear", "watermelon", "whale", "wine glass", "yoga", "zebra"]
         
         return drawings.randomElement() ?? "None"
         

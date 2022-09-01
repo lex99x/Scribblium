@@ -28,7 +28,6 @@ class DrawingPredictor {
             
             if let results = request.results! as? [VNClassificationObservation] {
                 for result in results {
-//                    print(result.identifier, result.confidence)
                     predictions.append(Prediction(classification: result.identifier, confidence: result.confidence))
                 }
             }

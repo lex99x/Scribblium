@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
 //        ClioView()
-        DrawView()
+        HomeView()
     /*
     @Environment(\.managedObjectContext) private var viewContext
 

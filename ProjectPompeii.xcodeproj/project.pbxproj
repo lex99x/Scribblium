@@ -12,10 +12,14 @@
 		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
 		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
 		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
-		17D5D4DA28B8F362004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */; };
 		17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
 		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
+		17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */; };
+		17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* MatchModel.swift */; };
+		17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FB28C0E224004DC247 /* RoundModel.swift */; };
+		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
+		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -36,9 +40,13 @@
 		1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
-		17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
+		17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
+		17D5D4F928C0E217004DC247 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
+		17D5D4FB28C0E224004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
+		17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionService.swift; sourceTree = "<group>"; };
+		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 				BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */,
 				BD95572C28B893EF00DFE639 /* PercentualModel.swift */,
 				BD443B5228AD1EE000495FDE /* LineModel.swift */,
+				17D5D4F928C0E217004DC247 /* MatchModel.swift */,
+				17D5D4FB28C0E224004DC247 /* RoundModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +98,7 @@
 				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
 				1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */,
 				17D5D47B28B5138D004DC247 /* NicknameView.swift */,
+				17D5D4FF28C0F9DB004DC247 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,8 +127,9 @@
 		1714CB9328AD1FF20089D1B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				17D5D4D828B8F362004DC247 /* DrawingClassifierModel.mlmodel */,
+				17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */,
 				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
+				17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -231,13 +243,17 @@
 				17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */,
 				BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */,
 				1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */,
+				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
+				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
+				17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
+				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
-				17D5D4DA28B8F362004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
+				17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */,
 				17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
@@ -374,6 +390,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
@@ -407,6 +424,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
