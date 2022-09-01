@@ -30,6 +30,9 @@
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
 		BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD95572C28B893EF00DFE639 /* PercentualModel.swift */; };
+		BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF328C0E02500439743 /* QRCodeView.swift */; };
+		BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BDC46CF628C0EA5100439743 /* CodeScanner */; };
+		BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */; };
 		BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */; };
 		BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* ClioView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,8 @@
 		BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLandscapeView.swift; sourceTree = "<group>"; };
 		BD95572B28B88C3100DFE639 /* Rubik-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		BD95572C28B893EF00DFE639 /* PercentualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentualModel.swift; sourceTree = "<group>"; };
+		BDC46CF328C0E02500439743 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
 		BDDD882428B7F3D4005133A7 /* ClioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClioView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,8 @@
 				1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */,
 				17D5D47B28B5138D004DC247 /* NicknameView.swift */,
 				17D5D4FF28C0F9DB004DC247 /* HomeView.swift */,
+				BDC46CF328C0E02500439743 /* QRCodeView.swift */,
+				BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +188,9 @@
 			dependencies = (
 			);
 			name = ProjectPompeii;
+			packageProductDependencies = (
+				BDC46CF628C0EA5100439743 /* CodeScanner */,
+			);
 			productName = ProjectPompeii;
 			productReference = 17F3A43F28ABC270002E9047 /* ProjectPompeii.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +219,9 @@
 				Base,
 			);
 			mainGroup = 17F3A43628ABC270002E9047;
+			packageReferences = (
+				BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 17F3A44028ABC270002E9047 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,12 +260,14 @@
 				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
+				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
 				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
+				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
 				17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */,
 				17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */,
@@ -391,6 +407,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
@@ -425,6 +442,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
@@ -467,6 +485,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDC46CF628C0EA5100439743 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */ = {
