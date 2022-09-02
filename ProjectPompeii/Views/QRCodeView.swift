@@ -13,7 +13,9 @@ import CoreImage.CIFilterBuiltins
 struct QRCodeView: View {
     
     @State private var qrCode = UIImage()
-    private let link = DrawingModel.getRandomDrawing()
+    @State var text: String = "Read QR Code to join my room"
+
+    //private let link = DrawingModel.getRandomDrawing()
 
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -22,9 +24,9 @@ struct QRCodeView: View {
         
         VStack{
             
-            Text(link)
+            Text(text)
             
-            Image(uiImage: generateQRCode(from: link))
+            Image(uiImage: generateQRCode(from: text))
                 .resizable()
                 .interpolation(.none)
                 .scaledToFit()

@@ -3,6 +3,16 @@
     {
       "filename" : "friendos lightmode.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "friendos darkmode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
