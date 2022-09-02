@@ -31,20 +31,27 @@ struct QRCodeView: View {
 
             ScrollView{
                 VStack{
-                    
-                    ZStack{
-                        Circle()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                            .overlay(
+                        Button {
+                            //
+                        } label: {
+                            
+                            ZStack{
                                 Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                )
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-                    .padding(.top, 72)
+                                    .frame(width: 60, height: 60)
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                        )
+                                Image(systemName: "xmark")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(Color("TertiaryColor-1"))
+
+                            }
+                            .padding(.top, 72)
+                            
+                        }
 
                     Text("Leave")
                         .foregroundColor(.white)
@@ -73,20 +80,25 @@ struct QRCodeView: View {
                     
                     Text(id)
                         .padding(.bottom, 100)
-                    ZStack{
-                        Circle()
-                            .frame(width: 105.01, height: 105.01)
-                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                )
-                        Image(systemName: "forward.end.fill")
-                            .resizable()
-                            .frame(width: 54.4, height: 59.46)
-                    }
-                    .padding(.bottom, 39.42)
                     
+                    Button {
+                        //
+                    } label: {
+                        ZStack{
+                            Circle()
+                                .frame(width: 105.01, height: 105.01)
+                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                .overlay(
+                                    Circle()
+                                        .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                    )
+                            Image(systemName: "forward.end.fill")
+                                .resizable()
+                                .frame(width: 54.4, height: 59.46)
+                                .foregroundColor(Color("TertiaryColor-1"))
+                        }
+                        .padding(.bottom, 39.42)
+                    }
                     
                 }
                 //.onAppear(perform: updateCode)
@@ -121,6 +133,6 @@ struct QRCodeView: View {
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        QRCodeView()
     }
 }
