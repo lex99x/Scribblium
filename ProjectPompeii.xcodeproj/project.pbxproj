@@ -20,6 +20,7 @@
 		17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FB28C0E224004DC247 /* RoundModel.swift */; };
 		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
 		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
+		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		17D5D4FB28C0E224004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
 		17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionService.swift; sourceTree = "<group>"; };
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				17D5D4FF28C0F9DB004DC247 /* HomeView.swift */,
 				BDC46CF328C0E02500439743 /* QRCodeView.swift */,
 				BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */,
+				17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
 				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
+				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
 				17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
@@ -411,9 +415,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,9 +450,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
