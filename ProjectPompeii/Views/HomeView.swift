@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct HomeView: View {
     
@@ -14,6 +15,9 @@ struct HomeView: View {
     
     @State private var showQRCode = false
     @State private var showQRCodeScanner = false
+    
+    @State var isShowingScanner = false
+    @State var scannedCode: String = "Scan a QR Code to get started."
 
     
     var body: some View {
@@ -54,7 +58,7 @@ struct HomeView: View {
                         
                         Text("Host Game")
                             .foregroundColor(.white)
-                            .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                            .font(.custom("RubikMarkerHatch-Regular", size: 14))
                             .multilineTextAlignment(.center)
                             
                             //QRCodeView(isShowing: $showQRCode)
@@ -80,12 +84,19 @@ struct HomeView: View {
                         
                         Text("Join Game")
                             .foregroundColor(.white)
-                            .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                            .font(.custom("RubikMarkerHatch-Regular", size: 14))
                             .multilineTextAlignment(.center)
                         
                     }
                     .sheet(isPresented: $showQRCodeScanner) {
-                        QRCodeScannerView()
+                        CodeScannerView(codeTypes: [.qr], completion: {
+                            result in
+                                if case let .success(code) = result {
+                                    self.scannedCode = code.string
+                                    self.isShowingScanner = false
+                                }
+                            }
+                        )
                     }
 
                 }

@@ -35,27 +35,23 @@ struct QRCodeView: View {
                             //
                         } label: {
                             
-                            ZStack{
-                                Circle()
+                                Image(systemName: "xmark.circle.fill")
+                                    .resizable()
                                     .frame(width: 60, height: 60)
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(Color("SecondaryColor-1"))
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                        )
-                                Image(systemName: "xmark")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(Color("TertiaryColor-1"))
-
-                            }
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                    .font(.system(size: 20, weight: .bold))
+                                    .background(Circle().foregroundColor(Color("TertiaryColor-1")))
+                            
                             
                         }
                         .padding(.top, 36)
 
                     Text("Leave")
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 12)
 
@@ -63,7 +59,7 @@ struct QRCodeView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 263, height: 42)
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
                         .padding(.bottom, 23)
 
                     //Text(id)
@@ -80,6 +76,7 @@ struct QRCodeView: View {
                     
                     Text(id)
                         .padding(.bottom, 225)
+                        .font(.custom("RubikMarkerHatch-Regular", size: 17))
                     
                     Button {
                         //
@@ -100,7 +97,7 @@ struct QRCodeView: View {
                     }
                     Text("Start")
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
                         .multilineTextAlignment(.center)
                     
                 }
@@ -139,6 +136,6 @@ struct QRCodeView: View {
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
         QRCodeView()
-            .preferredColorScheme(.dark)
+            
     }
 }
