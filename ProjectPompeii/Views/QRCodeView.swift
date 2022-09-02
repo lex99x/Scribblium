@@ -13,7 +13,9 @@ import CoreImage.CIFilterBuiltins
 struct QRCodeView: View {
     
     @State private var qrCode = UIImage()
-    @State var text: String = "Read QR Code to join my room"
+    @State var id: String = "My nickname"
+    
+    //@Binding var isShowing: Bool
 
     //private let link = DrawingModel.getRandomDrawing()
 
@@ -22,18 +24,80 @@ struct QRCodeView: View {
     
     var body: some View {
         
-        VStack{
+        ZStack(alignment: .center) {
             
-            Text(text)
-            
-            Image(uiImage: generateQRCode(from: text))
-                .resizable()
-                .interpolation(.none)
-                .scaledToFit()
-                .frame(width: 200, height: 200)
+            Color("launchScreenBackground")
+                .ignoresSafeArea()
+
+            ScrollView{
+                VStack{
+                    
+                    ZStack{
+                        Circle()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                )
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
+                    .padding(.top, 72)
+
+                    Text("Leave")
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 41)
+
+                    Text("Show the QR CODE below to your friends to join your game!")
+                        .multilineTextAlignment(.center)
+                        .frame(width: 339, height: 93)
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 26))
+                        .padding(.bottom, 41)
+
+                    //Text(id)
+                    
+                    ZStack{
+                        Image("postit qrcode")
+                        Image(uiImage: generateQRCode(from: id))
+                            .resizable()
+                            .interpolation(.none)
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                    }
+                    .padding(.bottom, 41)
+                    
+                    Text(id)
+                        .padding(.bottom, 100)
+                    ZStack{
+                        Circle()
+                            .frame(width: 105.01, height: 105.01)
+                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                )
+                        Image(systemName: "forward.end.fill")
+                            .resizable()
+                            .frame(width: 54.4, height: 59.46)
+                    }
+                    .padding(.bottom, 39.42)
+                    
+                    
+                }
+                //.onAppear(perform: updateCode)
+                //.onChange(of: qrCode) { _ in updateCode() }
+                
+                
+            }
         }
-        //.onAppear(perform: updateCode)
-        //.onChange(of: qrCode) { _ in updateCode() }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+
     }
     
     func generateQRCode(from string: String) -> UIImage {
@@ -57,6 +121,6 @@ struct QRCodeView: View {
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRCodeView()
+        HomeView()
     }
 }

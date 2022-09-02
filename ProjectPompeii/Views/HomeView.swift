@@ -12,12 +12,14 @@ struct HomeView: View {
     @EnvironmentObject var devicesList: DevicesList
     @EnvironmentObject var gameConnectionService: GameConnectionService
     
+    @State private var showQRCode = false
     var body: some View {
         
         ZStack(alignment: .center) {
             
             Color("launchScreenBackground")
                 .ignoresSafeArea()
+            //background(Color("launchScreenBackground"))
             
             Image("padraoPortrait")
                 .resizable()
@@ -25,16 +27,17 @@ struct HomeView: View {
                 .scaledToFill()
             
             VStack(alignment: .center, spacing: 39){
-                HStack(alignment: .top, spacing: 153) {
+                HStack(alignment: .center, spacing: 153) {
                     
-                    VStack{
+                    VStack(alignment: .center){
                         Button(action: {
-                            
-            //                gameConnectionService.startBrowsing()
-            //                for device in devicesList.devices {
-            //                    print(device)
-            //                }
-                            
+                                
+                            showQRCode.toggle()
+                //                gameConnectionService.startBrowsing()
+                //                for device in devicesList.devices {
+                //                    print(device)
+                //                }
+                                
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -43,7 +46,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                .overlay(Image(systemName: "qrcode").frame(width: 63, height: 63).foregroundColor(Color("Contorno")))
+                                .overlay(Image(systemName: "qrcode").resizable().frame(width: 43, height: 43).foregroundColor(Color("Contorno")))
                         }
                         
                         Text("Host Game")
@@ -51,6 +54,9 @@ struct HomeView: View {
                             .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
                             .multilineTextAlignment(.center)
                             
+                            //QRCodeView(isShowing: $showQRCode)
+                    }.sheet(isPresented: $showQRCode) {
+                            QRCodeView()
                     }
                     
                     VStack {
@@ -64,7 +70,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                .overlay(Image(systemName: "viewfinder").frame(width: 63, height: 63).foregroundColor(Color("Contorno")))
+                                .overlay(Image(systemName: "viewfinder").resizable().frame(width: 43, height: 43).foregroundColor(Color("Contorno")))
                         }
                         
                         Text("Join Game")
@@ -79,6 +85,7 @@ struct HomeView: View {
             }
             .offset(y: -100)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         
     }
     
