@@ -222,14 +222,19 @@ struct DrawView: View {
                             drawingModel.endStroke()
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
                             
+                            for prediction in predictions {
+                                print(prediction)
+                            }
+                            print("\n")
+                            
                             if !predictions.isEmpty {
                                 self.prediction = predictions.first!.classification
                                 self.predictionConfidence = Int(predictions.first!.confidence * 100)
                                 if self.prediction != suggestion {
-                                    feedback = "It looks like " + self.prediction + "."
+                                    feedback = "This looks like a " + self.prediction + "..."
                                 }
                                 else {
-                                    feedback = "It is a " + self.prediction + "!"
+                                    feedback = "It's a " + self.prediction + "!"
                                 }
                             }
                         })
@@ -279,7 +284,7 @@ struct DrawView: View {
 //                            suggestion = DrawingModel.getRandomDrawing()
                             
                             if self.prediction == self.suggestion {
-                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + "! Your time was " + String(30 - maxTime)
+                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
                                 self.showAlert = true
 //                                timer.upstream.connect().cancel()
                                 self.timerRunning = false

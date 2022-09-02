@@ -11,8 +11,8 @@ import CoreData
 struct ContentView: View {
     
     var body: some View {
-        HomeView()
-        //DrawView()
+//        HomeView()
+        DrawView()
 //        ClioView()
     /*
     @Environment(\.managedObjectContext) private var viewContext
