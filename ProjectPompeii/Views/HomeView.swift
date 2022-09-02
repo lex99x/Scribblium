@@ -13,6 +13,9 @@ struct HomeView: View {
     @EnvironmentObject var gameConnectionService: GameConnectionService
     
     @State private var showQRCode = false
+    @State private var showQRCodeScanner = false
+
+    
     var body: some View {
         
         ZStack(alignment: .center) {
@@ -61,7 +64,9 @@ struct HomeView: View {
                     
                     VStack {
                         Button(action: {
-                            gameConnectionService.startAdvertising()
+                            
+                            showQRCodeScanner.toggle()
+                            //gameConnectionService.startAdvertising()
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -78,6 +83,9 @@ struct HomeView: View {
                             .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
                             .multilineTextAlignment(.center)
                         
+                    }
+                    .sheet(isPresented: $showQRCodeScanner) {
+                        QRCodeScannerView()
                     }
 
                 }
