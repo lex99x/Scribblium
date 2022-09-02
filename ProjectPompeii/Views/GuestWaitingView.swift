@@ -19,21 +19,18 @@ struct GuestWaitingView: View {
                     Button(action: {
                         print("Disconnecting from host game...")
                     }) {
-                        ZStack {
-                            Circle()
-                                .frame(width: 60, height: 60)
-                                .foregroundColor(
-                                    Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00))
-                                )
-                                .overlay(
-                                    Circle().strokeBorder(Color("Contorno"), lineWidth: 3)
-                                )
-                            Image(systemName: "xmark")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(Color("TertiaryColor-1"))
-                                .font(Font.system(size: 60, weight: .bold))
-                        }
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(Color("SecondaryColor-1"))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color("Contorno"), lineWidth: 3))
+                            .font(.system(size: 60, weight: .bold))
+                            .background(
+                                Circle()
+                                    .foregroundColor(Color("TertiaryColor-1"))
+                            )
                     }
                     Text("Leave")
                         .font(.custom("RubikMarkerHatch-Regular", size: 14))
