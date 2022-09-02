@@ -49,22 +49,22 @@ struct QRCodeView: View {
                                     .foregroundColor(Color("TertiaryColor-1"))
 
                             }
-                            .padding(.top, 72)
                             
                         }
+                        .padding(.top, 36)
 
                     Text("Leave")
                         .foregroundColor(.white)
                         .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
                         .multilineTextAlignment(.center)
-                        .padding(.bottom, 41)
+                        .padding(.bottom, 12)
 
                     Text("Show the QR CODE below to your friends to join your game!")
                         .multilineTextAlignment(.center)
-                        .frame(width: 339, height: 93)
+                        .frame(width: 263, height: 42)
                         .foregroundColor(.white)
-                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 26))
-                        .padding(.bottom, 41)
+                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .padding(.bottom, 23)
 
                     //Text(id)
                     
@@ -76,17 +76,17 @@ struct QRCodeView: View {
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                     }
-                    .padding(.bottom, 41)
+                    .padding(.bottom, 38)
                     
                     Text(id)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 225)
                     
                     Button {
                         //
                     } label: {
                         ZStack{
                             Circle()
-                                .frame(width: 105.01, height: 105.01)
+                                .frame(width: 82.08, height: 82.1)
                                 .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                 .overlay(
                                     Circle()
@@ -94,13 +94,18 @@ struct QRCodeView: View {
                                     )
                             Image(systemName: "forward.end.fill")
                                 .resizable()
-                                .frame(width: 54.4, height: 59.46)
+                                .frame(width: 42.52, height: 46.49)
                                 .foregroundColor(Color("TertiaryColor-1"))
                         }
-                        .padding(.bottom, 39.42)
                     }
+                    Text("Start")
+                        .foregroundColor(.white)
+                        .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                        .multilineTextAlignment(.center)
                     
                 }
+                .padding(.bottom, 39.42)
+
                 //.onAppear(perform: updateCode)
                 //.onChange(of: qrCode) { _ in updateCode() }
                 
@@ -134,5 +139,6 @@ struct QRCodeView: View {
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
         QRCodeView()
+            .preferredColorScheme(.dark)
     }
 }
