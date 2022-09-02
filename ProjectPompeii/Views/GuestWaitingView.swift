@@ -74,7 +74,7 @@ struct GuestWaitingView: View {
 struct GuestWaitingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GuestWaitingView().preferredColorScheme(.light).previewInterfaceOrientation(.portrait)
+            GuestWaitingView().previewDevice("iPhone 12").preferredColorScheme(.light).previewInterfaceOrientation(.portrait)
             GuestWaitingView().previewDevice("iPhone 13 Pro Max").preferredColorScheme(.light).previewInterfaceOrientation(.portrait)
         }
     }

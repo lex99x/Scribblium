@@ -15,12 +15,12 @@
 		17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
 		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
-		17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */; };
 		17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* MatchModel.swift */; };
 		17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FB28C0E224004DC247 /* RoundModel.swift */; };
 		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
 		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
 		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
+		17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -46,12 +46,12 @@
 		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
-		17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
 		17D5D4F928C0E217004DC247 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		17D5D4FB28C0E224004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
 		17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionService.swift; sourceTree = "<group>"; };
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
+		17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		1714CB9328AD1FF20089D1B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				17D5D4F628C0E0E7004DC247 /* DrawingClassifierModel.mlmodel */,
+				17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */,
 				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
 				17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */,
 			);
@@ -269,8 +269,8 @@
 				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
 				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
-				17D5D4F828C0E0EC004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
+				17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
 				17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */,
