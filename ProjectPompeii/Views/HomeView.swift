@@ -13,6 +13,9 @@ struct HomeView: View {
     @EnvironmentObject var gameConnectionService: GameConnectionService
     
     @State private var showQRCode = false
+    @State private var showQRCodeScanner = false
+
+    
     var body: some View {
         
         ZStack(alignment: .center) {
@@ -46,7 +49,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                .overlay(Image(systemName: "qrcode").resizable().frame(width: 43, height: 43).foregroundColor(Color("Contorno")))
+                                .overlay(Image(systemName: "qrcode").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
                         }
                         
                         Text("Host Game")
@@ -61,7 +64,9 @@ struct HomeView: View {
                     
                     VStack {
                         Button(action: {
-                            gameConnectionService.startAdvertising()
+                            
+                            showQRCodeScanner.toggle()
+                            //gameConnectionService.startAdvertising()
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -70,7 +75,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                .overlay(Image(systemName: "viewfinder").resizable().frame(width: 43, height: 43).foregroundColor(Color("Contorno")))
+                                .overlay(Image(systemName: "viewfinder").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
                         }
                         
                         Text("Join Game")
@@ -78,6 +83,9 @@ struct HomeView: View {
                             .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
                             .multilineTextAlignment(.center)
                         
+                    }
+                    .sheet(isPresented: $showQRCodeScanner) {
+                        QRCodeScannerView()
                     }
 
                 }
@@ -94,5 +102,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .preferredColorScheme(.dark)
     }
 }
