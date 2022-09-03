@@ -231,10 +231,10 @@ struct DrawView: View {
                                 self.prediction = predictions.first!.classification
                                 self.predictionConfidence = Int(predictions.first!.confidence * 100)
                                 if self.prediction != suggestion {
-                                    feedback = "This looks like a " + self.prediction + "..."
+                                    feedback = "That looks like a " + self.prediction
                                 }
                                 else {
-                                    feedback = "It's a " + self.prediction + "!"
+                                    feedback = "That's a " + self.prediction + "!"
                                 }
                             }
                         })
