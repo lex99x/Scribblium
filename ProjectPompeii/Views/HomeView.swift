@@ -70,9 +70,10 @@ struct HomeView: View {
                             showQRCodeScanner.toggle()
                             connection.startBrowsing()
                         }) {
-                            Circle()
+                            Image(systemName: "viewfinder.circle.fill")
+                                .resizable()
                                 .frame(width: 83, height: 83)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                .foregroundColor(Color("SecondaryColor-1"))
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)

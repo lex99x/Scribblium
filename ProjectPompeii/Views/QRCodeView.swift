@@ -17,12 +17,17 @@ struct QRCodeView: View {
     @State private var qrCode = UIImage()
     @State var id: String = "My nickname"
     
+    let names = ["Alex", "Ana", "Matheus", "Unknown"]
+    
     //@Binding var isShowing: Bool
 
     //private let link = DrawingModel.getRandomDrawing()
 
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
+    
+    @State var isShowingScanner = true
+
     
     var body: some View {
         
@@ -34,7 +39,8 @@ struct QRCodeView: View {
             ScrollView{
                 VStack{
                         Button {
-                            //
+                            isShowingScanner = false
+
                         } label: {
                             
                                 Image(systemName: "xmark.circle.fill")
@@ -82,6 +88,28 @@ struct QRCodeView: View {
                     }
                     .padding(.bottom, 50)
                     
+                    ForEach(names, id: \.self) { name in
+                        HStack {
+                            Text("@"+name)
+                                .font(.custom("RubikMarkerHatch-Regular", size: 17))
+                                .padding([.horizontal], 16)
+                            Spacer()
+                            Image(systemName: "checkmark.circle")
+                                .font(.system(size: 28))
+                                .foregroundColor(Color("TertiaryColor-1"))
+                                .padding([.horizontal], 16)
+
+                        }
+                        .frame(width: 338, height: 48)
+                        .border(Color("TertiaryColor-1"), width: 3)
+                        .background(Color("SecondaryColor-1"))
+                        .cornerRadius(14)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .strokeBorder(Color("TertiaryColor-1"), lineWidth: 3)
+                        )
+                    }
+                    
                     Button {
                         //
                     } label: {
@@ -99,6 +127,8 @@ struct QRCodeView: View {
                                 .foregroundColor(Color("TertiaryColor-1"))
                         }
                     }
+                    .padding([.top], 41)
+
                     Text("Start")
                         .foregroundColor(.white)
                         .font(.custom("RubikMarkerHatch-Regular", size: 14))
@@ -139,6 +169,8 @@ struct QRCodeView: View {
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRCodeView(connection: GameConnectionService())
+        QRCodeView()
+            .previewInterfaceOrientation(.portrait)
+            
     }
 }
