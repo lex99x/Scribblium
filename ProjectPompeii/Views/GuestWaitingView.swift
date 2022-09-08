@@ -51,7 +51,7 @@ struct GuestWaitingView: View {
                     .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
                     .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)
             }
-            .padding([.horizontal])
+            .padding(.horizontal)
             
         }.frame(
             width: UIScreen.main.bounds.width,

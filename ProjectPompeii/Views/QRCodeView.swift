@@ -12,6 +12,8 @@ import CoreImage.CIFilterBuiltins
 
 struct QRCodeView: View {
     
+    @ObservedObject var connection: GameConnectionService
+    
     @State private var qrCode = UIImage()
     @State var id: String = "My nickname"
     
@@ -66,22 +68,24 @@ struct QRCodeView: View {
                     
                     ZStack{
                         Image("postit qrcode")
-                        Image(uiImage: generateQRCode(from: id))
-                            .resizable()
-                            .interpolation(.none)
-                            .scaledToFit()
-                            .frame(width: 200, height: 200)
+                        VStack {
+                            Image(uiImage: generateQRCode(from: connection.getDeviceId()))
+                                .resizable()
+                                .interpolation(.none)
+                                .scaledToFit()
+                                .frame(width: 200, height: 200)
+                                .padding(.bottom)
+                            Text(connection.getDeviceName())
+                                .font(.custom("RubikMarkerHatch-Regular", size: 17))
+                        }
+                        .padding(.top, 50)
                     }
-                    .padding(.bottom, 38)
-                    
-                    Text(id)
-                        .padding(.bottom, 225)
-                        .font(.custom("RubikMarkerHatch-Regular", size: 17))
+                    .padding(.bottom, 50)
                     
                     Button {
                         //
                     } label: {
-                        ZStack{
+                        ZStack {
                             Circle()
                                 .frame(width: 82.08, height: 82.1)
                                 .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
@@ -135,7 +139,6 @@ struct QRCodeView: View {
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRCodeView()
-            
+        QRCodeView(connection: GameConnectionService())
     }
 }

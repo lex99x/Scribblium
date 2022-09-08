@@ -13,13 +13,8 @@ struct ProjectPompeiiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            
-            if (UserDefaults.standard.string(forKey: "playerNickname") == nil) {
-                AppContentView()
-            } else {
-                ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
-            }
-            
+//            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            HomeView()
         }
     }
 }

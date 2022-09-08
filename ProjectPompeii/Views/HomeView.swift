@@ -10,15 +10,18 @@ import CodeScanner
 
 struct HomeView: View {
     
-    @EnvironmentObject var devicesList: DevicesList
-    @EnvironmentObject var gameConnectionService: GameConnectionService
+//    @EnvironmentObject var devicesList: DevicesList
+    @ObservedObject var connection: GameConnectionService
     
     @State private var showQRCode = false
     @State private var showQRCodeScanner = false
     
     @State var isShowingScanner = false
     @State var scannedCode: String = "Scan a QR Code to get started."
-
+    
+    init() {
+        self.connection = GameConnectionService()
+    }
     
     var body: some View {
         
@@ -38,13 +41,8 @@ struct HomeView: View {
                     
                     VStack(alignment: .center){
                         Button(action: {
-                                
+                            connection.startAdvertising()
                             showQRCode.toggle()
-                //                gameConnectionService.startBrowsing()
-                //                for device in devicesList.devices {
-                //                    print(device)
-                //                }
-                                
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -52,7 +50,7 @@ struct HomeView: View {
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                    )
+                                )
                                 .overlay(Image(systemName: "qrcode").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
                         }
                         
@@ -60,17 +58,17 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .font(.custom("RubikMarkerHatch-Regular", size: 14))
                             .multilineTextAlignment(.center)
-                            
-                            //QRCodeView(isShowing: $showQRCode)
-                    }.sheet(isPresented: $showQRCode) {
-                            QRCodeView()
+                        
+                        //QRCodeView(isShowing: $showQRCode)
+                    }
+                    .sheet(isPresented: $showQRCode) {
+                        QRCodeView(connection: self.connection)
                     }
                     
                     VStack {
                         Button(action: {
-                            
                             showQRCodeScanner.toggle()
-                            //gameConnectionService.startAdvertising()
+                            connection.startBrowsing()
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -78,7 +76,7 @@ struct HomeView: View {
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                    )
+                                )
                                 .overlay(Image(systemName: "viewfinder").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
                         }
                         
@@ -91,14 +89,12 @@ struct HomeView: View {
                     .sheet(isPresented: $showQRCodeScanner) {
                         CodeScannerView(codeTypes: [.qr], completion: {
                             result in
-                                if case let .success(code) = result {
-                                    self.scannedCode = code.string
-                                    self.isShowingScanner = false
-                                }
+                            if case let .success(code) = result {
+                                self.scannedCode = code.string
+                                self.isShowingScanner = false
                             }
-                        )
+                        })
                     }
-
                 }
                 Image("friendos lightmode")
             }
