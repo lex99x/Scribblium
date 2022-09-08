@@ -169,7 +169,7 @@ struct QRCodeView: View {
 
 struct QRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        QRCodeView()
+        QRCodeView(connection: GameConnectionService())
             .previewInterfaceOrientation(.portrait)
             
     }
