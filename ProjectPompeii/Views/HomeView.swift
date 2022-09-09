@@ -19,6 +19,9 @@ struct HomeView: View {
     @State var isShowingScanner = false
     @State var scannedCode: String = "Scan a QR Code to get started."
     
+    @State var shown = false
+    var connect = false
+    
     @State var scannedHostDeviceId = ""
     
     init() {
@@ -44,7 +47,12 @@ struct HomeView: View {
                     VStack(alignment: .center){
                         Button(action: {
                             connection.startAdvertising()
-                            showQRCode.toggle()
+                            if(!connect){
+                                shown.toggle()
+                            }
+                            else {
+                                showQRCode.toggle()
+                            }
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -63,15 +71,19 @@ struct HomeView: View {
                         
 //                        QRCodeView(isShowing: $showQRCode)
                     }
-                    .sheet(isPresented: $showQRCode, onDismiss: didDismiss) {
+                    .sheet(isPresented: $showQRCode) {
                         QRCodeView(connection: self.connection)
                     }
                     
                     VStack {
                         Button(action: {
-                            connection.startBrowsing()
-                            showQRCodeScanner.toggle()
-                            self.isShowingScanner = true
+                            if !connect {
+                                shown.toggle()
+                            }
+                            else {
+                                showQRCodeScanner.toggle()
+                                connection.startBrowsing()
+                            }
                         }) {
                             Circle()
                                 .frame(width: 83, height: 83)
@@ -89,7 +101,7 @@ struct HomeView: View {
                             .multilineTextAlignment(.center)
                         
                     }
-                    .sheet(isPresented: $showQRCodeScanner) {
+                    .sheet(isPresented: $showQRCodeScanner, onDismiss: didDismiss) {
                         CodeScannerView(codeTypes: [.qr], completion: {
                             result in
                             if case let .success(code) = result {
@@ -102,14 +114,25 @@ struct HomeView: View {
                             }
                         })
                     }
+
                 }
                 ZStack{
                     Image("friendos lightmode novo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width-30, height: UIScreen.main.bounds.height-532)
                     Image("starsfriendos")
-                        .padding([.bottom], 220)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width-40)
+                        .padding([.bottom], UIScreen.main.bounds.height/3)
                 }
             }
             .offset(y: -100)
+            
+            if shown {
+                CustomAlertView(shown: $shown)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         

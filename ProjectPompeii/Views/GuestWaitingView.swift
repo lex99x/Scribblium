@@ -33,18 +33,19 @@ struct GuestWaitingView: View {
                             )
                     }
                     Text("Leave")
-                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
+                        .font(.custom("Rubik-Regular", size: 14))
                         .foregroundColor(.white)
                 }
                 .padding(.bottom, 25)
     
-                Image("friendos lightmode")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom, 50)
+                ZStack{
+                    Image("friendos lightmode novo")
+                    Image("starsfriendos")
+                        .padding([.bottom], 220)
+                }
 
                 Text("Waiting for the host to start the game...")
-                    .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                    .font(.custom("Rubik-Black", size: 32))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("SecondaryColor-1"))
                     .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 0, y: 5)

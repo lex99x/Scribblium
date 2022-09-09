@@ -15,7 +15,8 @@ struct QRCodeView: View {
     @ObservedObject var connection: GameConnectionService
     
     @State private var qrCode = UIImage()
-    //    @State var id: String = "My nickname"
+    @State var id: String = "My nickname"
+    @State var shown = false
     
     let names = ["Alex", "Ana", "Matheus"]
     
@@ -113,13 +114,17 @@ struct QRCodeView: View {
                     )
                     .padding(.vertical, -3)
                     
-                    Button {
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 82.08, height: 82.1)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                .overlay(
+                }
+                
+                
+                Button {
+                    shown.toggle()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 82.08, height: 82.1)
+                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                            .overlay(
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                 )
@@ -142,6 +147,10 @@ struct QRCodeView: View {
                     .font(.custom("RubikMarkerHatch-Regular", size: 14))
                     .multilineTextAlignment(.center)
                 
+            }
+            
+            if shown {
+                CustomAlertView(shown: $shown)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
