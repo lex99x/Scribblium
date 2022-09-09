@@ -19,6 +19,8 @@ struct HomeView: View {
     @State var isShowingScanner = false
     @State var scannedCode: String = "Scan a QR Code to get started."
     
+    @State var scannedHostDeviceId = ""
+    
     init() {
         self.connection = GameConnectionService()
     }
@@ -59,7 +61,7 @@ struct HomeView: View {
                             .font(.custom("RubikMarkerHatch-Regular", size: 14))
                             .multilineTextAlignment(.center)
                         
-                        //QRCodeView(isShowing: $showQRCode)
+//                        QRCodeView(isShowing: $showQRCode)
                     }
                     .sheet(isPresented: $showQRCode, onDismiss: didDismiss) {
                         QRCodeView(connection: self.connection)
@@ -67,8 +69,9 @@ struct HomeView: View {
                     
                     VStack {
                         Button(action: {
-                            showQRCodeScanner.toggle()
                             connection.startBrowsing()
+                            showQRCodeScanner.toggle()
+                            self.isShowingScanner = true
                         }) {
                             Image(systemName: "viewfinder.circle.fill")
                                 .resizable()
@@ -92,6 +95,10 @@ struct HomeView: View {
                             result in
                             if case let .success(code) = result {
                                 self.scannedCode = code.string
+                                
+                                self.scannedHostDeviceId = code.string
+                                connection.invitePeerWithDeviceId(deviceId: scannedHostDeviceId)
+                                
                                 self.isShowingScanner = false
                             }
                         })

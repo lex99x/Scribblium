@@ -1,5 +1,5 @@
 //
-//  GameConnectionManager.swift
+//  GameConnectionService.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 01/09/22.
@@ -7,6 +7,7 @@
 
 import Foundation
 import MultipeerConnectivity
+import AVFoundation
 
 struct Device {
     
@@ -20,34 +21,32 @@ class GameConnectionService: NSObject, ObservableObject {
     private static let service = "pompeii-service"
     
     private let session: MCSession
-    
-    private let device = Device(
-        id: UIDevice.current.identifierForVendor!.uuidString,
-        peerId: MCPeerID(displayName: UIDevice.current.name)
-    )
-    
     private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser
     private var nearbyServiceBrowser: MCNearbyServiceBrowser
     
-    @Published var devices: [Device] = []
-    @Published var devicesPeerIds: [MCPeerID] = []
+    private let currentDeviceId = UIDevice.current.identifierForVendor!.uuidString
+    private let currentDeviceName = UIDevice.current.name
+    private let peerId = MCPeerID(displayName: UIDevice.current.name)
     
-//    private let invitationReceivedHandler: InvitationReceivedHandler?
+    //    var devices: [Device] = []
+    @Published var foundDevices: [Device] = []
+    
+    //    private let invitationReceivedHandler: InvitationReceivedHandler?
     
     override init() {
         
         self.session = MCSession(
-            peer: device.peerId,
+            peer: peerId,
             securityIdentity: nil,
             encryptionPreference: .none)
         
         self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
-            peer: device.peerId,
-            discoveryInfo: nil,
+            peer: peerId,
+            discoveryInfo: ["deviceId": currentDeviceId],
             serviceType: GameConnectionService.service)
         
         self.nearbyServiceBrowser = MCNearbyServiceBrowser(
-            peer: device.peerId,
+            peer: peerId,
             serviceType: GameConnectionService.service)
         
         super.init()
@@ -56,12 +55,12 @@ class GameConnectionService: NSObject, ObservableObject {
         
     }
     
-    func getDeviceId() -> String {
-        return device.id
+    static func getCurrentDeviceId() -> String {
+        return UIDevice.current.identifierForVendor!.uuidString
     }
     
-    func getDeviceName() -> String {
-        return device.peerId.displayName
+    static func getCurrentDeviceName() -> String {
+        return UIDevice.current.name
     }
     
     func startAdvertising() {
@@ -73,66 +72,90 @@ class GameConnectionService: NSObject, ObservableObject {
         print("Stopped advertising player device!")
         nearbyServiceAdvertiser.stopAdvertisingPeer()
     }
-
+    
     func startBrowsing() {
         print("Started browsing for players devices!")
         nearbyServiceBrowser.startBrowsingForPeers()
     }
-
+    
     func stopBrowsing() {
         print("Started browsing for players devices!")
         nearbyServiceBrowser.stopBrowsingForPeers()
     }
     
-    func connectWithDeviceId(deviceId: String) {
+    private func invitePeer(_ peerId: MCPeerID) {
+        nearbyServiceBrowser.invitePeer(
+            peerId,
+            to: session,
+            withContext: UIDevice.current.name.data(using: .utf8),
+            timeout: TimeInterval(15)
+        )
+    }
+    
+    func invitePeerWithDeviceId(deviceId: String) {
         
-        print(devicesPeerIds)
-        
-        for device in devices {
+        for device in foundDevices {
+
             if device.id == deviceId {
-                nearbyServiceBrowser.invitePeer(
-                    device.peerId,
-                    to: session,
-                    withContext: nil,
-                    timeout: TimeInterval(15)
-                )
-                break
+                print("Connecting to " + device.peerId.displayName + "...")
+                invitePeer(device.peerId)
+                print("Successfully connected to " + device.peerId.displayName + "!")
+                return
             }
+
         }
         
     }
-
+    
 }
 
 extension GameConnectionService: MCNearbyServiceAdvertiserDelegate {
-
+    
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser,
                     didReceiveInvitationFromPeer peerID: MCPeerID,
                     withContext context: Data?,
                     invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-
+        
         invitationHandler(true, self.session)
-
+        
+        let guestName = String(data: context!, encoding: .utf8)!
+        print(guestName + " joined your lobby!")
+        
     }
-
+    
 }
 
 extension GameConnectionService: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         
-        if !devicesPeerIds.contains(peerID) {
-            print("Found: " + peerID.displayName)
-            devicesPeerIds.append(peerID)
-        }
+        let foundDeviceId = info!["deviceId"]!
+        
+        print("Current Device ID: " + currentDeviceId)
+        print("Found: " + peerID.displayName + " | Device ID: " + foundDeviceId)
+        
+        foundDevices.append(Device(id: foundDeviceId, peerId: peerID))
         
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         
-        guard let playerIndex = devicesPeerIds.firstIndex(of: peerID) else { return }
-        devicesPeerIds.remove(at: playerIndex)
+//        guard let playerIndex = foundDevices.firstIndex(of: peerID) else { return }
+//        foundDevices.remove(at: playerIndex)
+        
+        var index = 0
+        
+        for device in foundDevices {
+            
+            if device.peerId == peerID {
+                foundDevices.remove(at: index)
+                return
+            }
+            
+            index += 1
+    
+        }
         
     }
-
+    
 }
