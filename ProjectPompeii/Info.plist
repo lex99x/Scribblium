@@ -9,6 +9,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>RubikMarkerHatch-Regular.ttf</string>
+		<string>Rubik-SemiBold.ttf</string>
+		<string>Rubik-Regular.ttf</string>
+		<string>Rubik-Bold.ttf</string>
+		<string>Rubik-Black.ttf</string>
 	</array>
 	<key>UILaunchScreen</key>
 	<dict/>

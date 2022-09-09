@@ -30,6 +30,10 @@
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
+		BD8B57F828CB729E00339F7B /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57F728CB729E00339F7B /* Rubik-Regular.ttf */; };
+		BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */; };
+		BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */; };
+		BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */; };
 		BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD95572C28B893EF00DFE639 /* PercentualModel.swift */; };
 		BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF328C0E02500439743 /* QRCodeView.swift */; };
 		BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BDC46CF628C0EA5100439743 /* CodeScanner */; };
@@ -63,7 +67,10 @@
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
 		BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLandscapeView.swift; sourceTree = "<group>"; };
-		BD95572B28B88C3100DFE639 /* Rubik-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		BD8B57F728CB729E00339F7B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		BD95572C28B893EF00DFE639 /* PercentualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentualModel.swift; sourceTree = "<group>"; };
 		BDC46CF328C0E02500439743 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
@@ -130,7 +137,10 @@
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
 				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
 				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
-				BD95572B28B88C3100DFE639 /* Rubik-Italic-VariableFont_wght.ttf */,
+				BD8B57F728CB729E00339F7B /* Rubik-Regular.ttf */,
+				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
+				BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */,
+				BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -239,10 +249,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8B57F828CB729E00339F7B /* Rubik-Regular.ttf in Resources */,
 				17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
+				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
+				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
 				17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */,
+				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
