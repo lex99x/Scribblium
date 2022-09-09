@@ -17,7 +17,7 @@ struct QRCodeView: View {
     @State private var qrCode = UIImage()
     @State var id: String = "My nickname"
     
-    let names = ["Ana", "Matheus", "Unknown"]
+    let names = ["Alex", "Ana", "Matheus"]
     
     //@Binding var isShowing: Bool
 
@@ -26,8 +26,8 @@ struct QRCodeView: View {
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     
-    @State var isShowingScanner = true
-
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         
@@ -35,7 +35,12 @@ struct QRCodeView: View {
             
             VStack{
                     Button {
-                        isShowingScanner = false
+                        if #available(iOS 15, *) {
+                            dismiss()
+                        }
+                        else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     } label: {
                         
                             Image(systemName: "xmark.circle.fill")
@@ -50,7 +55,7 @@ struct QRCodeView: View {
                             
                             
                     }
-                    .padding([.top], 29)
+                    .padding([.top], 49)
 
                 Text("Leave")
                     .foregroundColor(.white)
@@ -62,7 +67,7 @@ struct QRCodeView: View {
                     .frame(width: 261, height: 72)
                     .foregroundColor(.white)
                     .font(.custom("Rubik-Italic-VariableFont_wght", size: 20))
-                    .padding([.top], 20)
+                    .padding([.top], 10)
 
                     
                 ZStack{
@@ -81,7 +86,7 @@ struct QRCodeView: View {
                             .font(.custom("RubikMarkerHatch-Regular", size: 20))
                     }
                 }
-                .padding([.top], 20)
+                //.padding()
                 .padding([.bottom], 10)
                 
                 ForEach(names, id: \.self) { name in
@@ -104,6 +109,7 @@ struct QRCodeView: View {
                             RoundedRectangle(cornerRadius: 14)
                                 .strokeBorder(Color("TertiaryColor-1"), lineWidth: 3)
                     )
+                    .padding(.vertical, -3)
                     
                 }
                 
@@ -125,7 +131,7 @@ struct QRCodeView: View {
                             .foregroundColor(Color("TertiaryColor-1"))
                     }
                 }
-                .padding([.top], 20)
+                .padding([.top], 10)
 
                 Text("Start")
                     .foregroundColor(.white)

@@ -61,7 +61,7 @@ struct HomeView: View {
                         
                         //QRCodeView(isShowing: $showQRCode)
                     }
-                    .sheet(isPresented: $showQRCode) {
+                    .sheet(isPresented: $showQRCode, onDismiss: didDismiss) {
                         QRCodeView(connection: self.connection)
                     }
                     
@@ -111,5 +111,12 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .preferredColorScheme(.dark)
+    }
+}
+
+private extension HomeView {
+    
+    func didDismiss() {
+        print("Disimssed view")
     }
 }
