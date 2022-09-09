@@ -143,7 +143,7 @@ struct DrawView: View {
                 HStack(alignment: .center, spacing: 7) {
                     
                         Text(feedback)
-                        .font(.custom("RubikMarkerHatch-Regular", size: 26))
+                        .font(.custom("Rubik-Black", size: 26))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
@@ -151,7 +151,7 @@ struct DrawView: View {
                         ZStack(alignment: .center) {
                             
                             Circle()
-                                .frame(width: 60, height: 60)
+                                .frame(width: 83, height: 83)
                                 .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
@@ -170,27 +170,28 @@ struct DrawView: View {
                                         self.disableButtons = true
                                     }
                                 }
-                                .font(.custom("RubikMarkerHatch-Regular", size: 21))
+                                .font(.custom("Rubik-Black", size: 32))
                                 .foregroundColor(.white)
                         }
+                        .padding([.top], 50)
                     
-                        ZStack(alignment: .center) {
-                            Circle()
-                                .frame(width: 60, height: 60)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                .overlay(
-                                    Circle()
-                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
-                        }
-                    
-                        ZStack(alignment: .center) {
-                            Circle()
-                                .frame(width: 60, height: 60)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                .overlay(
-                                    Circle()
-                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
-                        }
+//                        ZStack(alignment: .center) {
+//                            Circle()
+//                                .frame(width: 60, height: 60)
+//                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+//                                .overlay(
+//                                    Circle()
+//                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
+//                        }
+//
+//                        ZStack(alignment: .center) {
+//                            Circle()
+//                                .frame(width: 60, height: 60)
+//                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+//                                .overlay(
+//                                    Circle()
+//                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
+//                        }
                         
                 }
                 ZStack(alignment: .center) {
@@ -261,62 +262,79 @@ struct DrawView: View {
                     
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                    .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                    .font(.custom("Rubik-Black", size: 32))
                 
                 HStack(alignment: .bottom, spacing: 172) {
-                    Button(action: {
-                        drawing = [Line]()
-                        drawingModel.drawing = []
-                        feedback = ""
-                    }) {
-                            ZStack {
-                                Circle()
-                                    .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .overlay(
-                                        Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
-                                Image("lixeira fechada")
-                            }
+                    
+                    VStack {
+                        Button(action: {
+                            drawing = [Line]()
+                            drawingModel.drawing = []
+                            feedback = ""
+                        }) {
+                                ZStack {
+                                    Circle()
+                                        .frame(width: 83, height: 83)
+                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                        .overlay(
+                                            Circle()
+                                                .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                    Image("lixeira fechada")
+                                }
                     }.disabled(disableButtons)
-                    Button(action: {
-                        if(!drawing.isEmpty){
-//                            suggestion = DrawingModel.getRandomDrawing()
-                            
-                            if self.prediction == self.suggestion {
-                                self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
-                                self.showAlert = true
-//                                timer.upstream.connect().cancel()
-                                self.timerRunning = false
-                                self.maxTime = 30
-                                feedback = ""
-                                drawing = [Line]()
-                                suggestion = DrawingModel.getRandomDrawing()
+                        
+                        Text("Delete")
+                            .foregroundColor(.white)
+                            .font(.custom("Rubik-Regular", size: 14))
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    
+                    VStack {
+                        Button(action: {
+                            if(!drawing.isEmpty){
+    //                            suggestion = DrawingModel.getRandomDrawing()
+                                
+                                if self.prediction == self.suggestion {
+                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
+                                    self.showAlert = true
+    //                                timer.upstream.connect().cancel()
+                                    self.timerRunning = false
+                                    self.maxTime = 30
+                                    feedback = ""
+                                    drawing = [Line]()
+                                    suggestion = DrawingModel.getRandomDrawing()
+                                    
+                                } else {
+                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
+                                    self.showAlert = true
+                                }
                                 
                             } else {
-                                self.alertMessage = "Oops, that's not a " + suggestion + " :("
+                                print("Desenho vazio!")
+                                self.alertMessage = "You can't proceed with an empty drawing!"
                                 self.showAlert = true
                             }
-                            
-                        } else {
-                            print("Desenho vazio!")
-                            self.alertMessage = "You can't proceed with an empty drawing!"
-                            self.showAlert = true
-                        }
-                        //drawing = [Line]()
-                    }) {
-                        ZStack(alignment: .center){
-                                Circle()
-                                    .frame(width: 83, height: 83)
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                    .overlay(
-                                        Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                        )
-                                Image("enviar")
-                            }
+                            //drawing = [Line]()
+                        }) {
+                            ZStack(alignment: .center){
+                                    Circle()
+                                        .frame(width: 83, height: 83)
+                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                        .overlay(
+                                            Circle()
+                                                .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                            )
+                                    Image("enviar")
+                                }
                     }.disabled(disableButtons)
+                        
+                        Text("Send")
+                            .foregroundColor(.white)
+                            .font(.custom("Rubik-Regular", size: 14))
+                            .multilineTextAlignment(.center)
                     }
+                }
             }
             .statusBar(hidden: true)
         }

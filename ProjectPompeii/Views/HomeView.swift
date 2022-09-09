@@ -96,7 +96,11 @@ struct HomeView: View {
                         })
                     }
                 }
-                Image("friendos lightmode")
+                ZStack{
+                    Image("friendos lightmode novo")
+                    Image("starsfriendos")
+                        .padding([.bottom], 220)
+                }
             }
             .offset(y: -100)
         }
