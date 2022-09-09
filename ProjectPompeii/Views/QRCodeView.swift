@@ -17,7 +17,7 @@ struct QRCodeView: View {
     @State private var qrCode = UIImage()
     @State var id: String = "My nickname"
     
-    let names = ["Alex", "Ana", "Matheus", "Unknown"]
+    let names = ["Ana", "Matheus", "Unknown"]
     
     //@Binding var isShowing: Bool
 
@@ -33,118 +33,110 @@ struct QRCodeView: View {
         
         ZStack(alignment: .center) {
             
-            Color("launchScreenBackground")
-                .ignoresSafeArea()
-
-            ScrollView{
-                VStack{
-                        Button {
-                            isShowingScanner = false
-
-                        } label: {
-                            
-                                Image(systemName: "xmark.circle.fill")
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
-                                    .foregroundColor(Color("SecondaryColor-1"))
-                                    .overlay(
+            VStack{
+                    Button {
+                        isShowingScanner = false
+                    } label: {
+                        
+                            Image(systemName: "xmark.circle.fill")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(Color("SecondaryColor-1"))
+                                .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
-                                    .font(.system(size: 20, weight: .bold))
-                                    .background(Circle().foregroundColor(Color("TertiaryColor-1")))
+                                .font(.system(size: 20, weight: .bold))
+                                .background(Circle().foregroundColor(Color("TertiaryColor-1")))
                             
                             
-                        }
-                        .padding(.top, 36)
-
-                    Text("Leave")
-                        .foregroundColor(.white)
-                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 12)
-
-                    Text("Show the QR CODE below to your friends to join your game!")
-                        .multilineTextAlignment(.center)
-                        .frame(width: 263, height: 42)
-                        .foregroundColor(.white)
-                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
-                        .padding(.bottom, 23)
-
-                    //Text(id)
-                    
-                    ZStack{
-                        Image("postit qrcode")
-                        VStack {
-                            Image(uiImage: generateQRCode(from: connection.getDeviceId()))
-                                .resizable()
-                                .interpolation(.none)
-                                .scaledToFit()
-                                .frame(width: 200, height: 200)
-                                .padding(.bottom)
-                            Text(connection.getDeviceName())
-                                .font(.custom("RubikMarkerHatch-Regular", size: 17))
-                        }
-                        .padding(.top, 50)
                     }
-                    .padding(.bottom, 50)
-                    
-                    ForEach(names, id: \.self) { name in
-                        HStack {
-                            Text("@"+name)
-                                .font(.custom("RubikMarkerHatch-Regular", size: 17))
-                                .padding([.horizontal], 16)
-                            Spacer()
-                            Image(systemName: "checkmark.circle")
-                                .font(.system(size: 28))
-                                .foregroundColor(Color("TertiaryColor-1"))
-                                .padding([.horizontal], 16)
+                    .padding([.top], 29)
 
-                        }
-                        .frame(width: 338, height: 48)
-                        .border(Color("TertiaryColor-1"), width: 3)
-                        .background(Color("SecondaryColor-1"))
-                        .cornerRadius(14)
-                        .overlay(
+                Text("Leave")
+                    .foregroundColor(.white)
+                    .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                    .multilineTextAlignment(.center)
+                
+                Text("Show the QR CODE below to your friends to join your game!")
+                    .multilineTextAlignment(.center)
+                    .frame(width: 261, height: 72)
+                    .foregroundColor(.white)
+                    .font(.custom("Rubik-Italic-VariableFont_wght", size: 20))
+                    .padding([.top], 20)
+
+                    
+                ZStack{
+                    Image("QR HOST oficial")
+                        //.resizable()
+                        //.scaledToFit()
+                    VStack {
+                        Image(uiImage: generateQRCode(from: connection.getDeviceId()))
+                            .resizable()
+                            .interpolation(.none)
+                            //.scaledToFit()
+                            .frame(width: 154, height: 154.97)
+                            .padding([.top], 40)
+
+                        Text(connection.getDeviceName())
+                            .font(.custom("RubikMarkerHatch-Regular", size: 20))
+                    }
+                }
+                .padding([.top], 20)
+                .padding([.bottom], 10)
+                
+                ForEach(names, id: \.self) { name in
+                    HStack {
+                        Text("@"+name)
+                            .font(.custom("RubikMarkerHatch-Regular", size: 17))
+                            .padding([.horizontal], 16)
+                        Spacer()
+                        Image(systemName: "checkmark.circle")
+                            .font(.system(size: 28))
+                            .foregroundColor(Color("TertiaryColor-1"))
+                            .padding([.horizontal], 16)
+
+                    }
+                    .frame(width: 338, height: 48)
+                    .border(Color("TertiaryColor-1"), width: 3)
+                    .background(Color("SecondaryColor-1"))
+                    .cornerRadius(14)
+                    .overlay(
                             RoundedRectangle(cornerRadius: 14)
                                 .strokeBorder(Color("TertiaryColor-1"), lineWidth: 3)
-                        )
-                    }
-                    
-                    Button {
-                        //
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 82.08, height: 82.1)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                .overlay(
-                                    Circle()
-                                        .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                    )
-                            Image(systemName: "forward.end.fill")
-                                .resizable()
-                                .frame(width: 42.52, height: 46.49)
-                                .foregroundColor(Color("TertiaryColor-1"))
-                        }
-                    }
-                    .padding([.top], 41)
-
-                    Text("Start")
-                        .foregroundColor(.white)
-                        .font(.custom("RubikMarkerHatch-Regular", size: 14))
-                        .multilineTextAlignment(.center)
+                    )
                     
                 }
-                .padding(.bottom, 39.42)
+                
+                
+                Button {
+                    //
+                } label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 82.08, height: 82.1)
+                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                            .overlay(
+                                    Circle()
+                                        .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                )
+                        Image(systemName: "forward.end.fill")
+                            .resizable()
+                            .frame(width: 42.52, height: 46.49)
+                            .foregroundColor(Color("TertiaryColor-1"))
+                    }
+                }
+                .padding([.top], 20)
 
-                //.onAppear(perform: updateCode)
-                //.onChange(of: qrCode) { _ in updateCode() }
-                
-                
+                Text("Start")
+                    .foregroundColor(.white)
+                    .font(.custom("RubikMarkerHatch-Regular", size: 14))
+                    .multilineTextAlignment(.center)
+                    
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+        .background(Color("launchScreenBackground"))
 
     }
     
@@ -159,12 +151,6 @@ struct QRCodeView: View {
 
             return UIImage(systemName: "xmark.circle") ?? UIImage()
         }
-    
-    /*
-    func updateCode() {
-            qrCode = generateQRCode(from: link)
-        }
-     */
 }
 
 struct QRCodeView_Previews: PreviewProvider {

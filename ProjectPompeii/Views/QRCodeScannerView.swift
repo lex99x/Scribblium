@@ -14,7 +14,7 @@ struct QRCodeScannerView: View {
     @State var scannedCode: String = "Scan a QR Code to get started."
     
     var scannerSheet : some View {
-                
+                        
         CodeScannerView(codeTypes: [.qr], completion: {
             result in
                 if case let .success(code) = result {

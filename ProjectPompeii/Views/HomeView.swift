@@ -51,7 +51,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                 )
-                                .overlay(Image(systemName: "qrcode").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
+                                .overlay(Image("icone qr").resizable().frame(width: 43, height: 43))
                         }
                         
                         Text("Host Game")
@@ -78,7 +78,7 @@ struct HomeView: View {
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
                                 )
-                                .overlay(Image(systemName: "viewfinder").resizable().frame(width: 43, height: 43).foregroundColor(Color("TertiaryColor-1")))
+                                .overlay(Image("ícone ler qr").resizable().frame(width: 43, height: 43))
                         }
                         
                         Text("Join Game")
