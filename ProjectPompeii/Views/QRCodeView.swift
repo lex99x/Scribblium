@@ -59,14 +59,14 @@ struct QRCodeView: View {
 
                 Text("Leave")
                     .foregroundColor(.white)
-                    .font(.custom("Rubik-Italic-VariableFont_wght", size: 14))
+                    .font(.custom("Rubik-Regular", size: 14))
                     .multilineTextAlignment(.center)
                 
                 Text("Show the QR CODE below to your friends to join your game!")
                     .multilineTextAlignment(.center)
                     .frame(width: 261, height: 72)
                     .foregroundColor(.white)
-                    .font(.custom("Rubik-Italic-VariableFont_wght", size: 20))
+                    .font(.custom("Rubik-Black", size: 20))
                     .padding([.top], 10)
 
                     
@@ -83,7 +83,8 @@ struct QRCodeView: View {
                             .padding([.top], 40)
 
                         Text(connection.getDeviceName())
-                            .font(.custom("RubikMarkerHatch-Regular", size: 20))
+                            .font(.custom("Rubik-Bold", size: 20))
+                            .foregroundColor(Color("TertiaryColor-1"))
                     }
                 }
                 //.padding()
@@ -92,7 +93,8 @@ struct QRCodeView: View {
                 ForEach(names, id: \.self) { name in
                     HStack {
                         Text("@"+name)
-                            .font(.custom("RubikMarkerHatch-Regular", size: 17))
+                            .foregroundColor(Color("TertiaryColor-1"))
+                            .font(.custom("Rubik-Bold", size: 17))
                             .padding([.horizontal], 16)
                         Spacer()
                         Image(systemName: "checkmark.circle")
@@ -135,7 +137,7 @@ struct QRCodeView: View {
 
                 Text("Start")
                     .foregroundColor(.white)
-                    .font(.custom("RubikMarkerHatch-Regular", size: 14))
+                    .font(.custom("Rubik-Regular", size: 14))
                     .multilineTextAlignment(.center)
                     
             }

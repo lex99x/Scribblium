@@ -56,7 +56,7 @@ struct HomeView: View {
                         
                         Text("Host Game")
                             .foregroundColor(.white)
-                            .font(.custom("RubikMarkerHatch-Regular", size: 14))
+                            .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                         
                         //QRCodeView(isShowing: $showQRCode)
@@ -70,10 +70,9 @@ struct HomeView: View {
                             showQRCodeScanner.toggle()
                             connection.startBrowsing()
                         }) {
-                            Image(systemName: "viewfinder.circle.fill")
-                                .resizable()
+                            Circle()
                                 .frame(width: 83, height: 83)
-                                .foregroundColor(Color("SecondaryColor-1"))
+                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color("Contorno"), lineWidth: 3)
@@ -83,7 +82,7 @@ struct HomeView: View {
                         
                         Text("Join Game")
                             .foregroundColor(.white)
-                            .font(.custom("RubikMarkerHatch-Regular", size: 14))
+                            .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                         
                     }
@@ -110,7 +109,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }
 
