@@ -410,7 +410,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR Code";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Project Pompeii needs to use your phone’s camera to scan some QR codes";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,7 +445,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to scan QR Code";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Project Pompeii needs to use your phone’s camera to scan some QR codes";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

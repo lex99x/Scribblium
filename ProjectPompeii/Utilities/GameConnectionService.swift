@@ -17,7 +17,7 @@ struct Device {
 
 class GameConnectionService: NSObject, ObservableObject {
     
-    private static let service = "conn-service"
+    private static let service = "pompeii-service"
     
     private let session: MCSession
     
@@ -82,6 +82,24 @@ class GameConnectionService: NSObject, ObservableObject {
     func stopBrowsing() {
         print("Started browsing for players devices!")
         nearbyServiceBrowser.stopBrowsingForPeers()
+    }
+    
+    func connectWithDeviceId(deviceId: String) {
+        
+        print(devicesPeerIds)
+        
+        for device in devices {
+            if device.id == deviceId {
+                nearbyServiceBrowser.invitePeer(
+                    device.peerId,
+                    to: session,
+                    withContext: nil,
+                    timeout: TimeInterval(15)
+                )
+                break
+            }
+        }
+        
     }
 
 }
