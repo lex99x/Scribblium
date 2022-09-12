@@ -83,9 +83,11 @@ struct QRCodeView: View {
                             .frame(width: 154, height: 154.97)
                             .padding([.top], 40)
 
-                        Text(connection.getDeviceName())
+                        Text(GameConnectionService.getCurrentDeviceName())
                             .font(.custom("Rubik-Bold", size: 20))
-                            .foregroundColor(Color("TertiaryColor-1"))
+//                        Text(connection.getDeviceName())
+//                            .font(.custom("Rubik-Bold", size: 20))
+//                            .foregroundColor(Color("TertiaryColor-1"))
                     }
                 }
                 //.padding()
@@ -134,7 +136,7 @@ struct QRCodeView: View {
                                 .foregroundColor(Color("TertiaryColor-1"))
                         }
                     }
-                }
+                
                 .padding([.top], 10)
                 
                 Text("Start")
