@@ -20,7 +20,7 @@ struct HomeView: View {
     @State var scannedCode: String = "Scan a QR Code to get started."
     
     @State var shown = false
-    var connect = false
+    var connect = true
     
     @State var scannedHostDeviceId = ""
     
