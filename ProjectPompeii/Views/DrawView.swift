@@ -12,6 +12,9 @@ struct DrawView: View {
 //    @Environment (\.verticalSizeClass) var verticalSizeClass
 //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
+    @State var timeup = false
+    @State var confirme = false
+    @State var empty = false
     @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -42,116 +45,21 @@ struct DrawView: View {
                 .ignoresSafeArea()
                 .scaledToFill()
             
-//            if isLandscape {
-//                HStack (alignment: .center, spacing: 54){
-//
-//                    VStack (alignment: .center){
-//
-//                        ZStack (alignment: .center){
-//
-//                            Image("MolduraLandscape")
-//                                .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
-//
-//                            Canvas { context, size in
-//                                for line in drawing {
-//                                    var path  = Path()
-//                                    path.addLines(line.points)
-//
-//                                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-//
-//                                }
-//                            }
-//                            .edgesIgnoringSafeArea(.all)
-//                            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-//                                        let newPoint = value.location
-//                                        if value.translation.width + value.translation.height == 0 {
-//                                            drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
-//                                        } else {
-//                                            let index = drawing.count - 1
-//                                            drawing[index].points.append(newPoint)
-//                                        }
-//
-//                                    })
-//
-//                            )
-//                            .frame(width: 502.74, height: 272.84)
-//                            //padrão em todos os modos
-//                            .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
-//                            .background(Color("Contorno"))
-//                            .cornerRadius(31)
-//
-//                            HStack (alignment: .center, spacing: 349.06){
-//                                VStack (alignment: .center, spacing: 87.18) {
-//                                    Image("fitinha portrait darkmode landscape 1")
-//                                    Image("fitinha portrait darkmode landscape 2")
-//                                }
-//                                VStack (alignment: .center, spacing: 87.18) {
-//                                    Image("fitinha portrait darkmode landscape 2")
-//                                    Image("fitinha portrait darkmode landscape 1")
-//                                }
-//                            }
-//                        }
-//                        //.offset(x: 54, y: 32)
-//
-//                        Text(suggestion)
-//                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-//                            .font(.custom("RubikMarkerHatch-Regular", size: 32))
-//                            //.offset(x: 54)
-//                    }
-//
-//                    VStack (alignment: .trailing, spacing: 129){
-//                        Button(action: {
-//                            drawing = [Line]()}) {
-//                                ZStack{
-//                                    Circle()
-//                                        .frame(width: 83, height: 83)
-//                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-//                                        .overlay(
-//                                            Circle()
-//                                                .strokeBorder(Color("Contorno"), lineWidth: 3)
-//                                            )
-//                                    Image("lixeira fechada")
-//                                }
-//                            }
-//                            //.offset(x: 29.06)
-//
-//                        Button(action: {
-//                            suggestion = DrawModel.getRandomDrawing()
-//                            drawing = [Line]()
-//                        }) {
-//                                ZStack{
-//                                    Circle()
-//                                        .frame(width: 83, height: 83)
-//                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-//                                        .overlay(
-//                                            Circle()
-//                                                .strokeBorder(Color("Contorno"), lineWidth: 3)
-//                                            )
-//                                    Image("enviar")
-//                                }
-//                            }
-//                        //.offset(x: 29.06)
-//
-//                    }
-//                }
-//                .statusBar(hidden: true)
-//            }
-//
-//            else {
             VStack (alignment: .center, spacing: 0.0){
                 
-                HStack(alignment: .center, spacing: 7) {
+                HStack(alignment: .lastTextBaseline, spacing: 7) {
                     
                         Text(feedback)
                         .font(.custom("Rubik-Black", size: 26))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        .frame(width: UIScreen.main.bounds.width - 172, height: UIScreen.main.bounds.height - 801)
                     
                         ZStack(alignment: .center) {
                             
                             Circle()
-                                .frame(width: 83, height: 83)
+                                .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
                                 .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
@@ -162,8 +70,10 @@ struct DrawView: View {
                                         maxTime -= 1
                                     }
                                     else if (maxTime == 0) {
-                                        self.alertMessage = "Time's up!!!"
-                                        self.showAlert = true
+                                        
+                                        timeup = true
+                                        //self.alertMessage = "Time's up!!!"
+                                        //self.showAlert = true
 //                                        self.maxTime = 30
 //                                        self.timerRunning = false
                                         timer.upstream.connect().cancel()
@@ -174,25 +84,7 @@ struct DrawView: View {
                                 .foregroundColor(.white)
                         }
                         .padding([.top], 50)
-                    
-//                        ZStack(alignment: .center) {
-//                            Circle()
-//                                .frame(width: 60, height: 60)
-//                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-//                                .overlay(
-//                                    Circle()
-//                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
-//                        }
-//
-//                        ZStack(alignment: .center) {
-//                            Circle()
-//                                .frame(width: 60, height: 60)
-//                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-//                                .overlay(
-//                                    Circle()
-//                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
-//                        }
-                        
+                                            
                 }
                 ZStack(alignment: .center) {
                         
@@ -231,6 +123,7 @@ struct DrawView: View {
                             if !predictions.isEmpty {
                                 self.prediction = predictions.first!.classification
                                 self.predictionConfidence = Int(predictions.first!.confidence * 100)
+                                
                                 if self.prediction != suggestion {
                                     feedback = "That looks like a " + self.prediction
                                 }
@@ -274,7 +167,7 @@ struct DrawView: View {
                         }) {
                                 ZStack {
                                     Circle()
-                                        .frame(width: 83, height: 83)
+                                        .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
                                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                         .overlay(
                                             Circle()
@@ -283,7 +176,7 @@ struct DrawView: View {
                                 }
                     }.disabled(disableButtons)
                         
-                        Text("Delete")
+                        Text("erase")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
@@ -294,32 +187,33 @@ struct DrawView: View {
                         Button(action: {
                             if(!drawing.isEmpty){
     //                            suggestion = DrawingModel.getRandomDrawing()
-                                
                                 if self.prediction == self.suggestion {
-                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
-                                    self.showAlert = true
-    //                                timer.upstream.connect().cancel()
-                                    self.timerRunning = false
-                                    self.maxTime = 30
+//                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
+//                                    self.showAlert = true
+//    //                                timer.upstream.connect().cancel()
+//                                    self.timerRunning = false
+//                                    self.maxTime = 30
                                     feedback = ""
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
                                     
                                 } else {
-                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
-                                    self.showAlert = true
+//                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
+//                                    self.showAlert = true
+                                    confirme = true
                                 }
                                 
                             } else {
                                 print("Desenho vazio!")
-                                self.alertMessage = "You can't proceed with an empty drawing!"
-                                self.showAlert = true
+//                                self.alertMessage = "You can't proceed with an empty drawing!"
+//                                self.showAlert = true
+                                empty = true
                             }
                             //drawing = [Line]()
                         }) {
                             ZStack(alignment: .center){
                                     Circle()
-                                        .frame(width: 83, height: 83)
+                                        .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
                                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                         .overlay(
                                             Circle()
@@ -329,7 +223,7 @@ struct DrawView: View {
                                 }
                     }.disabled(disableButtons)
                         
-                        Text("Send")
+                        Text("confirm")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
@@ -337,6 +231,15 @@ struct DrawView: View {
                 }
             }
             .statusBar(hidden: true)
+            if timeup {
+                CustomAlertTimeUp(shown: $timeup)
+            }
+            if confirme {
+                CustomAlertView(shown: $confirme)
+            }
+            if empty {
+                CustomAlertEmpty(shown: $empty)
+            }
         }
         .alert(alertMessage, isPresented: $showAlert) {
             Button("Ok", role: .cancel) {

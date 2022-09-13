@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Alert {
+struct AlertModel {
     
     var title: String
     var description: String
