@@ -76,14 +76,14 @@ struct QRCodeView: View {
                     //.resizable()
                     //.scaledToFit()
                     VStack {
-                        Image(uiImage: generateQRCode(from: GameConnectionService.getCurrentDeviceId()))
+                        Image(uiImage: generateQRCode(from: Device.getCurrentDeviceId()))
                             .resizable()
                             .interpolation(.none)
                         //.scaledToFit()
                             .frame(width: 154, height: 154.97)
                             .padding([.top], 40)
 
-                        Text(GameConnectionService.getCurrentDeviceName())
+                        Text(Device.getCurrentDeviceName())
                             .font(.custom("Rubik-Bold", size: 20))
 //                        Text(connection.getDeviceName())
 //                            .font(.custom("Rubik-Bold", size: 20))

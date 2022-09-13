@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class MatchModel {
+    
+    static func calculateScore(timings: [Int]) -> Int {
+        
+        var score = 0
+        
+        for timing in timings {
+            score += timing
+        }
+        
+        return score
+        
+    }
+    
+}

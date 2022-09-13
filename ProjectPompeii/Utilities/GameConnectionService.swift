@@ -14,6 +14,22 @@ struct Device {
     var id: String
     var peerId: MCPeerID
     
+    static func getCurrentDeviceId() -> String {
+        return UIDevice.current.identifierForVendor!.uuidString
+    }
+    
+    static func getCurrentDeviceName() -> String {
+        return UIDevice.current.name
+    }
+    
+}
+
+struct Session {
+    
+    var mcSession: MCSession
+    var hostDevice: Device
+    var guestDevices: [Device]
+    
 }
 
 class GameConnectionService: NSObject, ObservableObject {
@@ -53,14 +69,6 @@ class GameConnectionService: NSObject, ObservableObject {
         nearbyServiceAdvertiser.delegate = self
         nearbyServiceBrowser.delegate = self
         
-    }
-    
-    static func getCurrentDeviceId() -> String {
-        return UIDevice.current.identifierForVendor!.uuidString
-    }
-    
-    static func getCurrentDeviceName() -> String {
-        return UIDevice.current.name
     }
     
     func startAdvertising() {
