@@ -105,7 +105,7 @@ struct CleoView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
                 
-            )
+            }
 //            .statusBarHidden(true)
     }
 }
