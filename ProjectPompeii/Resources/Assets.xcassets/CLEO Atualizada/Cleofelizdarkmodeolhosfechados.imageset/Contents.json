@@ -3,6 +3,16 @@
     {
       "filename" : "Cleofelizdarkmodeolhosfechados.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Cleofelizlightmodeolhosfechados.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -35,28 +35,23 @@ struct DrawView: View {
     
     @State private var disableButtons = false
     
+    var scores: Array<Int> = Array()
+    
     var body: some View {
-        ZStack(alignment: .center){
+        ZStack {
             
-            Color("DrawBackground")
-                .ignoresSafeArea()
-            Image("padraoPortrait")
-                .resizable()
-                .ignoresSafeArea()
-                .scaledToFill()
-            
-            VStack (alignment: .center, spacing: 0.0){
+            VStack (spacing: 0){
                 
-                HStack(alignment: .lastTextBaseline, spacing: 7) {
+                HStack {
                     
-                        Text(feedback)
+                    Text(feedback)
                         .font(.custom("Rubik-Black", size: 26))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        .frame(width: UIScreen.main.bounds.width - 172, height: UIScreen.main.bounds.height - 801)
+                        .frame(width: UIScreen.main.bounds.width - 217, height: UIScreen.main.bounds.height - 801)
                     
-                        ZStack(alignment: .center) {
+                        ZStack {
                             
                             Circle()
                                 .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
@@ -64,7 +59,10 @@ struct DrawView: View {
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                            
                             Text("\(maxTime)")
+                                .font(.custom("Rubik-Black", size: 32))
+                                .foregroundColor(.white)
                                 .onReceive(timer) { _ in
                                     if (maxTime > 0 && timerRunning) {
                                         maxTime -= 1
@@ -80,16 +78,22 @@ struct DrawView: View {
                                         self.disableButtons = true
                                     }
                                 }
-                                .font(.custom("Rubik-Black", size: 32))
-                                .foregroundColor(.white)
                         }
-                        .padding([.top], 50)
+                        .padding([.bottom], 9)
                                             
                 }
                 ZStack(alignment: .center) {
-                        
-                    Image("MolduraCanvas")
+                    
+                    RoundedRectangle(cornerRadius: 31)
+                        .frame(width: UIScreen.main.bounds.width - 52, height: UIScreen.main.bounds.height - 343)
+                        .foregroundColor(Color("SecondaryColor-1"))
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
+                        
+//                    Image("MolduraCanvas")
+//                        .resizable()
+//                        .frame(width: UIScreen.main.bounds.width - 52, height: UIScreen.main.bounds.height - 343)
+//                        .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
+                    
                     Canvas { context, size in
                         for line in drawing {
                             var path  = Path()
@@ -133,22 +137,26 @@ struct DrawView: View {
                             }
                         })
                     ).disabled(disableButtons)
-                    .frame(width: 318, height: 482.51)
+                        .frame(width: UIScreen.main.bounds.width - 72, height: UIScreen.main.bounds.height - 361.48)
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
                     //padrão em todos os modos
                     .cornerRadius(31)
 
 
-                    VStack(alignment: .center, spacing: 317.06) {
+                    VStack (spacing: 317.06){
                         
-                        HStack(alignment: .center, spacing: 152.18) {
+                        HStack (spacing: 152.18){
                             Image("Fitinha 1 Portrait darkmode")
+                                .frame(width: UIScreen.main.bounds.width - 276.18, height: UIScreen.main.bounds.height - 733.06)
                             Image("Fitinha 2 Portrait darkmode")
+                                .frame(width: UIScreen.main.bounds.width - 276, height: UIScreen.main.bounds.height - 733.06)
                         }
-                        HStack(alignment: .center, spacing: 152.18) {
+                        HStack (spacing: 152.18){
                             Image("Fitinha 2 Portrait darkmode")
+                                .frame(width: UIScreen.main.bounds.width - 276.18, height: UIScreen.main.bounds.height - 733.06)
                             Image("Fitinha 1 Portrait darkmode")
+                                .frame(width: UIScreen.main.bounds.width - 276, height: UIScreen.main.bounds.height - 733.06)
                         }
                     }
                 }
@@ -157,7 +165,7 @@ struct DrawView: View {
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
                 
-                HStack(alignment: .bottom, spacing: 172) {
+                HStack (spacing: 142){
                     
                     VStack {
                         Button(action: {
@@ -209,11 +217,12 @@ struct DrawView: View {
 //                                self.showAlert = true
                                 empty = true
                             }
+                            
                             //drawing = [Line]()
                         }) {
                             ZStack(alignment: .center){
                                     Circle()
-                                        .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                    .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
                                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                         .overlay(
                                             Circle()
@@ -241,6 +250,18 @@ struct DrawView: View {
                 CustomAlertEmpty(shown: $empty)
             }
         }
+        .background(content: {
+            
+            Color("DrawBackground")
+                .ignoresSafeArea()
+                .scaledToFill()
+
+            Image("padraoPortrait")
+                .resizable()
+                .ignoresSafeArea()
+                .scaledToFit()
+            
+        })
         .alert(alertMessage, isPresented: $showAlert) {
             Button("Ok", role: .cancel) {
                 self.timerRunning = true
@@ -255,8 +276,7 @@ struct DrawView_Previews: PreviewProvider {
         Group {
             DrawView()
                 .previewInterfaceOrientation(.portrait)
-//            DrawView()
-//                .previewInterfaceOrientation(.landscapeRight)
+            
         }
     }
 }
