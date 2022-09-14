@@ -18,12 +18,12 @@ struct CleoView: View {
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("SecondaryColor-1"))
-                    .frame(width: UIScreen.main.bounds.width - 163, height: UIScreen.main.bounds.height - 730)
+                    .frame(width: 227, height: 114)
                     .padding([.top], 50)
             
                 ZStack {
                     Circle()
-                        .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                        .frame(width: 83, height: 83)
                         .foregroundColor(Color("TimerBackground"))
                         .overlay(
                             Circle()
@@ -39,7 +39,7 @@ struct CleoView: View {
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(Color("SecondaryColor-1"))
-                    .frame(width: UIScreen.main.bounds.width - 119, height: UIScreen.main.bounds.height - 787)
+                    .frame(width: 271, height: 57)
                 
             Spacer()
             
@@ -52,7 +52,7 @@ struct CleoView: View {
                         }) {
                             ZStack {
                                 Circle()
-                                    .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                    .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -76,7 +76,7 @@ struct CleoView: View {
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
-                                    .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                    .frame(width: 83, height: 83)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -107,8 +107,7 @@ struct CleoView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             )
-            
-
+            .statusBarHidden(true)
     }
 }
 

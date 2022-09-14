@@ -52,12 +52,12 @@ struct DrawView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        .frame(width: UIScreen.main.bounds.width - 217, height: UIScreen.main.bounds.height - 801)
+                        .frame(width: 217, height: 43)
                     
                         ZStack {
                             
                             Circle()
-                                .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                .frame(width: 83, height: 83)
                                 .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
@@ -88,7 +88,7 @@ struct DrawView: View {
                 ZStack(alignment: .center) {
                     
                     RoundedRectangle(cornerRadius: 31)
-                        .frame(width: UIScreen.main.bounds.width - 52, height: UIScreen.main.bounds.height - 343)
+                        .frame(width: 338, height: 501)
                         .foregroundColor(Color("SecondaryColor-1"))
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                         
@@ -140,7 +140,7 @@ struct DrawView: View {
                             }
                         })
                     ).disabled(disableButtons)
-                        .frame(width: UIScreen.main.bounds.width - 72, height: UIScreen.main.bounds.height - 361.48)
+                        .frame(width: 318, height: 482.51)
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
                     //padrão em todos os modos
@@ -151,15 +151,11 @@ struct DrawView: View {
                         
                         HStack (spacing: 152.18){
                             Image("Fitinha 1 Portrait darkmode")
-                                .frame(width: UIScreen.main.bounds.width - 276.18, height: UIScreen.main.bounds.height - 733.06)
                             Image("Fitinha 2 Portrait darkmode")
-                                .frame(width: UIScreen.main.bounds.width - 276, height: UIScreen.main.bounds.height - 733.06)
                         }
                         HStack (spacing: 152.18){
                             Image("Fitinha 2 Portrait darkmode")
-                                .frame(width: UIScreen.main.bounds.width - 276.18, height: UIScreen.main.bounds.height - 733.06)
                             Image("Fitinha 1 Portrait darkmode")
-                                .frame(width: UIScreen.main.bounds.width - 276, height: UIScreen.main.bounds.height - 733.06)
                         }
                     }
                 }
@@ -178,7 +174,7 @@ struct DrawView: View {
                         }) {
                                 ZStack {
                                     Circle()
-                                        .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                        .frame(width: 83, height: 83)
                                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                         .overlay(
                                             Circle()
@@ -231,7 +227,7 @@ struct DrawView: View {
                             
                             ZStack(alignment: .center){
                                     Circle()
-                                    .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)
+                                        .frame(width: 83, height: 83)
                                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                         .overlay(
                                             Circle()
@@ -259,18 +255,15 @@ struct DrawView: View {
                 CustomAlertEmpty(shown: $empty)
             }
         }
-        .background(content: {
-            
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
             Color("DrawBackground")
                 .ignoresSafeArea()
-                .scaledToFill()
-
             Image("padraoPortrait")
                 .resizable()
-                .ignoresSafeArea()
                 .scaledToFit()
-            
-        })
+                .ignoresSafeArea()
+        }
         .alert(alertMessage, isPresented: $showAlert) {
             Button("Ok", role: .cancel) {
                 self.timerRunning = true
