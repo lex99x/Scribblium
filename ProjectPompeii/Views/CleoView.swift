@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ClioView: View {
+struct CleoView: View {
+    
+    @Binding var screenToShow: Screen
 
     var body: some View {
         VStack (spacing: 20){
@@ -43,7 +45,9 @@ struct ClioView: View {
                 HStack (spacing: 172){
                     VStack {
                         Button(action: {
-                            
+                            withAnimation {
+                                screenToShow = .home
+                            }
                         }) {
                             ZStack {
                                 Circle()
@@ -65,7 +69,9 @@ struct ClioView: View {
                     
                     VStack {
                         Button(action: {
-                            
+                            withAnimation {
+                                screenToShow = .canvas
+                            }
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
@@ -105,10 +111,9 @@ struct ClioView: View {
     }
 }
 
-struct ClioView_Previews: PreviewProvider {
-    static var previews: some View {
-        ClioView()
-            .preferredColorScheme(.light)
-            
-    }
-}
+//struct CleoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CleoView()
+//            .preferredColorScheme(.light)
+//    }
+//}
