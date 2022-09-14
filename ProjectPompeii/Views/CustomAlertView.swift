@@ -53,7 +53,7 @@ struct CustomAlertTimeUp: View {
                 .font(.custom("Rubik-SemiBold", size: 17))
                 .padding([.vertical], 12)
                 .foregroundColor(Color("TertiaryColor-1"))
-            Text("Your scribbliums have been counted!")
+            Text("Your scribbliuns have been counted!")
                 .font(.custom("Rubik-Regular", size: 13))
                 .foregroundColor(Color("TertiaryColor-1"))
                 .multilineTextAlignment(.center)
