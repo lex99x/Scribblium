@@ -246,10 +246,10 @@ struct DrawView: View {
             }
             .statusBar(hidden: true)
             if timeup {
-                CustomAlertTimeUp(shown: $timeup, screenToShow: $screenToShow)
+                CustomAlertTimesUp(shown: $timeup, screenToShow: $screenToShow)
             }
             if confirme {
-                CustomAlertView(shown: $confirme)
+                CustomAlertOops(shown: $confirme)
             }
             if empty {
                 CustomAlertEmpty(shown: $empty)

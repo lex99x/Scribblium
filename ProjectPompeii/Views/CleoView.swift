@@ -107,7 +107,7 @@ struct CleoView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             )
-            .statusBarHidden(true)
+//            .statusBarHidden(true)
     }
 }
 

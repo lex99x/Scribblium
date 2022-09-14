@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct CustomAlertView: View {
+struct CustomAlertOops: View {
     
     @Binding var shown: Bool
-    //@State private var info = [AlertModel]()
     
     var body: some View {
         VStack {
@@ -18,7 +17,7 @@ struct CustomAlertView: View {
                 .font(.custom("Rubik-SemiBold", size: 17))
                 .padding([.vertical], 12)
                 .foregroundColor(Color("TertiaryColor-1"))
-            Text("This is not the instructed drawing. Try again!")
+            Text("That's not the instructed drawing, try again, please!")
                 .fixedSize(horizontal: false, vertical: true)
                 .font(.custom("Rubik-Regular", size: 13))
                 .foregroundColor(Color("TertiaryColor-1"))
@@ -41,19 +40,18 @@ struct CustomAlertView: View {
     }
 }
 
-struct CustomAlertTimeUp: View {
+struct CustomAlertTimesUp: View {
     
     @Binding var shown: Bool
     @Binding var screenToShow: Screen
-    //@State private var info = [AlertModel]()
     
     var body: some View {
         VStack {
-            Text("Your time's up!")
+            Text("Time's up!")
                 .font(.custom("Rubik-SemiBold", size: 17))
                 .padding([.vertical], 12)
                 .foregroundColor(Color("TertiaryColor-1"))
-            Text("Your scribbliuns have been counted!")
+            Text("Your scribbliuns have been successfully counted!")
                 .font(.custom("Rubik-Regular", size: 13))
                 .foregroundColor(Color("TertiaryColor-1"))
                 .multilineTextAlignment(.center)
@@ -81,11 +79,10 @@ struct CustomAlertTimeUp: View {
 struct CustomAlertBluetooth: View {
     
     @Binding var shown: Bool
-    //@State private var info = [AlertModel]()
     
     var body: some View {
         VStack {
-            Text("NOOOOOO")
+            Text("NOOOOOO...")
                 .font(.custom("Rubik-SemiBold", size: 17))
                 .padding([.vertical], 12)
                 .foregroundColor(Color("TertiaryColor-1"))
@@ -114,7 +111,6 @@ struct CustomAlertBluetooth: View {
 struct CustomAlertEmpty: View {
     
     @Binding var shown: Bool
-    //@State private var info = [AlertModel]()
     
     var body: some View {
         VStack {
@@ -178,6 +174,10 @@ struct CustomAlertTutorial: View {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlertView(shown: .constant(false))
+        CustomAlertOops(shown: .constant(false))
+        CustomAlertTimesUp(shown: .constant(false), screenToShow: .constant(.cleo))
+        CustomAlertBluetooth(shown: .constant(false))
+        CustomAlertEmpty(shown: .constant(false))
+        CustomAlertTutorial(shown: .constant(false))
     }
 }

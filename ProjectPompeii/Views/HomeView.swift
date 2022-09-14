@@ -131,7 +131,7 @@ struct HomeView: View {
             .offset(y: -100)
             
             if shown {
-                CustomAlertView(shown: $shown)
+                CustomAlertBluetooth(shown: $shown)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -152,7 +152,7 @@ struct QRCodeView: View {
             }
             
             if shown {
-                CustomAlertView(shown: $shown)
+                CustomAlertOops(shown: $shown)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

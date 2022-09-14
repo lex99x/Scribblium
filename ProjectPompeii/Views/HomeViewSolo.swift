@@ -10,8 +10,10 @@ import SwiftUI
 struct HomeViewSolo: View {
     
     @Binding var screenToShow: Screen
+    
     @State var showTutorial = false
-        
+    @State private var showCredits = false
+    
     var body: some View {
         
         ZStack {
@@ -20,26 +22,23 @@ struct HomeViewSolo: View {
                 
                 HStack {
                     
-                    Button(action: { print("Sound button pressed") }) {
-                        
-                        Circle()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(Color("Contorno"))
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
-                            )
-                            .overlay(Image("sound on").resizable().frame(width: 20, height: 20))
-                        
-                    }
+//                    Button(action: { print("Sound button pressed") }) {
+//
+//                        Circle()
+//                            .frame(width: 60, height: 60)
+//                            .foregroundColor(Color("Contorno"))
+//                            .overlay(
+//                                Circle()
+//                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
+//                            )
+//                            .overlay(Image("sound on").resizable().frame(width: 20, height: 20))
+//
+//                    }
                     
                     Spacer()
                     
                     Button(action: {
-                        
-                        print("Tutorial button pressed")
                         showTutorial.toggle()
-                        
                     }) {
                         
                         Circle()
@@ -53,7 +52,9 @@ struct HomeViewSolo: View {
                         
                     }
                     
-                    Button(action: { print("Credits button pressed") }) {
+                    Button(action: {
+                        showCredits.toggle()
+                    }) {
                         
                         Circle()
                             .frame(width: 60, height: 60)
@@ -64,6 +65,9 @@ struct HomeViewSolo: View {
                             )
                             .overlay(Image("iconlicense").resizable().frame(width: 21, height: 22))
                         
+                    }
+                    .sheet(isPresented: $showCredits){
+                        CreditsView()
                     }
                     
                 }
