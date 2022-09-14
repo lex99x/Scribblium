@@ -11,6 +11,7 @@
 		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
 		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
 		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
+		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
 		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
 		17D5D4DF28B8F3A1004DC247 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
 		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
@@ -51,6 +52,8 @@
 		1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
+		179A103228D210A0009FB6E8 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 				BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */,
 				17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */,
 				17D84C0928D195830055199F /* HomeViewSolo.swift */,
+				179A103228D210A0009FB6E8 /* CreditsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +154,7 @@
 				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
 				17D84C0528D1889A0055199F /* fantasia.mp3 */,
 				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
+				179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */,
 				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
 				BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */,
 				BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */,
@@ -281,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */,
+				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
 				1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */,
 				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
