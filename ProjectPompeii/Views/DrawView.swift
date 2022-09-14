@@ -35,8 +35,9 @@ struct DrawView: View {
     
     @State private var disableButtons = false
     
-    var scores: Array<Int> = Array()
-    
+    //var scores: Array<Int> = Array()
+    @State private var scores: [Int] = []
+ 
     var body: some View {
         ZStack {
             
@@ -205,6 +206,7 @@ struct DrawView: View {
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
                                     
+                                    scores.append(maxTime)
                                 } else {
 //                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
 //                                    self.showAlert = true
@@ -220,6 +222,11 @@ struct DrawView: View {
                             
                             //drawing = [Line]()
                         }) {
+//                            ForEach(scores, id: \.self) {
+//                                            Text("\($0)")
+//                                        }
+//                            Text("\(MatchModel.calculateScore(timings: scores))")
+                            
                             ZStack(alignment: .center){
                                     Circle()
                                     .frame(width: UIScreen.main.bounds.width - 307, height: UIScreen.main.bounds.height - 761)

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ClioView: View {
+    
+    @State private var scores: [Int] = []
 
     var body: some View {
         VStack (spacing: 20){
@@ -26,7 +28,7 @@ struct ClioView: View {
                             Circle()
                             .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
                     
-                    Text("50")
+                    Text("\(MatchModel.calculateScore(timings: scores))")
                         .font(.custom("Rubik-Black", size: 32))
                         .foregroundColor(.white)
                 }
