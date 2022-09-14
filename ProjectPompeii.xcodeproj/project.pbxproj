@@ -21,10 +21,11 @@
 		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
 		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
 		17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */; };
-		17D84C0628D1889A0055199F /* Fantasia Fantasia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0528D1889A0055199F /* Fantasia Fantasia.mp3 */; };
 		17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0928D195830055199F /* HomeViewSolo.swift */; };
+		17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */; };
+		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
+		17D84C1028D1DA800055199F /* fantasia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0528D1889A0055199F /* fantasia.mp3 */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
-		17F3A44528ABC270002E9047 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44428ABC270002E9047 /* ContentView.swift */; };
 		17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
 		17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* Preview Assets.xcassets */; };
 		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
@@ -42,7 +43,7 @@
 		BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BDC46CF628C0EA5100439743 /* CodeScanner */; };
 		BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */; };
 		BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */; };
-		BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* ClioView.swift */; };
+		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,11 +60,12 @@
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
 		17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
-		17D84C0528D1889A0055199F /* Fantasia Fantasia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Fantasia Fantasia.mp3"; sourceTree = "<group>"; };
+		17D84C0528D1889A0055199F /* fantasia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fantasia.mp3; sourceTree = "<group>"; };
 		17D84C0928D195830055199F /* HomeViewSolo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSolo.swift; sourceTree = "<group>"; };
+		17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		17D84C0D28D1C1F80055199F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
-		17F3A44428ABC270002E9047 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17F3A44628ABC271002E9047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F3A44928ABC271002E9047 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17F3A44B28ABC271002E9047 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		BDC46CF328C0E02500439743 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
-		BDDD882428B7F3D4005133A7 /* ClioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClioView.swift; sourceTree = "<group>"; };
+		BDDD882428B7F3D4005133A7 /* CleoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +116,10 @@
 		1714CB8228ABD6120089D1B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				17F3A44428ABC270002E9047 /* ContentView.swift */,
+				17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */,
+				17D84C0D28D1C1F80055199F /* ContentView.swift */,
 				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
-				BDDD882428B7F3D4005133A7 /* ClioView.swift */,
+				BDDD882428B7F3D4005133A7 /* CleoView.swift */,
 				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
 				1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */,
 				BD8B57FF28CB843800339F7B /* CustomAlertView.swift */,
@@ -145,7 +148,7 @@
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
 				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
-				17D84C0528D1889A0055199F /* Fantasia Fantasia.mp3 */,
+				17D84C0528D1889A0055199F /* fantasia.mp3 */,
 				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
 				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
 				BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */,
@@ -258,11 +261,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */,
 				17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */,
-				17D84C0628D1889A0055199F /* Fantasia Fantasia.mp3 in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
+				17D84C1028D1DA800055199F /* fantasia.mp3 in Resources */,
 				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
 				17F3A44728ABC271002E9047 /* Assets.xcassets in Resources */,
 				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
@@ -277,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */,
+				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
 				1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */,
 				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
 				BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */,
@@ -286,14 +291,13 @@
 				BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */,
 				1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */,
 				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
-				BDDD882528B7F3D4005133A7 /* ClioView.swift in Sources */,
+				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
 				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
 				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
 				BD8B580228CB8F1A00339F7B /* AlertModel.swift in Sources */,
 				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
-				17F3A44528ABC270002E9047 /* ContentView.swift in Sources */,
 				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
@@ -441,6 +445,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -477,6 +482,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

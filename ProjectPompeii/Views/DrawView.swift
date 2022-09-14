@@ -12,6 +12,8 @@ struct DrawView: View {
 //    @Environment (\.verticalSizeClass) var verticalSizeClass
 //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
+    @Binding var screenToShow: Screen
+    
     @State var timeup = false
     @State var confirme = false
     @State var empty = false
@@ -248,7 +250,7 @@ struct DrawView: View {
             }
             .statusBar(hidden: true)
             if timeup {
-                CustomAlertTimeUp(shown: $timeup)
+                CustomAlertTimeUp(shown: $timeup, screenToShow: $screenToShow)
             }
             if confirme {
                 CustomAlertView(shown: $confirme)
@@ -278,12 +280,12 @@ struct DrawView: View {
     }
 }
 
-struct DrawView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            DrawView()
-                .previewInterfaceOrientation(.portrait)
-            
-        }
-    }
-}
+//struct DrawView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            DrawView()
+//                .previewInterfaceOrientation(.portrait)
+//
+//        }
+//    }
+//}
