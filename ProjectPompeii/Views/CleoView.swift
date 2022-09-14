@@ -9,17 +9,18 @@ import SwiftUI
 
 struct CleoView: View {
     
-    @State private var scores: [Int] = []
+    @State var scores: [Int] = []
     @Binding var screenToShow: Screen
 
     var body: some View {
+        
         VStack (spacing: 20){
                 Text("Hi, I'm CLE/O and I brought your score!")
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("SecondaryColor-1"))
                     .frame(width: 227, height: 114)
-                    .padding([.top], 50)
+                    //.padding([.top], 50)
             
                 ZStack {
                     Circle()
@@ -29,7 +30,7 @@ struct CleoView: View {
                             Circle()
                             .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
                     
-                    Text("\(MatchModel.calculateScore(timings: scores))")
+                    Text("0")
                         .font(.custom("Rubik-Black", size: 32))
                         .foregroundColor(.white)
                 }
@@ -92,19 +93,17 @@ struct CleoView: View {
                             .multilineTextAlignment(.center)
                     }
                 }
-                .padding([.bottom], 28)
+                //.padding([.bottom], 28)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .ignoresSafeArea()
-            //.background(Color("launchScreenBackground").ignoresSafeArea().scaledToFill())
-            .background(
+            .background{
                 
+                Color("launchScreenBackground")
+                    .ignoresSafeArea()
                 Image("Cleofelizlightmodeolhosabertos")
                     .resizable()
-                    .ignoresSafeArea()
                     .scaledToFill()
-                    .background((Color("launchScreenBackground")))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
                 
             )
 //            .statusBarHidden(true)
