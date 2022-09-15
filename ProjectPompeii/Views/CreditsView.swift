@@ -94,7 +94,7 @@ struct CreditsView: View {
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(Color("SecondaryColor-1"))
                 
-                Text("Copyright 2020 The Rubik Filtered Project Authors\n(https://https://github.com/NaN-xyz/Rubik-Filtered)\nThis Font Software is licensed under the\nSIL Open Font License, Version 1.1.\nWhich is available with a FAQ at:\nhttp://scripts.sil.org/OFL")
+                Text("Copyright 2020 The Rubik Filtered Project Authors\n(https://github.com/NaN-xyz/Rubik-Filtered)\nThis Font Software is licensed under the\nSIL Open Font License, Version 1.1.\nWhich is available with a FAQ at:\nhttp://scripts.sil.org/OFL")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Regular", size: 17))
                     .foregroundColor(Color("SecondaryColor-1"))
@@ -140,22 +140,8 @@ struct CreditsView: View {
     
 }
 
-//struct MainView: View {
-//
-//    @State private var showSheet = false
-//
-//    var body: some View {
-//        Button("Show Sheet") {
-//            showSheet.toggle()
-//        }
-//        .sheet(isPresented: $showSheet) {
-//            CreditsView()
-//        }
-//    }
-//}
-
-//struct CreditsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CreditsView()
-//    }
-//}
+struct CreditsView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreditsView()
+    }
+}
