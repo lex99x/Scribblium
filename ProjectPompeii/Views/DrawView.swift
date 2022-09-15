@@ -43,7 +43,7 @@ struct DrawView: View {
     var body: some View {
         ZStack {
             
-            VStack {
+            VStack (spacing: 0.0){
                 
                 HStack {
                     
