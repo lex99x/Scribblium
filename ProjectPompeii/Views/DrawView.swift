@@ -17,7 +17,7 @@ struct DrawView: View {
     @State var timeup = false
     @State var confirme = false
     @State var empty = false
-    @State var maxTime = 10
+    @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
