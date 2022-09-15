@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DrawView: View {
     
-//    @Environment (\.verticalSizeClass) var verticalSizeClass
-//    @Environment (\.horizontalSizeClass) var horizontalSizeClass
+    //    @Environment (\.verticalSizeClass) var verticalSizeClass
+    //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
     @Binding var navigationBond: NavigationBond
     
@@ -21,13 +21,13 @@ struct DrawView: View {
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
-
+    
     //var isLandscape: Bool { verticalSizeClass == .compact }
     
     @State private var drawing = [Line]()
     @State private var suggestion = DrawingModel.getRandomDrawing()
     @State private var feedback = ""
-        
+    
     @State private var prediction = ""
     @State private var predictionConfidence = 0
     @State private var showAlert = false
@@ -43,7 +43,7 @@ struct DrawView: View {
     var body: some View {
         ZStack {
             
-            VStack (spacing: 0){
+            VStack {
                 
                 HStack {
                     
@@ -54,68 +54,63 @@ struct DrawView: View {
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                         .frame(width: 217, height: 43)
                     
-                        ZStack {
-                            
-                            Circle()
-                                .frame(width: 83, height: 83)
-                                .foregroundColor(Color("TimerBackground"))
-                                .overlay(
-                                    Circle()
-                                        .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
-                            
-                            Text("\(maxTime)")
-                                .font(.custom("Rubik-Black", size: 32))
-                                .foregroundColor(.white)
-                                .onReceive(timer) { _ in
-                                    if (maxTime > 0 && timerRunning) {
-                                        maxTime -= 1
-                                    }
-                                    else if (maxTime == 0) {
-                                        
-                                        timeup = true
-                                        //self.alertMessage = "Time's up!!!"
-                                        //self.showAlert = true
-//                                        self.maxTime = 30
-//                                        self.timerRunning = false
-                                        timer.upstream.connect().cancel()
-                                        self.disableButtons = true
-                                    }
+                    ZStack {
+                        
+                        Circle()
+                            .frame(width: 83, height: 83)
+                            .foregroundColor(Color("TimerBackground"))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                        
+                        Text("\(maxTime)")
+                            .font(.custom("Rubik-Black", size: 32))
+                            .foregroundColor(.white)
+                            .onReceive(timer) { _ in
+                                if (maxTime > 0 && timerRunning) {
+                                    maxTime -= 1
                                 }
-                        }
-                        .padding([.bottom], 9)
-                                            
+                                else if (maxTime == 0) {
+                                    
+                                    timeup = true
+                                    //self.alertMessage = "Time's up!!!"
+                                    //self.showAlert = true
+                                    //                                        self.maxTime = 30
+                                    //                                        self.timerRunning = false
+                                    timer.upstream.connect().cancel()
+                                    self.disableButtons = true
+                                }
+                            }
+                    }
+                    //.padding([.bottom], 9)
+                    
                 }
                 ZStack(alignment: .center) {
                     
-                    RoundedRectangle(cornerRadius: 31)
+                    Image("MolduraCanvas")
+                        .resizable()
                         .frame(width: 338, height: 501)
-                        .foregroundColor(Color("SecondaryColor-1"))
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
-                        
-//                    Image("MolduraCanvas")
-//                        .resizable()
-//                        .frame(width: UIScreen.main.bounds.width - 52, height: UIScreen.main.bounds.height - 343)
-//                        .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                     
                     Canvas { context, size in
                         for line in drawing {
                             var path  = Path()
                             path.addLines(line.points)
-                                
+                            
                             context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-
+                            
                         }
                     }
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                                let newPoint = value.location
-                                if value.translation.width + value.translation.height == 0 {
-                                    drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
-                                } else {
-                                    let index = drawing.count - 1
-                                    drawing[index].points.append(newPoint)
-                                }
-                                                            
-                                drawingModel.add(point: value.location)
+                        let newPoint = value.location
+                        if value.translation.width + value.translation.height == 0 {
+                            drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
+                        } else {
+                            let index = drawing.count - 1
+                            drawing[index].points.append(newPoint)
+                        }
+                        
+                        drawingModel.add(point: value.location)
                         
                     })
                         .onEnded({ value in
@@ -140,8 +135,8 @@ struct DrawView: View {
                         })
                     ).disabled(disableButtons)
                         .frame(width: 318, height: 482.51)
-                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
-                    .background(Color("Contorno"))
+                        .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
+                        .background(Color("Contorno"))
                     //padrão em todos os modos
                     .cornerRadius(31)
 
@@ -157,7 +152,7 @@ struct DrawView: View {
                         }
                     }
                 }
-                    
+                
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
@@ -170,16 +165,16 @@ struct DrawView: View {
                             drawingModel.drawing = []
                             feedback = ""
                         }) {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 83, height: 83)
-                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                        .overlay(
-                                            Circle()
-                                                .strokeBorder(Color("Contorno"), lineWidth: 3))
-                                    Image("lixeira fechada")
-                                }
-                    }.disabled(disableButtons)
+                            ZStack {
+                                Circle()
+                                    .frame(width: 83, height: 83)
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                Image("lixeira fechada")
+                            }
+                        }.disabled(disableButtons)
                         
                         Text("delete")
                             .foregroundColor(.white)
@@ -190,13 +185,13 @@ struct DrawView: View {
                     VStack {
                         Button(action: {
                             if(!drawing.isEmpty){
-    //                            suggestion = DrawingModel.getRandomDrawing()
+                                //                            suggestion = DrawingModel.getRandomDrawing()
                                 if self.prediction == self.suggestion {
-//                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
-//                                    self.showAlert = true
-//    //                                timer.upstream.connect().cancel()
-//                                    self.timerRunning = false
-//                                    self.maxTime = 30
+                                    //                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
+                                    //                                    self.showAlert = true
+                                    //    //                                timer.upstream.connect().cancel()
+                                    //                                    self.timerRunning = false
+                                    //                                    self.maxTime = 30
                                     feedback = ""
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
@@ -205,36 +200,37 @@ struct DrawView: View {
                                     navigationBond.setData(score)
 //                                    scores.append(maxTime)
                                 } else {
-//                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
-//                                    self.showAlert = true
+                                    //                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
+                                    //                                    self.showAlert = true
                                     confirme = true
                                 }
                                 
                             } else {
                                 print("Desenho vazio!")
-//                                self.alertMessage = "You can't proceed with an empty drawing!"
-//                                self.showAlert = true
+                                //                                self.alertMessage = "You can't proceed with an empty drawing!"
+                                //                                self.showAlert = true
                                 empty = true
                             }
                             
                             //drawing = [Line]()
                         }) {
-//                            ForEach(scores, id: \.self) {
-//                                            Text("\($0)")
-//                                        }
-//                            Text("\(MatchModel.calculateScore(timings: scores))")
+                            //                            ForEach(scores, id: \.self) {
+                            //                                            Text("\($0)")
+                            //                                        }
+                            //                            Text("\(MatchModel.calculateScore(timings: scores))")
+                            //score = MatchModel.calculateScore(timings: scores)
                             
                             ZStack(alignment: .center){
-                                    Circle()
-                                        .frame(width: 83, height: 83)
-                                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                                        .overlay(
-                                            Circle()
-                                                .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                            )
-                                    Image("enviar")
-                                }
-                    }.disabled(disableButtons)
+                                Circle()
+                                    .frame(width: 83, height: 83)
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                    )
+                                Image("enviar")
+                            }
+                        }.disabled(disableButtons)
                         
                         Text("submit")
                             .foregroundColor(.white)

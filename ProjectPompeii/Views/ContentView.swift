@@ -12,7 +12,7 @@ struct ContentView: View {
 
     @State var navigationBond = NavigationBond(destination: .home)
 //    @State var audioPlayer: AVAudioPlayer!
-    
+
     var body: some View {
         
         switch navigationBond.getDestination() {
@@ -30,9 +30,9 @@ struct ContentView: View {
                 .transition(.opacity)
             
         }
-        
+
     }
-    
+
 }
 
 //struct ContentView_Previews: PreviewProvider {

@@ -12,13 +12,14 @@ struct CleoView: View {
     @Binding var navigationBond: NavigationBond
 
     var body: some View {
+        
         VStack (spacing: 20){
                 Text("Hi, I'm CLE/O and I brought your score!")
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color("SecondaryColor-1"))
                     .frame(width: 227, height: 114)
-                    .padding([.top], 50)
+                    //.padding([.top], 50)
             
                 ZStack {
                     Circle()
@@ -90,21 +91,19 @@ struct CleoView: View {
                             .multilineTextAlignment(.center)
                     }
                 }
-                .padding([.bottom], 28)
+                //.padding([.bottom], 28)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .ignoresSafeArea()
-            //.background(Color("launchScreenBackground").ignoresSafeArea().scaledToFill())
-            .background(
+            .background{
                 
+                Color("launchScreenBackground")
+                    .ignoresSafeArea()
                 Image("Cleofelizlightmodeolhosabertos")
                     .resizable()
-                    .ignoresSafeArea()
                     .scaledToFill()
-                    .background((Color("launchScreenBackground")))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
                 
-            )
+            }
 //            .statusBarHidden(true)
     }
 }
