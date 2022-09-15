@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct CleoView: View {
-    
-    @State private var scores: [Int] = []
-    @Binding var screenToShow: Screen
+        
+    @Binding var navigationBond: NavigationBond
 
     var body: some View {
         VStack (spacing: 20){
@@ -29,7 +28,7 @@ struct CleoView: View {
                             Circle()
                             .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
                     
-                    Text("\(MatchModel.calculateScore(timings: scores))")
+                    Text(String(navigationBond.getData() as! Int))
                         .font(.custom("Rubik-Black", size: 32))
                         .foregroundColor(.white)
                 }
@@ -47,7 +46,7 @@ struct CleoView: View {
                     VStack {
                         Button(action: {
                             withAnimation {
-                                screenToShow = .home
+                                navigationBond.setDestination(.home)
                             }
                         }) {
                             ZStack {
@@ -67,11 +66,10 @@ struct CleoView: View {
                             .multilineTextAlignment(.center)
                     }
                     
-                    
                     VStack {
                         Button(action: {
                             withAnimation {
-                                screenToShow = .canvas
+                                navigationBond.setDestination(.canvas)
                             }
                         }) {
                             ZStack(alignment: .center){

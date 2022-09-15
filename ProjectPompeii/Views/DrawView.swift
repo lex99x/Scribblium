@@ -12,12 +12,12 @@ struct DrawView: View {
 //    @Environment (\.verticalSizeClass) var verticalSizeClass
 //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
-    @Binding var screenToShow: Screen
+    @Binding var navigationBond: NavigationBond
     
     @State var timeup = false
     @State var confirme = false
     @State var empty = false
-    @State var maxTime = 30
+    @State var maxTime = 10
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
@@ -37,8 +37,8 @@ struct DrawView: View {
     
     @State private var disableButtons = false
     
-    //var scores: Array<Int> = Array()
-    @State private var scores: [Int] = []
+//    @State private var scores: [Int] = []
+    @State var score = 0
  
     var body: some View {
         ZStack {
@@ -123,13 +123,12 @@ struct DrawView: View {
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
                             
                             for prediction in predictions {
-                                print(prediction)
+                                print(prediction.classification, String(prediction.confidence * 100) + " %")
                             }
                             print("\n")
                             
                             if !predictions.isEmpty {
                                 self.prediction = predictions.first!.classification
-                                self.predictionConfidence = Int(predictions.first!.confidence * 100)
                                 
                                 if self.prediction != suggestion {
                                     feedback = "That looks like a " + self.prediction
@@ -145,7 +144,6 @@ struct DrawView: View {
                     .background(Color("Contorno"))
                     //padrão em todos os modos
                     .cornerRadius(31)
-
 
                     VStack (spacing: 317.06){
                         
@@ -183,12 +181,11 @@ struct DrawView: View {
                                 }
                     }.disabled(disableButtons)
                         
-                        Text("erase")
+                        Text("delete")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                     }
-                    
                     
                     VStack {
                         Button(action: {
@@ -204,7 +201,9 @@ struct DrawView: View {
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
                                     
-                                    scores.append(maxTime)
+                                    score += maxTime
+                                    navigationBond.setData(score)
+//                                    scores.append(maxTime)
                                 } else {
 //                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
 //                                    self.showAlert = true
@@ -237,7 +236,7 @@ struct DrawView: View {
                                 }
                     }.disabled(disableButtons)
                         
-                        Text("confirm")
+                        Text("submit")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
@@ -246,7 +245,7 @@ struct DrawView: View {
             }
             .statusBar(hidden: true)
             if timeup {
-                CustomAlertTimesUp(shown: $timeup, screenToShow: $screenToShow)
+                CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond)
             }
             if confirme {
                 CustomAlertOops(shown: $confirme)
@@ -254,6 +253,9 @@ struct DrawView: View {
             if empty {
                 CustomAlertEmpty(shown: $empty)
             }
+        }
+        .onAppear() {
+            navigationBond.setData(0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {

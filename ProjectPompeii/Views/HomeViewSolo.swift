@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeViewSolo: View {
     
-    @Binding var screenToShow: Screen
+    @Binding var navigationBond: NavigationBond
     
     @State var showTutorial = false
     @State private var showCredits = false
@@ -89,9 +89,9 @@ struct HomeViewSolo: View {
                     Button(action: {
                         
                         print("Start button pressed")
-                        
+    
                         withAnimation {
-                            screenToShow = .canvas
+                            navigationBond.setDestination(.canvas)
                         }
                         
                     }) {

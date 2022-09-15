@@ -43,7 +43,7 @@ struct CustomAlertOops: View {
 struct CustomAlertTimesUp: View {
     
     @Binding var shown: Bool
-    @Binding var screenToShow: Screen
+    @Binding var navigationBond: NavigationBond
     
     var body: some View {
         VStack {
@@ -59,8 +59,9 @@ struct CustomAlertTimesUp: View {
             Divider()
             Button {
                 shown.toggle()
+                print(navigationBond.getData() as! Int)
                 withAnimation {
-                    screenToShow = .cleo
+                    navigationBond.setDestination(.cleo)
                 }
             } label: {
                 Text("Ok")
@@ -175,7 +176,10 @@ struct CustomAlertTutorial: View {
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
         CustomAlertOops(shown: .constant(false))
-        CustomAlertTimesUp(shown: .constant(false), screenToShow: .constant(.cleo))
+        CustomAlertTimesUp(
+            shown: .constant(false),
+            navigationBond: .constant(NavigationBond(destination: .cleo))
+        )
         CustomAlertBluetooth(shown: .constant(false))
         CustomAlertEmpty(shown: .constant(false))
         CustomAlertTutorial(shown: .constant(false))

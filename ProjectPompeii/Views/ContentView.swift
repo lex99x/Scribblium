@@ -8,62 +8,51 @@
 import SwiftUI
 //import AVKit
 
-enum Screen {
-    
-    case home, canvas, cleo
-    
-}
-
 struct ContentView: View {
-    
-    @State var screenToShow: Screen
+
+    @State var navigationBond = NavigationBond(destination: .home)
 //    @State var audioPlayer: AVAudioPlayer!
     
     var body: some View {
         
-        switch screenToShow {
+        switch navigationBond.getDestination() {
             
         case .home:
-            HomeViewSolo(screenToShow: $screenToShow)
+            HomeViewSolo(navigationBond: $navigationBond)
                 .transition(.opacity)
-//                .onAppear() {
-//                    let soundPath = Bundle.main.path(forResource: "fantasia", ofType: ".mp3")
-//                    let soundUrl = URL(fileURLWithPath: soundPath!)
-//                    audioPlayer = try! AVAudioPlayer(contentsOf: soundUrl)
-//                    audioPlayer.numberOfLoops = 1
-//                    audioPlayer.prepareToPlay()
-//                    audioPlayer.play()
-//                }
+            
         case .canvas:
-            DrawView(screenToShow: $screenToShow)
+            DrawView(navigationBond: $navigationBond)
                 .transition(.opacity)
+            
         case .cleo:
-            CleoView(screenToShow: $screenToShow)
+            CleoView(navigationBond: $navigationBond)
                 .transition(.opacity)
+            
         }
         
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let previewScreen: Screen = .cleo
-        ContentView(screenToShow: previewScreen)
-            .preferredColorScheme(.dark)
-        ContentView(screenToShow: previewScreen)
-            .preferredColorScheme(.light)
-        ContentView(screenToShow: previewScreen)
-            .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.dark)
-        ContentView(screenToShow: previewScreen)
-            .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.light)
-        ContentView(screenToShow: previewScreen)
-            .previewDevice("iPhone 11")
-            .preferredColorScheme(.dark)
-        ContentView(screenToShow: previewScreen)
-            .previewDevice("iPhone 11")
-            .preferredColorScheme(.light)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let previewScreen: Screen = .cleo
+//        ContentView(screenToShow: previewScreen)
+//            .preferredColorScheme(.dark)
+//        ContentView(screenToShow: previewScreen)
+//            .preferredColorScheme(.light)
+//        ContentView(screenToShow: previewScreen)
+//            .previewDevice("iPhone 13 Pro Max")
+//            .preferredColorScheme(.dark)
+//        ContentView(screenToShow: previewScreen)
+//            .previewDevice("iPhone 13 Pro Max")
+//            .preferredColorScheme(.light)
+//        ContentView(screenToShow: previewScreen)
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.dark)
+//        ContentView(screenToShow: previewScreen)
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.light)
+//    }
+//}
