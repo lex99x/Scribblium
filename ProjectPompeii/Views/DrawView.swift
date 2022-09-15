@@ -82,7 +82,7 @@ struct DrawView: View {
                                 }
                             }
                     }
-                    //.padding([.bottom], 9)
+                    .padding([.bottom], 9)
                     
                 }
                 ZStack(alignment: .center) {
