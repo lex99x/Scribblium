@@ -451,8 +451,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scribblium;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Project Pompeii needs to use your phone’s camera to scan some QR codes";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -488,8 +486,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scribblium;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Project Pompeii needs to use your phone’s camera to scan some QR codes";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Project Pompeii needs to use your phone’s data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
