@@ -10,7 +10,8 @@ import SwiftUI
 struct CustomAlertOops: View {
     
     @Binding var shown: Bool
-    
+    @Binding var isShowingAlert: Bool
+
     var body: some View {
         VStack {
             Text("Oops! :(")
@@ -26,6 +27,7 @@ struct CustomAlertOops: View {
             Divider()
             Button {
                 shown.toggle()
+                isShowingAlert = false
             } label: {
                 Text("Ok")
                     .font(.custom("Rubik-SemiBold", size: 17))
@@ -44,6 +46,7 @@ struct CustomAlertTimesUp: View {
     
     @Binding var shown: Bool
     @Binding var navigationBond: NavigationBond
+    @Binding var isShowingAlert: Bool
     
     var body: some View {
         VStack {
@@ -59,6 +62,7 @@ struct CustomAlertTimesUp: View {
             Divider()
             Button {
                 shown.toggle()
+                isShowingAlert = false
                 print(navigationBond.getData() as! Int)
                 withAnimation {
                     navigationBond.setDestination(.cleo)
@@ -112,7 +116,8 @@ struct CustomAlertBluetooth: View {
 struct CustomAlertEmpty: View {
     
     @Binding var shown: Bool
-    
+    @Binding var isShowingAlert: Bool
+
     var body: some View {
         VStack {
             Text("Oops!")
@@ -127,6 +132,7 @@ struct CustomAlertEmpty: View {
             Divider()
             Button {
                 shown.toggle()
+                isShowingAlert = false
             } label: {
                 Text("Ok")
                     .font(.custom("Rubik-SemiBold", size: 17))
@@ -175,13 +181,14 @@ struct CustomAlertTutorial: View {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlertOops(shown: .constant(false))
+        CustomAlertOops(shown: .constant(false), isShowingAlert: .constant(false))
         CustomAlertTimesUp(
             shown: .constant(false),
-            navigationBond: .constant(NavigationBond(destination: .cleo))
+            navigationBond: .constant(NavigationBond(destination: .cleo)),
+            isShowingAlert: .constant(false)
         )
         CustomAlertBluetooth(shown: .constant(false))
-        CustomAlertEmpty(shown: .constant(false))
+        CustomAlertEmpty(shown: .constant(false), isShowingAlert: .constant(false))
         CustomAlertTutorial(shown: .constant(false))
     }
 }

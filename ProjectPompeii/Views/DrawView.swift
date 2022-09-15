@@ -30,16 +30,18 @@ struct DrawView: View {
     
     @State private var prediction = ""
     @State private var predictionConfidence = 0
-    @State private var showAlert = false
+//    @State private var showAlert = false
     @State private var alertMessage = ""
     private let drawingModel = DrawingModel()
     private let drawingPredictor = DrawingPredictor()
     
     @State private var disableButtons = false
+    @State private var isShowingAlert = false
     
     @State var score = 0
     
     var body: some View {
+        
         ZStack {
             
             VStack (spacing: 0.0){
@@ -70,7 +72,7 @@ struct DrawView: View {
                                     maxTime -= 1
                                 }
                                 else if (maxTime == 0) {
-                                    
+                                    isShowingAlert = true
                                     timeup = true
                                     timer.upstream.connect().cancel()
                                     self.disableButtons = true
@@ -128,7 +130,7 @@ struct DrawView: View {
                                 }
                             }
                         })
-                    ).disabled(disableButtons)
+                    ).disabled(isShowingAlert)
                         .frame(width: 318, height: 482.51)
                         .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                         .background(Color("Contorno"))
@@ -152,13 +154,13 @@ struct DrawView: View {
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
                 
-                HStack (spacing: 142){
+                HStack(spacing: 142) {
                     
                     VStack {
                         Button(action: {
                             drawing = [Line]()
                             drawingModel.drawing = []
-                            feedback = ""
+                            feedback = "Go scribblium!"
                         }) {
                             ZStack {
                                 Circle()
@@ -169,8 +171,7 @@ struct DrawView: View {
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
                                 Image("lixeira fechada")
                             }
-                        }.disabled(disableButtons)
-                        
+                        }.disabled(isShowingAlert)
                         Text("delete")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
@@ -181,7 +182,6 @@ struct DrawView: View {
                         Button(action: {
                             if(!drawing.isEmpty){
                                 if self.prediction == self.suggestion {
-                                    self.maxTime = 30
                                     feedback = ""
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
@@ -190,17 +190,17 @@ struct DrawView: View {
                                     navigationBond.setData(score)
                                    
                                 } else {
-                                    self.showAlert = true
+//                                    self.showAlert = true
+                                    isShowingAlert = true
                                     confirme = true
                                 }
                                 
                             } else {
                                 print("Desenho vazio!")
+                                isShowingAlert = true
                                 empty = true
                             }
-                            
                         }) {
-                            
                             ZStack(alignment: .center){
                                 Circle()
                                     .frame(width: 83, height: 83)
@@ -211,7 +211,7 @@ struct DrawView: View {
                                     )
                                 Image("enviar")
                             }
-                        }.disabled(disableButtons)
+                        }.disabled(isShowingAlert)
                         
                         Text("submit")
                             .foregroundColor(.white)
@@ -222,13 +222,13 @@ struct DrawView: View {
             }
             .statusBar(hidden: true)
             if timeup {
-                CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond)
+                CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
             }
             if confirme {
-                CustomAlertOops(shown: $confirme)
+                CustomAlertOops(shown: $confirme, isShowingAlert: $isShowingAlert)
             }
             if empty {
-                CustomAlertEmpty(shown: $empty)
+                CustomAlertEmpty(shown: $empty, isShowingAlert: $isShowingAlert)
             }
             
         }
@@ -244,11 +244,11 @@ struct DrawView: View {
                 .scaledToFit()
                 .ignoresSafeArea()
         }
-        .alert(alertMessage, isPresented: $showAlert) {
-            Button("Ok", role: .cancel) {
-                self.timerRunning = true
-            }
-        }
+//        .alert(alertMessage, isPresented: $showAlert) {
+//            Button("Ok", role: .cancel) {
+//                self.timerRunning = true
+//            }
+//        }
         
     }
 }
