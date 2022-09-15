@@ -26,7 +26,7 @@ struct DrawView: View {
     
     @State private var drawing = [Line]()
     @State private var suggestion = DrawingModel.getRandomDrawing()
-    @State private var feedback = ""
+    @State private var feedback = "Go scribblium!"
     
     @State private var prediction = ""
     @State private var predictionConfidence = 0
