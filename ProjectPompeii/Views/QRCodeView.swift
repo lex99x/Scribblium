@@ -151,9 +151,9 @@ struct QRCodeView: View {
                 
             }
             
-            if shown {
-                CustomAlertOops(shown: $shown)
-            }
+//            if shown {
+//                CustomAlertOops(shown: $shown, isShowingAlert: )
+//            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
