@@ -37,9 +37,8 @@ struct DrawView: View {
     
     @State private var disableButtons = false
     
-//    @State private var scores: [Int] = []
     @State var score = 0
- 
+    
     var body: some View {
         ZStack {
             
@@ -73,10 +72,6 @@ struct DrawView: View {
                                 else if (maxTime == 0) {
                                     
                                     timeup = true
-                                    //self.alertMessage = "Time's up!!!"
-                                    //self.showAlert = true
-                                    //                                        self.maxTime = 30
-                                    //                                        self.timerRunning = false
                                     timer.upstream.connect().cancel()
                                     self.disableButtons = true
                                 }
@@ -138,8 +133,8 @@ struct DrawView: View {
                         .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                         .background(Color("Contorno"))
                     //padrão em todos os modos
-                    .cornerRadius(31)
-
+                        .cornerRadius(31)
+                    
                     VStack (spacing: 317.06){
                         
                         HStack (spacing: 152.18){
@@ -185,40 +180,26 @@ struct DrawView: View {
                     VStack {
                         Button(action: {
                             if(!drawing.isEmpty){
-                                //                            suggestion = DrawingModel.getRandomDrawing()
                                 if self.prediction == self.suggestion {
-                                    //                                    self.alertMessage = "Congratulations, that's " + String(predictionConfidence) + "% a " + suggestion + " and you made it in " + String(30 - maxTime) + " seconds!"
-                                    //                                    self.showAlert = true
-                                    //    //                                timer.upstream.connect().cancel()
-                                    //                                    self.timerRunning = false
-                                    //                                    self.maxTime = 30
+                                    self.maxTime = 30
                                     feedback = ""
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
                                     
                                     score += maxTime
                                     navigationBond.setData(score)
-//                                    scores.append(maxTime)
+                                   
                                 } else {
-                                    //                                    self.alertMessage = "Oops, that's not a " + suggestion + " :("
-                                    //                                    self.showAlert = true
+                                    self.showAlert = true
                                     confirme = true
                                 }
                                 
                             } else {
                                 print("Desenho vazio!")
-                                //                                self.alertMessage = "You can't proceed with an empty drawing!"
-                                //                                self.showAlert = true
                                 empty = true
                             }
                             
-                            //drawing = [Line]()
                         }) {
-                            //                            ForEach(scores, id: \.self) {
-                            //                                            Text("\($0)")
-                            //                                        }
-                            //                            Text("\(MatchModel.calculateScore(timings: scores))")
-                            //score = MatchModel.calculateScore(timings: scores)
                             
                             ZStack(alignment: .center){
                                 Circle()
@@ -249,6 +230,7 @@ struct DrawView: View {
             if empty {
                 CustomAlertEmpty(shown: $empty)
             }
+            
         }
         .onAppear() {
             navigationBond.setData(0)
