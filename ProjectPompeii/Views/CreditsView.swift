@@ -117,19 +117,19 @@ struct CreditsView: View {
             }
             .padding(.bottom)
             
-            VStack {
-            
-                Text("Sounds")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Bold", size: 17))
-                    .foregroundColor(Color("SecondaryColor-1"))
-                
-                Text("Fantasia Fantasia Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Regular", size: 17))
-                    .foregroundColor(Color("SecondaryColor-1"))
-                
-            }
+//            VStack {
+//
+//                Text("Sounds")
+//                    .multilineTextAlignment(.center)
+//                    .font(.custom("Rubik-Bold", size: 17))
+//                    .foregroundColor(Color("SecondaryColor-1"))
+//
+//                Text("Fantasia Fantasia Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/")
+//                    .multilineTextAlignment(.center)
+//                    .font(.custom("Rubik-Regular", size: 17))
+//                    .foregroundColor(Color("SecondaryColor-1"))
+//
+//            }
         
         }
         .padding()

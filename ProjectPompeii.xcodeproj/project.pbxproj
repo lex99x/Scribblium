@@ -27,7 +27,6 @@
 		17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0928D195830055199F /* HomeViewSolo.swift */; };
 		17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */; };
 		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
-		17D84C1028D1DA800055199F /* fantasia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0528D1889A0055199F /* fantasia.mp3 */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* Preview Assets.xcassets */; };
 		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
@@ -65,7 +64,6 @@
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
 		17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
-		17D84C0528D1889A0055199F /* fantasia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fantasia.mp3; sourceTree = "<group>"; };
 		17D84C0928D195830055199F /* HomeViewSolo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSolo.swift; sourceTree = "<group>"; };
 		17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17D84C0D28D1C1F80055199F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
 				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
-				17D84C0528D1889A0055199F /* fantasia.mp3 */,
 				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
 				179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */,
 				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
@@ -274,7 +271,6 @@
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
-				17D84C1028D1DA800055199F /* fantasia.mp3 in Resources */,
 				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
 				179A103928D35A10009FB6E8 /* Assets.xcassets in Resources */,
 				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
