@@ -41,7 +41,6 @@
 		BD8B580228CB8F1A00339F7B /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B580128CB8F1A00339F7B /* AlertModel.swift */; };
 		BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD95572C28B893EF00DFE639 /* PercentualModel.swift */; };
 		BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF328C0E02500439743 /* QRCodeView.swift */; };
-		BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BDC46CF628C0EA5100439743 /* CodeScanner */; };
 		BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */; };
 		BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */; };
 		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
@@ -94,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDC46CF728C0EA5100439743 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +217,6 @@
 			);
 			name = ProjectPompeii;
 			packageProductDependencies = (
-				BDC46CF628C0EA5100439743 /* CodeScanner */,
 			);
 			productName = ProjectPompeii;
 			productReference = 17F3A43F28ABC270002E9047 /* ProjectPompeii.app */;
@@ -250,7 +247,6 @@
 			);
 			mainGroup = 17F3A43628ABC270002E9047;
 			packageReferences = (
-				BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 17F3A44028ABC270002E9047 /* Products */;
 			projectDirPath = "";
@@ -463,6 +459,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.devacademymao.ProjectPompeii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -499,6 +498,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.devacademymao.ProjectPompeii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -527,25 +529,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/CodeScanner";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BDC46CF628C0EA5100439743 /* CodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BDC46CF528C0EA5100439743 /* XCRemoteSwiftPackageReference "CodeScanner" */;
-			productName = CodeScanner;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */ = {
