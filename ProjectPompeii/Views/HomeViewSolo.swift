@@ -123,9 +123,10 @@ struct HomeViewSolo: View {
                     .ignoresSafeArea()
                 Image("padraoPortrait")
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .ignoresSafeArea()
             }
+            .statusBarHidden(true)
             
             if showTutorial {
                 CustomAlertTutorial(shown: $showTutorial)

@@ -44,7 +44,7 @@ struct DrawView: View {
         
         ZStack {
             
-            VStack (spacing: 0.0){
+            VStack (){
                 
                 HStack {
                     
@@ -53,12 +53,15 @@ struct DrawView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        .frame(width: 217, height: 43)
+                        .padding([.leading], 26)
+                    
+                    Spacer()
                     
                     ZStack {
                         
                         Circle()
-                            .frame(width: 83, height: 83)
+                            .frame(maxWidth: 83, maxHeight: 83)
+                            //.scaledToFill()
                             .foregroundColor(Color("TimerBackground"))
                             .overlay(
                                 Circle()
@@ -66,6 +69,7 @@ struct DrawView: View {
                         
                         Text("\(maxTime)")
                             .font(.custom("Rubik-Black", size: 32))
+                            //.scaledToFill()
                             .foregroundColor(.white)
                             .onReceive(timer) { _ in
                                 if (maxTime > 0 && timerRunning) {
@@ -79,15 +83,23 @@ struct DrawView: View {
                                 }
                             }
                     }
-                    .padding([.bottom], 9)
+                    .padding([.trailing], 26)
                     
                 }
-                ZStack(alignment: .center) {
+                .padding([.top], 59)
+                
+                ZStack() {
                     
-                    Image("MolduraCanvas")
-                        .resizable()
-                        .frame(width: 338, height: 501)
+                    RoundedRectangle(cornerRadius: 31)
+                        .frame(maxWidth: 338, maxHeight: 501)
+                        .scaledToFill()
+                        .foregroundColor(Color("SecondaryColor-1"))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 31)
+                                .strokeBorder(Color("Contorno"), lineWidth: 3)
+                        )
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
+                        .padding([.vertical], -10)
                     
                     Canvas { context, size in
                         for line in drawing {
@@ -98,6 +110,11 @@ struct DrawView: View {
                             
                         }
                     }
+                    .frame(maxWidth: 318, maxHeight: 482.51)
+                    .scaledToFill()
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
+                    .background(Color("Contorno"))
+                    .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
                         let newPoint = value.location
                         if value.translation.width + value.translation.height == 0 {
@@ -130,31 +147,52 @@ struct DrawView: View {
                                 }
                             }
                         })
-                    ).disabled(isShowingAlert)
-                        .frame(width: 318, height: 482.51)
-                        .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
-                        .background(Color("Contorno"))
-                    //padrão em todos os modos
-                        .cornerRadius(31)
+                    )
+                    .disabled(isShowingAlert)
                     
-                    VStack (spacing: 317.06){
+                    VStack (){
                         
-                        HStack (spacing: 152.18){
+                        HStack (){
                             Image("Fitinha 1 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
+                            Spacer()
                             Image("Fitinha 2 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
                         }
-                        HStack (spacing: 152.18){
+                        .padding([.horizontal], 5)
+                        .padding([.vertical], -27.24)
+                        
+                        Spacer()
+                        
+                        HStack (){
                             Image("Fitinha 2 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
+                            Spacer()
                             Image("Fitinha 1 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
                         }
+                        .padding([.horizontal], 5)
+                        .padding([.vertical], -27.24)
                     }
+//                    .padding([.horizontal], 5)
+//                    .padding([.vertical], -27.24)
                 }
+                .padding([.top], 9)
                 
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
+                    .scaledToFill()
                 
-                HStack(spacing: 142) {
+                HStack() {
                     
                     VStack {
                         Button(action: {
@@ -164,19 +202,29 @@ struct DrawView: View {
                         }) {
                             ZStack {
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                    //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
                                 Image("lixeira fechada")
+                                    .resizable()
+                                    .frame(maxWidth: 22, maxHeight: 24)
+                                    //.scaledToFill()
                             }
-                        }.disabled(isShowingAlert)
+                        }
+                        .disabled(isShowingAlert)
                         Text("delete")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
+                            //.scaledToFill()
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.leading], 25)
+                    .padding([.bottom], 35)
+                    
+                    Spacer()
                     
                     VStack {
                         Button(action: {
@@ -203,13 +251,17 @@ struct DrawView: View {
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                    //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
                                 Image("enviar")
+                                    .resizable()
+                                    .frame(maxWidth: 22, maxHeight: 18.84)
+                                    //.scaledToFill()
                             }
                         }.disabled(isShowingAlert)
                         
@@ -218,6 +270,8 @@ struct DrawView: View {
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.trailing], 25)
+                    .padding([.bottom], 35)
                 }
             }
             .statusBar(hidden: true)
@@ -235,13 +289,14 @@ struct DrawView: View {
         .onAppear() {
             navigationBond.setData(0)
         }
+        .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
             Color("DrawBackground")
                 .ignoresSafeArea()
             Image("padraoPortrait")
-                .resizable()
-                .scaledToFit()
+                .resizable(resizingMode: .tile)
+                .scaledToFill()
                 .ignoresSafeArea()
         }
 //        .alert(alertMessage, isPresented: $showAlert) {

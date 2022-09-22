@@ -13,37 +13,46 @@ struct CleoView: View {
 
     var body: some View {
         
-        VStack (spacing: 20){
+        ZStack {
+            VStack {
                 Text("Hi, I'm CLE/O and I brought your score!")
                     .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                    .frame(maxWidth: 227, maxHeight: 114)
+                    .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(3)
                     .foregroundColor(Color("SecondaryColor-1"))
-                    .frame(width: 227, height: 114)
-                    //.padding([.top], 50)
-            
+                    .padding([.top], 50)
+                    .padding([.horizontal], 80)
+                    
                 ZStack {
                     Circle()
-                        .frame(width: 83, height: 83)
+                        .frame(maxWidth: 83, maxHeight: 83)
                         .foregroundColor(Color("TimerBackground"))
                         .overlay(
                             Circle()
-                            .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
-                    
+                                .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                        
                     Text(String(navigationBond.getData() as! Int))
                         .font(.custom("Rubik-Black", size: 32))
                         .foregroundColor(.white)
                 }
-                
+                .padding([.horizontal], 80)
+                    
                 Text("Do you think you can do better?")
                     .font(.custom("Rubik-Black", size: 26))
+                    .frame(maxWidth: 271, maxHeight: 57)
+                    .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(2)
                     .foregroundColor(Color("SecondaryColor-1"))
-                    .frame(width: 271, height: 57)
+                    .padding([.horizontal], 80)
                 
-            Spacer()
-            
-                HStack (spacing: 172){
+                Spacer()
+                
+                HStack {
                     VStack {
                         Button(action: {
                             withAnimation {
@@ -52,7 +61,7 @@ struct CleoView: View {
                         }) {
                             ZStack {
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -60,13 +69,17 @@ struct CleoView: View {
                                 Image("home again icon")
                             }
                         }
-                        
+                            
                         Text("home")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.leading], 24)
+                    .padding([.bottom], 35)
                     
+                    Spacer()
+                        
                     VStack {
                         Button(action: {
                             withAnimation {
@@ -75,7 +88,7 @@ struct CleoView: View {
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -84,27 +97,31 @@ struct CleoView: View {
                                 Image("play again icon")
                             }
                         }
-                        
+                            
                         Text("play again")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.trailing], 24)
+                    .padding([.bottom], 35)
                 }
-                //.padding([.bottom], 28)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background{
-                
-                Color("launchScreenBackground")
-                    .ignoresSafeArea()
-                Image("Cleofelizlightmodeolhosabertos")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-
-            }
-//            .statusBarHidden(true)
+        }
+        .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Color("DrawBackground")
+                .ignoresSafeArea()
+            Image("padraoPortrait")
+                .resizable(resizingMode: .tile)
+                .scaledToFill()
+                .ignoresSafeArea()
+            Image("Cleofelizlightmodeolhosabertos")
+                .resizable(resizingMode: .tile)
+                .ignoresSafeArea()
+        }
+       .statusBarHidden(true)
     }
 }
 
