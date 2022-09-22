@@ -11,6 +11,7 @@
 		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
 		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
 		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
+		1777676728DCB093004BCA44 /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */; };
 		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
 		179A103928D35A10009FB6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */; };
 		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
-		17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* Preview Assets.xcassets */; };
 		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
 		17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
@@ -69,7 +69,7 @@
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44628ABC271002E9047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		17F3A44928ABC271002E9047 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PreviewAssets.xcassets; sourceTree = "<group>"; };
 		17F3A44B28ABC271002E9047 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectPompeii.xcdatamodel; sourceTree = "<group>"; };
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
-				17F3A44928ABC271002E9047 /* Preview Assets.xcassets */,
+				17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */,
 				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
 				179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */,
 				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
@@ -263,13 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */,
-				17F3A44A28ABC271002E9047 /* Preview Assets.xcassets in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
 				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
 				179A103928D35A10009FB6E8 /* Assets.xcassets in Resources */,
 				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
+				1777676728DCB093004BCA44 /* PreviewAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
