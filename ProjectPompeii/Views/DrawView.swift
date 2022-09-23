@@ -27,7 +27,10 @@ struct DrawView: View {
     //var isLandscape: Bool { verticalSizeClass == .compact }
     
     @State private var drawing = [Line]()
-    @State private var suggestion = DrawingModel.getRandomDrawing()
+//    private let randomDrawings = DrawingModel.getRandomDrawings()
+    @State private var randomDrawings: [String] = []
+    @State private var currentDrawingIndex = 0
+    @State private var suggestion = ""
     @State private var feedback = "Go scribblium!"
     
     @State private var prediction = ""
@@ -188,7 +191,22 @@ struct DrawView: View {
                                     feedback = "That looks like a " + self.prediction
                                 }
                                 else {
+                                    
+                                    score += maxTime
+                                    navigationBond.setData(score)
+                                    
                                     feedback = "That's a " + self.prediction + "!"
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        feedback = "Go scribblium!"
+                                    }
+                                
+                                    drawing = [Line]()
+                                    drawingModel.drawing = []
+                                    
+                                    currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                                    suggestion = randomDrawings[currentDrawingIndex]
+                                    
                                 }
                             }
                         })
@@ -277,26 +295,36 @@ struct DrawView: View {
                     
                     VStack {
                         Button(action: {
-                            if(!drawing.isEmpty){
-                                if self.prediction == self.suggestion {
-                                    feedback = "Go scribblium!"
-                                    drawing = [Line]()
-                                    suggestion = DrawingModel.getRandomDrawing()
-                                    
-                                    score += maxTime
-                                    navigationBond.setData(score)
-                                   
-                                } else {
-//                                    self.showAlert = true
-                                    isShowingAlert = true
-                                    confirme = true
-                                }
-                                
-                            } else {
-                                print("Desenho vazio!")
-                                isShowingAlert = true
-                                empty = true
-                            }
+                            
+//                            if(!drawing.isEmpty){
+//                                if self.prediction == self.suggestion {
+//                                    feedback = "Go scribblium!"
+//                                    drawing = [Line]()
+//                                    suggestion = DrawingModel.getRandomDrawing()
+//
+//                                    score += maxTime
+//                                    navigationBond.setData(score)
+//
+//                                } else {
+////                                    self.showAlert = true
+//                                    isShowingAlert = true
+//                                    confirme = true
+//                                }
+//
+//                            } else {
+//                                print("Desenho vazio!")
+//                                isShowingAlert = true
+//                                empty = true
+//                            }
+                            
+                            feedback = "Go scribblium!"
+                            
+                            drawing = [Line]()
+                            drawingModel.drawing = []
+                            
+                            currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                            suggestion = randomDrawings[currentDrawingIndex]
+                                                        
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
@@ -314,7 +342,7 @@ struct DrawView: View {
                             }
                         }.disabled(isShowingAlert)
                         
-                        Text("next")
+                        Text("skip")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 30, maxHeight: 21)
@@ -345,6 +373,8 @@ struct DrawView: View {
         }
         .onAppear() {
             navigationBond.setData(0)
+            randomDrawings = DrawingModel.getRandomDrawings()
+            suggestion = randomDrawings[currentDrawingIndex]
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -365,12 +395,11 @@ struct DrawView: View {
     }
 }
 
-//struct DrawView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            DrawView()
-//                .previewInterfaceOrientation(.portrait)
-//
-//        }
-//    }
-//}
+struct DrawView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo)))
+                .previewInterfaceOrientation(.portrait)
+        }
+    }
+}

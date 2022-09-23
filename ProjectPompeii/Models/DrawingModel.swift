@@ -70,4 +70,12 @@ class DrawingModel {
         
     }
     
+    static func getRandomDrawings() -> [String] {
+        
+        let drawings = ["apple", "house", "star", "sun", "zigzag"]
+        
+        return drawings.shuffled()
+        
+    }
+    
 }
