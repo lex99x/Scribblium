@@ -55,12 +55,13 @@ struct DrawView: View {
                         
                         Button {
                             
+                            timerRunning = false
                             isShowingAlert = true
                             leave = true
                             
                         } label: {
                             Image(systemName: "chevron.left")
-                            //.resizable()
+                                .resizable()
                                 .frame(maxWidth: 18, maxHeight: 24)
                                 .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                         }
@@ -364,7 +365,7 @@ struct DrawView: View {
                 CustomAlertEmpty(shown: $empty, isShowingAlert: $isShowingAlert)
             }
             if leave {
-                CustomLeaveDrawView(shown: $leave, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
+                CustomLeaveDrawView(shown: $leave, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
             }
             if pause {
                 CustomPaused(shown: $pause, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
