@@ -19,7 +19,7 @@ struct DrawView: View {
     @State var empty = false
     @State var leave = false
     @State var pause = false
-    @State var maxTime = 5
+    @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
@@ -46,82 +46,90 @@ struct DrawView: View {
         
         ZStack {
             
-            VStack (){
-                
-                HStack {
-                    
-                    Button {
+            VStack {
+                VStack {
+                    HStack {
                         
-                        isShowingAlert = true
-                        leave = true
-                        
-                    } label: {
-                        Image(systemName: "chevron.left")
+                        Button {
+                            
+                            isShowingAlert = true
+                            leave = true
+                            
+                        } label: {
+                            Image(systemName: "chevron.left")
                             //.resizable()
-                            .frame(maxWidth: 18, maxHeight: 24)
-                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                    }
-                    .padding([.leading], 13)
-                    
-                    ZStack {
+                                .frame(maxWidth: 18, maxHeight: 24)
+                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        }
+                        .padding([.leading], 13)
+                        .disabled(isShowingAlert)
                         
-                        Circle()
-                            .frame(maxWidth: 62, maxHeight: 62)
-                            //.scaledToFill()
-                            .foregroundColor(Color("TimerBackground"))
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
-                        
-                        Text("\(maxTime)")
-                            .font(.custom("Rubik-Black", size: 32))
-                            //.scaledToFill()
-                            .foregroundColor(.white)
-                            .onReceive(timer) { _ in
-                                if (maxTime > 0 && timerRunning) {
-                                    maxTime -= 1
-                                }
-                                else if (maxTime == 0) {
-                                    isShowingAlert = true
-                                    timeup = true
-                                    timer.upstream.connect().cancel()
-                                    self.disableButtons = true
-                                }
-                            }
-                    }
-                    
-                    Text(feedback)
-                        .font(.custom("Rubik-Black", size: 26))
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        //.padding([.leading], 26)
-                    
-                    Button {
-                        
-                        isShowingAlert = true
-                        pause = true
-                        timerRunning = false
-                        
-                    } label: {
                         ZStack {
                             
                             Circle()
                                 .frame(maxWidth: 62, maxHeight: 62)
-                                //.scaledToFill()
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                            //.scaledToFill()
+                                .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
-                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                        .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
                             
-                            Image(systemName: "pause")
-                                .resizable()
-                                .frame(maxWidth: 14, maxHeight: 26)
-                                .foregroundColor(Color("TertiaryColor-1"))
+                            Text("\(maxTime)")
+                                .font(.custom("Rubik-Black", size: 32))
+                                .frame(maxWidth: 38, maxHeight: 31)
+                                .minimumScaleFactor(0.1)
+                                .foregroundColor(.white)
+                                .onReceive(timer) { _ in
+                                    if (maxTime > 0 && timerRunning) {
+                                        maxTime -= 1
+                                    }
+                                    else if (maxTime == 0) {
+                                        isShowingAlert = true
+                                        timeup = true
+                                        timer.upstream.connect().cancel()
+                                        self.disableButtons = true
+                                    }
+                                }
                         }
+                        
+                        Spacer()
+                        
+                        Button {
+                            
+                            isShowingAlert = true
+                            pause = true
+                            timerRunning = false
+                            
+                        } label: {
+                            ZStack {
+                                
+                                Circle()
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                //.scaledToFill()
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                
+                                Image(systemName: "pause.fill")
+                                    .resizable()
+                                    .frame(maxWidth: 14, maxHeight: 26)
+                                    .foregroundColor(Color("TertiaryColor-1"))
+                            }
+                        }
+                        .padding([.trailing], 25)
+                        .disabled(isShowingAlert)
+                        
                     }
-                    .padding([.trailing], 25)
-                                        
+                    
+                    Text(feedback)
+                        .font(.custom("Rubik-Black", size: 20))
+                        .frame(maxWidth: 156, maxHeight: 24)
+                        .minimumScaleFactor(0.1)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                    //.padding([.leading], 26)
                 }
                 .padding([.top], 59)
                 
@@ -227,6 +235,8 @@ struct DrawView: View {
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
+                    .frame(maxWidth: 148, maxHeight: 36)
+                    .minimumScaleFactor(0.1)
                     .scaledToFill()
                 
                 HStack() {
@@ -255,6 +265,8 @@ struct DrawView: View {
                         Text("delete")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
+                            .frame(maxWidth: 41, maxHeight: 21)
+                            .minimumScaleFactor(0.1)
                             //.scaledToFill()
                             .multilineTextAlignment(.center)
                     }
@@ -267,7 +279,7 @@ struct DrawView: View {
                         Button(action: {
                             if(!drawing.isEmpty){
                                 if self.prediction == self.suggestion {
-                                    feedback = ""
+                                    feedback = "Go scribblium!"
                                     drawing = [Line]()
                                     suggestion = DrawingModel.getRandomDrawing()
                                     
@@ -302,9 +314,11 @@ struct DrawView: View {
                             }
                         }.disabled(isShowingAlert)
                         
-                        Text("submit")
+                        Text("next")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
+                            .frame(maxWidth: 30, maxHeight: 21)
+                            .minimumScaleFactor(0.1)
                             .multilineTextAlignment(.center)
                     }
                     .padding([.trailing], 25)
