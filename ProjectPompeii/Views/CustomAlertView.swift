@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomAlertTutorial: View {
     
     @Binding var shown: Bool
+    @Binding var isShowingAlert: Bool
     
     var body: some View {
         VStack {
@@ -36,6 +37,7 @@ struct CustomAlertTutorial: View {
             
             Button {
                 shown.toggle()
+                isShowingAlert = false
             } label: {
                 Text("Ok")
                     .font(.custom("Rubik-SemiBold", size: 17))
@@ -61,6 +63,7 @@ struct CustomLeaveDrawView: View {
     @Binding var shown: Bool
     @Binding var navigationBond: NavigationBond
     @Binding var isShowingAlert: Bool
+    @Binding var timerRunning: Bool
     
     var body: some View {
         VStack {
@@ -109,6 +112,8 @@ struct CustomLeaveDrawView: View {
                 Button {
                     shown.toggle()
                     isShowingAlert = false
+                    timerRunning = true
+
                 } label: {
                     Text("Go back")
                         .font(.custom("Rubik-SemiBold", size: 17))
@@ -376,7 +381,7 @@ struct CustomAlertView_Previews: PreviewProvider {
             isShowingAlert: .constant(false)
         )
         CustomAlertEmpty(shown: .constant(false), isShowingAlert: .constant(false))
-        CustomAlertTutorial(shown: .constant(false))
+        CustomAlertTutorial(shown: .constant(false), isShowingAlert: .constant(false))
         //CustomAlertBluetooth(shown: .constant(false))
     }
 }
