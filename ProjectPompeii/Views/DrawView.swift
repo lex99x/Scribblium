@@ -57,7 +57,7 @@ struct DrawView: View {
                             
                         } label: {
                             Image(systemName: "chevron.left")
-                            //.resizable()
+                                .resizable()
                                 .frame(maxWidth: 18, maxHeight: 24)
                                 .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                         }
