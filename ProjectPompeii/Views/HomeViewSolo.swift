@@ -13,6 +13,7 @@ struct HomeViewSolo: View {
     
     @State var showTutorial = false
     @State private var showCredits = false
+    @State private var isShowingAlert = false
     
     var body: some View {
         
@@ -39,6 +40,7 @@ struct HomeViewSolo: View {
                     
                     Button(action: {
                         showTutorial.toggle()
+                        isShowingAlert = true
                     }) {
                         
                         Circle()
@@ -51,6 +53,7 @@ struct HomeViewSolo: View {
                             .overlay(Image("icontutorial").resizable().frame(width: 22, height: 27))
                         
                     }
+                    .disabled(isShowingAlert)
                     
                     Button(action: {
                         showCredits.toggle()
@@ -66,6 +69,7 @@ struct HomeViewSolo: View {
                             .overlay(Image("iconlicense").resizable().frame(width: 21, height: 22))
                         
                     }
+                    .disabled(isShowingAlert)
                     .sheet(isPresented: $showCredits){
                         CreditsView()
                     }
@@ -76,7 +80,7 @@ struct HomeViewSolo: View {
                 Spacer()
                 
 //                Image("Logo Scribblium")
-                Image("home_solo_main_image")
+                Image("Homesolodarkmode")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 342, height: 342) // Remover dimensões fixas
@@ -106,6 +110,7 @@ struct HomeViewSolo: View {
                             .overlay(Image("start icon").resizable().frame(width: 30, height: 30))
                         
                     }
+                    .disabled(isShowingAlert)
                     
                     Text("go scribblium!")
                         .foregroundColor(.white)
@@ -123,12 +128,13 @@ struct HomeViewSolo: View {
                     .ignoresSafeArea()
                 Image("padraoPortrait")
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .ignoresSafeArea()
             }
+            .statusBarHidden(true)
             
             if showTutorial {
-                CustomAlertTutorial(shown: $showTutorial)
+                CustomAlertTutorial(shown: $showTutorial, isShowingAlert: $isShowingAlert)
             }
             
         }

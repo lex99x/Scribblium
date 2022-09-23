@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Fitinha1 portrait.svg",
+      "filename" : "Homesololightmode.svg",
       "idiom" : "universal"
     },
     {
@@ -11,15 +11,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Fitinha 1 Portrait darkmode.svg",
+      "filename" : "Homesolodarkmode.svg",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

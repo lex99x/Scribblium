@@ -17,6 +17,8 @@ struct DrawView: View {
     @State var timeup = false
     @State var confirme = false
     @State var empty = false
+    @State var leave = false
+    @State var pause = false
     @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -25,7 +27,10 @@ struct DrawView: View {
     //var isLandscape: Bool { verticalSizeClass == .compact }
     
     @State private var drawing = [Line]()
-    @State private var suggestion = DrawingModel.getRandomDrawing()
+//    private let randomDrawings = DrawingModel.getRandomDrawings()
+    @State private var randomDrawings: [String] = []
+    @State private var currentDrawingIndex = 0
+    @State private var suggestion = ""
     @State private var feedback = "Go scribblium!"
     
     @State private var prediction = ""
@@ -44,50 +49,106 @@ struct DrawView: View {
         
         ZStack {
             
-            VStack (spacing: 0.0){
-                
-                HStack {
+            VStack {
+                VStack {
+                    HStack {
+                        
+                        Button {
+                            
+                            timerRunning = false
+                            isShowingAlert = true
+                            leave = true
+                            
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .frame(maxWidth: 18, maxHeight: 24)
+                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        }
+                        .padding([.leading], 13)
+                        .disabled(isShowingAlert)
+                        
+                        ZStack {
+                            
+                            Circle()
+                                .frame(maxWidth: 62, maxHeight: 62)
+                            //.scaledToFill()
+                                .foregroundColor(Color("TimerBackground"))
+                                .overlay(
+                                    Circle()
+                                        .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                            
+                            Text("\(maxTime)")
+                                .font(.custom("Rubik-Black", size: 32))
+                                .frame(maxWidth: 38, maxHeight: 31)
+                                .minimumScaleFactor(0.1)
+                                .foregroundColor(.white)
+                                .onReceive(timer) { _ in
+                                    if (maxTime > 0 && timerRunning) {
+                                        maxTime -= 1
+                                    }
+                                    else if (maxTime == 0) {
+                                        isShowingAlert = true
+                                        timeup = true
+                                        timer.upstream.connect().cancel()
+                                        self.disableButtons = true
+                                    }
+                                }
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            
+                            isShowingAlert = true
+                            pause = true
+                            timerRunning = false
+                            
+                        } label: {
+                            ZStack {
+                                
+                                Circle()
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                //.scaledToFill()
+                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .overlay(
+                                        Circle()
+                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                
+                                Image(systemName: "pause.fill")
+                                    .resizable()
+                                    .frame(maxWidth: 14, maxHeight: 26)
+                                    .foregroundColor(Color("TertiaryColor-1"))
+                            }
+                        }
+                        .padding([.trailing], 25)
+                        .disabled(isShowingAlert)
+                        
+                    }
                     
                     Text(feedback)
-                        .font(.custom("Rubik-Black", size: 26))
+                        .font(.custom("Rubik-Black", size: 20))
+                        .frame(maxWidth: 156, maxHeight: 24)
+                        .minimumScaleFactor(0.1)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        .frame(width: 217, height: 43)
-                    
-                    ZStack {
-                        
-                        Circle()
-                            .frame(width: 83, height: 83)
-                            .foregroundColor(Color("TimerBackground"))
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
-                        
-                        Text("\(maxTime)")
-                            .font(.custom("Rubik-Black", size: 32))
-                            .foregroundColor(.white)
-                            .onReceive(timer) { _ in
-                                if (maxTime > 0 && timerRunning) {
-                                    maxTime -= 1
-                                }
-                                else if (maxTime == 0) {
-                                    isShowingAlert = true
-                                    timeup = true
-                                    timer.upstream.connect().cancel()
-                                    self.disableButtons = true
-                                }
-                            }
-                    }
-                    .padding([.bottom], 9)
-                    
+                    //.padding([.leading], 26)
                 }
-                ZStack(alignment: .center) {
+                .padding([.top], 59)
+                
+                ZStack() {
                     
-                    Image("MolduraCanvas")
-                        .resizable()
-                        .frame(width: 338, height: 501)
+                    RoundedRectangle(cornerRadius: 31)
+                        .frame(maxWidth: 338, maxHeight: 501)
+                        .scaledToFill()
+                        .foregroundColor(Color("SecondaryColor-1"))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 31)
+                                .strokeBorder(Color("Contorno"), lineWidth: 3)
+                        )
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
+                        .padding([.vertical], -10)
                     
                     Canvas { context, size in
                         for line in drawing {
@@ -98,6 +159,11 @@ struct DrawView: View {
                             
                         }
                     }
+                    .frame(maxWidth: 318, maxHeight: 482.51)
+                    .scaledToFill()
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
+                    .background(Color("Contorno"))
+                    .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
                         let newPoint = value.location
                         if value.translation.width + value.translation.height == 0 {
@@ -126,35 +192,73 @@ struct DrawView: View {
                                     feedback = "That looks like a " + self.prediction
                                 }
                                 else {
+                                    
+                                    score += maxTime
+                                    navigationBond.setData(score)
+                                    
                                     feedback = "That's a " + self.prediction + "!"
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        feedback = "Go scribblium!"
+                                    }
+                                
+                                    drawing = [Line]()
+                                    drawingModel.drawing = []
+                                    
+                                    currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                                    suggestion = randomDrawings[currentDrawingIndex]
+                                    
                                 }
                             }
                         })
-                    ).disabled(isShowingAlert)
-                        .frame(width: 318, height: 482.51)
-                        .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
-                        .background(Color("Contorno"))
-                    //padrão em todos os modos
-                        .cornerRadius(31)
+                    )
+                    .disabled(isShowingAlert)
                     
-                    VStack (spacing: 317.06){
+                    VStack (){
                         
-                        HStack (spacing: 152.18){
+                        HStack (){
                             Image("Fitinha 1 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
+                            Spacer()
                             Image("Fitinha 2 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
                         }
-                        HStack (spacing: 152.18){
+                        .padding([.horizontal], 5)
+                        .padding([.vertical], -27.24)
+                        
+                        Spacer()
+                        
+                        HStack (){
                             Image("Fitinha 2 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
+                            Spacer()
                             Image("Fitinha 1 Portrait darkmode")
+                                //.resizable()
+//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
+//                                .scaledToFill()
                         }
+                        .padding([.horizontal], 5)
+                        .padding([.vertical], -27.24)
                     }
+//                    .padding([.horizontal], 5)
+//                    .padding([.vertical], -27.24)
                 }
+                .padding([.top], 9)
                 
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
+                    .frame(maxWidth: 148, maxHeight: 36)
+                    .minimumScaleFactor(0.1)
+                    .scaledToFill()
                 
-                HStack(spacing: 142) {
+                HStack() {
                     
                     VStack {
                         Button(action: {
@@ -164,60 +268,90 @@ struct DrawView: View {
                         }) {
                             ZStack {
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                    //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
                                 Image("lixeira fechada")
+                                    .resizable()
+                                    .frame(maxWidth: 22, maxHeight: 24)
+                                    //.scaledToFill()
                             }
-                        }.disabled(isShowingAlert)
+                        }
+                        .disabled(isShowingAlert)
                         Text("delete")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
+                            .frame(maxWidth: 41, maxHeight: 21)
+                            .minimumScaleFactor(0.1)
+                            //.scaledToFill()
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.leading], 25)
+                    .padding([.bottom], 35)
+                    
+                    Spacer()
                     
                     VStack {
                         Button(action: {
-                            if(!drawing.isEmpty){
-                                if self.prediction == self.suggestion {
-                                    feedback = ""
-                                    drawing = [Line]()
-                                    suggestion = DrawingModel.getRandomDrawing()
-                                    
-                                    score += maxTime
-                                    navigationBond.setData(score)
-                                   
-                                } else {
-//                                    self.showAlert = true
-                                    isShowingAlert = true
-                                    confirme = true
-                                }
-                                
-                            } else {
-                                print("Desenho vazio!")
-                                isShowingAlert = true
-                                empty = true
-                            }
+                            
+//                            if(!drawing.isEmpty){
+//                                if self.prediction == self.suggestion {
+//                                    feedback = "Go scribblium!"
+//                                    drawing = [Line]()
+//                                    suggestion = DrawingModel.getRandomDrawing()
+//
+//                                    score += maxTime
+//                                    navigationBond.setData(score)
+//
+//                                } else {
+////                                    self.showAlert = true
+//                                    isShowingAlert = true
+//                                    confirme = true
+//                                }
+//
+//                            } else {
+//                                print("Desenho vazio!")
+//                                isShowingAlert = true
+//                                empty = true
+//                            }
+                            
+                            feedback = "Go scribblium!"
+                            
+                            drawing = [Line]()
+                            drawingModel.drawing = []
+                            
+                            currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                            suggestion = randomDrawings[currentDrawingIndex]
+                                                        
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
-                                    .frame(width: 83, height: 83)
+                                    .frame(maxWidth: 62, maxHeight: 62)
+                                    //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
                                 Image("enviar")
+                                    .resizable()
+                                    .frame(maxWidth: 22, maxHeight: 18.84)
+                                    //.scaledToFill()
                             }
                         }.disabled(isShowingAlert)
                         
-                        Text("submit")
+                        Text("skip")
                             .foregroundColor(.white)
                             .font(.custom("Rubik-Regular", size: 14))
+                            .frame(maxWidth: 30, maxHeight: 21)
+                            .minimumScaleFactor(0.1)
                             .multilineTextAlignment(.center)
                     }
+                    .padding([.trailing], 25)
+                    .padding([.bottom], 35)
                 }
             }
             .statusBar(hidden: true)
@@ -230,18 +364,27 @@ struct DrawView: View {
             if empty {
                 CustomAlertEmpty(shown: $empty, isShowingAlert: $isShowingAlert)
             }
+            if leave {
+                CustomLeaveDrawView(shown: $leave, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
+            }
+            if pause {
+                CustomPaused(shown: $pause, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
+            }
             
         }
         .onAppear() {
             navigationBond.setData(0)
+            randomDrawings = DrawingModel.getRandomDrawings()
+            suggestion = randomDrawings[currentDrawingIndex]
         }
+        .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
             Color("DrawBackground")
                 .ignoresSafeArea()
             Image("padraoPortrait")
-                .resizable()
-                .scaledToFit()
+                .resizable(resizingMode: .tile)
+                .scaledToFill()
                 .ignoresSafeArea()
         }
 //        .alert(alertMessage, isPresented: $showAlert) {
@@ -253,12 +396,11 @@ struct DrawView: View {
     }
 }
 
-//struct DrawView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            DrawView()
-//                .previewInterfaceOrientation(.portrait)
-//
-//        }
-//    }
-//}
+struct DrawView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo)))
+                .previewInterfaceOrientation(.portrait)
+        }
+    }
+}

@@ -63,11 +63,18 @@ class DrawingModel {
         
     static func getRandomDrawing() -> String {
         
-//        let drawings = ["hand", "pickup truck", "yoga", "picture frame", "circle", "wheel", "megaphone", "mermaid", "parachute", "dumbbell"]
 //        let drawings = ["airplane", "apple", "alarm clock", "angel", "bathtub", "beard", "bed", "binoculars", "book", "bus", "cactus", "cake", "candle", "elephant", "eyeglasses", "fish", "flashlight", "frog", "headphones", "key", "lighthouse", "lipstick", "microphone", "mouth", "panda", "parrot", "popsicle", "postcard", "purse", "rain", "rabbit", "remote control", "rollerskates", "sailboat", "skull", "snowman", "stairs", "sun", "sword", "stop sign", "table", "train", "television", "tornado", "underwear", "watermelon", "whale", "wine glass", "yoga", "zebra"]
         let drawings = ["apple", "house", "star", "sun", "zigzag"]
         
         return drawings.randomElement() ?? "None"
+        
+    }
+    
+    static func getRandomDrawings() -> [String] {
+        
+        let drawings = ["apple", "house", "star", "sun", "zigzag"]
+        
+        return drawings.shuffled()
         
     }
     
