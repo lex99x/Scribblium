@@ -17,7 +17,9 @@ struct DrawView: View {
     @State var timeup = false
     @State var confirme = false
     @State var empty = false
-    @State var maxTime = 30
+    @State var leave = false
+    @State var pause = false
+    @State var maxTime = 5
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
@@ -48,19 +50,23 @@ struct DrawView: View {
                 
                 HStack {
                     
-                    Text(feedback)
-                        .font(.custom("Rubik-Black", size: 26))
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                        .padding([.leading], 26)
-                    
-                    Spacer()
+                    Button {
+                        
+                        isShowingAlert = true
+                        leave = true
+                        
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            //.resizable()
+                            .frame(maxWidth: 18, maxHeight: 24)
+                            .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                    }
+                    .padding([.leading], 13)
                     
                     ZStack {
                         
                         Circle()
-                            .frame(maxWidth: 83, maxHeight: 83)
+                            .frame(maxWidth: 62, maxHeight: 62)
                             //.scaledToFill()
                             .foregroundColor(Color("TimerBackground"))
                             .overlay(
@@ -83,8 +89,39 @@ struct DrawView: View {
                                 }
                             }
                     }
-                    .padding([.trailing], 26)
                     
+                    Text(feedback)
+                        .font(.custom("Rubik-Black", size: 26))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        //.padding([.leading], 26)
+                    
+                    Button {
+                        
+                        isShowingAlert = true
+                        pause = true
+                        timerRunning = false
+                        
+                    } label: {
+                        ZStack {
+                            
+                            Circle()
+                                .frame(maxWidth: 62, maxHeight: 62)
+                                //.scaledToFill()
+                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                .overlay(
+                                    Circle()
+                                        .strokeBorder(Color("Contorno"), lineWidth: 3))
+                            
+                            Image(systemName: "pause")
+                                .resizable()
+                                .frame(maxWidth: 14, maxHeight: 26)
+                                .foregroundColor(Color("TertiaryColor-1"))
+                        }
+                    }
+                    .padding([.trailing], 25)
+                                        
                 }
                 .padding([.top], 59)
                 
@@ -283,6 +320,12 @@ struct DrawView: View {
             }
             if empty {
                 CustomAlertEmpty(shown: $empty, isShowingAlert: $isShowingAlert)
+            }
+            if leave {
+                CustomLeaveDrawView(shown: $leave, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
+            }
+            if pause {
+                CustomPaused(shown: $pause, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
             }
             
         }

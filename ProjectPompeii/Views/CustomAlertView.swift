@@ -179,6 +179,108 @@ struct CustomAlertTutorial: View {
     }
 }
 
+struct CustomLeaveDrawView: View {
+    
+    @Binding var shown: Bool
+    @Binding var navigationBond: NavigationBond
+    @Binding var isShowingAlert: Bool
+    
+    var body: some View {
+        VStack {
+            Text("Please wait!")
+                .font(.custom("Rubik-SemiBold", size: 17))
+                .padding([.vertical], 12)
+                .foregroundColor(Color("TertiaryColor-1"))
+            Text("If you leave now you will lose your current progress!")
+                .font(.custom("Rubik-Regular", size: 13))
+                .foregroundColor(Color("TertiaryColor-1"))
+                .multilineTextAlignment(.center)
+                .padding([.horizontal], 32)
+            Divider()
+            HStack {
+                Button {
+                    shown.toggle()
+                    isShowingAlert = false
+                    print(navigationBond.getData() as! Int)
+                    withAnimation {
+                        navigationBond.setDestination(.home)
+                    }
+                } label: {
+                    Text("Leave")
+                        .font(.custom("Rubik-SemiBold", size: 17))
+                        .frame(maxWidth: 49, maxHeight: 20)
+                        .minimumScaleFactor(0.1)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color("TertiaryColor-1"))
+                        .padding([.horizontal], 43)
+                        .padding([.vertical], 12)
+                }
+                Divider()
+                Button {
+                    shown.toggle()
+                    isShowingAlert = false
+                } label: {
+                    Text("Go back")
+                        .font(.custom("Rubik-SemiBold", size: 17))
+                        .frame(maxWidth: 66, maxHeight: 20)
+                        .minimumScaleFactor(0.1)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color("TertiaryColor-1"))
+                        .padding([.horizontal], 35)
+                        .padding([.vertical], 12)
+                }
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width-120, height: 136)
+        .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.51, alpha: 1.00)))
+        .overlay(RoundedRectangle(cornerRadius: 15).strokeBorder(lineWidth: 3).foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00))))
+        .cornerRadius(15)
+        .clipped()
+    }
+}
+
+struct CustomPaused: View {
+    
+    @Binding var shown: Bool
+    @Binding var isShowingAlert: Bool
+    @Binding var timerRunning: Bool
+    
+    var body: some View {
+        VStack {
+            Text("Game paused")
+                .font(.custom("Rubik-SemiBold", size: 17))
+                .padding([.vertical], 12)
+                .foregroundColor(Color("TertiaryColor-1"))
+            Text("You paused the game")
+                .font(.custom("Rubik-Regular", size: 13))
+                .foregroundColor(Color("TertiaryColor-1"))
+                .multilineTextAlignment(.center)
+                .padding([.horizontal], 32)
+            Divider()
+            Button {
+                shown.toggle()
+                isShowingAlert = false
+                timerRunning = true
+            } label: {
+                Text("Resume")
+                    .font(.custom("Rubik-SemiBold", size: 17))
+                    .frame(maxWidth: 67, maxHeight: 20)
+                    .minimumScaleFactor(0.1)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color("TertiaryColor-1"))
+                    .padding([.horizontal], 102)
+                    .padding([.vertical], 12)
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width-120, height: 136)
+        .background(Color(UIColor(red: 1.00, green: 0.98, blue: 0.51, alpha: 1.00)))
+        .overlay(RoundedRectangle(cornerRadius: 15).strokeBorder(lineWidth: 3).foregroundColor(Color(UIColor(red: 0.14, green: 0.11, blue: 0.23, alpha: 1.00))))
+        .cornerRadius(15)
+        .clipped()
+    }
+}
+
+
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
         CustomAlertOops(shown: .constant(false), isShowingAlert: .constant(false))
