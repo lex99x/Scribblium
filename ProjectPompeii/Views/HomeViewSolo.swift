@@ -107,7 +107,7 @@ struct HomeViewSolo: View {
                                 Circle()
                                     .strokeBorder(Color("Contorno"), lineWidth: 3)
                             )
-                            .overlay(Image("start icon").resizable().frame(width: 30, height: 30))
+                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(Color("TertiaryColor-1")))
                         
                     }
                     .disabled(isShowingAlert)

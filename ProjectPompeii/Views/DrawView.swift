@@ -19,7 +19,7 @@ struct DrawView: View {
     @State var empty = false
     @State var leave = false
     @State var pause = false
-    @State var maxTime = 30
+    @State var maxTime = 2
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
@@ -117,7 +117,7 @@ struct DrawView: View {
                                 
                                 Image(systemName: "pause.fill")
                                     .resizable()
-                                    .frame(maxWidth: 14, maxHeight: 26)
+                                    .frame(maxWidth: 19, maxHeight: 25)
                                     .foregroundColor(Color("TertiaryColor-1"))
                             }
                         }
@@ -128,7 +128,7 @@ struct DrawView: View {
                     
                     Text(feedback)
                         .font(.custom("Rubik-Black", size: 20))
-                        .frame(maxWidth: 156, maxHeight: 24)
+                        .frame(maxHeight: 24)
                         .minimumScaleFactor(0.1)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
@@ -274,9 +274,10 @@ struct DrawView: View {
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
-                                Image("lixeira fechada")
+                                Image(systemName: "trash.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 24)
+                                    .foregroundColor(Color("TertiaryColor-1"))
                                     //.scaledToFill()
                             }
                         }
@@ -336,9 +337,10 @@ struct DrawView: View {
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                Image("enviar")
+                                Image(systemName: "forward.end.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 18.84)
+                                    .foregroundColor(Color("TertiaryColor-1"))
                                     //.scaledToFill()
                             }
                         }.disabled(isShowingAlert)

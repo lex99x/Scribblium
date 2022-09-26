@@ -191,7 +191,7 @@ struct CustomAlertTimesUp: View {
     
     var body: some View {
         VStack {
-            Text("Time's up!")
+            Text("Your time's up!")
                 .font(.custom("Rubik-SemiBold", size: 17))
                 .frame(maxWidth: 106, maxHeight: 20)
                 .minimumScaleFactor(0.1)

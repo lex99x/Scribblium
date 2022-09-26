@@ -132,7 +132,7 @@ struct CleoView: View {
                 .ignoresSafeArea()
             Image("Cleofelizlightmodeolhosabertos")
                 .resizable()
-                .frame(maxWidth: 414, maxHeight: 844)
+                .frame(maxWidth: 428, maxHeight: 926)
                 .minimumScaleFactor(0.1)
                 //.scaledToFill()
                 .ignoresSafeArea()
