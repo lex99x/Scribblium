@@ -19,7 +19,7 @@ struct DrawView: View {
     @State var empty = false
     @State var leave = false
     @State var pause = false
-    @State var maxTime = 2
+    @State var maxTime = 30
     @State var timerRunning = true
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
@@ -180,10 +180,7 @@ struct DrawView: View {
                             drawingModel.endStroke()
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
                             
-                            for prediction in predictions {
-                                print(prediction.classification, String(prediction.confidence * 100) + " %")
-                            }
-                            print("\n")
+                            DrawingPredictor.logPredictions(predictions)
                             
                             if !predictions.isEmpty {
                                 self.prediction = predictions.first!.classification

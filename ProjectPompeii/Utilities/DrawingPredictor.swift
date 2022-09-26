@@ -97,4 +97,14 @@ class DrawingPredictor {
         return (final_bitmap_context?.makeImage())!
     }
     
+    static func logPredictions(_ predictions: [Prediction]) {
+        
+        for prediction in predictions {
+            print(prediction.classification, String(prediction.confidence * 100) + " %")
+        }
+        
+        print("\n")
+        
+    }
+    
 }
