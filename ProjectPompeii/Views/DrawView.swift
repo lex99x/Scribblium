@@ -9,9 +9,6 @@ import SwiftUI
 
 struct DrawView: View {
     
-    //    @Environment (\.verticalSizeClass) var verticalSizeClass
-    //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
-    
     @Binding var navigationBond: NavigationBond
     
     @State var timeup = false
@@ -19,29 +16,24 @@ struct DrawView: View {
     @State var empty = false
     @State var leave = false
     @State var pause = false
-    @State var maxTime = 30
     @State var timerRunning = true
+    @State private var disableButtons = false
+    @State private var isShowingAlert = false
+    
+    @State var maxTime = 30
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var timerIsPaused: Bool = true
     
-    //var isLandscape: Bool { verticalSizeClass == .compact }
-    
     @State private var drawing = [Line]()
-//    private let randomDrawings = DrawingModel.getRandomDrawings()
     @State private var randomDrawings: [String] = []
     @State private var currentDrawingIndex = 0
     @State private var suggestion = ""
     @State private var feedback = "Go scribblium!"
     
     @State private var prediction = ""
-    @State private var predictionConfidence = 0
-//    @State private var showAlert = false
     @State private var alertMessage = ""
     private let drawingModel = DrawingModel()
     private let drawingPredictor = DrawingPredictor()
-    
-    @State private var disableButtons = false
-    @State private var isShowingAlert = false
     
     @State var score = 0
     
@@ -195,6 +187,7 @@ struct DrawView: View {
                                     
                                     feedback = "That's a " + self.prediction + "!"
                                     
+                                    // Delay de 1.5 sec
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         feedback = "Go scribblium!"
                                     }
@@ -295,27 +288,6 @@ struct DrawView: View {
                     VStack {
                         Button(action: {
                             
-//                            if(!drawing.isEmpty){
-//                                if self.prediction == self.suggestion {
-//                                    feedback = "Go scribblium!"
-//                                    drawing = [Line]()
-//                                    suggestion = DrawingModel.getRandomDrawing()
-//
-//                                    score += maxTime
-//                                    navigationBond.setData(score)
-//
-//                                } else {
-////                                    self.showAlert = true
-//                                    isShowingAlert = true
-//                                    confirme = true
-//                                }
-//
-//                            } else {
-//                                print("Desenho vazio!")
-//                                isShowingAlert = true
-//                                empty = true
-//                            }
-                            
                             feedback = "Go scribblium!"
                             
                             drawing = [Line]()
@@ -386,11 +358,6 @@ struct DrawView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         }
-//        .alert(alertMessage, isPresented: $showAlert) {
-//            Button("Ok", role: .cancel) {
-//                self.timerRunning = true
-//            }
-//        }
         
     }
 }
