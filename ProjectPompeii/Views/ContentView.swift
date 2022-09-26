@@ -35,24 +35,27 @@ struct ContentView: View {
 
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let previewScreen: Screen = .cleo
-//        ContentView(screenToShow: previewScreen)
-//            .preferredColorScheme(.dark)
-//        ContentView(screenToShow: previewScreen)
-//            .preferredColorScheme(.light)
-//        ContentView(screenToShow: previewScreen)
-//            .previewDevice("iPhone 13 Pro Max")
-//            .preferredColorScheme(.dark)
-//        ContentView(screenToShow: previewScreen)
-//            .previewDevice("iPhone 13 Pro Max")
-//            .preferredColorScheme(.light)
-//        ContentView(screenToShow: previewScreen)
-//            .previewDevice("iPhone 11")
-//            .preferredColorScheme(.dark)
-//        ContentView(screenToShow: previewScreen)
-//            .previewDevice("iPhone 11")
-//            .preferredColorScheme(.light)
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let previewScreen = NavigationBond(destination: .home)
+        
+        ContentView(navigationBond: previewScreen)
+            .preferredColorScheme(.dark)
+        ContentView(navigationBond: previewScreen)
+            .preferredColorScheme(.light)
+        ContentView(navigationBond: previewScreen)
+            .previewDevice("iPhone 13 Pro Max")
+            .preferredColorScheme(.dark)
+        ContentView(navigationBond: previewScreen)
+            .previewDevice("iPhone 13 Pro Max")
+            .preferredColorScheme(.light)
+        ContentView(navigationBond: previewScreen)
+            .previewDevice("iPhone 11")
+            .preferredColorScheme(.dark)
+        ContentView(navigationBond: previewScreen)
+            .previewDevice("iPhone 11")
+            .preferredColorScheme(.light)
+        
+    }
+}

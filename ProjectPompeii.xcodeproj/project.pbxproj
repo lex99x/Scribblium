@@ -19,8 +19,7 @@
 		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
 		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
-		17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* MatchModel.swift */; };
-		17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FB28C0E224004DC247 /* RoundModel.swift */; };
+		17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* RoundModel.swift */; };
 		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
 		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
 		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
@@ -57,8 +56,7 @@
 		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
-		17D5D4F928C0E217004DC247 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
-		17D5D4FB28C0E224004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
+		17D5D4F928C0E217004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
 		17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionService.swift; sourceTree = "<group>"; };
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
@@ -107,8 +105,7 @@
 				BDDD882228B7B7F7005133A7 /* FeedbackModel.swift */,
 				BD95572C28B893EF00DFE639 /* PercentualModel.swift */,
 				BD443B5228AD1EE000495FDE /* LineModel.swift */,
-				17D5D4F928C0E217004DC247 /* MatchModel.swift */,
-				17D5D4FB28C0E224004DC247 /* RoundModel.swift */,
+				17D5D4F928C0E217004DC247 /* RoundModel.swift */,
 				BD8B580128CB8F1A00339F7B /* AlertModel.swift */,
 			);
 			path = Models;
@@ -299,13 +296,12 @@
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
 				179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */,
 				BD8B580228CB8F1A00339F7B /* AlertModel.swift in Sources */,
-				17D5D4FA28C0E217004DC247 /* MatchModel.swift in Sources */,
+				17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */,
 				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
 				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
-				17D5D4FC28C0E224004DC247 /* RoundModel.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,
