@@ -103,8 +103,6 @@ class DrawingPredictor {
             print(prediction.classification, String(prediction.confidence * 100) + " %")
         }
         
-        print("\n")
-        
     }
     
 }

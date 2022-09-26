@@ -89,7 +89,7 @@ struct CustomLeaveDrawView: View {
                 Button {
                     shown.toggle()
                     isShowingAlert = false
-                    print(navigationBond.getData() as! Int)
+//                    print(navigationBond.getData() as! Int)
                     withAnimation {
                         navigationBond.setDestination(.home)
                     }
@@ -212,7 +212,7 @@ struct CustomAlertTimesUp: View {
             Button {
                 shown.toggle()
                 isShowingAlert = false
-                print(navigationBond.getData() as! Int)
+//                print(navigationBond.getData() as! Int)
                 withAnimation {
                     navigationBond.setDestination(.cleo)
                 }

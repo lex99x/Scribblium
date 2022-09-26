@@ -28,7 +28,7 @@ struct DrawView: View {
     @State private var randomDrawings: [String] = []
     @State private var currentDrawingIndex = 0
     @State private var suggestion = ""
-    @State private var feedback = "Go scribblium!"
+    @State private var feedback = ""
     
     @State private var prediction = ""
     @State private var alertMessage = ""
@@ -64,7 +64,7 @@ struct DrawView: View {
                             
                             Circle()
                                 .frame(maxWidth: 62, maxHeight: 62)
-                            //.scaledToFill()
+                                //.scaledToFill()
                                 .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
@@ -101,7 +101,7 @@ struct DrawView: View {
                                 
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                //.scaledToFill()
+                                    //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -125,7 +125,7 @@ struct DrawView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                    //.padding([.leading], 26)
+                        //.padding([.leading], 26)
                 }
                 .padding([.top], 59)
                 
@@ -146,9 +146,7 @@ struct DrawView: View {
                         for line in drawing {
                             var path  = Path()
                             path.addLines(line.points)
-                            
                             context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                            
                         }
                     }
                     .frame(maxWidth: 318, maxHeight: 482.51)
@@ -185,13 +183,15 @@ struct DrawView: View {
                                     score += maxTime
                                     navigationBond.setData(score)
                                     
+                                    RoundModel.logScore(maxTime: maxTime, score: score)
+                                    
                                     feedback = "That's a " + self.prediction + "!"
                                     
                                     // Delay de 1.5 sec
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         feedback = "Go scribblium!"
                                     }
-                                
+                                    
                                     drawing = [Line]()
                                     drawingModel.drawing = []
                                     
@@ -208,14 +208,14 @@ struct DrawView: View {
                         
                         HStack (){
                             Image("Fitinha 1 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
+                            //.resizable()
+                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
+                            //.scaledToFill()
                             Spacer()
                             Image("Fitinha 2 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
+                            //.resizable()
+                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
+                            //.scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
@@ -224,20 +224,20 @@ struct DrawView: View {
                         
                         HStack (){
                             Image("Fitinha 2 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
+                            //.resizable()
+                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
+                            //.scaledToFill()
                             Spacer()
                             Image("Fitinha 1 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
+                            //.resizable()
+                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
+                            //.scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
                     }
-//                    .padding([.horizontal], 5)
-//                    .padding([.vertical], -27.24)
+                    //.padding([.horizontal], 5)
+                    //.padding([.vertical], -27.24)
                 }
                 .padding([.top], 9)
                 
@@ -259,7 +259,7 @@ struct DrawView: View {
                             ZStack {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                    //.scaledToFill()
+                                //.scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -268,7 +268,7 @@ struct DrawView: View {
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 24)
                                     .foregroundColor(Color("TertiaryColor-1"))
-                                    //.scaledToFill()
+                                //.scaledToFill()
                             }
                         }
                         .disabled(isShowingAlert)
@@ -295,7 +295,7 @@ struct DrawView: View {
                             
                             currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                             suggestion = randomDrawings[currentDrawingIndex]
-                                                        
+                            
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
@@ -326,6 +326,7 @@ struct DrawView: View {
                 }
             }
             .statusBar(hidden: true)
+            
             if timeup {
                 CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
             }
@@ -343,8 +344,9 @@ struct DrawView: View {
             }
             
         }
-        .onAppear() {
-            navigationBond.setData(0)
+        .onAppear() { // Inicilizando variáveis ao construir a tela
+            navigationBond.setData(score)
+            feedback = "Go scribblium!"
             randomDrawings = DrawingModel.getRandomDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }

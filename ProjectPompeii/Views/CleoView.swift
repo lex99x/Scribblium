@@ -143,7 +143,7 @@ struct CleoView: View {
 
 //struct CleoView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CleoView()
+//        CleoView(navigationBond: .constant(NavigationBond(destination: .home)))
 //            .preferredColorScheme(.light)
 //    }
 //}
