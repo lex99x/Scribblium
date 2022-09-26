@@ -9,6 +9,7 @@ import Foundation
 import CoreGraphics
 
 class DrawingModel {
+    
     var drawing: NSMutableArray
     var stroke: NSMutableArray
     var min_x: CGFloat
