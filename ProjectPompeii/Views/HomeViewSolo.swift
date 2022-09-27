@@ -22,7 +22,7 @@ struct HomeViewSolo: View {
             VStack {
                 
                 HStack {
-                    
+
 //                    Button(action: { print("Sound button pressed") }) {
 //
 //                        Circle()
@@ -118,7 +118,6 @@ struct HomeViewSolo: View {
                         .multilineTextAlignment(.center)
                     
                 }
-//                .padding()
                 
             }
             .padding()
@@ -148,8 +147,10 @@ struct HomeViewSolo_Previews: PreviewProvider {
         let navigationBond = NavigationBond(destination: .canvas)
         HomeViewSolo(navigationBond: .constant(navigationBond))
             .preferredColorScheme(.dark)
+            .previewDevice("iPhone 12")
         HomeViewSolo(navigationBond: .constant(navigationBond))
             .preferredColorScheme(.light)
+            .previewDevice("iPhone 12")
         HomeViewSolo(navigationBond: .constant(navigationBond))
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
