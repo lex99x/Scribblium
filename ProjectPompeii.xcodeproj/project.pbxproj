@@ -15,7 +15,7 @@
 		1777676728DCB093004BCA44 /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */; };
 		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
-		179A103928D35A10009FB6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
+		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
 		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
 		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
@@ -268,8 +268,8 @@
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
 				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
-				179A103928D35A10009FB6E8 /* Assets.xcassets in Resources */,
 				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
+				17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */,
 				1777676728DCB093004BCA44 /* PreviewAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
