@@ -9,30 +9,30 @@ import SwiftUI
 //import AVKit
 
 struct ContentView: View {
-
+    
     @State var navigationBond = NavigationBond(destination: .home)
-//    @State var audioPlayer: AVAudioPlayer!
-
+    //    @State var audioPlayer: AVAudioPlayer!
+    
     var body: some View {
         
         switch navigationBond.getDestination() {
-            
-        case .home:
-            HomeViewSolo(navigationBond: $navigationBond)
-                .transition(.opacity)
-            
-        case .canvas:
-            DrawView(navigationBond: $navigationBond)
-                .transition(.opacity)
-            
-        case .cleo:
-            CleoView(navigationBond: $navigationBond)
-                .transition(.opacity)
-            
+                
+            case .home:
+                HomeViewSolo(navigationBond: $navigationBond)
+                    .transition(.opacity)
+                
+            case .canvas:
+                DrawView(navigationBond: $navigationBond)
+                    .transition(.opacity)
+                
+            case .cleo:
+                CleoView(navigationBond: $navigationBond)
+                    .transition(.opacity)
+                
         }
-
+        
     }
-
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
