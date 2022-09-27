@@ -141,9 +141,14 @@ struct CleoView: View {
     }
 }
 
-//struct CleoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CleoView(navigationBond: .constant(NavigationBond(destination: .home)))
-//            .preferredColorScheme(.light)
-//    }
-//}
+struct CleoView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        let navigationBond = NavigationBond(destination: .home, data: 100)
+        CleoView(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.light)
+        CleoView(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.dark)
+    }
+    
+}
