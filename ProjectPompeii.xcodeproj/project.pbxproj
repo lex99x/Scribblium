@@ -8,16 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */; };
-		1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */; };
-		1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */; };
 		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
 		1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
 		1777676728DCB093004BCA44 /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */; };
 		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
 		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
-		17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D47B28B5138D004DC247 /* NicknameView.swift */; };
-		17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
 		17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* RoundModel.swift */; };
 		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
@@ -28,8 +24,6 @@
 		17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */; };
 		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
-		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
-		17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
@@ -48,13 +42,10 @@
 
 /* Begin PBXFileReference section */
 		1714CB9F28AE8C590089D1B5 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
-		1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
-		1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		179A103228D210A0009FB6E8 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		179A103728D2EADF009FB6E8 /* NavigationBond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBond.swift; sourceTree = "<group>"; };
-		17D5D47B28B5138D004DC247 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
 		17D5D4F928C0E217004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
@@ -69,12 +60,9 @@
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44628ABC271002E9047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F3A44928ABC271002E9047 /* PreviewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PreviewAssets.xcassets; sourceTree = "<group>"; };
-		17F3A44B28ABC271002E9047 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectPompeii.xcdatamodel; sourceTree = "<group>"; };
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
-		BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawLandscapeView.swift; sourceTree = "<group>"; };
 		BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
@@ -120,10 +108,7 @@
 				17D84C0D28D1C1F80055199F /* ContentView.swift */,
 				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
 				BDDD882428B7F3D4005133A7 /* CleoView.swift */,
-				BD5037ED28AE6D57000CD18E /* DrawLandscapeView.swift */,
-				1714CBA528AE932D0089D1B5 /* CustomButtonStyle.swift */,
 				BD8B57FF28CB843800339F7B /* CustomAlertView.swift */,
-				17D5D47B28B5138D004DC247 /* NicknameView.swift */,
 				17D5D4FF28C0F9DB004DC247 /* HomeView.swift */,
 				BDC46CF328C0E02500439743 /* QRCodeView.swift */,
 				BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */,
@@ -132,16 +117,6 @@
 				179A103228D210A0009FB6E8 /* CreditsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1714CB8528ABD63D0089D1B5 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */,
-				17F3A44B28ABC271002E9047 /* Persistence.swift */,
-				1714CBA128AE92C30089D1B5 /* PlayerRepository.swift */,
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		1714CB8A28AD17490089D1B5 /* Resources */ = {
@@ -191,7 +166,6 @@
 			children = (
 				1714CB8128ABD6020089D1B5 /* Models */,
 				1714CB8228ABD6120089D1B5 /* Views */,
-				1714CB8528ABD63D0089D1B5 /* Repositories */,
 				1714CB9328AD1FF20089D1B5 /* Utilities */,
 				1714CB8A28AD17490089D1B5 /* Resources */,
 				17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */,
@@ -284,17 +258,12 @@
 				BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */,
 				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
-				1714CBA628AE932D0089D1B5 /* CustomButtonStyle.swift in Sources */,
 				1714CBA028AE8C590089D1B5 /* PlayerModel.swift in Sources */,
 				BDDD882328B7B7F7005133A7 /* FeedbackModel.swift in Sources */,
-				17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */,
 				17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */,
-				17D5D4E528B8F72C004DC247 /* DrawLandscapeView.swift in Sources */,
 				BD95572D28B893EF00DFE639 /* PercentualModel.swift in Sources */,
-				1714CBA228AE92C30089D1B5 /* PlayerRepository.swift in Sources */,
 				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
-				17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */,
 				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
@@ -305,7 +274,6 @@
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
-				17D5D47C28B5138D004DC247 /* NicknameView.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,
@@ -550,19 +518,6 @@
 			productName = ConfettiSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */,
-			);
-			currentVersion = 17F3A44E28ABC271002E9047 /* ProjectPompeii.xcdatamodel */;
-			path = ProjectPompeii.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 17F3A43728ABC270002E9047 /* Project object */;
 }

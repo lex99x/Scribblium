@@ -11,7 +11,6 @@ import SwiftUI
 struct ContentView: View {
     
     @State var navigationBond = NavigationBond(destination: .home)
-    //    @State var audioPlayer: AVAudioPlayer!
     
     var body: some View {
         
@@ -38,12 +37,14 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let previewScreen = NavigationBond(destination: .home)
+        let previewScreen = NavigationBond(destination: .canvas)
         
         ContentView(navigationBond: previewScreen)
             .preferredColorScheme(.dark)
+            .previewDevice("iPhone 12")
         ContentView(navigationBond: previewScreen)
             .preferredColorScheme(.light)
+            .previewDevice("iPhone 12")
         ContentView(navigationBond: previewScreen)
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
