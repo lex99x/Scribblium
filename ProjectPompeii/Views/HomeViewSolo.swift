@@ -143,23 +143,24 @@ struct HomeViewSolo: View {
     
 }
 
-//struct HomeViewSolo_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeViewSolo()
-//            .preferredColorScheme(.dark)
-//        HomeViewSolo()
-//            .preferredColorScheme(.light)
-//        HomeViewSolo()
-//            .previewDevice("iPhone 13 Pro Max")
-//            .preferredColorScheme(.dark)
-//        HomeViewSolo()
-//            .previewDevice("iPhone 13 Pro Max")
-//            .preferredColorScheme(.light)
-//        HomeViewSolo()
-//            .previewDevice("iPhone 11")
-//            .preferredColorScheme(.dark)
-//        HomeViewSolo()
-//            .previewDevice("iPhone 11")
-//            .preferredColorScheme(.light)
-//    }
-//}
+struct HomeViewSolo_Previews: PreviewProvider {
+    static var previews: some View {
+        let navigationBond = NavigationBond(destination: .canvas)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.dark)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.light)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .previewDevice("iPhone 13 Pro Max")
+            .preferredColorScheme(.dark)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .previewDevice("iPhone 13 Pro Max")
+            .preferredColorScheme(.light)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .previewDevice("iPhone 11")
+            .preferredColorScheme(.dark)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .previewDevice("iPhone 11")
+            .preferredColorScheme(.light)
+    }
+}
