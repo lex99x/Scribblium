@@ -124,7 +124,7 @@ struct CleoView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Color("DrawBackground")
+            Color("CleoBackgroundColor")
                 .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable(resizingMode: .tile)
