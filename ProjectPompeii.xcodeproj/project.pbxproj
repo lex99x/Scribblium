@@ -31,6 +31,7 @@
 		17F3A44C28ABC271002E9047 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44B28ABC271002E9047 /* Persistence.swift */; };
 		17F3A44F28ABC271002E9047 /* ProjectPompeii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
+		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
 		BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */; };
@@ -91,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +216,7 @@
 			);
 			name = ProjectPompeii;
 			packageProductDependencies = (
+				BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */,
 			);
 			productName = ProjectPompeii;
 			productReference = 17F3A43F28ABC270002E9047 /* ProjectPompeii.app */;
@@ -244,6 +247,7 @@
 			);
 			mainGroup = 17F3A43628ABC270002E9047;
 			packageReferences = (
+				BD25DFA028E203B100AE2A11 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = 17F3A44028ABC270002E9047 /* Products */;
 			projectDirPath = "";
@@ -527,6 +531,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD25DFA028E203B100AE2A11 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD25DFA028E203B100AE2A11 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		17F3A44D28ABC271002E9047 /* ProjectPompeii.xcdatamodeld */ = {

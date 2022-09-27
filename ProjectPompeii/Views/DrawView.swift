@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct DrawView: View {
     
@@ -36,6 +37,7 @@ struct DrawView: View {
     private let drawingPredictor = DrawingPredictor()
     
     @State var score = 0
+    @State private var counter = 0
     
     var body: some View {
         
@@ -133,6 +135,7 @@ struct DrawView: View {
                     
                     RoundedRectangle(cornerRadius: 31)
                         .frame(maxWidth: 338, maxHeight: 501)
+                        //.frame(maxWidth: 370.93, maxHeight: 549.38)
                         .scaledToFill()
                         .foregroundColor(Color("SecondaryColor-1"))
                         .overlay(
@@ -150,6 +153,7 @@ struct DrawView: View {
                         }
                     }
                     .frame(maxWidth: 318, maxHeight: 482.51)
+                    //.frame(maxWidth: 348.98, maxHeight: 529.38)
                     .scaledToFill()
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
@@ -180,6 +184,7 @@ struct DrawView: View {
                                 }
                                 else {
                                     
+                                    counter += 1
                                     score += maxTime
                                     navigationBond.setData(score)
                                     
@@ -238,9 +243,12 @@ struct DrawView: View {
                     }
                     //.padding([.horizontal], 5)
                     //.padding([.vertical], -27.24)
+                    
+                    ConfettiCannon(counter: $counter, num: 13, colors: [Color("TertiaryColor-1"), Color("PrimaryColor-1"), Color("SecondaryColor-1")], fadesOut: true, radius: 500)
+                    
                 }
                 .padding([.top], 9)
-                
+                                
                 Text(suggestion)
                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                     .font(.custom("Rubik-Black", size: 32))
@@ -296,6 +304,8 @@ struct DrawView: View {
                             currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                             suggestion = randomDrawings[currentDrawingIndex]
                             
+                            //counter += 1
+                            
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
@@ -312,7 +322,9 @@ struct DrawView: View {
                                     .foregroundColor(Color("TertiaryColor-1"))
                                     //.scaledToFill()
                             }
-                        }.disabled(isShowingAlert)
+                        }
+                        .disabled(isShowingAlert)
+                        //.confettiCannon(counter: $counter, radius: 500)
                         
                         Text("skip")
                             .foregroundColor(.white)
@@ -360,7 +372,7 @@ struct DrawView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         }
-        
+//        .blur(radius: 10)
     }
 }
 
