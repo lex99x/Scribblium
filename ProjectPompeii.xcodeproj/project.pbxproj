@@ -23,6 +23,7 @@
 		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
+		BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15B1AE28E33BC100CCD292 /* HapticManager.swift */; };
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
@@ -34,6 +35,10 @@
 		BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF328C0E02500439743 /* QRCodeView.swift */; };
 		BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */; };
 		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
+		BDE929B528E4766900143268 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929B428E4766900143268 /* SoundManager.swift */; };
+		BDE929C028E4796500143268 /* correct2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BD28E4796500143268 /* correct2.mp3 */; };
+		BDE929C128E4796500143268 /* correct3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BE28E4796500143268 /* correct3.mp3 */; };
+		BDE929C228E4796500143268 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BF28E4796500143268 /* correct1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +60,7 @@
 		17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPompeiiApp.swift; sourceTree = "<group>"; };
 		17F3A44628ABC271002E9047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BD15B1AE28E33BC100CCD292 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
 		BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -65,6 +71,10 @@
 		BDC46CF328C0E02500439743 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
 		BDDD882428B7F3D4005133A7 /* CleoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleoView.swift; sourceTree = "<group>"; };
+		BDE929B428E4766900143268 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BDE929BD28E4796500143268 /* correct2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct2.mp3; sourceTree = "<group>"; };
+		BDE929BE28E4796500143268 /* correct3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct3.mp3; sourceTree = "<group>"; };
+		BDE929BF28E4796500143268 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,8 @@
 				BD443B5228AD1EE000495FDE /* LineModel.swift */,
 				17D5D4F928C0E217004DC247 /* RoundModel.swift */,
 				BD8B580128CB8F1A00339F7B /* AlertModel.swift */,
+				BD15B1AE28E33BC100CCD292 /* HapticManager.swift */,
+				BDE929B428E4766900143268 /* SoundManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,6 +129,9 @@
 				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
 				BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */,
 				BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */,
+				BDE929BF28E4796500143268 /* correct1.mp3 */,
+				BDE929BD28E4796500143268 /* correct2.mp3 */,
+				BDE929BE28E4796500143268 /* correct3.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -226,10 +241,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */,
+				BDE929C228E4796500143268 /* correct1.mp3 in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
 				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
+				BDE929C128E4796500143268 /* correct3.mp3 in Resources */,
+				BDE929C028E4796500143268 /* correct2.mp3 in Resources */,
 				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
 				17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */,
 			);
@@ -247,6 +265,7 @@
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
 				17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */,
 				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
+				BDE929B528E4766900143268 /* SoundManager.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
 				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
@@ -258,6 +277,7 @@
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
+				BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,

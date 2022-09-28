@@ -38,7 +38,7 @@ struct DrawView: View {
     
     @State var score = 0
     @State private var counter = 0
-    
+
     var body: some View {
         
         ZStack {
@@ -131,7 +131,7 @@ struct DrawView: View {
                 }
                 .padding([.top], 59)
                 
-                ZStack() {
+                ZStack {
                     
                     RoundedRectangle(cornerRadius: 31)
                         .frame(maxWidth: 338, maxHeight: 501)
@@ -181,6 +181,9 @@ struct DrawView: View {
                                 
                                 if self.prediction != suggestion {
                                     feedback = "That looks like a " + self.prediction
+                                    
+                                    HapticManager.instance.impact(style: .soft)
+
                                 }
                                 else {
                                     
@@ -192,6 +195,11 @@ struct DrawView: View {
                                     
                                     feedback = "That's a " + self.prediction + "!"
                                     
+                                    HapticManager.instance.notification(type: .success)
+                                    
+                                    // correct2 or correct3
+                                    SoundManager.instance.playSound(sound: .correct3)
+                                                                
                                     // Delay de 1.5 sec
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         feedback = "Go scribblium!"
@@ -213,14 +221,8 @@ struct DrawView: View {
                         
                         HStack (){
                             Image("Fitinha 1 Portrait darkmode")
-                            //.resizable()
-                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
-                            //.scaledToFill()
                             Spacer()
                             Image("Fitinha 2 Portrait darkmode")
-                            //.resizable()
-                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
-                            //.scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
@@ -229,14 +231,8 @@ struct DrawView: View {
                         
                         HStack (){
                             Image("Fitinha 2 Portrait darkmode")
-                            //.resizable()
-                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
-                            //.scaledToFill()
                             Spacer()
                             Image("Fitinha 1 Portrait darkmode")
-                            //.resizable()
-                            //.frame(maxWidth: 113.82, maxHeight: 110.94)
-                            //.scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
@@ -245,7 +241,35 @@ struct DrawView: View {
                     //.padding([.vertical], -27.24)
                     
                     ConfettiCannon(counter: $counter, num: 13, colors: [Color("TertiaryColor-1"), Color("PrimaryColor-1"), Color("SecondaryColor-1")], fadesOut: true, radius: 500)
-                    
+                                        
+                    /*
+                    VStack {
+                        Button("success") {
+                            HapticManager.instance.notification(type: .success)
+                        }
+                        Button("warning") {
+                            HapticManager.instance.notification(type: .warning)
+                        }
+                        Button("error") {
+                            HapticManager.instance.notification(type: .error)
+                        }
+                        Button("soft") {
+                            HapticManager.instance.impact(style: .soft)
+                        }
+                        Button("light") {
+                            HapticManager.instance.impact(style: .light)
+                        }
+                        Button("medium") {
+                            HapticManager.instance.impact(style: .medium)
+                        }
+                        Button("rigid") {
+                            HapticManager.instance.impact(style: .rigid)
+                        }
+                        Button("heavy") {
+                            HapticManager.instance.impact(style: .heavy)
+                        }
+                    }
+                    */
                 }
                 .padding([.top], 9)
                                 
