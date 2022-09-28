@@ -61,17 +61,10 @@ class DrawingModel {
         drawing.add(new_stroke)
         stroke.removeAllObjects()
     }
-        
-    static func getRandomDrawing() -> String {
-        
-//        let drawings = ["airplane", "apple", "alarm clock", "angel", "bathtub", "beard", "bed", "binoculars", "book", "bus", "cactus", "cake", "candle", "elephant", "eyeglasses", "fish", "flashlight", "frog", "headphones", "key", "lighthouse", "lipstick", "microphone", "mouth", "panda", "parrot", "popsicle", "postcard", "purse", "rain", "rabbit", "remote control", "rollerskates", "sailboat", "skull", "snowman", "stairs", "sun", "sword", "stop sign", "table", "train", "television", "tornado", "underwear", "watermelon", "whale", "wine glass", "yoga", "zebra"]
-        let drawings = ["apple", "house", "star", "sun", "zigzag"]
-        
-        return drawings.randomElement() ?? "None"
-        
-    }
     
     static func getRandomDrawings() -> [String] {
+        
+//        let drawings = ["airplane", "apple", "alarm clock", "angel", "bathtub", "beard", "bed", "binoculars", "book", "bus", "cactus", "cake", "candle", "elephant", "eyeglasses", "fish", "flashlight", "frog", "headphones", "key", "lighthouse", "lipstick", "microphone", "mouth", "panda", "parrot", "popsicle", "postcard", "purse", "rain", "rabbit", "remote control", "rollerskates", "sailboat", "skull", "snowman", "stairs", "sun", "sword", "stop sign", "table", "train", "television", "tornado", "underwear", "watermelon", "whale", "wine glass", "yoga", "zebra"]
         
         let drawings = ["apple", "house", "star", "sun", "zigzag"]
         
@@ -83,13 +76,7 @@ class DrawingModel {
         
         print(drawing, terminator: "\n\n\n")
         
-//        print(drawing)
-//        print(stroke)
-//        print(min_x)
-//        print(min_y)
-//        print(max_x)
-//        print(max_y)
-//        print("\n\n")
+//        print(drawing, stroke, min_x, min_y, max_x, max_y, terminator: "\n\n\n")
         
     }
     
