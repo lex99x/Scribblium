@@ -151,7 +151,7 @@ struct CustomPaused: View {
                 .minimumScaleFactor(0.1)
                 .padding([.vertical], 12)
                 .foregroundColor(Color("TertiaryColor-1"))
-            Text("You paused the game")
+            Text("You've paused the game")
                 .font(.custom("Rubik-Regular", size: 13))
                 .frame(maxWidth: 129, maxHeight: 16)
                 .minimumScaleFactor(0.1)

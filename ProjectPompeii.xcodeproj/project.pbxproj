@@ -14,7 +14,7 @@
 		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
 		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
 		17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* RoundModel.swift */; };
-		17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */; };
+		17D5D4FE28C0E435004DC247 /* GameConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */; };
 		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
 		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
 		17D5D50A28C20BD5004DC247 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */; };
@@ -49,7 +49,7 @@
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
 		17D5D4F928C0E217004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
-		17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionService.swift; sourceTree = "<group>"; };
+		17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionManager.swift; sourceTree = "<group>"; };
 		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
 		17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				17D5D50928C20BD5004DC247 /* DrawingClassifierModel.mlmodel */,
 				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
-				17D5D4FD28C0E435004DC247 /* GameConnectionService.swift */,
+				17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */,
 				179A103728D2EADF009FB6E8 /* NavigationBond.swift */,
 			);
 			path = Utilities;
@@ -264,7 +264,7 @@
 				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
 				17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */,
-				17D5D4FE28C0E435004DC247 /* GameConnectionService.swift in Sources */,
+				17D5D4FE28C0E435004DC247 /* GameConnectionManager.swift in Sources */,
 				BDE929B528E4766900143268 /* SoundManager.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
 				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,

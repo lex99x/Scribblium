@@ -33,7 +33,8 @@ struct DrawView: View {
     
     @State private var prediction = ""
     @State private var alertMessage = ""
-    private let drawingModel = DrawingModel()
+    
+    @State private var drawingModel = DrawingModel()
     private let drawingPredictor = DrawingPredictor()
     
     @State var score = 0
@@ -159,6 +160,7 @@ struct DrawView: View {
                     .background(Color("Contorno"))
                     .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                        
                         let newPoint = value.location
                         if value.translation.width + value.translation.height == 0 {
                             drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
@@ -171,42 +173,45 @@ struct DrawView: View {
                         
                     })
                         .onEnded({ value in
+                            
                             drawingModel.endStroke()
+                            drawingModel.logDrawing()
+                            
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
                             
-                            DrawingPredictor.logPredictions(predictions)
+//                            DrawingPredictor.logPredictions(predictions)
                             
                             if !predictions.isEmpty {
+                                
                                 self.prediction = predictions.first!.classification
                                 
-                                if self.prediction != suggestion {
-                                    feedback = "That looks like a " + self.prediction
+                                if self.prediction != suggestion { // scribblium errado
                                     
+                                    feedback = "That looks like a " + self.prediction
                                     HapticManager.instance.impact(style: .soft)
 
-                                }
-                                else {
+                                } else { // scribblium certo
                                     
                                     counter += 1
                                     score += maxTime
                                     navigationBond.setData(score)
                                     
-                                    RoundModel.logScore(maxTime: maxTime, score: score)
+//                                    RoundModel.logScore(maxTime: maxTime, score: score)
                                     
                                     feedback = "That's a " + self.prediction + "!"
                                     
-                                    HapticManager.instance.notification(type: .success)
-                                    
-                                    // correct2 or correct3
-                                    SoundManager.instance.playSound(sound: .correct3)
-                                                                
                                     // Delay de 1.5 sec
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         feedback = "Go scribblium!"
                                     }
                                     
+                                    HapticManager.instance.notification(type: .success)
+                                    
+                                    // correct2 or correct3
+                                    SoundManager.instance.playSound(sound: .correct3)
+                                    
                                     drawing = [Line]()
-                                    drawingModel.drawing = []
+                                    drawingModel = DrawingModel()
                                     
                                     currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                                     suggestion = randomDrawings[currentDrawingIndex]
@@ -284,9 +289,12 @@ struct DrawView: View {
                     
                     VStack {
                         Button(action: {
+                                                                                
                             drawing = [Line]()
-                            drawingModel.drawing = []
+                            drawingModel = DrawingModel()
+                                                    
                             feedback = "Go scribblium!"
+                                                    
                         }) {
                             ZStack {
                                 Circle()
@@ -319,16 +327,14 @@ struct DrawView: View {
                     
                     VStack {
                         Button(action: {
+                                                        
+                            drawing = [Line]()
+                            drawingModel = DrawingModel()
                             
                             feedback = "Go scribblium!"
                             
-                            drawing = [Line]()
-                            drawingModel.drawing = []
-                            
                             currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                             suggestion = randomDrawings[currentDrawingIndex]
-                            
-                            //counter += 1
                             
                         }) {
                             ZStack(alignment: .center){

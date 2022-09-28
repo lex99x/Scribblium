@@ -79,4 +79,18 @@ class DrawingModel {
         
     }
     
+    func logDrawing() {
+        
+        print(drawing, terminator: "\n\n\n")
+        
+//        print(drawing)
+//        print(stroke)
+//        print(min_x)
+//        print(min_y)
+//        print(max_x)
+//        print(max_y)
+//        print("\n\n")
+        
+    }
+    
 }
