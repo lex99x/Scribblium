@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct AlertModel {
-    
     var title: String
     var description: String
     var buttonOne: String?
