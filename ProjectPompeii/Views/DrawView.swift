@@ -240,39 +240,11 @@ struct DrawView: View {
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
                     }
-                    //.padding([.horizontal], 5)
-                    //.padding([.vertical], -27.24)
+//                    .padding([.horizontal], 5)
+//                    .padding([.vertical], -27.24)
                     
                     ConfettiCannon(counter: $counter, num: 13, colors: [Color("TertiaryColor-1"), Color("PrimaryColor-1"), Color("SecondaryColor-1")], fadesOut: true, radius: 500)
                     
-                    /*
-                     VStack {
-                     Button("success") {
-                     HapticManager.instance.notification(type: .success)
-                     }
-                     Button("warning") {
-                     HapticManager.instance.notification(type: .warning)
-                     }
-                     Button("error") {
-                     HapticManager.instance.notification(type: .error)
-                     }
-                     Button("soft") {
-                     HapticManager.instance.impact(style: .soft)
-                     }
-                     Button("light") {
-                     HapticManager.instance.impact(style: .light)
-                     }
-                     Button("medium") {
-                     HapticManager.instance.impact(style: .medium)
-                     }
-                     Button("rigid") {
-                     HapticManager.instance.impact(style: .rigid)
-                     }
-                     Button("heavy") {
-                     HapticManager.instance.impact(style: .heavy)
-                     }
-                     }
-                     */
                 }
                 .padding([.top], 9)
                 
