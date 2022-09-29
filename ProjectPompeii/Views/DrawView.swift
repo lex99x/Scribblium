@@ -31,7 +31,7 @@ struct DrawView: View {
     @State private var suggestion = ""
     @State private var feedback = ""
     
-    @State private var prediction = ""
+    @State private var prediction = Prediction(classification: "", confidence: 0.0)
     @State private var alertMessage = ""
     
     @State private var drawingModel = DrawingModel()
@@ -39,7 +39,7 @@ struct DrawView: View {
     
     @State var score = 0
     @State private var counter = 0
-
+    
     var body: some View {
         
         ZStack {
@@ -175,56 +175,56 @@ struct DrawView: View {
                         .onEnded({ value in
                             
                             drawingModel.endStroke()
-                            drawingModel.logDrawing()
+//                            drawingModel.logDrawing()
                             
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
+                            DrawingPredictor.logPredictions(predictions, amount: 1)
+                                                            
+                            prediction = predictions.first!
                             
-//                            DrawingPredictor.logPredictions(predictions)
+                            let classification = prediction.classification
+                            let confidence = prediction.confidence * 100
                             
-                            if !predictions.isEmpty {
+                            if classification == suggestion && confidence >= 50.0 { // a cleo reconhece que o jogador acertou o desenho
+                                    
+                                counter += 1
+                                score += maxTime
+                                navigationBond.setData(score)
                                 
-                                self.prediction = predictions.first!.classification
+//                                RoundModel.logScore(maxTime: maxTime, score: score)
                                 
-                                if self.prediction != suggestion { // scribblium errado
-                                    
-                                    feedback = "That looks like a " + self.prediction
-                                    HapticManager.instance.impact(style: .soft)
-
-                                } else { // scribblium certo
-                                    
-                                    counter += 1
-                                    score += maxTime
-                                    navigationBond.setData(score)
-                                    
-//                                    RoundModel.logScore(maxTime: maxTime, score: score)
-                                    
-                                    feedback = "That's a " + self.prediction + "!"
-                                    
-                                    // Delay de 1.5 sec
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        feedback = "Go scribblium!"
-                                    }
-                                    
-                                    HapticManager.instance.notification(type: .success)
-                                    
-                                    // correct2 or correct3
-                                    SoundManager.instance.playSound(sound: .correct3)
-                                    
-                                    drawing = [Line]()
-                                    drawingModel = DrawingModel()
-                                    
-                                    currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
-                                    suggestion = randomDrawings[currentDrawingIndex]
-                                    
+                                feedback = "That's " + DrawingModel.formatPrediction(prediction: prediction.classification) + "!"
+                                
+                                // delay de 1.5 sec
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    feedback = "Go scribblium!"
                                 }
+                                
+                                HapticManager.instance.notification(type: .success)
+                                SoundManager.instance.playSound(sound: .correct3)
+                                
+                                drawing = [Line]()
+                                drawingModel = DrawingModel()
+                                
+                                currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                                suggestion = randomDrawings[currentDrawingIndex]
+                                
+                            } else if confidence >= 30.0 { // a cleo tem uma noção do que o jogador desenhou
+                                
+                                feedback = "That looks like " + DrawingModel.formatPrediction(prediction: prediction.classification) + " to me"
+                                HapticManager.instance.impact(style: .soft)
+                                
+                            } else { // a cleo não faz ideia do que o jogador desenhou
+                                feedback = "I don't know what that is"
                             }
+                            
                         })
                     )
                     .disabled(isShowingAlert)
                     
-                    VStack (){
+                    VStack {
                         
-                        HStack (){
+                        HStack {
                             Image("Fitinha 1 Portrait darkmode")
                             Spacer()
                             Image("Fitinha 2 Portrait darkmode")
@@ -234,7 +234,7 @@ struct DrawView: View {
                         
                         Spacer()
                         
-                        HStack (){
+                        HStack {
                             Image("Fitinha 2 Portrait darkmode")
                             Spacer()
                             Image("Fitinha 1 Portrait darkmode")
@@ -285,7 +285,7 @@ struct DrawView: View {
                     .minimumScaleFactor(0.1)
                     .scaledToFill()
                 
-                HStack() {
+                HStack {
                     
                     VStack {
                         Button(action: {
@@ -386,10 +386,10 @@ struct DrawView: View {
             }
             
         }
-        .onAppear() { // Inicilizando variáveis ao construir a tela
+        .onAppear() { // inicilizando variáveis ao construir a tela
             navigationBond.setData(score)
             feedback = "Go scribblium!"
-            randomDrawings = DrawingModel.getRandomDrawings()
+            randomDrawings = DrawingModel.getShuffledDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }
         .ignoresSafeArea()
@@ -404,6 +404,7 @@ struct DrawView: View {
         }
 //        .blur(radius: 10)
     }
+    
 }
 
 struct DrawView_Previews: PreviewProvider {
