@@ -11,8 +11,9 @@ struct HomeViewSolo: View {
     
     @Binding var navigationBond: NavigationBond
     
-    @State var showTutorial = false
+    //@State var showTutorial = false
     @State private var showCredits = false
+    @State private var showHowToPlay = false
     @State private var isShowingAlert = false
     
     var body: some View {
@@ -39,8 +40,7 @@ struct HomeViewSolo: View {
                     Spacer()
                     
                     Button(action: {
-                        showTutorial.toggle()
-                        isShowingAlert = true
+                        showHowToPlay.toggle()
                     }) {
                         
                         Circle()
@@ -54,6 +54,9 @@ struct HomeViewSolo: View {
                         
                     }
                     .disabled(isShowingAlert)
+                    .sheet(isPresented: $showHowToPlay){
+                        HowToPlayView()
+                    }
                     
                     Button(action: {
                         showCredits.toggle()
@@ -131,10 +134,6 @@ struct HomeViewSolo: View {
                     .ignoresSafeArea()
             }
             .statusBarHidden(true)
-            
-            if showTutorial {
-                CustomAlertTutorial(shown: $showTutorial, isShowingAlert: $isShowingAlert)
-            }
             
         }
         

@@ -39,6 +39,7 @@
 		BDE929C028E4796500143268 /* correct2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BD28E4796500143268 /* correct2.mp3 */; };
 		BDE929C128E4796500143268 /* correct3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BE28E4796500143268 /* correct3.mp3 */; };
 		BDE929C228E4796500143268 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BF28E4796500143268 /* correct1.mp3 */; };
+		BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929C328E5E34D00143268 /* HowToPlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		BDE929BD28E4796500143268 /* correct2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct2.mp3; sourceTree = "<group>"; };
 		BDE929BE28E4796500143268 /* correct3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct3.mp3; sourceTree = "<group>"; };
 		BDE929BF28E4796500143268 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
+		BDE929C328E5E34D00143268 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */,
 				17D84C0928D195830055199F /* HomeViewSolo.swift */,
 				179A103228D210A0009FB6E8 /* CreditsView.swift */,
+				BDE929C328E5E34D00143268 /* HowToPlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */,
 				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
 				17F822E728E5C3280017E8C0 /* DrawingClassifierModel.mlmodel in Sources */,
+				BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */,
 				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
 				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
 				BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */,
