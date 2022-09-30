@@ -29,38 +29,34 @@ struct HomeViewSolo: View {
                 
                 HStack {
 
-                    Button(action: {
-                        //navigationBond.setData(count)
-                        
-                        count += 1
-
-                        if(count%2 == 0) {
-                            isTapped = false
-                            isSoundOn = true
-                        }
-                        else {
-                            isTapped = true
-                            isSoundOn = false
-                        }
-                        
-
-                        print(isSoundOn)
-                        navigationBond.setData(isSoundOn)
-                        print("Sound button pressed")
-                        
-                    }) {
-
-                        Circle()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(Color("Contorno"))
-                            .overlay(
-                                Circle()
-                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
-                            )
-                            .overlay(Image(isTapped ? "sound off" : "sound on").resizable().frame(width: 20, height: 20))
-
-                    }
-                    
+//                    Button(action: {
+//
+//                        count += 1
+//                        navigationBond.setData(count)
+//
+//                        if(count%2 == 0) {
+//                            isTapped = false
+//                            isSoundOn = true
+//                        }
+//                        else {
+//                            isTapped = true
+//                            isSoundOn = false
+//                        }
+//                        print("Sound button pressed")
+//
+//                    }) {
+//
+//                        Circle()
+//                            .frame(width: 60, height: 60)
+//                            .foregroundColor(Color("Contorno"))
+//                            .overlay(
+//                                Circle()
+//                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
+//                            )
+//                            .overlay(Image(isTapped ? "sound off" : "sound on").resizable().frame(width: 20, height: 20))
+//
+//                    }
+//
                     Spacer()
                     
                     Button(action: {
