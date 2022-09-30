@@ -37,11 +37,11 @@ struct DrawView: View {
     
     @State var score = 0
     @State private var counter = 0
-    
+    //@State private var isSoundOn = true
+        
     var body: some View {
         
         ZStack {
-            
             VStack {
                 VStack {
                     HStack {
@@ -127,6 +127,7 @@ struct DrawView: View {
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
 //                        .padding([.leading], 26)
+                        .padding([.bottom], 10)
                 }
                 .padding([.top], 59)
                 
@@ -197,9 +198,10 @@ struct DrawView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                     feedback = "Go scribblium!"
                                 }
-                                
+                            
                                 HapticManager.instance.notification(type: .success)
                                 SoundManager.instance.playSound(sound: .correct3)
+
                                 
                                 drawing = [Line]()
                                 drawingModel = DrawingModel()
@@ -254,6 +256,7 @@ struct DrawView: View {
                     .frame(maxWidth: 148, maxHeight: 36)
                     .minimumScaleFactor(0.1)
                     .scaledToFill()
+                    .padding([.top], 10)
                 
                 HStack {
                     
@@ -264,6 +267,7 @@ struct DrawView: View {
                             drawingModel = DrawingModel()
                             
                             feedback = "Go scribblium!"
+                            
                             
                         }) {
                             ZStack {

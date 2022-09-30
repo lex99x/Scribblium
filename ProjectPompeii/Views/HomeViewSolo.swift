@@ -15,6 +15,11 @@ struct HomeViewSolo: View {
     @State private var showCredits = false
     @State private var showHowToPlay = false
     @State private var isShowingAlert = false
+    @State private var isSoundOn = true
+    @State private var isTapped = false
+    @State var count = 0
+    
+    //@Binding var isSoundOn: Bool
     
     var body: some View {
         
@@ -24,18 +29,33 @@ struct HomeViewSolo: View {
                 
                 HStack {
 
-//                    Button(action: { print("Sound button pressed") }) {
-//
-//                        Circle()
-//                            .frame(width: 60, height: 60)
-//                            .foregroundColor(Color("Contorno"))
-//                            .overlay(
-//                                Circle()
-//                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
-//                            )
-//                            .overlay(Image("sound on").resizable().frame(width: 20, height: 20))
-//
-//                    }
+                    Button(action: {
+                        
+                        count += 1
+                        navigationBond.setData(count)
+                        
+                        if(count%2 == 0) {
+                            isTapped = false
+                            isSoundOn = true
+                        }
+                        else {
+                            isTapped = true
+                            isSoundOn = false
+                        }
+                        print("Sound button pressed")
+                        
+                    }) {
+
+                        Circle()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(Color("Contorno"))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
+                            )
+                            .overlay(Image(isTapped ? "sound off" : "sound on").resizable().frame(width: 20, height: 20))
+
+                    }
                     
                     Spacer()
                     
@@ -147,20 +167,20 @@ struct HomeViewSolo_Previews: PreviewProvider {
         HomeViewSolo(navigationBond: .constant(navigationBond))
             .preferredColorScheme(.dark)
             .previewDevice("iPhone 12")
-        HomeViewSolo(navigationBond: .constant(navigationBond))
-            .preferredColorScheme(.light)
-            .previewDevice("iPhone 12")
-        HomeViewSolo(navigationBond: .constant(navigationBond))
-            .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.dark)
-        HomeViewSolo(navigationBond: .constant(navigationBond))
-            .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.light)
-        HomeViewSolo(navigationBond: .constant(navigationBond))
-            .previewDevice("iPhone 11")
-            .preferredColorScheme(.dark)
-        HomeViewSolo(navigationBond: .constant(navigationBond))
-            .previewDevice("iPhone 11")
-            .preferredColorScheme(.light)
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
+//            .preferredColorScheme(.light)
+//            .previewDevice("iPhone 12")
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
+//            .previewDevice("iPhone 13 Pro Max")
+//            .preferredColorScheme(.dark)
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
+//            .previewDevice("iPhone 13 Pro Max")
+//            .preferredColorScheme(.light)
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.dark)
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
+//            .previewDevice("iPhone 11")
+//            .preferredColorScheme(.light)
     }
 }

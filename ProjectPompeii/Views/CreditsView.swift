@@ -135,6 +135,21 @@ struct CreditsView: View {
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
                                      
             }
+            .padding(.bottom)
+            
+            VStack {
+            
+                Text("Apple/Turicreate")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Bold", size: 17))
+                    .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
+                                     
+                Text("Copyright 2018 Apple Inc.\n Redistribution and use in source and binary forms, with or without modification, are permitted as long as the pre-established conditions are met\n https://github.com/apple/turicreate/blob/main/LICENSE.md")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Regular", size: 13))
+                    .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
+                                     
+            }
             
 //            VStack {
 //
