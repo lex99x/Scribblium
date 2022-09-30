@@ -211,7 +211,7 @@ struct DrawView: View {
                                 
                             } else if confidence >= 30.0 { // a cleo tem uma noção do que o jogador desenhou
                                 
-                                feedback = "That looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
+                                feedback = "Kinda looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
                                 HapticManager.instance.impact(style: .soft)
                                 
                             } else { // a cleo não faz ideia do que o jogador desenhou
