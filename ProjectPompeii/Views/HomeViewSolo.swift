@@ -30,10 +30,10 @@ struct HomeViewSolo: View {
                 HStack {
 
                     Button(action: {
+                        //navigationBond.setData(count)
                         
                         count += 1
-                        navigationBond.setData(count)
-                        
+
                         if(count%2 == 0) {
                             isTapped = false
                             isSoundOn = true
@@ -42,6 +42,10 @@ struct HomeViewSolo: View {
                             isTapped = true
                             isSoundOn = false
                         }
+                        
+
+                        print(isSoundOn)
+                        navigationBond.setData(isSoundOn)
                         print("Sound button pressed")
                         
                     }) {
@@ -118,6 +122,7 @@ struct HomeViewSolo: View {
                         print("Start button pressed")
     
                         withAnimation {
+                            navigationBond = NavigationBond(destination: .canvas, data: isSoundOn)
                             navigationBond.setDestination(.canvas)
                         }
                         

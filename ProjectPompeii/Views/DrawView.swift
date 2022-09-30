@@ -37,7 +37,7 @@ struct DrawView: View {
     
     @State var score = 0
     @State private var counter = 0
-    //@State private var isSoundOn = true
+    @State private var isSoundOn = true
         
     var body: some View {
         
@@ -199,9 +199,10 @@ struct DrawView: View {
                                     feedback = "Go scribblium!"
                                 }
                             
-                                HapticManager.instance.notification(type: .success)
-                                SoundManager.instance.playSound(sound: .correct3)
-
+                                if (isSoundOn) {
+                                    HapticManager.instance.notification(type: .success)
+                                    SoundManager.instance.playSound(sound: .correct3)
+                                }
                                 
                                 drawing = [Line]()
                                 drawingModel = DrawingModel()
@@ -212,7 +213,10 @@ struct DrawView: View {
                             } else if confidence >= 30.0 { // a cleo tem uma noção do que o jogador desenhou
                                 
                                 feedback = "Kinda looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
-                                HapticManager.instance.impact(style: .soft)
+                                
+                                if (isSoundOn) {
+                                    HapticManager.instance.impact(style: .soft)
+                                }
                                 
                             } else { // a cleo não faz ideia do que o jogador desenhou
                                 feedback = "I don't know what that is"
@@ -361,6 +365,8 @@ struct DrawView: View {
             
         }
         .onAppear() { // inicilizando variáveis ao construir a tela
+            print(navigationBond)
+            isSoundOn = navigationBond.getData() as! Bool
             navigationBond.setData(score)
             feedback = "Go scribblium!"
             randomDrawings = DrawingModel.getShuffledDrawings()
@@ -384,7 +390,7 @@ struct DrawView: View {
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo)))
+            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo, data: true)))
                 .previewInterfaceOrientation(.portrait)
         }
     }

@@ -86,7 +86,7 @@ struct HowToPlayView: View {
                         .minimumScaleFactor(0.1)
                         .foregroundColor(Color("SecondaryColor-1"))
                     
-                    Text("At the end of each round you score according to: the difficulty of the scribblium, the speed of what is drawn and the number of scribbliuns!")
+                    Text("At the end of the match your score is calculated according to the amount of correct scribbliuns you've made.")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
