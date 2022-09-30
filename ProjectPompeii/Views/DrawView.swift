@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct DrawView: View {
-    
-    //    @Environment (\.verticalSizeClass) var verticalSizeClass
-    //    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     
     @Binding var navigationBond: NavigationBond
     
@@ -19,36 +17,31 @@ struct DrawView: View {
     @State var empty = false
     @State var leave = false
     @State var pause = false
-    @State var maxTime = 30
     @State var timerRunning = true
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var timerIsPaused: Bool = true
-    
-    //var isLandscape: Bool { verticalSizeClass == .compact }
-    
-    @State private var drawing = [Line]()
-//    private let randomDrawings = DrawingModel.getRandomDrawings()
-    @State private var randomDrawings: [String] = []
-    @State private var currentDrawingIndex = 0
-    @State private var suggestion = ""
-    @State private var feedback = "Go scribblium!"
-    
-    @State private var prediction = ""
-    @State private var predictionConfidence = 0
-//    @State private var showAlert = false
-    @State private var alertMessage = ""
-    private let drawingModel = DrawingModel()
-    private let drawingPredictor = DrawingPredictor()
-    
     @State private var disableButtons = false
     @State private var isShowingAlert = false
     
-    @State var score = 0
+    @State var maxTime = 30
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timerIsPaused: Bool = true
     
+    @State private var drawing = [Line]()
+    @State private var randomDrawings: [String] = []
+    @State private var currentDrawingIndex = 0
+    @State private var suggestion = ""
+    @State private var feedback = ""
+    @State private var alertMessage = ""
+    
+    @State private var drawingModel = DrawingModel()
+    private let drawingPredictor = DrawingPredictor()
+    
+    @State var score = 0
+    @State private var counter = 0
+    @State private var isSoundOn = true
+        
     var body: some View {
         
         ZStack {
-            
             VStack {
                 VStack {
                     HStack {
@@ -72,7 +65,7 @@ struct DrawView: View {
                             
                             Circle()
                                 .frame(maxWidth: 62, maxHeight: 62)
-                            //.scaledToFill()
+//                                .scaledToFill()
                                 .foregroundColor(Color("TimerBackground"))
                                 .overlay(
                                     Circle()
@@ -109,7 +102,7 @@ struct DrawView: View {
                                 
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                //.scaledToFill()
+//                                    .scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
@@ -117,7 +110,7 @@ struct DrawView: View {
                                 
                                 Image(systemName: "pause.fill")
                                     .resizable()
-                                    .frame(maxWidth: 14, maxHeight: 26)
+                                    .frame(maxWidth: 19, maxHeight: 25)
                                     .foregroundColor(Color("TertiaryColor-1"))
                             }
                         }
@@ -128,19 +121,21 @@ struct DrawView: View {
                     
                     Text(feedback)
                         .font(.custom("Rubik-Black", size: 20))
-                        .frame(maxWidth: 156, maxHeight: 24)
+                        .frame(maxHeight: 24)
                         .minimumScaleFactor(0.1)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
-                    //.padding([.leading], 26)
+//                        .padding([.leading], 26)
+                        .padding([.bottom], 10)
                 }
                 .padding([.top], 59)
                 
-                ZStack() {
+                ZStack {
                     
                     RoundedRectangle(cornerRadius: 31)
                         .frame(maxWidth: 338, maxHeight: 501)
+//                        .frame(maxWidth: 370.93, maxHeight: 549.38)
                         .scaledToFill()
                         .foregroundColor(Color("SecondaryColor-1"))
                         .overlay(
@@ -154,17 +149,17 @@ struct DrawView: View {
                         for line in drawing {
                             var path  = Path()
                             path.addLines(line.points)
-                            
                             context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                            
                         }
                     }
                     .frame(maxWidth: 318, maxHeight: 482.51)
+                    //.frame(maxWidth: 348.98, maxHeight: 529.38)
                     .scaledToFill()
                     .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
                     .background(Color("Contorno"))
                     .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                        
                         let newPoint = value.location
                         if value.translation.width + value.translation.height == 0 {
                             drawing.append(Line(points: [newPoint], color: Color.black, lineWidth: 5))
@@ -177,77 +172,85 @@ struct DrawView: View {
                         
                     })
                         .onEnded({ value in
+                            
                             drawingModel.endStroke()
+//                            drawingModel.logDrawing()
+                            
                             let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
+                            let prediction = predictions.first!
                             
-                            for prediction in predictions {
-                                print(prediction.classification, String(prediction.confidence * 100) + " %")
-                            }
-                            print("\n")
+                            let classification = prediction.classification
+                            let confidence = prediction.confidence * 100
                             
-                            if !predictions.isEmpty {
-                                self.prediction = predictions.first!.classification
+                            print(classification, confidence)
+                            
+                            if classification == suggestion && confidence >= 50.0 { // a cleo reconhece que o jogador acertou o desenho
                                 
-                                if self.prediction != suggestion {
-                                    feedback = "That looks like a " + self.prediction
-                                }
-                                else {
-                                    
-                                    score += maxTime
-                                    navigationBond.setData(score)
-                                    
-                                    feedback = "That's a " + self.prediction + "!"
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        feedback = "Go scribblium!"
-                                    }
+                                counter += 1
+                                score += maxTime
+                                navigationBond.setData(score)
                                 
-                                    drawing = [Line]()
-                                    drawingModel.drawing = []
-                                    
-                                    currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
-                                    suggestion = randomDrawings[currentDrawingIndex]
-                                    
+//                                RoundModel.logScore(maxTime: maxTime, score: score)
+                                
+                                feedback = "That's " + DrawingModel.formatPrediction(prediction: classification) + "!"
+                                
+                                // delay de 1.5 sec
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    feedback = "Go scribblium!"
                                 }
+                            
+                                if (isSoundOn) {
+                                    HapticManager.instance.notification(type: .success)
+                                    SoundManager.instance.playSound(sound: .correct3)
+                                }
+                                
+                                drawing = [Line]()
+                                drawingModel = DrawingModel()
+                                
+                                currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
+                                suggestion = randomDrawings[currentDrawingIndex]
+                                
+                            } else if confidence >= 30.0 { // a cleo tem uma noção do que o jogador desenhou
+                                
+                                feedback = "Kinda looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
+                                
+                                if (isSoundOn) {
+                                    HapticManager.instance.impact(style: .soft)
+                                }
+                                
+                            } else { // a cleo não faz ideia do que o jogador desenhou
+                                feedback = "I don't know what that is"
                             }
+                            
                         })
                     )
                     .disabled(isShowingAlert)
                     
-                    VStack (){
+                    VStack {
                         
-                        HStack (){
+                        HStack {
                             Image("Fitinha 1 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
                             Spacer()
                             Image("Fitinha 2 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
                         
                         Spacer()
                         
-                        HStack (){
+                        HStack {
                             Image("Fitinha 2 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
                             Spacer()
                             Image("Fitinha 1 Portrait darkmode")
-                                //.resizable()
-//                                .frame(maxWidth: 113.82, maxHeight: 110.94)
-//                                .scaledToFill()
                         }
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
                     }
 //                    .padding([.horizontal], 5)
 //                    .padding([.vertical], -27.24)
+                    
+                    ConfettiCannon(counter: $counter, num: 13, colors: [Color("TertiaryColor-1"), Color("PrimaryColor-1"), Color("SecondaryColor-1")], fadesOut: true, radius: 500)
+                    
                 }
                 .padding([.top], 9)
                 
@@ -257,27 +260,33 @@ struct DrawView: View {
                     .frame(maxWidth: 148, maxHeight: 36)
                     .minimumScaleFactor(0.1)
                     .scaledToFill()
+                    .padding([.top], 10)
                 
-                HStack() {
+                HStack {
                     
                     VStack {
                         Button(action: {
+                            
                             drawing = [Line]()
-                            drawingModel.drawing = []
+                            drawingModel = DrawingModel()
+                            
                             feedback = "Go scribblium!"
+                            
+                            
                         }) {
                             ZStack {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                    //.scaledToFill()
+//                                    .scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3))
-                                Image("lixeira fechada")
+                                Image(systemName: "trash.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 24)
-                                    //.scaledToFill()
+                                    .foregroundColor(Color("TertiaryColor-1"))
+//                                    .scaledToFill()
                             }
                         }
                         .disabled(isShowingAlert)
@@ -286,7 +295,7 @@ struct DrawView: View {
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 41, maxHeight: 21)
                             .minimumScaleFactor(0.1)
-                            //.scaledToFill()
+//                            .scaledToFill()
                             .multilineTextAlignment(.center)
                     }
                     .padding([.leading], 25)
@@ -297,51 +306,33 @@ struct DrawView: View {
                     VStack {
                         Button(action: {
                             
-//                            if(!drawing.isEmpty){
-//                                if self.prediction == self.suggestion {
-//                                    feedback = "Go scribblium!"
-//                                    drawing = [Line]()
-//                                    suggestion = DrawingModel.getRandomDrawing()
-//
-//                                    score += maxTime
-//                                    navigationBond.setData(score)
-//
-//                                } else {
-////                                    self.showAlert = true
-//                                    isShowingAlert = true
-//                                    confirme = true
-//                                }
-//
-//                            } else {
-//                                print("Desenho vazio!")
-//                                isShowingAlert = true
-//                                empty = true
-//                            }
+                            drawing = [Line]()
+                            drawingModel = DrawingModel()
                             
                             feedback = "Go scribblium!"
                             
-                            drawing = [Line]()
-                            drawingModel.drawing = []
-                            
                             currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                             suggestion = randomDrawings[currentDrawingIndex]
-                                                        
+                            
                         }) {
                             ZStack(alignment: .center){
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                    //.scaledToFill()
+//                                    .scaledToFill()
                                     .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
                                     .overlay(
                                         Circle()
                                             .strokeBorder(Color("Contorno"), lineWidth: 3)
                                     )
-                                Image("enviar")
+                                Image(systemName: "forward.end.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 18.84)
-                                    //.scaledToFill()
+                                    .foregroundColor(Color("TertiaryColor-1"))
+//                                    .scaledToFill()
                             }
-                        }.disabled(isShowingAlert)
+                        }
+                        .disabled(isShowingAlert)
+//                        .confettiCannon(counter: $counter, radius: 500)
                         
                         Text("skip")
                             .foregroundColor(.white)
@@ -355,6 +346,7 @@ struct DrawView: View {
                 }
             }
             .statusBar(hidden: true)
+            
             if timeup {
                 CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
             }
@@ -372,9 +364,12 @@ struct DrawView: View {
             }
             
         }
-        .onAppear() {
-            navigationBond.setData(0)
-            randomDrawings = DrawingModel.getRandomDrawings()
+        .onAppear() { // inicilizando variáveis ao construir a tela
+            print(navigationBond)
+            isSoundOn = navigationBond.getData() as! Bool
+            navigationBond.setData(score)
+            feedback = "Go scribblium!"
+            randomDrawings = DrawingModel.getShuffledDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }
         .ignoresSafeArea()
@@ -387,19 +382,15 @@ struct DrawView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         }
-//        .alert(alertMessage, isPresented: $showAlert) {
-//            Button("Ok", role: .cancel) {
-//                self.timerRunning = true
-//            }
-//        }
-        
+//        .blur(radius: 10)
     }
+    
 }
 
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo)))
+            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo, data: true)))
                 .previewInterfaceOrientation(.portrait)
         }
     }

@@ -22,7 +22,7 @@ struct NavigationBond {
         self.destination = destination
     }
 
-    init(destination: Screen, data: Data) {
+    init(destination: Screen, data: Any) {
         self.destination = destination
         self.data = data
     }

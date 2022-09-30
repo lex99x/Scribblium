@@ -1,5 +1,5 @@
 //
-//  GameConnectionService.swift
+//  GameConnectionManager.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 01/09/22.
@@ -32,7 +32,7 @@ struct Session {
     
 }
 
-class GameConnectionService: NSObject, ObservableObject {
+class GameConnectionManager: NSObject, ObservableObject {
     
     private static let service = "pompeii-service"
     
@@ -59,11 +59,11 @@ class GameConnectionService: NSObject, ObservableObject {
         self.nearbyServiceAdvertiser = MCNearbyServiceAdvertiser(
             peer: peerId,
             discoveryInfo: ["deviceId": currentDeviceId],
-            serviceType: GameConnectionService.service)
+            serviceType: GameConnectionManager.service)
         
         self.nearbyServiceBrowser = MCNearbyServiceBrowser(
             peer: peerId,
-            serviceType: GameConnectionService.service)
+            serviceType: GameConnectionManager.service)
         
         super.init()
         nearbyServiceAdvertiser.delegate = self
@@ -117,7 +117,7 @@ class GameConnectionService: NSObject, ObservableObject {
     
 }
 
-extension GameConnectionService: MCNearbyServiceAdvertiserDelegate {
+extension GameConnectionManager: MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser,
                     didReceiveInvitationFromPeer peerID: MCPeerID,
@@ -133,7 +133,7 @@ extension GameConnectionService: MCNearbyServiceAdvertiserDelegate {
     
 }
 
-extension GameConnectionService: MCNearbyServiceBrowserDelegate {
+extension GameConnectionManager: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         

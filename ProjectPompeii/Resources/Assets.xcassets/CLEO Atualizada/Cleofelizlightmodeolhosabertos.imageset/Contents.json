@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Cleofelizlightmodeolhosabertos.svg",
+      "filename" : "Cleofelizdarkmodeolhosabertos.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Cleofelizdarkmodeolhosabertos.svg",
+      "filename" : "Cleofelizlightmodeolhosabertos.svg",
       "idiom" : "universal"
     }
   ],

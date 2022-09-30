@@ -11,9 +11,15 @@ struct HomeViewSolo: View {
     
     @Binding var navigationBond: NavigationBond
     
-    @State var showTutorial = false
+    //@State var showTutorial = false
     @State private var showCredits = false
+    @State private var showHowToPlay = false
     @State private var isShowingAlert = false
+    @State private var isSoundOn = true
+    @State private var isTapped = false
+    @State var count = 0
+    
+    //@Binding var isSoundOn: Bool
     
     var body: some View {
         
@@ -22,25 +28,43 @@ struct HomeViewSolo: View {
             VStack {
                 
                 HStack {
-                    
-//                    Button(action: { print("Sound button pressed") }) {
-//
-//                        Circle()
-//                            .frame(width: 60, height: 60)
-//                            .foregroundColor(Color("Contorno"))
-//                            .overlay(
-//                                Circle()
-//                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
-//                            )
-//                            .overlay(Image("sound on").resizable().frame(width: 20, height: 20))
-//
-//                    }
+
+                    Button(action: {
+                        //navigationBond.setData(count)
+                        
+                        count += 1
+
+                        if(count%2 == 0) {
+                            isTapped = false
+                            isSoundOn = true
+                        }
+                        else {
+                            isTapped = true
+                            isSoundOn = false
+                        }
+                        
+
+                        print(isSoundOn)
+                        navigationBond.setData(isSoundOn)
+                        print("Sound button pressed")
+                        
+                    }) {
+
+                        Circle()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(Color("Contorno"))
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
+                            )
+                            .overlay(Image(isTapped ? "sound off" : "sound on").resizable().frame(width: 20, height: 20))
+
+                    }
                     
                     Spacer()
                     
                     Button(action: {
-                        showTutorial.toggle()
-                        isShowingAlert = true
+                        showHowToPlay.toggle()
                     }) {
                         
                         Circle()
@@ -54,6 +78,9 @@ struct HomeViewSolo: View {
                         
                     }
                     .disabled(isShowingAlert)
+                    .sheet(isPresented: $showHowToPlay){
+                        HowToPlayView()
+                    }
                     
                     Button(action: {
                         showCredits.toggle()
@@ -95,6 +122,7 @@ struct HomeViewSolo: View {
                         print("Start button pressed")
     
                         withAnimation {
+                            navigationBond = NavigationBond(destination: .canvas, data: isSoundOn)
                             navigationBond.setDestination(.canvas)
                         }
                         
@@ -107,7 +135,7 @@ struct HomeViewSolo: View {
                                 Circle()
                                     .strokeBorder(Color("Contorno"), lineWidth: 3)
                             )
-                            .overlay(Image("start icon").resizable().frame(width: 30, height: 30))
+                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(Color("TertiaryColor-1")))
                         
                     }
                     .disabled(isShowingAlert)
@@ -118,7 +146,6 @@ struct HomeViewSolo: View {
                         .multilineTextAlignment(.center)
                     
                 }
-//                .padding()
                 
             }
             .padding()
@@ -133,33 +160,32 @@ struct HomeViewSolo: View {
             }
             .statusBarHidden(true)
             
-            if showTutorial {
-                CustomAlertTutorial(shown: $showTutorial, isShowingAlert: $isShowingAlert)
-            }
-            
         }
         
     }
     
 }
 
-//struct HomeViewSolo_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeViewSolo()
-//            .preferredColorScheme(.dark)
-//        HomeViewSolo()
+struct HomeViewSolo_Previews: PreviewProvider {
+    static var previews: some View {
+        let navigationBond = NavigationBond(destination: .canvas)
+        HomeViewSolo(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.dark)
+            .previewDevice("iPhone 12")
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
 //            .preferredColorScheme(.light)
-//        HomeViewSolo()
+//            .previewDevice("iPhone 12")
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
 //            .previewDevice("iPhone 13 Pro Max")
 //            .preferredColorScheme(.dark)
-//        HomeViewSolo()
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
 //            .previewDevice("iPhone 13 Pro Max")
 //            .preferredColorScheme(.light)
-//        HomeViewSolo()
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
 //            .previewDevice("iPhone 11")
 //            .preferredColorScheme(.dark)
-//        HomeViewSolo()
+//        HomeViewSolo(navigationBond: .constant(navigationBond))
 //            .previewDevice("iPhone 11")
 //            .preferredColorScheme(.light)
-//    }
-//}
+    }
+}

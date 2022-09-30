@@ -8,14 +8,14 @@
 import Foundation
 import Vision
 
-class DrawingPredictor {
+struct Prediction {
     
-    struct Prediction {
+    let classification: String
+    let confidence: Float
+    
+}
 
-        let classification: String
-        let confidence: Float
-
-    }
+class DrawingPredictor {
     
     func makePredictions(drawing: DrawingModel) -> [Prediction] {
         
@@ -36,11 +36,10 @@ class DrawingPredictor {
         
         let bitmap_image = rasterize(drawing: drawing)
         let handler = VNImageRequestHandler(cgImage: bitmap_image)
-
         try? handler.perform([request])
         
         return predictions
-
+        
     }
     
     func normalize(drawing D: DrawingModel) -> DrawingModel {
@@ -64,7 +63,7 @@ class DrawingPredictor {
         }
         return new_drawing
     }
-
+    
     func rasterize(drawing stroke_based_drawing: DrawingModel) -> CGImage {
         let D = normalize(drawing: stroke_based_drawing)
         let grayscale = CGColorSpaceCreateDeviceGray()
@@ -83,18 +82,44 @@ class DrawingPredictor {
                 path.addLine(to: point as! CGPoint, transform: transform)
             }
         }
-        intermediate_bitmap_context?.setLineWidth(20.0)
+        intermediate_bitmap_context?.setLineWidth(10.0)
         intermediate_bitmap_context?.beginPath()
         intermediate_bitmap_context?.addPath(path)
         intermediate_bitmap_context?.strokePath()
         let intermediate_image = intermediate_bitmap_context?.makeImage()
-
+        
         let final_bitmap_context = CGContext(
             data: nil, width: 28, height: 28, bitsPerComponent:8, bytesPerRow: 0,
             space: grayscale, bitmapInfo: CGImageAlphaInfo.none.rawValue)
         let final_rect = CGRect(x: 0.0, y: 0.0, width: 28.0, height: 28.0)
-        final_bitmap_context?.draw(intermediate_image!, in: final_rect)
+        final_bitmap_context?.drawImage(intermediate_image!, in: final_rect)
         return (final_bitmap_context?.makeImage())!
+    }
+    
+    static func logPredictions(_ predictions: [Prediction], amount: Int) {
+        
+        for prediction in predictions.prefix(amount) {
+            print(prediction.classification, String(prediction.confidence * 100.0) + " %")
+        }
+        
+    }
+    
+}
+
+extension CGContext {
+    
+    final func drawImage(_ image: CGImage, in rect: CGRect) {
+        
+        let ty: CGFloat = (rect.origin.y + rect.size.height)
+        translateBy(x: 0, y: ty)
+        scaleBy(x: 1.0, y: -1.0)
+        
+        let rect__y_zero = CGRect(x: rect.origin.x, y: 0, width: rect.width, height: rect.height)
+        draw(image, in: rect__y_zero)
+        
+        scaleBy(x: 1.0, y: -1.0)
+        translateBy(x: 0, y: -ty)
+        
     }
     
 }

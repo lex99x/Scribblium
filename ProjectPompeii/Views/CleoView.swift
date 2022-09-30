@@ -124,7 +124,7 @@ struct CleoView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Color("DrawBackground")
+            Color("CleoBackgroundColor")
                 .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable(resizingMode: .tile)
@@ -132,7 +132,7 @@ struct CleoView: View {
                 .ignoresSafeArea()
             Image("Cleofelizlightmodeolhosabertos")
                 .resizable()
-                .frame(maxWidth: 414, maxHeight: 844)
+                .frame(maxWidth: 428, maxHeight: 926)
                 .minimumScaleFactor(0.1)
                 //.scaledToFill()
                 .ignoresSafeArea()
@@ -141,9 +141,14 @@ struct CleoView: View {
     }
 }
 
-//struct CleoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CleoView()
-//            .preferredColorScheme(.light)
-//    }
-//}
+struct CleoView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        let navigationBond = NavigationBond(destination: .home, data: 100)
+        CleoView(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.light)
+        CleoView(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.dark)
+    }
+    
+}
