@@ -365,8 +365,7 @@ struct DrawView: View {
             
         }
         .onAppear() { // inicilizando variáveis ao construir a tela
-            print(navigationBond)
-            isSoundOn = navigationBond.getData() as! Bool
+            //isSoundOn = navigationBond.getData() as! Bool
             navigationBond.setData(score)
             feedback = "Go scribblium!"
             randomDrawings = DrawingModel.getShuffledDrawings()

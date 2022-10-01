@@ -102,8 +102,7 @@ struct HomeViewSolo: View {
                 
                 Spacer()
                 
-//                Image("Logo Scribblium")
-                Image("Homesolodarkmode")
+                Image("Logo Scribblium")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 342, height: 342) // Remover dimensões fixas
