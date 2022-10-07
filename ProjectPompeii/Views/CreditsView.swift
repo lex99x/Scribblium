@@ -139,7 +139,7 @@ struct CreditsView: View {
             
             VStack {
             
-                Text("Apple/Turicreate")
+                Text("Apple/Turi Create")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
