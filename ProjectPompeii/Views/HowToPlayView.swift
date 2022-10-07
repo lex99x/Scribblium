@@ -101,7 +101,7 @@ struct HowToPlayView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("DrawBackground"))
         //.cornerRadius(18)
-        .ignoresSafeArea()
+        //.ignoresSafeArea()
     }
 
 }
