@@ -17,14 +17,14 @@ struct CleoView: View {
             VStack {
                 VStack (spacing: 20){
                     Text("Hi, I'm CLE/O and I brought your score!")
-                        .font(.custom("RubikMarkerHatch-Regular", size: 32))
+                        .font(.custom("Rubik-Black", size: 32))
                         .frame(maxWidth: 227, maxHeight: 114)
                         .minimumScaleFactor(0.1)
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
                         .foregroundColor(Color("SecondaryColor-1"))
-                        .padding([.top], 50)
+                        .padding([.top], 60)
                         .padding([.horizontal], 80)
                     
                     ZStack {
@@ -41,7 +41,8 @@ struct CleoView: View {
                             .minimumScaleFactor(0.1)
                             .foregroundColor(.white)
                     }
-                    .padding([.horizontal], 80)
+                    .padding(.top, 10)
+                    .padding(.horizontal, 80)
                     
                     Text("Do you think you can do better?")
                         .font(.custom("Rubik-Black", size: 26))
@@ -51,7 +52,8 @@ struct CleoView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(2)
                         .foregroundColor(Color("SecondaryColor-1"))
-                        .padding([.horizontal], 80)
+                        .padding(.top, 10)
+                        .padding(.horizontal, 80)
                     
                 }
                 
