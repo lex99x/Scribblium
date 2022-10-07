@@ -24,7 +24,7 @@ struct CleoView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
                         .foregroundColor(Color("SecondaryColor-1"))
-                        .padding([.top], 60)
+                        .padding([.top], 50)
                         .padding([.horizontal], 80)
                     
                     ZStack {
@@ -41,7 +41,6 @@ struct CleoView: View {
                             .minimumScaleFactor(0.1)
                             .foregroundColor(.white)
                     }
-                    .padding(.top, 10)
                     .padding(.horizontal, 80)
                     
                     Text("Do you think you can do better?")
@@ -52,7 +51,6 @@ struct CleoView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(2)
                         .foregroundColor(Color("SecondaryColor-1"))
-                        .padding(.top, 10)
                         .padding(.horizontal, 80)
                     
                 }
@@ -151,6 +149,9 @@ struct CleoView_Previews: PreviewProvider {
             .preferredColorScheme(.light)
         CleoView(navigationBond: .constant(navigationBond))
             .preferredColorScheme(.dark)
+        CleoView(navigationBond: .constant(navigationBond))
+            .preferredColorScheme(.dark)
+            .previewDevice("iPhone 8 Plus")
     }
     
 }
