@@ -16,7 +16,7 @@ struct HowToPlayView: View {
         ScrollView {
             VStack (alignment: .leading) {
                 
-                ZStack {
+                ZStack(alignment: .top) {
                     
                     Image("ModalHowToPlay")
                         .resizable()
@@ -44,8 +44,10 @@ struct HowToPlayView: View {
                                 )
                         }
                     }
-                    .padding([.bottom], 294)
-                    .padding([.trailing], 14)
+//                    .padding([.bottom], 295)
+                    .padding(.top, 15)
+                    .padding([.trailing], 15)
+        
                 }
                 
                 VStack (alignment: .leading, spacing: 16) {
@@ -101,7 +103,7 @@ struct HowToPlayView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("DrawBackground"))
         //.cornerRadius(18)
-        .ignoresSafeArea()
+        //.ignoresSafeArea()
     }
 
 }
