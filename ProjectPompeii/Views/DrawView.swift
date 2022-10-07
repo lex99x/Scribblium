@@ -37,7 +37,6 @@ struct DrawView: View {
     
     @State var score = 0
     @State private var counter = 0
-    @State private var isSoundOn = true
         
     var body: some View {
         
@@ -128,6 +127,7 @@ struct DrawView: View {
                         .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
 //                        .padding([.leading], 26)
                         .padding([.bottom], 10)
+                        .frame(maxWidth: 318)
                 }
                 .padding([.top], 59)
                 
@@ -184,7 +184,7 @@ struct DrawView: View {
                             
                             print(classification, confidence)
                             
-                            if classification == suggestion && confidence >= 50.0 { // a cleo reconhece que o jogador acertou o desenho
+                            if classification == suggestion && confidence >= 40.0 { // a cleo reconhece que o jogador acertou o desenho
                                 
                                 counter += 1
                                 score += maxTime
@@ -199,10 +199,8 @@ struct DrawView: View {
                                     feedback = "Go scribblium!"
                                 }
                             
-                                if (isSoundOn) {
-                                    HapticManager.instance.notification(type: .success)
-                                    SoundManager.instance.playSound(sound: .correct3)
-                                }
+                                HapticManager.instance.notification(type: .success)
+                                SoundManager.instance.playSound(sound: .correct3)
                                 
                                 drawing = [Line]()
                                 drawingModel = DrawingModel()
@@ -210,13 +208,11 @@ struct DrawView: View {
                                 currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                                 suggestion = randomDrawings[currentDrawingIndex]
                                 
-                            } else if confidence >= 30.0 { // a cleo tem uma noção do que o jogador desenhou
+                            } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
                                 
                                 feedback = "Kinda looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
                                 
-                                if (isSoundOn) {
-                                    HapticManager.instance.impact(style: .soft)
-                                }
+                                HapticManager.instance.impact(style: .soft)
                                 
                             } else { // a cleo não faz ideia do que o jogador desenhou
                                 feedback = "I don't know what that is"
@@ -365,7 +361,6 @@ struct DrawView: View {
             
         }
         .onAppear() { // inicilizando variáveis ao construir a tela
-            //isSoundOn = navigationBond.getData() as! Bool
             navigationBond.setData(score)
             feedback = "Go scribblium!"
             randomDrawings = DrawingModel.getShuffledDrawings()
@@ -381,7 +376,7 @@ struct DrawView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         }
-//        .blur(radius: 10)
+
     }
     
 }
