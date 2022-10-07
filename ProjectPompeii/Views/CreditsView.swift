@@ -38,8 +38,8 @@ struct CreditsView: View {
                             )
                     }
                 }
-                .padding([.trailing], 14)
-                .padding([.top], 17)
+                .padding([.top], 15)
+                .padding([.trailing], 15)
                 //.frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Text("CREDITS")
