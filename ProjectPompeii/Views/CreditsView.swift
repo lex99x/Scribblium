@@ -30,23 +30,26 @@ struct CreditsView: View {
                             .foregroundColor(Color("SecondaryColor-1"))
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3))
-                            .font(.system(size: 60, weight: .bold))
+                                    .strokeBorder(Color("Contorno"), lineWidth: 2))
+                            .font(.system(size: 30))
                             .background(
                                 Circle()
                                     .foregroundColor(Color("TertiaryColor-1"))
                             )
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding([.trailing], 14)
+                .padding([.top], 17)
+                //.frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Text("CREDITS")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Black", size: 20))
                     .foregroundColor(Color("SecondaryColor-1"))
+                    .padding(.top)
                 
             }
-            .padding()
+            .padding(.bottom)
             
             VStack {
             
@@ -61,6 +64,7 @@ struct CreditsView: View {
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -76,6 +80,7 @@ struct CreditsView: View {
                                      
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -91,6 +96,7 @@ struct CreditsView: View {
                                      
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -106,6 +112,7 @@ struct CreditsView: View {
                                      
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -121,6 +128,7 @@ struct CreditsView: View {
                                      
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -129,13 +137,14 @@ struct CreditsView: View {
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
                                      
-                Text("MIT License Copyright 2020 Simon Bachmann, permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files\n https://github.com/simibac/ConfettiSwiftUI/blob/master/LICENSE")
+                Text("MIT License Copyright 2020 Simon Bachmann,\n permission is hereby granted, free of charge, to any\n person obtaining a copy of this software and\n associated documentation files\n https://github.com/simibac/ConfettiSwiftUI/blob/master/LICENSE")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Regular", size: 13))
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
                                      
             }
             .padding(.bottom)
+            .padding([.horizontal], 26)
             
             VStack {
             
@@ -150,6 +159,7 @@ struct CreditsView: View {
                     .foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00)))
                                      
             }
+            .padding([.horizontal], 26)
             
 //            VStack {
 //
@@ -166,9 +176,10 @@ struct CreditsView: View {
 //            }
         
         }
-        .padding()
+        //.padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("DrawBackground"))
+        //.ignoresSafeArea()
         
     }
     
