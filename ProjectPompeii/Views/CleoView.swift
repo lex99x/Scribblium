@@ -23,17 +23,17 @@ struct CleoView: View {
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(3)
-                        .foregroundColor(Color("SecondaryColor-1"))
+                        .foregroundColor(.secondaryColor1)
                         .padding([.top], 50)
                         .padding([.horizontal], 80)
                     
                     ZStack {
                         Circle()
                             .frame(maxWidth: 83, maxHeight: 83)
-                            .foregroundColor(Color("TimerBackground"))
+                            .foregroundColor(.backgroundTimer)
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                                    .strokeBorder(Color.secondaryColor1, lineWidth: 3))
                         
                         Text(String(navigationBond.getData() as! Int))
                             .font(.custom("Rubik-Black", size: 32))
@@ -50,7 +50,7 @@ struct CleoView: View {
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .lineLimit(2)
-                        .foregroundColor(Color("SecondaryColor-1"))
+                        .foregroundColor(.secondaryColor1)
                         .padding(.horizontal, 80)
                     
                 }
@@ -67,10 +67,10 @@ struct CleoView: View {
                             ZStack {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3))
                                 Image("home again icon")
                                     .resizable()
                                     .frame(maxWidth: 22,maxHeight: 22)
@@ -78,7 +78,7 @@ struct CleoView: View {
                         }
                             
                         Text("home")
-                            .foregroundColor(.white)
+                            .foregroundColor(.textPaper)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 37, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -98,10 +98,10 @@ struct CleoView: View {
                             ZStack(alignment: .center){
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3)
                                     )
                                 Image("play again icon")
                                     .resizable()
@@ -110,7 +110,7 @@ struct CleoView: View {
                         }
                             
                         Text("play again")
-                            .foregroundColor(.white)
+                            .foregroundColor(.textPaper)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 66, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -124,7 +124,7 @@ struct CleoView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Color("CleoBackgroundColor")
+            Color.backgroundCleoView
                 .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable(resizingMode: .tile)

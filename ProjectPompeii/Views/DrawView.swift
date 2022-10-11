@@ -55,7 +55,7 @@ struct DrawView: View {
                             Image(systemName: "chevron.left")
                                 .resizable()
                                 .frame(maxWidth: 18, maxHeight: 24)
-                                .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                .foregroundColor(.tertiaryColor1)
                         }
                         .padding([.leading], 13)
                         .disabled(isShowingAlert)
@@ -65,16 +65,16 @@ struct DrawView: View {
                             Circle()
                                 .frame(maxWidth: 62, maxHeight: 62)
 //                                .scaledToFill()
-                                .foregroundColor(Color("TimerBackground"))
+                                .foregroundColor(.backgroundTimer)
                                 .overlay(
                                     Circle()
-                                        .strokeBorder(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)), lineWidth: 3))
+                                        .strokeBorder(Color.secondaryColor1, lineWidth: 3))
                             
                             Text("\(maxTime)")
                                 .font(.custom("Rubik-Black", size: 32))
                                 .frame(maxWidth: 38, maxHeight: 31)
                                 .minimumScaleFactor(0.1)
-                                .foregroundColor(.white)
+                                .foregroundColor(.textPaper)
                                 .onReceive(timer) { _ in
                                     if (maxTime > 0 && timerRunning) {
                                         maxTime -= 1
@@ -102,15 +102,15 @@ struct DrawView: View {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
 //                                    .scaledToFill()
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                            .strokeBorder(Color.contorno, lineWidth: 3))
                                 
                                 Image(systemName: "pause.fill")
                                     .resizable()
                                     .frame(maxWidth: 19, maxHeight: 25)
-                                    .foregroundColor(Color("TertiaryColor-1"))
+                                    .foregroundColor(.tertiaryColor1)
                             }
                         }
                         .padding([.trailing], 25)
@@ -124,7 +124,7 @@ struct DrawView: View {
                         .minimumScaleFactor(0.1)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        .foregroundColor(.secondaryColor1)
 //                        .padding([.leading], 26)
                         .padding([.bottom], 10)
                         .frame(maxWidth: 318)
@@ -137,11 +137,11 @@ struct DrawView: View {
                         .frame(maxWidth: 338, maxHeight: 501)
 //                        .frame(maxWidth: 370.93, maxHeight: 549.38)
                         .scaledToFill()
-                        .foregroundColor(Color("SecondaryColor-1"))
+                        .foregroundColor(.secondaryColor1)
                         .overlay(
                             RoundedRectangle(cornerRadius: 31)
-                                .strokeBorder(Color("Contorno"), lineWidth: 3)
-                        )
+                                .strokeBorder(Color.contorno, lineWidth: 3))
+                    //sombra especifica
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                         .padding([.vertical], -10)
                     
@@ -155,8 +155,8 @@ struct DrawView: View {
                     .frame(maxWidth: 318, maxHeight: 482.51)
                     //.frame(maxWidth: 348.98, maxHeight: 529.38)
                     .scaledToFill()
-                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))))
-                    .background(Color("Contorno"))
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(.secondaryColor1))
+                    .background(Color.contorno)
                     .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
                         
@@ -245,13 +245,13 @@ struct DrawView: View {
 //                    .padding([.horizontal], 5)
 //                    .padding([.vertical], -27.24)
                     
-                    ConfettiCannon(counter: $counter, num: 13, colors: [Color("TertiaryColor-1"), Color("PrimaryColor-1"), Color("SecondaryColor-1")], fadesOut: true, radius: 500)
+                                ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
                     
                 }
                 .padding([.top], 9)
                 
                 Text(suggestion)
-                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                        .foregroundColor(.secondaryColor1)
                     .font(.custom("Rubik-Black", size: 32))
                     .frame(maxWidth: 148, maxHeight: 36)
                     .minimumScaleFactor(0.1)
@@ -274,20 +274,20 @@ struct DrawView: View {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
 //                                    .scaledToFill()
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3))
+                                            .strokeBorder(Color.contorno, lineWidth: 3))
                                 Image(systemName: "trash.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 24)
-                                    .foregroundColor(Color("TertiaryColor-1"))
+                                    .foregroundColor(.tertiaryColor1)
 //                                    .scaledToFill()
                             }
                         }
                         .disabled(isShowingAlert)
                         Text("delete")
-                            .foregroundColor(.white)
+                            .foregroundColor(.textPaper)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 41, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -315,15 +315,14 @@ struct DrawView: View {
                                 Circle()
                                     .frame(maxWidth: 62, maxHeight: 62)
 //                                    .scaledToFill()
-                                    .foregroundColor(Color(UIColor(red: 0.99, green: 0.94, blue: 0.00, alpha: 1.00)))
+                                    .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color("Contorno"), lineWidth: 3)
-                                    )
+                                            .strokeBorder(Color.contorno, lineWidth: 3))
                                 Image(systemName: "forward.end.fill")
                                     .resizable()
                                     .frame(maxWidth: 22, maxHeight: 18.84)
-                                    .foregroundColor(Color("TertiaryColor-1"))
+                                    .foregroundColor(.tertiaryColor1)
 //                                    .scaledToFill()
                             }
                         }
@@ -331,7 +330,7 @@ struct DrawView: View {
 //                        .confettiCannon(counter: $counter, radius: 500)
                         
                         Text("skip")
-                            .foregroundColor(.white)
+                            .foregroundColor(.textPaper)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 30, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -369,7 +368,7 @@ struct DrawView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Color("DrawBackground")
+            Color.backgroundDrawView
                 .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable(resizingMode: .tile)

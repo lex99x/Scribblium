@@ -15,9 +15,9 @@ struct HomeViewSolo: View {
     @State private var showCredits = false
     @State private var showHowToPlay = false
     @State private var isShowingAlert = false
-    @State private var isSoundOn = true
+//    @State private var isSoundOn = true
     @State private var isTapped = false
-    @State var count = 0
+//    @State var count = 0
     
     //@Binding var isSoundOn: Bool
     
@@ -65,10 +65,10 @@ struct HomeViewSolo: View {
                         
                         Circle()
                             .frame(width: 60, height: 60)
-                            .foregroundColor(Color("SecondaryColor-1"))
+                            .foregroundColor(.secondaryColor1)
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                    .strokeBorder(Color.contorno, lineWidth: 3)
                             )
                             .overlay(Image("icontutorial").resizable().frame(width: 22, height: 27))
                         
@@ -84,10 +84,10 @@ struct HomeViewSolo: View {
                         
                         Circle()
                             .frame(width: 60, height: 60)
-                            .foregroundColor(Color("SecondaryColor-1"))
+                            .foregroundColor(.secondaryColor1)
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                    .strokeBorder(Color.contorno, lineWidth: 3)
                             )
                             .overlay(Image("iconlicense").resizable().frame(width: 21, height: 22))
                         
@@ -117,7 +117,7 @@ struct HomeViewSolo: View {
                         print("Start button pressed")
     
                         withAnimation {
-                            navigationBond = NavigationBond(destination: .canvas, data: isSoundOn)
+                            //navigationBond = NavigationBond(destination: .canvas, data: isSoundOn)
                             navigationBond.setDestination(.canvas)
                         }
                         
@@ -125,18 +125,18 @@ struct HomeViewSolo: View {
                         
                         Circle()
                             .frame(width: 75, height: 75)
-                            .foregroundColor(Color("SecondaryColor-1"))
+                            .foregroundColor(.secondaryColor1)
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color("Contorno"), lineWidth: 3)
+                                    .strokeBorder(Color.contorno, lineWidth: 3)
                             )
-                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(Color("TertiaryColor-1")))
+                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(.tertiaryColor1))
                         
                     }
                     .disabled(isShowingAlert)
                     
                     Text("go scribblium!")
-                        .foregroundColor(.white)
+                        .foregroundColor(.textPaper)
                         .font(.custom("Rubik-Regular", size: 14))
                         .multilineTextAlignment(.center)
                     
@@ -146,7 +146,7 @@ struct HomeViewSolo: View {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
-                Color("DrawBackground")
+                Color.backgroundDrawView
                     .ignoresSafeArea()
                 Image("padraoPortrait")
                     .resizable()
