@@ -24,6 +24,7 @@
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		17F822E728E5C3280017E8C0 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */; };
 		BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15B1AE28E33BC100CCD292 /* HapticManager.swift */; };
+		BD21206928F59CFE0024C2BD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21206828F59CFE0024C2BD /* Color.swift */; };
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
 		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
@@ -62,6 +63,7 @@
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
 		BD15B1AE28E33BC100CCD292 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		BD21206828F59CFE0024C2BD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
 		BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -175,8 +177,17 @@
 				1714CB9328AD1FF20089D1B5 /* Utilities */,
 				1714CB8A28AD17490089D1B5 /* Resources */,
 				17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */,
+				BD21206728F59A560024C2BD /* Extensions */,
 			);
 			path = ProjectPompeii;
+			sourceTree = "<group>";
+		};
+		BD21206728F59A560024C2BD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD21206828F59CFE0024C2BD /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 			files = (
 				BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */,
 				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
+				BD21206928F59CFE0024C2BD /* Color.swift in Sources */,
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
 				17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */,
 				17D5D4FE28C0E435004DC247 /* GameConnectionManager.swift in Sources */,
