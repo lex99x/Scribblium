@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  ContentView.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 14/09/22.
@@ -16,11 +16,11 @@ struct ContentView: View {
         switch navigationBond.getDestination() {
                 
             case .home:
-                HomeViewSolo(navigationBond: $navigationBond)
+                HomeView(navigationBond: $navigationBond)
                     .transition(.opacity)
                 
             case .canvas:
-                DrawView(navigationBond: $navigationBond)
+                DrawingView(navigationBond: $navigationBond)
                     .transition(.opacity)
                 
             case .cleo:

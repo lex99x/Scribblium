@@ -1,6 +1,6 @@
 //
-//  CanvasView.swift
-//  PompeiiDrawingClassifier
+//  Drawing.swift
+//  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 25/08/22.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-class DrawingModel {
+class Drawing {
     
     var drawing: NSMutableArray
     var stroke: NSMutableArray

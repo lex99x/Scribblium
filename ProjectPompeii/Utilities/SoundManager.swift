@@ -16,9 +16,7 @@ class SoundManager {
     var player: AVAudioPlayer?
     
     enum sounds: String {
-        case correct1
-        case correct2
-        case correct3
+        case correct
     }
     
     func playSound(sound: sounds) {
