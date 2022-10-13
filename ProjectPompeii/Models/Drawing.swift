@@ -12,18 +12,18 @@ class Drawing {
     
     var drawing: NSMutableArray
     var stroke: NSMutableArray
-    var min_x: CGFloat
-    var min_y: CGFloat
-    var max_x: CGFloat
-    var max_y: CGFloat
+    var minX: CGFloat
+    var minY: CGFloat
+    var maxX: CGFloat
+    var maxY: CGFloat
 
     init() {
         drawing = NSMutableArray()
         stroke = NSMutableArray()
-        min_x = CGFloat.greatestFiniteMagnitude
-        max_x = 0.0
-        min_y = CGFloat.greatestFiniteMagnitude
-        max_y = 0.0
+        minX = CGFloat.greatestFiniteMagnitude
+        maxX = 0.0
+        minY = CGFloat.greatestFiniteMagnitude
+        maxY = 0.0
     }
 
     func pointCount(stroke i: Int) -> Int {
@@ -48,10 +48,10 @@ class Drawing {
     func add(point P: CGPoint) {
         let x = P.x
         let y = P.y
-        min_x = min(x, min_x)
-        max_x = max(x, max_x)
-        min_y = min(y, min_y)
-        max_y = max(y, max_y)
+        minX = min(x, minX)
+        maxX = max(x, maxX)
+        minY = min(y, minY)
+        maxY = max(y, maxY)
         stroke.add(P)
     }
 

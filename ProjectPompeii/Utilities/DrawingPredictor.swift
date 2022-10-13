@@ -8,13 +8,6 @@
 import Foundation
 import Vision
 
-struct Prediction {
-    
-    let classification: String
-    let confidence: Float
-    
-}
-
 class DrawingPredictor {
     
     func makePredictions(drawing: Drawing) -> [Prediction] {
@@ -34,66 +27,66 @@ class DrawingPredictor {
             
         })
         
-        let bitmap_image = rasterize(drawing: drawing)
-        let handler = VNImageRequestHandler(cgImage: bitmap_image)
+        let bitmapImage = rasterize(drawing: drawing)
+        let handler = VNImageRequestHandler(cgImage: bitmapImage)
         try? handler.perform([request])
         
         return predictions
         
     }
     
-    func normalize(drawing D: Drawing) -> Drawing {
-        let new_drawing = Drawing()
-        for i in 0..<D.strokeCount() {
-            for j in 0..<D.pointCount(stroke: i) {
-                let current_point = D.point(stroke: i, point: j)
-                var new_x, new_y : CGFloat
-                if (D.max_x == D.min_x) {new_x = D.min_x}
+    func normalize(drawing: Drawing) -> Drawing {
+        let newDrawing = Drawing()
+        for i in 0..<drawing.strokeCount() {
+            for j in 0..<drawing.pointCount(stroke: i) {
+                let currentPoint = drawing.point(stroke: i, point: j)
+                var newX, newY: CGFloat
+                if (drawing.maxX == drawing.minX) {newX = drawing.minX}
                 else {
-                    new_x = (current_point.x - D.min_x) * 255.0 / (D.max_x - D.min_x)
+                    newX = (currentPoint.x - drawing.minX) * 255.0 / (drawing.maxX - drawing.minX)
                 }
-                if (D.max_y == D.min_y) {new_y = D.min_y}
+                if (drawing.maxY == drawing.minY) {newY = drawing.minY}
                 else {
-                    new_y = (current_point.y - D.min_y) * 255.0 / (D.max_y - D.min_y)
+                    newY = (currentPoint.y - drawing.minY) * 255.0 / (drawing.maxY - drawing.minY)
                 }
-                let new_point = CGPoint(x: new_x, y: new_y)
-                new_drawing.add(point: new_point)
+                let newPoint = CGPoint(x: newX, y: newY)
+                newDrawing.add(point: newPoint)
             }
-            new_drawing.endStroke()
+            newDrawing.endStroke()
         }
-        return new_drawing
+        return newDrawing
     }
     
-    func rasterize(drawing stroke_based_drawing: Drawing) -> CGImage {
-        let D = normalize(drawing: stroke_based_drawing)
+    func rasterize(drawing strokeBasedDrawing: Drawing) -> CGImage {
+        let drawing = normalize(drawing: strokeBasedDrawing)
         let grayscale = CGColorSpaceCreateDeviceGray()
-        let intermediate_bitmap_context = CGContext(
+        let intermediateBitmapContext = CGContext(
             data: nil, width: 256, height: 256, bitsPerComponent: 8, bytesPerRow: 0,
             space: grayscale, bitmapInfo: CGImageAlphaInfo.none.rawValue)
-        intermediate_bitmap_context?.setStrokeColor(
+        intermediateBitmapContext?.setStrokeColor(
             red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         let transform = CGAffineTransform.identity
         let path = CGMutablePath()
-        for strokeIndex in 0..<D.strokeCount() {
-            let stroke = D.stroke(index: strokeIndex)
-            let startPoint = D.point(stroke: strokeIndex, point: 0)
+        for strokeIndex in 0..<drawing.strokeCount() {
+            let stroke = drawing.stroke(index: strokeIndex)
+            let startPoint = drawing.point(stroke: strokeIndex, point: 0)
             path.move(to: startPoint, transform: transform)
             for point in stroke {
                 path.addLine(to: point as! CGPoint, transform: transform)
             }
         }
-        intermediate_bitmap_context?.setLineWidth(10.0)
-        intermediate_bitmap_context?.beginPath()
-        intermediate_bitmap_context?.addPath(path)
-        intermediate_bitmap_context?.strokePath()
-        let intermediate_image = intermediate_bitmap_context?.makeImage()
+        intermediateBitmapContext?.setLineWidth(10.0)
+        intermediateBitmapContext?.beginPath()
+        intermediateBitmapContext?.addPath(path)
+        intermediateBitmapContext?.strokePath()
+        let intermediateImage = intermediateBitmapContext?.makeImage()
         
-        let final_bitmap_context = CGContext(
+        let finalBitmapContext = CGContext(
             data: nil, width: 28, height: 28, bitsPerComponent:8, bytesPerRow: 0,
             space: grayscale, bitmapInfo: CGImageAlphaInfo.none.rawValue)
-        let final_rect = CGRect(x: 0.0, y: 0.0, width: 28.0, height: 28.0)
-        final_bitmap_context?.drawImage(intermediate_image!, in: final_rect)
-        return (final_bitmap_context?.makeImage())!
+        let finalRect = CGRect(x: 0.0, y: 0.0, width: 28.0, height: 28.0)
+        finalBitmapContext?.drawImage(intermediateImage!, in: finalRect)
+        return (finalBitmapContext?.makeImage())!
     }
     
     static func logPredictions(_ predictions: [Prediction], amount: Int) {
@@ -101,24 +94,6 @@ class DrawingPredictor {
         for prediction in predictions.prefix(amount) {
             print(prediction.classification, String(prediction.confidence * 100.0) + " %")
         }
-        
-    }
-    
-}
-
-extension CGContext {
-    
-    final func drawImage(_ image: CGImage, in rect: CGRect) {
-        
-        let ty: CGFloat = (rect.origin.y + rect.size.height)
-        translateBy(x: 0, y: ty)
-        scaleBy(x: 1.0, y: -1.0)
-        
-        let rect__y_zero = CGRect(x: rect.origin.x, y: 0, width: rect.width, height: rect.height)
-        draw(image, in: rect__y_zero)
-        
-        scaleBy(x: 1.0, y: -1.0)
-        translateBy(x: 0, y: -ty)
         
     }
     
