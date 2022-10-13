@@ -84,7 +84,23 @@ struct CreditsView: View {
             
             VStack {
             
-                Text("Quick Draw dataset")
+                Text("Apple/Turi Create")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Bold", size: 17))
+                    .foregroundColor(.textPaper)
+                                     
+                Text("Copyright 2018 Apple Inc.\n Redistribution and use in source and binary forms, with or without modification, are permitted as long as the pre-established conditions are met.\n https://github.com/apple/turicreate/blob/main/LICENSE.md")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Regular", size: 13))
+                    .foregroundColor(.textPaper)
+                                     
+            }
+            .padding(.bottom)
+            .padding([.horizontal], 26)
+            
+            VStack {
+            
+                Text("Quick Draw Dataset")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(.textPaper)
@@ -137,23 +153,7 @@ struct CreditsView: View {
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(.textPaper)
                                      
-                Text("MIT License Copyright 2020 Simon Bachmann,\n permission is hereby granted, free of charge, to any\n person obtaining a copy of this software and\n associated documentation files\n https://github.com/simibac/ConfettiSwiftUI/blob/master/LICENSE")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Regular", size: 13))
-                    .foregroundColor(.textPaper)
-                                     
-            }
-            .padding(.bottom)
-            .padding([.horizontal], 26)
-            
-            VStack {
-            
-                Text("Apple/Turi Create")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Bold", size: 17))
-                    .foregroundColor(.textPaper)
-                                     
-                Text("Copyright 2018 Apple Inc.\n Redistribution and use in source and binary forms, with or without modification, are permitted as long as the pre-established conditions are met\n https://github.com/apple/turicreate/blob/main/LICENSE.md")
+                Text("MIT License Copyright 2020 Simon Bachmann,\n permission is hereby granted, free of charge, to any\n person obtaining a copy of this software and\n associated documentation files.\n https://github.com/simibac/ConfettiSwiftUI/blob/master/LICENSE")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Regular", size: 13))
                     .foregroundColor(.textPaper)
@@ -161,25 +161,10 @@ struct CreditsView: View {
             }
             .padding([.horizontal], 26)
             
-//            VStack {
-//
-//                Text("Sounds")
-//                    .multilineTextAlignment(.center)
-//                    .font(.custom("Rubik-Bold", size: 17))
-//                    .foregroundColor(Color("SecondaryColor-1"))
-//
-//                Text("Fantasia Fantasia Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/")
-//                    .multilineTextAlignment(.center)
-//                    .font(.custom("Rubik-Regular", size: 17))
-//                    .foregroundColor(Color("SecondaryColor-1"))
-//
-//            }
         
         }
-        //.padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.backgroundDrawView)
-        //.ignoresSafeArea()
         
     }
     

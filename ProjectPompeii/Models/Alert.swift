@@ -1,5 +1,5 @@
 //
-//  AlertModel.swift
+//  Alert.swift
 //  ProjectPompeii
 //
 //  Created by Ana Kiara Medeiros Braga on 09/09/22.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct AlertModel {
+struct Alert {
     var title: String
     var description: String
     var buttonOne: String?

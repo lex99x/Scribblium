@@ -1,6 +1,6 @@
 //
 //  DrawingPredictor.swift
-//  PompeiiDrawingClassifier
+//  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 25/08/22.
 //
@@ -17,7 +17,7 @@ struct Prediction {
 
 class DrawingPredictor {
     
-    func makePredictions(drawing: DrawingModel) -> [Prediction] {
+    func makePredictions(drawing: Drawing) -> [Prediction] {
         
         var predictions: [Prediction] = []
         
@@ -42,8 +42,8 @@ class DrawingPredictor {
         
     }
     
-    func normalize(drawing D: DrawingModel) -> DrawingModel {
-        let new_drawing = DrawingModel()
+    func normalize(drawing D: Drawing) -> Drawing {
+        let new_drawing = Drawing()
         for i in 0..<D.strokeCount() {
             for j in 0..<D.pointCount(stroke: i) {
                 let current_point = D.point(stroke: i, point: j)
@@ -64,7 +64,7 @@ class DrawingPredictor {
         return new_drawing
     }
     
-    func rasterize(drawing stroke_based_drawing: DrawingModel) -> CGImage {
+    func rasterize(drawing stroke_based_drawing: Drawing) -> CGImage {
         let D = normalize(drawing: stroke_based_drawing)
         let grayscale = CGColorSpaceCreateDeviceGray()
         let intermediate_bitmap_context = CGContext(

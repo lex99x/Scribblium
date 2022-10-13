@@ -7,54 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */; };
 		1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */; };
 		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
+		17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */; };
+		17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */; };
+		17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */; };
+		17C2D2A128F7EBD800F58B50 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */; };
+		17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */; };
 		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
-		17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* DrawingModel.swift */; };
-		17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* RoundModel.swift */; };
-		17D5D4FE28C0E435004DC247 /* GameConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */; };
-		17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4FF28C0F9DB004DC247 /* HomeView.swift */; };
-		17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */; };
-		17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0928D195830055199F /* HomeViewSolo.swift */; };
+		17D5D4E628B8F738004DC247 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* Drawing.swift */; };
+		17D5D4FA28C0E217004DC247 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* ScoreManager.swift */; };
+		17D84C0A28D195830055199F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0928D195830055199F /* HomeView.swift */; };
 		17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */; };
 		17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D84C0D28D1C1F80055199F /* ContentView.swift */; };
 		17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */; };
 		17F3A45628ABC28A002E9047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A45528ABC28A002E9047 /* .gitignore */; };
 		17F822E728E5C3280017E8C0 /* DrawingClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */; };
 		BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15B1AE28E33BC100CCD292 /* HapticManager.swift */; };
-		BD21206928F59CFE0024C2BD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21206828F59CFE0024C2BD /* Color.swift */; };
+		BD21206928F59CFE0024C2BD /* Color+customColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21206828F59CFE0024C2BD /* Color+customColors.swift */; };
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
-		BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawView.swift */; };
-		BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* LineModel.swift */; };
-		BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */; };
-		BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */; };
-		BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */; };
+		BD443B5128AD1A4A00495FDE /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawingView.swift */; };
+		BD443B5328AD1EE000495FDE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* Line.swift */; };
 		BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B57FF28CB843800339F7B /* CustomAlertView.swift */; };
-		BD8B580228CB8F1A00339F7B /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B580128CB8F1A00339F7B /* AlertModel.swift */; };
-		BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF328C0E02500439743 /* QRCodeView.swift */; };
-		BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */; };
+		BD8B580228CB8F1A00339F7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B580128CB8F1A00339F7B /* Alert.swift */; };
 		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
 		BDE929B528E4766900143268 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929B428E4766900143268 /* SoundManager.swift */; };
-		BDE929C028E4796500143268 /* correct2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BD28E4796500143268 /* correct2.mp3 */; };
-		BDE929C128E4796500143268 /* correct3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BE28E4796500143268 /* correct3.mp3 */; };
-		BDE929C228E4796500143268 /* correct1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BF28E4796500143268 /* correct1.mp3 */; };
+		BDE929C128E4796500143268 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BE28E4796500143268 /* correct.mp3 */; };
 		BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929C328E5E34D00143268 /* HowToPlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		179A103228D210A0009FB6E8 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		179A103728D2EADF009FB6E8 /* NavigationBond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBond.swift; sourceTree = "<group>"; };
+		17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
+		17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
-		17D5D4E328B8F633004DC247 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
-		17D5D4F928C0E217004DC247 /* RoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundModel.swift; sourceTree = "<group>"; };
-		17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnectionManager.swift; sourceTree = "<group>"; };
-		17D5D4FF28C0F9DB004DC247 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestWaitingView.swift; sourceTree = "<group>"; };
-		17D84C0928D195830055199F /* HomeViewSolo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSolo.swift; sourceTree = "<group>"; };
+		17D5D4E328B8F633004DC247 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		17D5D4F928C0E217004DC247 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
+		17D84C0928D195830055199F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17D84C0D28D1C1F80055199F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17F3A43F28ABC270002E9047 /* ProjectPompeii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPompeii.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,21 +57,14 @@
 		17F3A45528ABC28A002E9047 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawingClassifierModel.mlmodel; sourceTree = "<group>"; };
 		BD15B1AE28E33BC100CCD292 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
-		BD21206828F59CFE0024C2BD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		BD443B5028AD1A4A00495FDE /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		BD443B5228AD1EE000495FDE /* LineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModel.swift; sourceTree = "<group>"; };
-		BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
-		BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
-		BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
+		BD21206828F59CFE0024C2BD /* Color+customColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+customColors.swift"; sourceTree = "<group>"; };
+		BD443B5028AD1A4A00495FDE /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		BD443B5228AD1EE000495FDE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BD8B57FF28CB843800339F7B /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
-		BD8B580128CB8F1A00339F7B /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
-		BDC46CF328C0E02500439743 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
-		BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
+		BD8B580128CB8F1A00339F7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BDDD882428B7F3D4005133A7 /* CleoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleoView.swift; sourceTree = "<group>"; };
 		BDE929B428E4766900143268 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		BDE929BD28E4796500143268 /* correct2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct2.mp3; sourceTree = "<group>"; };
-		BDE929BE28E4796500143268 /* correct3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct3.mp3; sourceTree = "<group>"; };
-		BDE929BF28E4796500143268 /* correct1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct1.mp3; sourceTree = "<group>"; };
+		BDE929BE28E4796500143268 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		BDE929C328E5E34D00143268 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,12 +83,9 @@
 		1714CB8128ABD6020089D1B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				17D5D4E328B8F633004DC247 /* DrawingModel.swift */,
-				BD443B5228AD1EE000495FDE /* LineModel.swift */,
-				17D5D4F928C0E217004DC247 /* RoundModel.swift */,
-				BD8B580128CB8F1A00339F7B /* AlertModel.swift */,
-				BD15B1AE28E33BC100CCD292 /* HapticManager.swift */,
-				BDE929B428E4766900143268 /* SoundManager.swift */,
+				17D5D4E328B8F633004DC247 /* Drawing.swift */,
+				BD443B5228AD1EE000495FDE /* Line.swift */,
+				BD8B580128CB8F1A00339F7B /* Alert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,14 +95,10 @@
 			children = (
 				17D84C0B28D1AD3C0055199F /* LaunchScreen.storyboard */,
 				17D84C0D28D1C1F80055199F /* ContentView.swift */,
-				BD443B5028AD1A4A00495FDE /* DrawView.swift */,
+				BD443B5028AD1A4A00495FDE /* DrawingView.swift */,
 				BDDD882428B7F3D4005133A7 /* CleoView.swift */,
 				BD8B57FF28CB843800339F7B /* CustomAlertView.swift */,
-				17D5D4FF28C0F9DB004DC247 /* HomeView.swift */,
-				BDC46CF328C0E02500439743 /* QRCodeView.swift */,
-				BDC46CF828C0EBAC00439743 /* QRCodeScannerView.swift */,
-				17D5D50528C1E1F4004DC247 /* GuestWaitingView.swift */,
-				17D84C0928D195830055199F /* HomeViewSolo.swift */,
+				17D84C0928D195830055199F /* HomeView.swift */,
 				179A103228D210A0009FB6E8 /* CreditsView.swift */,
 				BDE929C328E5E34D00143268 /* HowToPlayView.swift */,
 			);
@@ -129,14 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
-				1714CBA728AEB0DD0089D1B5 /* RubikMarkerHatch-Regular.ttf */,
+				17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */,
 				179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */,
-				BD8B57F928CB73EC00339F7B /* Rubik-SemiBold.ttf */,
-				BD8B57FB28CB73F900339F7B /* Rubik-Bold.ttf */,
-				BD8B57FD28CB74CE00339F7B /* Rubik-Black.ttf */,
-				BDE929BF28E4796500143268 /* correct1.mp3 */,
-				BDE929BD28E4796500143268 /* correct2.mp3 */,
-				BDE929BE28E4796500143268 /* correct3.mp3 */,
+				17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */,
+				17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */,
+				17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */,
+				17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */,
+				BDE929BE28E4796500143268 /* correct.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -144,9 +123,10 @@
 		1714CB9328AD1FF20089D1B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */,
 				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
-				17D5D4FD28C0E435004DC247 /* GameConnectionManager.swift */,
+				17D5D4F928C0E217004DC247 /* ScoreManager.swift */,
+				BD15B1AE28E33BC100CCD292 /* HapticManager.swift */,
+				BDE929B428E4766900143268 /* SoundManager.swift */,
 				179A103728D2EADF009FB6E8 /* NavigationBond.swift */,
 			);
 			path = Utilities;
@@ -172,12 +152,12 @@
 		17F3A44128ABC270002E9047 /* ProjectPompeii */ = {
 			isa = PBXGroup;
 			children = (
+				17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */,
 				1714CB8128ABD6020089D1B5 /* Models */,
 				1714CB8228ABD6120089D1B5 /* Views */,
 				1714CB9328AD1FF20089D1B5 /* Utilities */,
-				1714CB8A28AD17490089D1B5 /* Resources */,
-				17F3A44228ABC270002E9047 /* ProjectPompeiiApp.swift */,
 				BD21206728F59A560024C2BD /* Extensions */,
+				1714CB8A28AD17490089D1B5 /* Resources */,
 			);
 			path = ProjectPompeii;
 			sourceTree = "<group>";
@@ -185,7 +165,7 @@
 		BD21206728F59A560024C2BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD21206828F59CFE0024C2BD /* Color.swift */,
+				BD21206828F59CFE0024C2BD /* Color+customColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,16 +234,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */,
 				17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */,
-				BDE929C228E4796500143268 /* correct1.mp3 in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
-				1714CBA828AEB11C0089D1B5 /* RubikMarkerHatch-Regular.ttf in Resources */,
-				BD8B57FC28CB73F900339F7B /* Rubik-Bold.ttf in Resources */,
-				BD8B57FE28CB74CE00339F7B /* Rubik-Black.ttf in Resources */,
-				BDE929C128E4796500143268 /* correct3.mp3 in Resources */,
-				BDE929C028E4796500143268 /* correct2.mp3 in Resources */,
-				BD8B57FA28CB73ED00339F7B /* Rubik-SemiBold.ttf in Resources */,
+				17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */,
+				BDE929C128E4796500143268 /* correct.mp3 in Resources */,
+				17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */,
+				17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */,
 				17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */,
+				17C2D2A128F7EBD800F58B50 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,25 +255,20 @@
 			files = (
 				BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */,
 				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
-				BD21206928F59CFE0024C2BD /* Color.swift in Sources */,
+				BD21206928F59CFE0024C2BD /* Color+customColors.swift in Sources */,
 				17D84C0E28D1C1F80055199F /* ContentView.swift in Sources */,
-				17D84C0A28D195830055199F /* HomeViewSolo.swift in Sources */,
-				17D5D4FE28C0E435004DC247 /* GameConnectionManager.swift in Sources */,
+				17D84C0A28D195830055199F /* HomeView.swift in Sources */,
 				BDE929B528E4766900143268 /* SoundManager.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
-				BDC46CF928C0EBAC00439743 /* QRCodeScannerView.swift in Sources */,
-				BD443B5128AD1A4A00495FDE /* DrawView.swift in Sources */,
-				17D5D4E628B8F738004DC247 /* DrawingModel.swift in Sources */,
+				BD443B5128AD1A4A00495FDE /* DrawingView.swift in Sources */,
+				17D5D4E628B8F738004DC247 /* Drawing.swift in Sources */,
 				179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */,
-				BD8B580228CB8F1A00339F7B /* AlertModel.swift in Sources */,
-				17D5D4FA28C0E217004DC247 /* RoundModel.swift in Sources */,
-				17D5D50628C1E1F4004DC247 /* GuestWaitingView.swift in Sources */,
+				BD8B580228CB8F1A00339F7B /* Alert.swift in Sources */,
+				17D5D4FA28C0E217004DC247 /* ScoreManager.swift in Sources */,
 				17F822E728E5C3280017E8C0 /* DrawingClassifierModel.mlmodel in Sources */,
 				BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */,
-				17D5D50028C0F9DB004DC247 /* HomeView.swift in Sources */,
-				BDC46CF428C0E02500439743 /* QRCodeView.swift in Sources */,
 				BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */,
-				BD443B5328AD1EE000495FDE /* LineModel.swift in Sources */,
+				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,
 			);

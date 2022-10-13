@@ -1,5 +1,5 @@
 //
-//  DrawView.swift
+//  DrawingView.swift
 //  ProjectPompeii
 //
 //  Created by Ana Kiara Medeiros Braga on 17/08/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import ConfettiSwiftUI
 
-struct DrawView: View {
+struct DrawingView: View {
     
     @Binding var navigationBond: NavigationBond
     
@@ -32,7 +32,7 @@ struct DrawView: View {
     @State private var feedback = ""
     @State private var alertMessage = ""
     
-    @State private var drawingModel = DrawingModel()
+    @State private var drawingModel = Drawing()
     private let drawingPredictor = DrawingPredictor()
     
     @State var score = 0
@@ -141,7 +141,7 @@ struct DrawView: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 31)
                                 .strokeBorder(Color.contorno, lineWidth: 3))
-                    //sombra especifica
+                        // sombra especifica
                         .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
                         .padding([.vertical], -10)
                     
@@ -153,9 +153,9 @@ struct DrawView: View {
                         }
                     }
                     .frame(maxWidth: 318, maxHeight: 482.51)
-                    //.frame(maxWidth: 348.98, maxHeight: 529.38)
+//                    .frame(maxWidth: 348.98, maxHeight: 529.38)
                     .scaledToFill()
-                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(.secondaryColor1))
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(.textPaper))
                     .background(Color.contorno)
                     .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
@@ -190,9 +190,9 @@ struct DrawView: View {
                                 score += maxTime
                                 navigationBond.setData(score)
                                 
-//                                RoundModel.logScore(maxTime: maxTime, score: score)
+//                                ScoreManager.logScore(maxTime: maxTime, score: score)
                                 
-                                feedback = "That's " + DrawingModel.formatPrediction(prediction: classification) + "!"
+                                feedback = "That's " + Drawing.formatPrediction(prediction: classification) + "!"
                                 
                                 // delay de 1.5 sec
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -200,17 +200,17 @@ struct DrawView: View {
                                 }
                             
                                 HapticManager.instance.notification(type: .success)
-                                SoundManager.instance.playSound(sound: .correct3)
+                                SoundManager.instance.playSound(sound: .correct)
                                 
                                 drawing = [Line]()
-                                drawingModel = DrawingModel()
+                                drawingModel = Drawing()
                                 
                                 currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                                 suggestion = randomDrawings[currentDrawingIndex]
                                 
                             } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
                                 
-                                feedback = "Kinda looks like " + DrawingModel.formatPrediction(prediction: classification) + " to me"
+                                feedback = "Kinda looks like " + Drawing.formatPrediction(prediction: classification) + " to me"
                                 
                                 HapticManager.instance.impact(style: .soft)
                                 
@@ -245,7 +245,7 @@ struct DrawView: View {
 //                    .padding([.horizontal], 5)
 //                    .padding([.vertical], -27.24)
                     
-                                ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
+                    ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
                     
                 }
                 .padding([.top], 9)
@@ -264,7 +264,7 @@ struct DrawView: View {
                         Button(action: {
                             
                             drawing = [Line]()
-                            drawingModel = DrawingModel()
+                            drawingModel = Drawing()
                             
                             feedback = "Go scribblium!"
                             
@@ -303,7 +303,7 @@ struct DrawView: View {
                         Button(action: {
                             
                             drawing = [Line]()
-                            drawingModel = DrawingModel()
+                            drawingModel = Drawing()
                             
                             feedback = "Go scribblium!"
                             
@@ -362,7 +362,7 @@ struct DrawView: View {
         .onAppear() { // inicilizando variáveis ao construir a tela
             navigationBond.setData(score)
             feedback = "Go scribblium!"
-            randomDrawings = DrawingModel.getShuffledDrawings()
+            randomDrawings = Drawing.getShuffledDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }
         .ignoresSafeArea()
@@ -383,7 +383,7 @@ struct DrawView: View {
 struct DrawView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DrawView(navigationBond: .constant(NavigationBond(destination: .cleo, data: true)))
+            DrawingView(navigationBond: .constant(NavigationBond(destination: .cleo, data: true)))
                 .previewInterfaceOrientation(.portrait)
         }
     }
