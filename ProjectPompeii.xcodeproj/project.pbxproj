@@ -15,6 +15,8 @@
 		17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */; };
 		17C2D2A128F7EBD800F58B50 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */; };
 		17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */; };
+		17C2D2A428F83F1200F58B50 /* CGContext+drawImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2D2A328F83F1200F58B50 /* CGContext+drawImage.swift */; };
+		17C2D2A628F83F6B00F58B50 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2D2A528F83F6B00F58B50 /* Prediction.swift */; };
 		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
 		17D5D4E628B8F738004DC247 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4E328B8F633004DC247 /* Drawing.swift */; };
 		17D5D4FA28C0E217004DC247 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5D4F928C0E217004DC247 /* ScoreManager.swift */; };
@@ -45,6 +47,8 @@
 		17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		17C2D2A328F83F1200F58B50 /* CGContext+drawImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGContext+drawImage.swift"; sourceTree = "<group>"; };
+		17C2D2A528F83F6B00F58B50 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPredictor.swift; sourceTree = "<group>"; };
 		17D5D4E328B8F633004DC247 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		17D5D4F928C0E217004DC247 /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 		1714CB8128ABD6020089D1B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				17C2D2A528F83F6B00F58B50 /* Prediction.swift */,
 				17D5D4E328B8F633004DC247 /* Drawing.swift */,
 				BD443B5228AD1EE000495FDE /* Line.swift */,
 				BD8B580128CB8F1A00339F7B /* Alert.swift */,
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BD21206828F59CFE0024C2BD /* Color+customColors.swift */,
+				17C2D2A328F83F1200F58B50 /* CGContext+drawImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 				17D84C0A28D195830055199F /* HomeView.swift in Sources */,
 				BDE929B528E4766900143268 /* SoundManager.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
+				17C2D2A428F83F1200F58B50 /* CGContext+drawImage.swift in Sources */,
+				17C2D2A628F83F6B00F58B50 /* Prediction.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawingView.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* Drawing.swift in Sources */,
 				179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */,
