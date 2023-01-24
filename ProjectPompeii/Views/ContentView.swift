@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct ContentView: View {
     
@@ -18,6 +19,11 @@ struct ContentView: View {
             case .home:
                 HomeView(navigationBond: $navigationBond)
                     .transition(.opacity)
+                    .onAppear() {
+                        if !GKLocalPlayer.local.isAuthenticated {
+                            GameCenterManager.authenticateUser()
+                        }
+                    }
                 
             case .canvas:
                 DrawingView(navigationBond: $navigationBond)
@@ -36,7 +42,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let previewScreen = NavigationBond(destination: .canvas)
+        let previewScreen = NavigationBond(destination: .home)
         
         ContentView(navigationBond: previewScreen)
             .preferredColorScheme(.dark)

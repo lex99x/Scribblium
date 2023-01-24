@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct HomeView: View {
     
+    @AppStorage("GKGameCenterViewControllerState") var gameCenterViewControllerState: GKGameCenterViewControllerState = .default
+    @AppStorage("IsGameCenterActive") var isGKActive = false
+    
     @Binding var navigationBond: NavigationBond
     
-    //@State var showTutorial = false
     @State private var showCredits = false
     @State private var showHowToPlay = false
-    @State private var isShowingAlert = false
-//    @State private var isSoundOn = true
-    @State private var isTapped = false
-//    @State var count = 0
     
-    //@Binding var isSoundOn: Bool
+    @State private var isShowingAlert = false
+    @State private var isTapped = false
     
     var body: some View {
         
@@ -28,35 +28,25 @@ struct HomeView: View {
             VStack {
                 
                 HStack {
-
-//                    Button(action: {
-//
-//                        count += 1
-//                        navigationBond.setData(count)
-//
-//                        if(count%2 == 0) {
-//                            isTapped = false
-//                            isSoundOn = true
-//                        }
-//                        else {
-//                            isTapped = true
-//                            isSoundOn = false
-//                        }
-//                        print("Sound button pressed")
-//
-//                    }) {
-//
-//                        Circle()
-//                            .frame(width: 60, height: 60)
-//                            .foregroundColor(Color("Contorno"))
-//                            .overlay(
-//                                Circle()
-//                                    .strokeBorder(Color("SecondaryColor-1"), lineWidth: 3)
-//                            )
-//                            .overlay(Image(isTapped ? "sound off" : "sound on").resizable().frame(width: 20, height: 20))
-//
-//                    }
-//
+                    
+                    Button(action: {
+                        gameCenterViewControllerState = .leaderboards
+                        isGKActive = true
+                    }) {
+                        Circle()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(.secondaryColor1)
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(Color.contorno, lineWidth: 3)
+                            )
+                            .overlay(Image(systemName: "person.3.fill").resizable().frame(width: 40, height: 20).foregroundColor(.tertiaryColor1))
+    
+                    }
+                    .sheet(isPresented: $isGKActive) {
+                        GameCenterView(format: gameCenterViewControllerState)
+                    }
+                    
                     Spacer()
                     
                     Button(action: {
@@ -115,9 +105,8 @@ struct HomeView: View {
                     Button(action: {
                         
                         print("Start button pressed")
-    
+                        
                         withAnimation {
-                            //navigationBond = NavigationBond(destination: .canvas, data: isSoundOn)
                             navigationBond.setDestination(.canvas)
                         }
                         

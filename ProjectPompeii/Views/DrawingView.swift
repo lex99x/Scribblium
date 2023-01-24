@@ -365,6 +365,13 @@ struct DrawingView: View {
             randomDrawings = Drawing.getShuffledDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }
+        .onChange(of: timeup, perform: { value in
+            if value {
+                Task {
+                    await GameCenterManager.updateLeaderboard(score: score)
+                }
+            }
+        })
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
