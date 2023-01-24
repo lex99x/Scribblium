@@ -55,7 +55,7 @@ struct DrawingView: View {
                             Image(systemName: "chevron.left")
                                 .resizable()
                                 .frame(maxWidth: 18, maxHeight: 24)
-                                .foregroundColor(.tertiaryColor1)
+                                .foregroundColor(Color.secondaryColor1)
                         }
                         .padding([.leading], 13)
                         .disabled(isShowingAlert)

@@ -12,7 +12,6 @@
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
 		17A3BAB62978397B00D27026 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BAB52978397B00D27026 /* GameCenterManager.swift */; };
 		17A3BABB297EC95400D27026 /* GameCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BABA297EC95400D27026 /* GameCenterView.swift */; };
-		17A3BABD297F707C00D27026 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BABC297F707C00D27026 /* BlankView.swift */; };
 		17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */; };
 		17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */; };
 		17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */; };
@@ -49,7 +48,6 @@
 		17A3BAB52978397B00D27026 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		17A3BAB929784B2000D27026 /* ProjectPompeii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectPompeii.entitlements; sourceTree = "<group>"; };
 		17A3BABA297EC95400D27026 /* GameCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterView.swift; sourceTree = "<group>"; };
-		17A3BABC297F707C00D27026 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				179A103228D210A0009FB6E8 /* CreditsView.swift */,
 				BDE929C328E5E34D00143268 /* HowToPlayView.swift */,
 				17A3BABA297EC95400D27026 /* GameCenterView.swift */,
-				17A3BABC297F707C00D27026 /* BlankView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,7 +286,6 @@
 				BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */,
 				BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
-				17A3BABD297F707C00D27026 /* BlankView.swift in Sources */,
 				17A3BABB297EC95400D27026 /* GameCenterView.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,
