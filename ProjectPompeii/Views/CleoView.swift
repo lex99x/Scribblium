@@ -16,8 +16,8 @@ struct CleoView: View {
         ZStack {
             VStack {
                 VStack (spacing: 20){
-                    Text("Hi, I'm CLE/O and I brought your score!")
-                        .font(.custom("Rubik-Black", size: 32))
+                    Text("cleoBringsScore")
+                        .font(.custom("Rubik-Black", size: 22))
                         .frame(maxWidth: 227, maxHeight: 114)
                         .minimumScaleFactor(0.1)
                         .multilineTextAlignment(.center)
@@ -43,8 +43,8 @@ struct CleoView: View {
                     }
                     .padding(.horizontal, 80)
                     
-                    Text("Do you think you can do better?")
-                        .font(.custom("Rubik-Black", size: 26))
+                    Text("doYouBetter")
+                        .font(.custom("Rubik-Black", size: 24))
                         .frame(maxWidth: 271, maxHeight: 57)
                         .minimumScaleFactor(0.1)
                         .multilineTextAlignment(.center)
@@ -109,7 +109,7 @@ struct CleoView: View {
                             }
                         }
                             
-                        Text("play again")
+                        Text("replay")
                             .foregroundColor(.textPaper)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 66, maxHeight: 21)
