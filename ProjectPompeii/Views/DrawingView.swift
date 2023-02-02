@@ -13,10 +13,9 @@ struct DrawingView: View {
     @Binding var navigationBond: NavigationBond
     
     @State var timeup = false
-    @State var confirme = false
-    @State var empty = false
     @State var leave = false
     @State var pause = false
+    
     @State var timerRunning = true
     @State private var disableButtons = false
     @State private var isShowingAlert = false
@@ -185,37 +184,36 @@ struct DrawingView: View {
                             print(classification, confidence)
                             
                             if classification == suggestion && confidence >= 40.0 { // a cleo reconhece que o jogador acertou o desenho
-                                
+
                                 counter += 1
                                 score += maxTime
                                 navigationBond.setData(score)
-                                
-//                                ScoreManager.logScore(maxTime: maxTime, score: score)
-                                
-                                feedback = "That's " + Drawing.formatPrediction(prediction: classification) + "!"
-                                
+//                                navigationBond.setData(score)
+                                                                
+                                feedback = String(localized: "thats a \(NSLocalizedString(classification, comment: ""))")
+
                                 // delay de 1.5 sec
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                    feedback = "Go scribblium!"
+                                    feedback = String(localized: "goScribblium")
                                 }
-                            
+
                                 HapticManager.instance.notification(type: .success)
                                 SoundManager.instance.playSound(sound: .correct)
-                                
+
                                 drawing = [Line]()
                                 drawingModel = Drawing()
-                                
+
                                 currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                                 suggestion = randomDrawings[currentDrawingIndex]
-                                
+
                             } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
                                 
-                                feedback = "Kinda looks like " + Drawing.formatPrediction(prediction: classification) + " to me"
-                                
+                                feedback = String(localized: "kinda looks like a \(NSLocalizedString(classification, comment: "")) to me")
+
                                 HapticManager.instance.impact(style: .soft)
-                                
+
                             } else { // a cleo não faz ideia do que o jogador desenhou
-                                feedback = "I don't know what that is"
+                                feedback = String(localized: "iDontKnow")
                             }
                             
                         })
@@ -242,15 +240,13 @@ struct DrawingView: View {
                         .padding([.horizontal], 5)
                         .padding([.vertical], -27.24)
                     }
-//                    .padding([.horizontal], 5)
-//                    .padding([.vertical], -27.24)
                     
                     ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
                     
                 }
                 .padding([.top], 9)
-                
-                Text(suggestion)
+                                
+                Text(NSLocalizedString(suggestion, comment: ""))
                         .foregroundColor(.secondaryColor1)
                     .font(.custom("Rubik-Black", size: 32))
                     .frame(maxWidth: 148, maxHeight: 36)
@@ -266,8 +262,7 @@ struct DrawingView: View {
                             drawing = [Line]()
                             drawingModel = Drawing()
                             
-                            feedback = "Go scribblium!"
-                            
+                            feedback = String(localized: "goScribblium")
                             
                         }) {
                             ZStack {
@@ -305,7 +300,7 @@ struct DrawingView: View {
                             drawing = [Line]()
                             drawingModel = Drawing()
                             
-                            feedback = "Go scribblium!"
+                            feedback = String(localized: "goScribblium")
                             
                             currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
                             suggestion = randomDrawings[currentDrawingIndex]
@@ -345,12 +340,6 @@ struct DrawingView: View {
             if timeup {
                 CustomAlertTimesUp(shown: $timeup, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert)
             }
-            if confirme {
-                CustomAlertOops(shown: $confirme, isShowingAlert: $isShowingAlert)
-            }
-            if empty {
-                CustomAlertEmpty(shown: $empty, isShowingAlert: $isShowingAlert)
-            }
             if leave {
                 CustomLeaveDrawView(shown: $leave, navigationBond: $navigationBond, isShowingAlert: $isShowingAlert, timerRunning: $timerRunning)
             }
@@ -361,7 +350,7 @@ struct DrawingView: View {
         }
         .onAppear() { // inicilizando variáveis ao construir a tela
             navigationBond.setData(score)
-            feedback = "Go scribblium!"
+            feedback = String(localized: "goScribblium")
             randomDrawings = Drawing.getShuffledDrawings()
             suggestion = randomDrawings[currentDrawingIndex]
         }

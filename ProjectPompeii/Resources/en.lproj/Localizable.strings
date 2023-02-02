@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  ProjectPompeii
+
+  Created by Alex A. Rocha on 31/01/23.
+  
+*/
+
+goScribblium = "Draw you scribblium!";
+
+howToPlay = "How to play?";
+howToPlayDetails = "There's only one rule here... Draw as many scribbliuns as you can in 30 seconds!";
+
+meetCleo = "Meet our AI CLE/O";
+meetCleoDetails = "It evaluates in real time if what you are drawing corresponds to what was requested.";
+
+learnAboutScore = "Learn more about your score!";
+learnAboutScoreDetails = "At the end of the match your score is calculated according to the amount of correct scribbliuns you've made.";
+
+credits = "CREDITS";
+appDevs = "App Developers";
+uiDesigner = "UI Designer";
+
+delete = "delete";
+skip = "skip";
+replay = "play again";
+home = "home";
+ok = "Ok";
+leave = "Leave";
+back = "Go back";
+resume = "Resume";
+
+cleoBringsScore = "Hi, I'm CLE/O and I brought your score!";
+doYouBetter = "Do you think you can do better?";
+
+pleaseWait = "Please, wait!";
+ifYouLeaveNow = "If you leave now, you will lose your current progress!";
+
+pausedGame = "Game paused";
+youPausedGame = "You've paused the game.";
+
+timesUp = "Time's up!";
+yourScribbliunsCounted = "Your scribbliuns have been successfully counted!";
+
+iDontKnow = "I don't know what that is";
+"kinda looks like a %@ to me" = "Kinda looks like %@ to me";
+"thats a %@" = "That's %@ for sure!";
+
+// Scribbliuns
+airplane = "airplane";
+apple = "apple";
+"alarm clock" = "alarm clock";
+angel = "angel";
+bathtub = "bathtub";
+beard = "beard";
+bed = "bed";
+binoculars = "binoculars";
+book = "book";
+bus = "bus";
+cactus = "cactus";
+cake = "cake";
+candle = "candle";
+elephant = "elephant";
+eyeglasses = "eyeglasses";
+fish = "fish";
+flashlight = "flashlight";
+frog = "frog";
+headphones = "headphones";
+key = "key";
+lighthouse = "lighthouse";
+lipstick = "lipstick";
+microphone = "microphone";
+mouth = "mouth";
+panda = "panda";
+parrot = "parrot";
+popsicle = "popsicle";
+postcard = "postcard";
+purse = "purse";
+rain = "rain";
+rabbit = "rabbit";
+"remote control" = "remote control";
+rollerskates = "rollerskates";
+sailboat = "sailboat";
+skull = "skull";
+snowman = "snowman";
+stairs = "stairs";
+sun = "sun";
+sword = "sword";
+"stop sign" = "stop sign";
+table = "table";
+train = "train";
+television = "television";
+tornado = "tornado";
+underwear = "underwear";
+watermelon = "watermelon";
+whale = "whale";
+"wine glass" = "wine glass";
+yoga = "yoga";
+zebra = "zebra";
