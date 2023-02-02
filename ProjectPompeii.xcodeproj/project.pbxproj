@@ -12,6 +12,7 @@
 		179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103728D2EADF009FB6E8 /* NavigationBond.swift */; };
 		17A3BAB62978397B00D27026 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BAB52978397B00D27026 /* GameCenterManager.swift */; };
 		17A3BABB297EC95400D27026 /* GameCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BABA297EC95400D27026 /* GameCenterView.swift */; };
+		17A3BAEC298946CC00D27026 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17A3BAEE298946CC00D27026 /* Localizable.strings */; };
 		17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */; };
 		17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */; };
 		17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */; };
@@ -48,6 +49,8 @@
 		17A3BAB52978397B00D27026 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		17A3BAB929784B2000D27026 /* ProjectPompeii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectPompeii.entitlements; sourceTree = "<group>"; };
 		17A3BABA297EC95400D27026 /* GameCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterView.swift; sourceTree = "<group>"; };
+		17A3BAED298946CC00D27026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		17A3BAEF2989479C00D27026 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				17F3A44628ABC271002E9047 /* Assets.xcassets */,
+				17A3BAEE298946CC00D27026 /* Localizable.strings */,
 				17F822E628E5C3280017E8C0 /* DrawingClassifierModel.mlmodel */,
 				179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */,
 				17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */,
@@ -229,6 +233,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 17F3A43628ABC270002E9047;
 			packageReferences = (
@@ -253,6 +258,7 @@
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
 				17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BDE929C128E4796500143268 /* correct.mp3 in Resources */,
+				17A3BAEC298946CC00D27026 /* Localizable.strings in Resources */,
 				17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */,
 				17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */,
 				17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */,
@@ -294,11 +300,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		17A3BAEE298946CC00D27026 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17A3BAED298946CC00D27026 /* en */,
+				17A3BAEF2989479C00D27026 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		17F3A45028ABC271002E9047 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -359,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -417,7 +437,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProjectPompeii/ProjectPompeii.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -437,7 +457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devacademymao.ProjectPompeii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -458,7 +478,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProjectPompeii/ProjectPompeii.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -478,7 +498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devacademymao.ProjectPompeii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

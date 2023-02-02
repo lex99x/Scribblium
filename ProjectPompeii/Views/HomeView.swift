@@ -103,13 +103,9 @@ struct HomeView: View {
                 VStack {
                     
                     Button(action: {
-                        
-                        print("Start button pressed")
-                        
                         withAnimation {
                             navigationBond.setDestination(.canvas)
                         }
-                        
                     }) {
                         
                         Circle()
@@ -119,15 +115,10 @@ struct HomeView: View {
                                 Circle()
                                     .strokeBorder(Color.contorno, lineWidth: 3)
                             )
-                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(.tertiaryColor1))
+                            .overlay(Image(systemName: "play.fill").resizable().frame(width: 22, height: 22.96).foregroundColor(.tertiaryColor1).padding(.leading, 4))
                         
                     }
                     .disabled(isShowingAlert)
-                    
-                    Text("go scribblium!")
-                        .foregroundColor(.textPaper)
-                        .font(.custom("Rubik-Regular", size: 14))
-                        .multilineTextAlignment(.center)
                     
                 }
                 

@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  ProjectPompeii
+
+  Created by Alex A. Rocha on 31/01/23.
+  
+*/
+
+goScribblium = "Desenhe seu scribblium!";
+
+howToPlay = "Como jogar?";
+howToPlayDetails = "Aqui temos apenas uma regra... Desenhar o máximo de scribbliuns que puder em 30 segundos!";
+
+meetCleo = "Conheça nossa IA CLE/O";
+meetCleoDetails = "Ela avalia em tempo real se os seus scribbliums correspondem ao que foi pedido.";
+
+learnAboutScore = "Saiba mais sobre sua pontuação!";
+learnAboutScoreDetails = "Ao final de cada partida você pontua de acordo com: a dificuldade do scribblium, a velocidade e o número de scribbliuns!";
+
+credits = "CRÉDITOS";
+appDevs = "Desenvolvedores";
+uiDesigner = "UI Designer";
+
+delete = "apagar";
+skip = "pular";
+replay = "replay";
+home = "início";
+ok = "Ok";
+leave = "Sair";
+back = "Voltar";
+resume = "Retomar";
+
+cleoBringsScore = "Olá, eu sou a CLE/O e eu trouxe a sua pontuação!";
+doYouBetter = "Você acha que pode fazer melhor?";
+
+pleaseWait = "Por favor, espere!";
+ifYouLeaveNow = "Se você sair agora, você perderá seu progresso atual!";
+
+pausedGame = "Jogo pausado";
+youPausedGame = "Você pausou o jogo.";
+
+timesUp = "Acabou o tempo!";
+yourScribbliunsCounted = "Seus scribbliuns foram contabilizados com sucesso!";
+
+iDontKnow = "Eu não sei o que é isso";
+"kinda looks like a %@ to me" = "Parece com %@ pra mim";
+"thats a %@" = "Isso é %@ com certeza!";
+
+// Scribbliuns
+airplane = "avião";
+apple = "maçã";
+"alarm clock" = "relógio de mesa";
+angel = "anjo";
+bathtub = "banheira";
+beard = "barba";
+bed = "cama";
+binoculars = "binóculos";
+book = "livro";
+bus = "ônibus";
+cactus = "cacto";
+cake = "bolo";
+candle = "vela";
+elephant = "elefante";
+eyeglasses = "óculos";
+fish = "peixe";
+flashlight = "lanterna";
+frog = "sapo";
+headphones = "headphone";
+key = "chave";
+lighthouse = "farol";
+lipstick = "batom";
+microphone = "microfone";
+mouth = "boca";
+panda = "panda";
+parrot = "papagaio";
+popsicle = "picolé";
+postcard = "cartão postal";
+purse = "bolsa";
+rain = "chuva";
+rabbit = "coelho";
+"remote control" = "controle remoto";
+rollerskates = "patins";
+sailboat = "barco de vela";
+skull = "caveira";
+snowman = "boneco de neve";
+stairs = "escada";
+sun = "sol";
+sword = "espada";
+"stop sign" = "placa de pare";
+table = "mesa";
+train = "trem";
+television = "televisão";
+tornado = "tornado";
+underwear = "cueca";
+watermelon = "melancia";
+whale = "baleia";
+"wine glass" = "taça de vinho";
+yoga = "ioga";
+zebra = "zebra";

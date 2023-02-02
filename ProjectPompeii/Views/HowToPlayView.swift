@@ -53,12 +53,12 @@ struct HowToPlayView: View {
                 
                 VStack (alignment: .leading, spacing: 16) {
                     
-                    Text("How to Play?")
+                    Text("howToPlay")
                         .font(.custom("Rubik-Bold", size: 20))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.secondaryColor1)
                     
-                    Text("There's only one rule here... Draw as many scribbliuns as you can in 30 seconds!")
+                    Text("howToPlayDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.textPaper)
@@ -68,12 +68,12 @@ struct HowToPlayView: View {
                 
                 VStack (alignment: .leading, spacing: 16) {
                     
-                    Text("Meet our AI CLE/O")
+                    Text("meetCleo")
                         .font(.custom("Rubik-Bold", size: 20))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.secondaryColor1)
                     
-                    Text("It evaluates in real time if what you are drawing corresponds to what was requested.")
+                    Text("meetCleoDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.textPaper)
@@ -84,12 +84,12 @@ struct HowToPlayView: View {
                 
                 VStack (alignment: .leading, spacing: 16) {
                     
-                    Text("Learn more about your score!")
+                    Text("learnAboutScore")
                         .font(.custom("Rubik-Bold", size: 20))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.secondaryColor1)
                     
-                    Text("At the end of the match your score is calculated according to the amount of correct scribbliuns you've made.")
+                    Text("learnAboutScoreDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.textPaper)

@@ -42,7 +42,7 @@ struct CreditsView: View {
                 .padding([.trailing], 15)
                 //.frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                Text("CREDITS")
+                Text("credits")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Black", size: 20))
                     .foregroundColor(.secondaryColor1)
@@ -53,22 +53,7 @@ struct CreditsView: View {
             
             VStack {
             
-                Text("App Developers")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Bold", size: 17))
-                    .foregroundColor(.textPaper)
-                
-                Text("Alex A. Rocha\nAna Kiara Medeiros Braga")
-                    .multilineTextAlignment(.center)
-                    .font(.custom("Rubik-Regular", size: 13))
-                    .foregroundColor(.textPaper)
-            }
-            .padding(.bottom)
-            .padding([.horizontal], 26)
-            
-            VStack {
-            
-                Text("UI/UX Designer")
+                Text("uiDesigner")
                     .multilineTextAlignment(.center)
                     .font(.custom("Rubik-Bold", size: 17))
                     .foregroundColor(.textPaper)
@@ -78,6 +63,21 @@ struct CreditsView: View {
                     .font(.custom("Rubik-Regular", size: 13))
                     .foregroundColor(.textPaper)
                                      
+            }
+            .padding(.bottom)
+            .padding([.horizontal], 26)
+            
+            VStack {
+            
+                Text("appDevs")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Bold", size: 17))
+                    .foregroundColor(.textPaper)
+                
+                Text("Alex A. Rocha\nAna Kiara Medeiros Braga")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("Rubik-Regular", size: 13))
+                    .foregroundColor(.textPaper)
             }
             .padding(.bottom)
             .padding([.horizontal], 26)
