@@ -370,6 +370,7 @@ struct DrawingView: View {
                 .resizable(resizingMode: .tile)
                 .scaledToFill()
                 .ignoresSafeArea()
+                .opacity(0.5)
         }
 
     }

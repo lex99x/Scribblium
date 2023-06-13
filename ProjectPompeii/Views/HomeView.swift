@@ -132,6 +132,7 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
+                    .opacity(0.5)
             }
             .statusBarHidden(true)
             

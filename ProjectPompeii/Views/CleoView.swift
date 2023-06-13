@@ -70,7 +70,7 @@ struct CleoView: View {
                                     .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3))
+                                            .strokeBorder(Color.contorno, lineWidth: 3))
                                 Image("home again icon")
                                     .resizable()
                                     .frame(maxWidth: 22,maxHeight: 22)
@@ -101,7 +101,7 @@ struct CleoView: View {
                                     .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3)
+                                            .strokeBorder(Color.contorno, lineWidth: 3)
                                     )
                                 Image("play again icon")
                                     .resizable()
@@ -130,6 +130,7 @@ struct CleoView: View {
                 .resizable(resizingMode: .tile)
                 .scaledToFill()
                 .ignoresSafeArea()
+                .opacity(0.5)
             Image("Cleofelizlightmodeolhosabertos")
                 .resizable()
                 .frame(maxWidth: 428, maxHeight: 926)
