@@ -62,6 +62,10 @@ class Drawing {
         stroke.removeAllObjects()
     }
     
+}
+
+extension Drawing {
+    
     static func getShuffledDrawings() -> [String] {
         
 //        let drawings = ["airplane", "apple", "alarm clock", "angel", "bathtub", "beard", "bed", "binoculars", "book", "bus", "cactus", "cake", "candle", "elephant", "eyeglasses", "fish", "flashlight", "frog", "headphones", "key", "lighthouse", "lipstick", "microphone", "mouth", "panda", "parrot", "popsicle", "postcard", "purse", "rain", "rabbit", "remote control", "rollerskates", "sailboat", "skull", "snowman", "stairs", "sun", "sword", "stop sign", "table", "train", "television", "tornado", "underwear", "watermelon", "whale", "wine glass", "yoga", "zebra"]
@@ -79,7 +83,7 @@ class Drawing {
         
         let vowels: [Character] = ["a", "e", "i", "o", "u"]
         
-        if(vowels.contains(prediction.first!)) {
+        if vowels.contains(prediction.first!) {
             return "an " + prediction
         } else {
             return "a " + prediction
@@ -88,9 +92,7 @@ class Drawing {
     }
     
     func logDrawing() {
-        
         print(drawing, terminator: "\n\n\n")
-        
     }
     
 }

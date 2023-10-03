@@ -61,7 +61,7 @@ struct HowToPlayView: View {
                     Text("howToPlayDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                 }
                 .padding(.bottom)
                 .padding([.horizontal], 26)
@@ -76,7 +76,7 @@ struct HowToPlayView: View {
                     Text("meetCleoDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                     
                 }
                 .padding(.bottom)
@@ -92,7 +92,7 @@ struct HowToPlayView: View {
                     Text("learnAboutScoreDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                     
                 }
                 .padding(.bottom)

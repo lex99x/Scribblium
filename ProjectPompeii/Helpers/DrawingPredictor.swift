@@ -10,7 +10,7 @@ import Vision
 
 class DrawingPredictor {
     
-    func makePredictions(drawing: Drawing) -> [Prediction] {
+    static func makePredictions(drawing: Drawing) -> [Prediction] {
         
         var predictions: [Prediction] = []
         
@@ -35,7 +35,7 @@ class DrawingPredictor {
         
     }
     
-    func normalize(drawing: Drawing) -> Drawing {
+    static func normalize(drawing: Drawing) -> Drawing {
         let newDrawing = Drawing()
         for i in 0..<drawing.strokeCount() {
             for j in 0..<drawing.pointCount(stroke: i) {
@@ -57,7 +57,7 @@ class DrawingPredictor {
         return newDrawing
     }
     
-    func rasterize(drawing strokeBasedDrawing: Drawing) -> CGImage {
+    static func rasterize(drawing strokeBasedDrawing: Drawing) -> CGImage {
         let drawing = normalize(drawing: strokeBasedDrawing)
         let grayscale = CGColorSpaceCreateDeviceGray()
         let intermediateBitmapContext = CGContext(
@@ -89,12 +89,14 @@ class DrawingPredictor {
         return (finalBitmapContext?.makeImage())!
     }
     
+}
+
+extension DrawingPredictor {
+    
     static func logPredictions(_ predictions: [Prediction], amount: Int) {
-        
         for prediction in predictions.prefix(amount) {
             print(prediction.classification, String(prediction.confidence * 100.0) + " %")
         }
-        
     }
     
 }

@@ -30,7 +30,7 @@ struct CleoView: View {
                     ZStack {
                         Circle()
                             .frame(maxWidth: 83, maxHeight: 83)
-                            .foregroundColor(.backgroundTimer)
+                            .foregroundColor(.backgroundTimerColor)
                             .overlay(
                                 Circle()
                                     .strokeBorder(Color.secondaryColor1, lineWidth: 3))
@@ -78,7 +78,7 @@ struct CleoView: View {
                         }
                             
                         Text("home")
-                            .foregroundColor(.textPaper)
+                            .foregroundColor(.textPaperColor)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 37, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -110,7 +110,7 @@ struct CleoView: View {
                         }
                             
                         Text("replay")
-                            .foregroundColor(.textPaper)
+                            .foregroundColor(.textPaperColor)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 66, maxHeight: 21)
                             .minimumScaleFactor(0.1)

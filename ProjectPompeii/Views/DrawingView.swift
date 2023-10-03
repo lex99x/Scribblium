@@ -9,7 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct DrawingView: View {
-    
+        
     @Binding var navigationBond: NavigationBond
     
     @State var timeup = false
@@ -64,7 +64,7 @@ struct DrawingView: View {
                             Circle()
                                 .frame(maxWidth: 62, maxHeight: 62)
 //                                .scaledToFill()
-                                .foregroundColor(.backgroundTimer)
+                                .foregroundColor(.backgroundTimerColor)
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color.secondaryColor1, lineWidth: 3))
@@ -73,7 +73,7 @@ struct DrawingView: View {
                                 .font(.custom("Rubik-Black", size: 32))
                                 .frame(maxWidth: 38, maxHeight: 31)
                                 .minimumScaleFactor(0.1)
-                                .foregroundColor(.textPaper)
+                                .foregroundColor(.textPaperColor)
                                 .onReceive(timer) { _ in
                                     if (maxTime > 0 && timerRunning) {
                                         maxTime -= 1
@@ -154,7 +154,7 @@ struct DrawingView: View {
                     .frame(maxWidth: 318, maxHeight: 482.51)
 //                    .frame(maxWidth: 348.98, maxHeight: 529.38)
                     .scaledToFill()
-                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(.textPaper))
+                    .background(RoundedRectangle(cornerRadius: 31).inset(by: 3).foregroundColor(.textPaperColor))
                     .background(Color.contorno)
                     .cornerRadius(31)
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
@@ -175,7 +175,7 @@ struct DrawingView: View {
                             drawingModel.endStroke()
 //                            drawingModel.logDrawing()
                             
-                            let predictions = drawingPredictor.makePredictions(drawing: drawingModel)
+                            let predictions = DrawingPredictor.makePredictions(drawing: drawingModel)
                             let prediction = predictions.first!
                             
                             let classification = prediction.classification
@@ -282,7 +282,7 @@ struct DrawingView: View {
                         }
                         .disabled(isShowingAlert)
                         Text("delete")
-                            .foregroundColor(.textPaper)
+                            .foregroundColor(.textPaperColor)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 41, maxHeight: 21)
                             .minimumScaleFactor(0.1)
@@ -325,7 +325,7 @@ struct DrawingView: View {
 //                        .confettiCannon(counter: $counter, radius: 500)
                         
                         Text("skip")
-                            .foregroundColor(.textPaper)
+                            .foregroundColor(.textPaperColor)
                             .font(.custom("Rubik-Regular", size: 14))
                             .frame(maxWidth: 30, maxHeight: 21)
                             .minimumScaleFactor(0.1)

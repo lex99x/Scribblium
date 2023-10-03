@@ -21,6 +21,6 @@ extension Color {
     static let contorno = Color("Contorno")
     static let backgroundDrawView = Color("DrawBackground")
     static let backgroundLaunchScreen = Color("lauchScreenBackground")
-    static let backgroundTimer = Color("TimerBackground")
-    static let textPaper = Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))
+    static let backgroundTimerColor = Color("TimerBackground")
+    static let textPaperColor = Color(UIColor(red: 1.00, green: 0.98, blue: 0.86, alpha: 1.00))
 }

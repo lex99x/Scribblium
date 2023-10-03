@@ -183,10 +183,21 @@ struct CustomAlertTimesUp: View {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        CustomLeaveDrawView(shown: .constant(false),
+                            navigationBond: .constant(NavigationBond(destination: .cleo)),
+                            isShowingAlert: .constant(false),
+                            timerRunning: .constant(false))
+        
+        CustomPaused(shown: .constant(false),
+                     isShowingAlert: .constant(false),
+                     timerRunning: .constant(false))
+        
         CustomAlertTimesUp(
             shown: .constant(false),
             navigationBond: .constant(NavigationBond(destination: .cleo)),
             isShowingAlert: .constant(false)
         )
+        
     }
 }
