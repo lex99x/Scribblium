@@ -9,53 +9,33 @@ import SwiftUI
 
 class DrawingViewModel: ObservableObject {
     
-    static let maxTime = 30
-    @Published var currentTime = maxTime
+    @Published var currentTiming = 30
     @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    @Published var isTimeUp = false
-    @Published var isLeaving = false
-    @Published var isPaused = false
-    @Published var isDisplayingAlert = false
-    
-    var scoreCounter = 0, hitsCounter = 0, currentDrawingIndex = 0
-    var randomDrawings: [String] = []
     
     @Published var lines: [Line] = []
     @Published var drawing = Drawing()
 
-    @Published var suggestion = "suggestion"
-    @Published var feedback = "Draw your scribblium!"
+    @Published var suggestion: String
+    @Published var feedback = String(localized: "goScribblium")
+    @Published var displayedAlert: CustomAlertType? = .none
     
+    var scoreCounter = 0, successCounter = 0, currentDrawingIndex = 0
+    var randomDrawings = Drawing.getShuffledDrawings()
+    
+    init() {
+        suggestion = randomDrawings[currentDrawingIndex]
+    }
+        
     func pauseAction() {
-        isDisplayingAlert.toggle()
-        isPaused.toggle()
+        displayedAlert = .pausing
     }
     
     func unpauseAction() {
-        pauseAction()
-    }
-        
-    func decrementTimer() {
-        
-        if isDisplayingAlert {
-            return
-        }
-        
-        if currentTime == 0 {
-            isDisplayingAlert.toggle()
-            isTimeUp.toggle()
-            timer.upstream.connect().cancel()
-            return
-        }
-        
-        currentTime -= 1
-        
+        displayedAlert = .none
     }
     
     func backButtonAction() {
-        isDisplayingAlert.toggle()
-        isLeaving.toggle()
+        displayedAlert = .leaving
     }
     
     func deleteButtonAction() {
@@ -100,11 +80,10 @@ class DrawingViewModel: ObservableObject {
         
         if classification == suggestion && confidence >= 40.0 { // a cleo reconhece que o jogador acertou o desenho
 
-            hitsCounter += 1
-            scoreCounter += DrawingViewModel.maxTime
-//            navigationBond.setData(score)
+            successCounter += 1
+            scoreCounter += currentTiming
                                             
-            feedback = String(localized: "that's a \(NSLocalizedString(classification, comment: ""))")
+            feedback = String(localized: "thats a \(NSLocalizedString(classification, comment: ""))")
 
             // delay de 1.5 sec
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -118,8 +97,10 @@ class DrawingViewModel: ObservableObject {
             setupNextDrawing()
 
         } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
+            
             feedback = String(localized: "kinda looks like a \(NSLocalizedString(classification, comment: "")) to me")
             HapticManager.instance.impact(style: .soft)
+            
         } else { // a cleo não faz ideia do que o jogador desenhou
             feedback = String(localized: "iDontKnow")
         }
@@ -128,7 +109,23 @@ class DrawingViewModel: ObservableObject {
     
 }
 
-extension DrawingViewModel { // Helpers
+extension DrawingViewModel { // MARK: Helpers
+    
+    func decrementTimer() {
+        
+        guard displayedAlert == .none else {
+            return
+        }
+        
+        guard currentTiming != 0 else {
+            displayedAlert = .timesUp
+            timer.upstream.connect().cancel()
+            return
+        }
+        
+        currentTiming -= 1
+        
+    }
     
     private func clearDrawingCanvas() {
         lines = [Line]()

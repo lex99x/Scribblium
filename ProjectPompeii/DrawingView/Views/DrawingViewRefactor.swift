@@ -25,16 +25,17 @@ struct DrawingViewRefactor: View {
                 
             }
             
-            if viewModel.isLeaving {
-                CustomLeavingAlertView(unpauseAction: viewModel.unpauseAction)
-            }
-
-            if viewModel.isPaused {
-                CustomPausingAlertView(unpauseAction: viewModel.unpauseAction)
-            }
-
-            if viewModel.isTimeUp {
-                CustomTimesUpAlertView()
+            switch viewModel.displayedAlert {
+                
+                case .leaving:
+                    CustomLeavingAlertView(unpauseAction: viewModel.unpauseAction)
+                case .pausing:
+                    CustomPausingAlertView(unpauseAction: viewModel.unpauseAction)
+                case .timesUp:
+                    CustomTimesUpAlertView()
+                case .none:
+                    EmptyView()
+                            
             }
 
         }

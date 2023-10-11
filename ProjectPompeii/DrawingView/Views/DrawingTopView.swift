@@ -19,7 +19,7 @@ struct DrawingTopView: View {
                     viewModel.backButtonAction()
                 }) {}
                 .buttonStyle(BackButtonStyle())
-                .disabled(viewModel.isDisplayingAlert)
+                .disabled(viewModel.displayedAlert != .none)
                 
                 ZStack {
                     
@@ -30,7 +30,7 @@ struct DrawingTopView: View {
                             Circle()
                                 .strokeBorder(Color.secondaryColor1, lineWidth: 3))
                     
-                    Text("\(viewModel.currentTime)")
+                    Text("\(viewModel.currentTiming)")
                         .font(.custom(Font.rubikBlackFont, size: 32))
                         .frame(maxWidth: 38, maxHeight: 31)
                         .minimumScaleFactor(0.1)
@@ -47,7 +47,7 @@ struct DrawingTopView: View {
                     viewModel.pauseAction()
                 }) {}
                 .buttonStyle(PauseButtonStyle())
-                .disabled(viewModel.isDisplayingAlert)
+                .disabled(viewModel.displayedAlert != .none)
                 
             }
             

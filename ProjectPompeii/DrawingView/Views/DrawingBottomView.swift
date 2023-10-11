@@ -28,7 +28,7 @@ struct DrawingBottomView: View {
                         viewModel.deleteButtonAction()
                     }) {}
                     .buttonStyle(DeleteButtonStyle())
-                    .disabled(viewModel.isDisplayingAlert)
+                    .disabled(viewModel.displayedAlert != .none)
                     
                     Text("delete")
                         .foregroundColor(.textPaperColor)
@@ -44,7 +44,7 @@ struct DrawingBottomView: View {
                         viewModel.skipButtonAction()
                     }) {}
                     .buttonStyle(SkipButtonStyle())
-                    .disabled(viewModel.isDisplayingAlert)
+                    .disabled(viewModel.displayedAlert != .none)
 //                    .confettiCannon(counter: $counter, radius: 500)
                     
                     Text("skip")

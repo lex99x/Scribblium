@@ -58,7 +58,7 @@ struct CanvasView: View {
 //                ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
                 
             )
-            .disabled(viewModel.isDisplayingAlert)
+            .disabled(viewModel.displayedAlert != .none)
             
         }
         

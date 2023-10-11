@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum CustomAlertType {
+    case leaving, pausing, timesUp
+}
+
 struct CustomAlertViewRefactor<Content: View>: View {
     
     let title: LocalizedStringKey
