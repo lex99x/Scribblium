@@ -12,7 +12,9 @@ struct DrawingTopView: View {
     @ObservedObject var viewModel: DrawingViewModel
     
     var body: some View {
+        
         VStack {
+            
             HStack {
                 
                 Button(action: {
@@ -53,14 +55,14 @@ struct DrawingTopView: View {
             
             Text(viewModel.feedback)
                 .font(.custom(Font.rubikBlackFont, size: 20))
-//                .frame(maxHeight: 24)
+                .frame(maxWidth: 318, maxHeight: 24)
                 .minimumScaleFactor(0.1)
-//                .fixedSize(horizontal: false, vertical: true)
+                .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondaryColor1)
-//                .frame(maxWidth: 318)
             
         }
+        
     }
     
 }

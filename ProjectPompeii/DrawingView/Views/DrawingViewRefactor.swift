@@ -28,9 +28,9 @@ struct DrawingViewRefactor: View {
             switch viewModel.displayedAlert {
                 
                 case .leaving:
-                    CustomLeavingAlertView(unpauseAction: viewModel.unpauseAction)
+                    CustomLeavingAlertView(viewModel: viewModel)
                 case .pausing:
-                    CustomPausingAlertView(unpauseAction: viewModel.unpauseAction)
+                    CustomPausingAlertView(viewModel: viewModel)
                 case .timesUp:
                     CustomTimesUpAlertView()
                 case .none:

@@ -64,7 +64,7 @@ struct CustomAlertViewRefactor<Content: View>: View {
 
 struct CustomLeavingAlertView: View {
     
-    let unpauseAction: () -> ()
+    @ObservedObject var viewModel: DrawingViewModel
     
     var body: some View {
         CustomAlertViewRefactor(title: "pleaseWait",
@@ -86,7 +86,7 @@ struct CustomLeavingAlertView: View {
                 }
                 Divider()
                 Button {
-                    unpauseAction()
+                    viewModel.unpauseAction()
                 } label: {
                     Text("back")
                         .font(.custom(Font.rubikSemiboldFont, size: 17))
@@ -106,14 +106,14 @@ struct CustomLeavingAlertView: View {
 
 struct CustomPausingAlertView: View {
     
-    let unpauseAction: () -> ()
+    @ObservedObject var viewModel: DrawingViewModel
     
     var body: some View {
         CustomAlertViewRefactor(title: "pausedGame",
                                 message: "youPausedGame",
                                 actions: {
             Button {
-                unpauseAction()
+                viewModel.unpauseAction()
             } label: {
                 Text("resume")
                     .font(.custom(Font.rubikSemiboldFont, size: 17))
@@ -157,10 +157,10 @@ struct CustomTimesUpAlertView: View {
 struct CustomAlertViewRefactor_Previews: PreviewProvider {
     
     static var previews: some View {
-        
-        CustomLeavingAlertView(unpauseAction: {})
+    
+        CustomLeavingAlertView(viewModel: DrawingViewModel())
             .previewDisplayName("Custom Leaving Alert")
-        CustomPausingAlertView(unpauseAction: {})
+        CustomPausingAlertView(viewModel: DrawingViewModel())
             .previewDisplayName("Custom Pausing Alert View")
         CustomTimesUpAlertView()
             .previewDisplayName("Custom Time's Up Alert View")

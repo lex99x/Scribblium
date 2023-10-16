@@ -179,6 +179,7 @@
 		179195E92AC30D2F0018B37A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				17FE14672A2E487F002B31BE /* CanvasView.swift */,
 				179195E72AC30D290018B37A /* CustomAlertViewRefactor.swift */,
 			);
 			path = Components;
@@ -252,7 +253,6 @@
 				17FE145C2A2E288A002B31BE /* DrawingViewRefactor.swift */,
 				17FE14632A2E32A3002B31BE /* DrawingTopView.swift */,
 				17FE14652A2E3683002B31BE /* DrawingMidView.swift */,
-				17FE14672A2E487F002B31BE /* CanvasView.swift */,
 				17FE146C2A30AD31002B31BE /* DrawingBottomView.swift */,
 			);
 			path = Views;

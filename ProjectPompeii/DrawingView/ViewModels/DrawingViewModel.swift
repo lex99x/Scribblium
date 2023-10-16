@@ -14,7 +14,7 @@ class DrawingViewModel: ObservableObject {
     
     @Published var lines: [Line] = []
     @Published var drawing = Drawing()
-
+    
     @Published var suggestion: String
     @Published var feedback = String(localized: "goScribblium")
     @Published var displayedAlert: CustomAlertType? = .none
@@ -25,6 +25,26 @@ class DrawingViewModel: ObservableObject {
     init() {
         suggestion = randomDrawings[currentDrawingIndex]
     }
+    
+    func decrementTimer() {
+        
+        guard displayedAlert == .none else {
+            return
+        }
+        
+        guard currentTiming != 0 else {
+            displayedAlert = .timesUp
+            timer.upstream.connect().cancel()
+            return
+        }
+        
+        currentTiming -= 1
+        
+    }
+    
+}
+
+extension DrawingViewModel { // MARK: User Actions
         
     func pauseAction() {
         displayedAlert = .pausing
@@ -110,22 +130,6 @@ class DrawingViewModel: ObservableObject {
 }
 
 extension DrawingViewModel { // MARK: Helpers
-    
-    func decrementTimer() {
-        
-        guard displayedAlert == .none else {
-            return
-        }
-        
-        guard currentTiming != 0 else {
-            displayedAlert = .timesUp
-            timer.upstream.connect().cancel()
-            return
-        }
-        
-        currentTiming -= 1
-        
-    }
     
     private func clearDrawingCanvas() {
         lines = [Line]()
