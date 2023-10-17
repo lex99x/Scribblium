@@ -34,6 +34,8 @@
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5128AD1A4A00495FDE /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5028AD1A4A00495FDE /* DrawingView.swift */; };
 		BD443B5328AD1EE000495FDE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* Line.swift */; };
+		BD694FEF2A3A2F57006BFA32 /* PagesOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD694FEE2A3A2F57006BFA32 /* PagesOnboarding.swift */; };
+		BD8AFCB42A391CEB00CE8164 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AFCB32A391CEB00CE8164 /* OnboardingView.swift */; };
 		BD8B580028CB843800339F7B /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B57FF28CB843800339F7B /* CustomAlertView.swift */; };
 		BD8B580228CB8F1A00339F7B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B580128CB8F1A00339F7B /* Alert.swift */; };
 		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
@@ -72,6 +74,8 @@
 		BD21206828F59CFE0024C2BD /* Color+customColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+customColors.swift"; sourceTree = "<group>"; };
 		BD443B5028AD1A4A00495FDE /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		BD694FEE2A3A2F57006BFA32 /* PagesOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesOnboarding.swift; sourceTree = "<group>"; };
+		BD8AFCB32A391CEB00CE8164 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BD8B57FF28CB843800339F7B /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		BD8B580128CB8F1A00339F7B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BDDD882428B7F3D4005133A7 /* CleoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleoView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				17D5D4E328B8F633004DC247 /* Drawing.swift */,
 				BD443B5228AD1EE000495FDE /* Line.swift */,
 				BD8B580128CB8F1A00339F7B /* Alert.swift */,
+				BD694FEE2A3A2F57006BFA32 /* PagesOnboarding.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 				179A103228D210A0009FB6E8 /* CreditsView.swift */,
 				BDE929C328E5E34D00143268 /* HowToPlayView.swift */,
 				17A3BABA297EC95400D27026 /* GameCenterView.swift */,
+				BD8AFCB32A391CEB00CE8164 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				17C2D2A428F83F1200F58B50 /* CGContext+drawImage.swift in Sources */,
 				17C2D2A628F83F6B00F58B50 /* Prediction.swift in Sources */,
 				BD443B5128AD1A4A00495FDE /* DrawingView.swift in Sources */,
+				BD694FEF2A3A2F57006BFA32 /* PagesOnboarding.swift in Sources */,
 				17D5D4E628B8F738004DC247 /* Drawing.swift in Sources */,
 				179A103828D2EADF009FB6E8 /* NavigationBond.swift in Sources */,
 				BD8B580228CB8F1A00339F7B /* Alert.swift in Sources */,
@@ -294,6 +301,7 @@
 				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
 				17A3BABB297EC95400D27026 /* GameCenterView.swift in Sources */,
 				17F3A44328ABC270002E9047 /* ProjectPompeiiApp.swift in Sources */,
+				BD8AFCB42A391CEB00CE8164 /* OnboardingView.swift in Sources */,
 				1743A6AF28E1ED5600928B54 /* DrawingPredictor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
@@ -480,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProjectPompeii/Info.plist;
