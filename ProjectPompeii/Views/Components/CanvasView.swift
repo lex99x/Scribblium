@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
-//import ConfettiSwiftUI
+import ConfettiSwiftUI
 
 struct CanvasView: View {
     
     @ObservedObject var viewModel: DrawingViewModel
-    
-//    @State private var counter = 0
     
     var body: some View {
         
@@ -46,7 +44,6 @@ struct CanvasView: View {
             }
             .cornerRadius(30)
             .gesture (
-                
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged({ value in
                         viewModel.onGestureChangedAction(value: value)
@@ -54,11 +51,14 @@ struct CanvasView: View {
                     .onEnded({ value in
                         viewModel.onGestureEndedAction(value: value)
                     })
-                
-//                ConfettiCannon(counter: $counter, num: 13, colors: [Color.tertiaryColor1, Color.primaryColor1, Color.secondaryColor1], fadesOut: true, radius: 500)
-                
             )
             .disabled(viewModel.displayedAlert != .none)
+            
+            ConfettiCannon(counter: $viewModel.successCounter,
+                           num: 13,
+                           colors: [.tertiaryColor1, .primaryColor1, .secondaryColor1],
+                           fadesOut: true,
+                           radius: 500)
             
         }
         
