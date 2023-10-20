@@ -17,6 +17,7 @@ struct CustomBackgroundModifier: ViewModifier {
                     .ignoresSafeArea()
                 Image.backgroundImage
                     .resizable()
+                    .scaledToFill()
                     .ignoresSafeArea()
             }
     }

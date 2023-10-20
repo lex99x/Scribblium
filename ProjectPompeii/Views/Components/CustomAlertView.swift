@@ -1,5 +1,5 @@
 //
-//  CustomAlertViewRefactor.swift
+//  CustomAlertView.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 26/09/23.
@@ -11,7 +11,7 @@ enum CustomAlertType {
     case leaving, pausing, timesUp
 }
 
-struct CustomAlertViewRefactor<Content: View>: View {
+struct CustomAlertView<Content: View>: View {
     
     let title: LocalizedStringKey
     let message: LocalizedStringKey
@@ -64,15 +64,16 @@ struct CustomAlertViewRefactor<Content: View>: View {
 
 struct CustomLeavingAlertView: View {
     
-    @ObservedObject var viewModel: DrawingViewModel
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var drawingViewModel: DrawingViewModel
     
     var body: some View {
-        CustomAlertViewRefactor(title: "pleaseWait",
+        CustomAlertView(title: "pleaseWait",
                                 message: "ifYouLeaveNow",
                                 actions: {
             HStack {
                 Button {
-                    // TODO: navigate back to home screen
+                    dismiss()
                 } label: {
                     Text("leave")
                         .font(.custom(Font.rubikSemiboldFont, size: 17))
@@ -86,7 +87,7 @@ struct CustomLeavingAlertView: View {
                 }
                 Divider()
                 Button {
-                    viewModel.unpauseAction()
+                    drawingViewModel.unpauseAction()
                 } label: {
                     Text("back")
                         .font(.custom(Font.rubikSemiboldFont, size: 17))
@@ -106,14 +107,14 @@ struct CustomLeavingAlertView: View {
 
 struct CustomPausingAlertView: View {
     
-    @ObservedObject var viewModel: DrawingViewModel
+    @ObservedObject var drawingViewModel: DrawingViewModel
     
     var body: some View {
-        CustomAlertViewRefactor(title: "pausedGame",
+        CustomAlertView(title: "pausedGame",
                                 message: "youPausedGame",
                                 actions: {
             Button {
-                viewModel.unpauseAction()
+                drawingViewModel.unpauseAction()
             } label: {
                 Text("resume")
                     .font(.custom(Font.rubikSemiboldFont, size: 17))
@@ -132,13 +133,15 @@ struct CustomPausingAlertView: View {
 
 struct CustomTimesUpAlertView: View {
     
+    @ObservedObject var drawingViewModel: DrawingViewModel
+    
     var body: some View {
-        CustomAlertViewRefactor(title: "timesUp",
+        CustomAlertView(title: "timesUp",
                                 message: "yourScribbliunsCounted",
                                 actions: {
-            Button {
-                // TODO: navigate to results screen
-            } label: {
+            NavigationLink(destination: {
+                CleoView(drawingViewModel: drawingViewModel)
+            }, label: {
                 Text("ok")
                     .font(.custom(Font.rubikSemiboldFont, size: 17))
                     .frame(maxWidth: 22, maxHeight: 20)
@@ -148,7 +151,8 @@ struct CustomTimesUpAlertView: View {
                     .multilineTextAlignment(.center)
                     .padding([.horizontal], 124)
                     .padding([.vertical], 11)
-            }
+            })
+            .isDetailLink(false)
         })
     }
     
@@ -158,11 +162,11 @@ struct CustomAlertViewRefactor_Previews: PreviewProvider {
     
     static var previews: some View {
     
-        CustomLeavingAlertView(viewModel: DrawingViewModel())
+        CustomLeavingAlertView(drawingViewModel: DrawingViewModel())
             .previewDisplayName("Custom Leaving Alert")
-        CustomPausingAlertView(viewModel: DrawingViewModel())
+        CustomPausingAlertView(drawingViewModel: DrawingViewModel())
             .previewDisplayName("Custom Pausing Alert View")
-        CustomTimesUpAlertView()
+        CustomTimesUpAlertView(drawingViewModel: DrawingViewModel())
             .previewDisplayName("Custom Time's Up Alert View")
         
     }

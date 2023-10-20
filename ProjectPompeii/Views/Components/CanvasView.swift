@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
+//import ConfettiSwiftUI
 
 struct CanvasView: View {
     
@@ -45,7 +45,7 @@ struct CanvasView: View {
                     .strokeBorder(Color.contorno, lineWidth: 3)
             }
             .cornerRadius(30)
-            .gesture(
+            .gesture (
                 
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged({ value in

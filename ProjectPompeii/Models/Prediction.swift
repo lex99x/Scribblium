@@ -8,8 +8,6 @@
 import Foundation
 
 struct Prediction {
-    
     let classification: String
     let confidence: Float
-    
 }

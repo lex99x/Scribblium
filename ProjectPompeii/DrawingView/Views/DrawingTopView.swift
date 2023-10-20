@@ -38,7 +38,7 @@ struct DrawingTopView: View {
                         .minimumScaleFactor(0.1)
                         .foregroundColor(.textPaperColor)
                         .onReceive(viewModel.timer) { _ in
-                            viewModel.decrementTimer()
+                            viewModel.decrementTiming()
                         }
                     
                 }
@@ -61,6 +61,12 @@ struct DrawingTopView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondaryColor1)
             
+        }
+        .onAppear {
+            viewModel.reset()
+        }
+        .onDisappear {
+            viewModel.cancelTimer()
         }
         
     }

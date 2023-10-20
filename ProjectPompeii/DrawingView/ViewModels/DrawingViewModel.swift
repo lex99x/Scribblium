@@ -5,36 +5,74 @@
 //  Created by Alex A. Rocha on 02/06/23.
 //
 
+import Combine
 import SwiftUI
 
 class DrawingViewModel: ObservableObject {
     
-    @Published var currentTiming = 30
-    @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @Published var currentTiming: Int = 30
     @Published var lines: [Line] = []
-    @Published var drawing = Drawing()
-    
     @Published var suggestion: String
     @Published var feedback = String(localized: "goScribblium")
     @Published var displayedAlert: CustomAlertType? = .none
+        
+    var drawing = Drawing()
+    var scoreCounter: Int = .zero
+    var successCounter: Int = .zero
+    var currentDrawingIndex: Int = .zero
+    var randomSuggestions: [String]
     
-    var scoreCounter = 0, successCounter = 0, currentDrawingIndex = 0
-    var randomDrawings = Drawing.getShuffledDrawings()
-    
+    @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    var isTimerTicking = true
+
     init() {
-        suggestion = randomDrawings[currentDrawingIndex]
+        randomSuggestions = Drawing.getShuffledDrawings()
+        suggestion = randomSuggestions.first ?? "nil"
     }
     
-    func decrementTimer() {
+    func reset() {
         
-        guard displayedAlert == .none else {
+        guard !isTimerTicking else { // prossiga se timer e demais atributos precisam ser resetados senão retorne
+            return
+        }
+                
+        restartTimer()
+        resetDrawingCanvas()
+        
+        currentTiming = 30
+        scoreCounter = .zero
+        successCounter = .zero
+        currentDrawingIndex = .zero
+        
+        randomSuggestions = Drawing.getShuffledDrawings()
+        suggestion = randomSuggestions[currentDrawingIndex]
+        feedback = String(localized: "goScribblium")
+        displayedAlert = .none
+        
+    }
+    
+}
+
+extension DrawingViewModel { // MARK: Timer Methods
+    
+    func cancelTimer() {
+        timer.upstream.connect().cancel()
+        isTimerTicking = false
+    }
+    
+    func restartTimer() {
+        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        isTimerTicking = true
+    }
+    
+    func decrementTiming() {
+        
+        guard displayedAlert == .none else { // prossiga se displayedAlert for .none senão retorne
             return
         }
         
-        guard currentTiming != 0 else {
+        guard currentTiming != 0 else { // prossiga se currentTiming for diferente de zero senão ... e retorne
             displayedAlert = .timesUp
-            timer.upstream.connect().cancel()
             return
         }
         
@@ -59,12 +97,12 @@ extension DrawingViewModel { // MARK: User Actions
     }
     
     func deleteButtonAction() {
-        clearDrawingCanvas()
+        resetDrawingCanvas()
         feedback = String(localized: "goScribblium")
     }
     
     func skipButtonAction() {
-        clearDrawingCanvas()
+        resetDrawingCanvas()
         feedback = String(localized: "goScribblium")
         setupNextDrawing()
     }
@@ -113,7 +151,7 @@ extension DrawingViewModel { // MARK: User Actions
             HapticManager.instance.notification(type: .success)
             SoundManager.instance.playSound(sound: .correct)
             
-            clearDrawingCanvas()
+            resetDrawingCanvas()
             setupNextDrawing()
 
         } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
@@ -131,14 +169,14 @@ extension DrawingViewModel { // MARK: User Actions
 
 extension DrawingViewModel { // MARK: Helpers
     
-    private func clearDrawingCanvas() {
-        lines = [Line]()
+    private func resetDrawingCanvas() {
+        lines = []
         drawing = Drawing()
     }
     
     private func setupNextDrawing() {
-        currentDrawingIndex = (currentDrawingIndex + 1) % randomDrawings.count
-        suggestion = randomDrawings[currentDrawingIndex]
+        currentDrawingIndex = (currentDrawingIndex + 1) % randomSuggestions.count
+        suggestion = randomSuggestions[currentDrawingIndex]
     }
     
 }

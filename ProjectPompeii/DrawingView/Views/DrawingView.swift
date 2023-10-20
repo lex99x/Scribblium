@@ -1,5 +1,5 @@
 //
-//  DrawingViewRefactor.swift
+//  DrawingView.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 05/06/23.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct DrawingViewRefactor: View {
+struct DrawingView: View {
+    
+    @Environment(\.dismiss) private var dismiss
     
     @ObservedObject var viewModel = DrawingViewModel()
     
@@ -28,11 +30,11 @@ struct DrawingViewRefactor: View {
             switch viewModel.displayedAlert {
                 
                 case .leaving:
-                    CustomLeavingAlertView(viewModel: viewModel)
+                    CustomLeavingAlertView(drawingViewModel: viewModel)
                 case .pausing:
-                    CustomPausingAlertView(viewModel: viewModel)
+                    CustomPausingAlertView(drawingViewModel: viewModel)
                 case .timesUp:
-                    CustomTimesUpAlertView()
+                    CustomTimesUpAlertView(drawingViewModel: viewModel)
                 case .none:
                     EmptyView()
                             
@@ -41,15 +43,14 @@ struct DrawingViewRefactor: View {
         }
         .padding(.horizontal, 20)
         .customBackground()
+        .navigationBarBackButtonHidden()
         
     }
     
 }
 
 struct DrawingViewRefactor_Previews: PreviewProvider {
-    
     static var previews: some View {
-        DrawingViewRefactor(viewModel: DrawingViewModel())
+        DrawingView()
     }
-    
 }
