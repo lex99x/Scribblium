@@ -5,7 +5,6 @@
 //  Created by Ana Kiara Medeiros Braga on 17/08/22.
 //
 
-import Foundation
 import SwiftUI
 
 struct Line {

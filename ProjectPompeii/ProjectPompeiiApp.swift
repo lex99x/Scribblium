@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct ProjectPompeiiApp: App {
-    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                HomeView()
+            }
         }
     }
 }

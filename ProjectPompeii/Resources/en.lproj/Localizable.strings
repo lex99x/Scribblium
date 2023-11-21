@@ -6,7 +6,7 @@
   
 */
 
-goScribblium = "Draw you scribblium!";
+goScribblium = "Draw your scribblium!";
 
 howToPlay = "How to play?";
 howToPlayDetails = "There's only one rule here... Draw as many scribbliuns as you can in 30 seconds!";

@@ -37,7 +37,7 @@ struct HowToPlayView: View {
                                 .foregroundColor(.secondaryColor1)
                                 .overlay(
                                     Circle()
-                                        .strokeBorder(Color.contorno, lineWidth: 2))
+                                        .strokeBorder(Color.contornoColor, lineWidth: 2))
                                 .font(.system(size: 30))
                                 .background(
                                     Circle()
@@ -61,7 +61,7 @@ struct HowToPlayView: View {
                     Text("howToPlayDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                 }
                 .padding(.bottom)
                 .padding([.horizontal], 26)
@@ -76,7 +76,7 @@ struct HowToPlayView: View {
                     Text("meetCleoDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                     
                 }
                 .padding(.bottom)
@@ -92,7 +92,7 @@ struct HowToPlayView: View {
                     Text("learnAboutScoreDetails")
                         .font(.custom("Rubik-Regular", size: 17))
                         .minimumScaleFactor(0.1)
-                        .foregroundColor(.textPaper)
+                        .foregroundColor(.textPaperColor)
                     
                 }
                 .padding(.bottom)
@@ -102,9 +102,10 @@ struct HowToPlayView: View {
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.backgroundDrawView)
+        .background(Color.backgroundDrawViewColor)
         //.cornerRadius(18)
         //.ignoresSafeArea()
+        
     }
 
 }
