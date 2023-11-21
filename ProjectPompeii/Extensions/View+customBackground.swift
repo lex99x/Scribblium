@@ -13,12 +13,13 @@ struct CustomBackgroundModifier: ViewModifier {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
-                Color.backgroundDrawView
+                Color.backgroundDrawViewColor
                     .ignoresSafeArea()
                 Image.backgroundImage
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
+                    .opacity(0.5)
             }
     }
     

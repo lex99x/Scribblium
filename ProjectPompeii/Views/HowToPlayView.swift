@@ -37,7 +37,7 @@ struct HowToPlayView: View {
                                 .foregroundColor(.secondaryColor1)
                                 .overlay(
                                     Circle()
-                                        .strokeBorder(Color.contorno, lineWidth: 2))
+                                        .strokeBorder(Color.contornoColor, lineWidth: 2))
                                 .font(.system(size: 30))
                                 .background(
                                     Circle()
@@ -102,7 +102,7 @@ struct HowToPlayView: View {
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.backgroundDrawView)
+        .background(Color.backgroundDrawViewColor)
         //.cornerRadius(18)
         //.ignoresSafeArea()
         

@@ -69,7 +69,7 @@ struct CleoView: View {
                                     .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3))
+                                            .strokeBorder(Color.contornoColor, lineWidth: 3))
                                 Image("home again icon")
                                     .resizable()
                                     .frame(maxWidth: 22,maxHeight: 22)
@@ -98,7 +98,7 @@ struct CleoView: View {
                                     .foregroundColor(.secondaryColor1)
                                     .overlay(
                                         Circle()
-                                            .strokeBorder(Color.tertiaryColor1, lineWidth: 3)
+                                            .strokeBorder(Color.contornoColor, lineWidth: 3)
                                     )
                                 Image("play again icon")
                                     .resizable()
@@ -120,12 +120,13 @@ struct CleoView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
         .background {
-            Color.backgroundCleoView
+            Color.backgroundCleoViewColor
                 .ignoresSafeArea()
             Image("padraoPortrait")
                 .resizable(resizingMode: .tile)
                 .scaledToFill()
                 .ignoresSafeArea()
+                .opacity(0.5)
             Image("Cleofelizlightmodeolhosabertos")
                 .resizable()
                 .frame(maxWidth: 428, maxHeight: 926)
@@ -143,5 +144,10 @@ struct CleoView: View {
 struct CleoView_Previews: PreviewProvider {
     static var previews: some View {
         CleoView(drawingViewModel: DrawingViewModel())
+            .preferredColorScheme(.light)
+            .previewDisplayName("Cleo View Light Mode")
+        CleoView(drawingViewModel: DrawingViewModel())
+            .preferredColorScheme(.dark)
+            .previewDisplayName("Cleo View Dark Mode")
     }
 }

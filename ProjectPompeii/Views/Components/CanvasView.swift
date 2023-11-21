@@ -22,7 +22,7 @@ struct CanvasView: View {
                 .foregroundColor(.secondaryColor1)
                 .overlay {
                     RoundedRectangle(cornerRadius: 30)
-                        .strokeBorder(Color.contorno, lineWidth: 3)
+                        .strokeBorder(Color.contornoColor, lineWidth: 3)
                 }
                 .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 5, x: 8, y: 7)
             
@@ -40,7 +40,7 @@ struct CanvasView: View {
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 30)
-                    .strokeBorder(Color.contorno, lineWidth: 3)
+                    .strokeBorder(Color.contornoColor, lineWidth: 3)
             }
             .cornerRadius(30)
             .gesture (

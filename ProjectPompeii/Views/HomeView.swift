@@ -31,7 +31,7 @@ struct HomeView: View {
                         .overlay(
                             ZStack {
                                 Circle()
-                                    .strokeBorder(Color.contorno, lineWidth: 3)
+                                    .strokeBorder(Color.contornoColor, lineWidth: 3)
                                 Image(systemName: "person.3.fill")
                                     .resizable()
                                     .frame(width: 40, height: 20)
@@ -54,7 +54,7 @@ struct HomeView: View {
                         .overlay(
                             ZStack {
                                 Circle()
-                                    .strokeBorder(Color.contorno, lineWidth: 3)
+                                    .strokeBorder(Color.contornoColor, lineWidth: 3)
                                 Image("icontutorial")
                                     .resizable()
                                     .frame(width: 22, height: 27)
@@ -75,7 +75,7 @@ struct HomeView: View {
                         .overlay(
                             ZStack {
                                 Circle()
-                                    .strokeBorder(Color.contorno, lineWidth: 3)
+                                    .strokeBorder(Color.contornoColor, lineWidth: 3)
                                 Image("iconlicense")
                                     .resizable()
                                     .frame(width: 21, height: 22)
@@ -108,7 +108,7 @@ struct HomeView: View {
                         .overlay(
                             ZStack {
                                 Circle()
-                                    .strokeBorder(Color.contorno, lineWidth: 3)
+                                    .strokeBorder(Color.contornoColor, lineWidth: 3)
                                 Image(systemName: "play.fill")
                                     .resizable()
                                     .frame(width: 22, height: 22.96)

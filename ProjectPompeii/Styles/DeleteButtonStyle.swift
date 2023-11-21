@@ -17,7 +17,7 @@ struct DeleteButtonStyle: ButtonStyle {
                 .foregroundColor(.secondaryColor1)
                 .overlay(
                     Circle()
-                        .strokeBorder(Color.contorno, lineWidth: 3))
+                        .strokeBorder(Color.contornoColor, lineWidth: 3))
             Image(systemName: "trash.fill")
                 .resizable()
                 .frame(maxWidth: 22, maxHeight: 24)

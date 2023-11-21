@@ -30,7 +30,7 @@ struct CreditsView: View {
                             .foregroundColor(.secondaryColor1)
                             .overlay(
                                 Circle()
-                                    .strokeBorder(Color.contorno, lineWidth: 2))
+                                    .strokeBorder(Color.contornoColor, lineWidth: 2))
                             .font(.system(size: 30))
                             .background(
                                 Circle()
@@ -164,7 +164,7 @@ struct CreditsView: View {
         
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.backgroundDrawView)
+        .background(Color.backgroundDrawViewColor)
         
     }
     
