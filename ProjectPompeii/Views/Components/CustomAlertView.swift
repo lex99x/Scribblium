@@ -17,7 +17,9 @@ struct CustomAlertView<Content: View>: View {
     let message: LocalizedStringKey
     let actions: () -> Content
     
-    init(title: LocalizedStringKey, message: LocalizedStringKey, @ViewBuilder actions: @escaping () -> Content) {
+    init(title: LocalizedStringKey,
+         message: LocalizedStringKey,
+         @ViewBuilder actions: @escaping () -> Content) {
         self.title = title
         self.message = message
         self.actions = actions

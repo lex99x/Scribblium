@@ -27,8 +27,8 @@ class Drawing {
     }
 
     func pointCount(stroke i: Int) -> Int {
-        let corresponding_stroke = drawing.object(at: i) as! NSArray
-        return corresponding_stroke.count
+        let correspondingStroke = drawing.object(at: i) as! NSArray
+        return correspondingStroke.count
     }
 
     func strokeCount() -> Int {
@@ -36,8 +36,8 @@ class Drawing {
     }
 
     func point(stroke i: Int, point j: Int) -> CGPoint {
-        let corresponding_stroke = drawing.object(at: i) as! NSArray
-        let answer = corresponding_stroke.object(at: j) as! CGPoint
+        let correspondingStroke = drawing.object(at: i) as! NSArray
+        let answer = correspondingStroke.object(at: j) as! CGPoint
         return answer
     }
 
@@ -56,9 +56,9 @@ class Drawing {
     }
 
     func endStroke() {
-        let new_stroke = NSMutableArray()
-        new_stroke.addObjects(from: stroke as! [Any])
-        drawing.add(new_stroke)
+        let newStroke = NSMutableArray()
+        newStroke.addObjects(from: stroke as! [Any])
+        drawing.add(newStroke)
         stroke.removeAllObjects()
     }
     

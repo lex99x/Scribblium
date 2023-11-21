@@ -148,8 +148,8 @@ extension DrawingViewModel { // MARK: User Actions
                 self.feedback = String(localized: "goScribblium")
             }
 
-            HapticManager.instance.notification(type: .success)
-            SoundManager.instance.playSound(sound: .correct)
+            HapticsHelper.instance.notification(type: .success)
+            SoundHelper.instance.playSound(sound: .correct)
             
             resetDrawingCanvas()
             setupNextDrawing()
@@ -157,7 +157,7 @@ extension DrawingViewModel { // MARK: User Actions
         } else if confidence >= 25.0 { // a cleo tem uma noção do que o jogador desenhou
             
             feedback = String(localized: "kinda looks like a \(NSLocalizedString(classification, comment: "")) to me")
-            HapticManager.instance.impact(style: .soft)
+            HapticsHelper.instance.impact(style: .soft)
             
         } else { // a cleo não faz ideia do que o jogador desenhou
             feedback = String(localized: "iDontKnow")

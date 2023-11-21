@@ -1,14 +1,13 @@
 //
-//  GameCenterManager.swift
+//  GameCenterHelper.swift
 //  ProjectPompeii
 //
 //  Created by Alex A. Rocha on 18/01/23.
 //
 
-import Foundation
 import GameKit
 
-class GameCenterManager {
+class GameCenterHelper {
     
     public static let leaderboardsIdentifier = "com.devacademymao.ProjectPompeii.leaderboards"
     
@@ -29,7 +28,7 @@ class GameCenterManager {
                 score,
                 context: 0,
                 player: GKLocalPlayer.local,
-                leaderboardIDs: [GameCenterManager.leaderboardsIdentifier]
+                leaderboardIDs: [GameCenterHelper.leaderboardsIdentifier]
             )
             
         }

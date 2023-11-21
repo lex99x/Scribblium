@@ -5,12 +5,11 @@
 //  Created by Ana Kiara Medeiros Braga on 27/09/22.
 //
 
-import Foundation
 import SwiftUI
 
-class HapticManager {
+class HapticsHelper {
     
-    static var instance = HapticManager()
+    static var instance = HapticsHelper()
     
     func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
         let generator = UINotificationFeedbackGenerator()

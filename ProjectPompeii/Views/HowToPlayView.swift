@@ -105,6 +105,7 @@ struct HowToPlayView: View {
         .background(Color.backgroundDrawView)
         //.cornerRadius(18)
         //.ignoresSafeArea()
+        
     }
 
 }

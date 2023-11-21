@@ -5,7 +5,6 @@
 //  Created by Alex A. Rocha on 25/08/22.
 //
 
-import Foundation
 import Vision
 
 class DrawingPredictor {

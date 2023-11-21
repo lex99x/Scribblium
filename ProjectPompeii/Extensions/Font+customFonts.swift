@@ -10,5 +10,6 @@ import SwiftUI
 extension Font {
     static let rubikRegularFont = "Rubik-Regular"
     static let rubikBlackFont = "Rubik-Black"
+    static let rubikBoldFont = "Rubik-Bold"
     static let rubikSemiboldFont = "Rubik-SemiBold"
 }

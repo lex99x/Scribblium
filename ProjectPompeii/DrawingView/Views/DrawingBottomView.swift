@@ -45,7 +45,6 @@ struct DrawingBottomView: View {
                     }) {}
                     .buttonStyle(SkipButtonStyle())
                     .disabled(viewModel.displayedAlert != .none)
-//                    .confettiCannon(counter: $counter, radius: 500)
                     
                     Text("skip")
                         .foregroundColor(.textPaperColor)

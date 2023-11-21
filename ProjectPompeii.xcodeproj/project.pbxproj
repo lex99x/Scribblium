@@ -11,14 +11,13 @@
 		175A79022A2A454100F45C4E /* DrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A79012A2A454100F45C4E /* DrawingViewModel.swift */; };
 		179195E82AC30D290018B37A /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179195E72AC30D290018B37A /* CustomAlertView.swift */; };
 		179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179A103228D210A0009FB6E8 /* CreditsView.swift */; };
-		17A3BAB62978397B00D27026 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BAB52978397B00D27026 /* GameCenterManager.swift */; };
+		17A3BAB62978397B00D27026 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BAB52978397B00D27026 /* GameCenterHelper.swift */; };
 		17A3BABB297EC95400D27026 /* GameCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3BABA297EC95400D27026 /* GameCenterView.swift */; };
 		17A3BAEC298946CC00D27026 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17A3BAEE298946CC00D27026 /* Localizable.strings */; };
 		17C2D29E28F7EBD100F58B50 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */; };
 		17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */; };
 		17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */; };
 		17C2D2A128F7EBD800F58B50 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */; };
-		17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */; };
 		17C2D2A428F83F1200F58B50 /* CGContext+drawImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2D2A328F83F1200F58B50 /* CGContext+drawImage.swift */; };
 		17C2D2A628F83F6B00F58B50 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2D2A528F83F6B00F58B50 /* Prediction.swift */; };
 		17C96D8A28E3368900C0A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17F3A44628ABC271002E9047 /* Assets.xcassets */; };
@@ -40,12 +39,12 @@
 		17FE14732A30C4E5002B31BE /* Image+customImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE14722A30C4E5002B31BE /* Image+customImages.swift */; };
 		17FE14752A30C6EF002B31BE /* Font+customFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE14742A30C6EF002B31BE /* Font+customFonts.swift */; };
 		17FE14772A30D5D2002B31BE /* View+customBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE14762A30D5D2002B31BE /* View+customBackground.swift */; };
-		BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15B1AE28E33BC100CCD292 /* HapticManager.swift */; };
+		BD15B1AF28E33BC100CCD292 /* HapticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15B1AE28E33BC100CCD292 /* HapticsHelper.swift */; };
 		BD21206928F59CFE0024C2BD /* Color+customColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21206828F59CFE0024C2BD /* Color+customColors.swift */; };
 		BD25DFA228E203B100AE2A11 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BD25DFA128E203B100AE2A11 /* ConfettiSwiftUI */; };
 		BD443B5328AD1EE000495FDE /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD443B5228AD1EE000495FDE /* Line.swift */; };
 		BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD882428B7F3D4005133A7 /* CleoView.swift */; };
-		BDE929B528E4766900143268 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929B428E4766900143268 /* SoundManager.swift */; };
+		BDE929B528E4766900143268 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929B428E4766900143268 /* SoundHelper.swift */; };
 		BDE929C128E4796500143268 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDE929BE28E4796500143268 /* correct.mp3 */; };
 		BDE929C428E5E34D00143268 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE929C328E5E34D00143268 /* HowToPlayView.swift */; };
 /* End PBXBuildFile section */
@@ -55,14 +54,13 @@
 		179195E72AC30D290018B37A /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		179A103228D210A0009FB6E8 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		179A103428D2172C009FB6E8 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
-		17A3BAB52978397B00D27026 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
+		17A3BAB52978397B00D27026 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		17A3BAB929784B2000D27026 /* ProjectPompeii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectPompeii.entitlements; sourceTree = "<group>"; };
 		17A3BABA297EC95400D27026 /* GameCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterView.swift; sourceTree = "<group>"; };
 		17A3BAED298946CC00D27026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		17A3BAEF2989479C00D27026 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
-		17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMarkerHatch-Regular.ttf"; sourceTree = "<group>"; };
 		17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		17C2D2A328F83F1200F58B50 /* CGContext+drawImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGContext+drawImage.swift"; sourceTree = "<group>"; };
 		17C2D2A528F83F6B00F58B50 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
@@ -87,11 +85,11 @@
 		17FE14722A30C4E5002B31BE /* Image+customImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+customImages.swift"; sourceTree = "<group>"; };
 		17FE14742A30C6EF002B31BE /* Font+customFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+customFonts.swift"; sourceTree = "<group>"; };
 		17FE14762A30D5D2002B31BE /* View+customBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+customBackground.swift"; sourceTree = "<group>"; };
-		BD15B1AE28E33BC100CCD292 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		BD15B1AE28E33BC100CCD292 /* HapticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsHelper.swift; sourceTree = "<group>"; };
 		BD21206828F59CFE0024C2BD /* Color+customColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+customColors.swift"; sourceTree = "<group>"; };
 		BD443B5228AD1EE000495FDE /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		BDDD882428B7F3D4005133A7 /* CleoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleoView.swift; sourceTree = "<group>"; };
-		BDE929B428E4766900143268 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BDE929B428E4766900143268 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		BDE929BE28E4796500143268 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		BDE929C328E5E34D00143268 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,7 +139,6 @@
 				17C2D29A28F7EAE800F58B50 /* Rubik-Black.ttf */,
 				17C2D29B28F7EAE800F58B50 /* Rubik-Bold.ttf */,
 				17C2D29D28F7EAE800F58B50 /* Rubik-SemiBold.ttf */,
-				17C2D29C28F7EAE800F58B50 /* RubikMarkerHatch-Regular.ttf */,
 				BDE929BE28E4796500143268 /* correct.mp3 */,
 			);
 			path = Resources;
@@ -151,9 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				17D5D4DE28B8F3A1004DC247 /* DrawingPredictor.swift */,
-				BD15B1AE28E33BC100CCD292 /* HapticManager.swift */,
-				BDE929B428E4766900143268 /* SoundManager.swift */,
-				17A3BAB52978397B00D27026 /* GameCenterManager.swift */,
+				BD15B1AE28E33BC100CCD292 /* HapticsHelper.swift */,
+				BDE929B428E4766900143268 /* SoundHelper.swift */,
+				17A3BAB52978397B00D27026 /* GameCenterHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				17C2D29F28F7EBD400F58B50 /* Rubik-Black.ttf in Resources */,
 				17D84C0C28D1AD3D0055199F /* LaunchScreen.storyboard in Resources */,
 				17F3A45628ABC28A002E9047 /* .gitignore in Resources */,
-				17C2D2A228F7EBDB00F58B50 /* RubikMarkerHatch-Regular.ttf in Resources */,
 				BDE929C128E4796500143268 /* correct.mp3 in Resources */,
 				17A3BAEC298946CC00D27026 /* Localizable.strings in Resources */,
 				17C2D2A028F7EBD600F58B50 /* Rubik-Bold.ttf in Resources */,
@@ -345,12 +341,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17A3BAB62978397B00D27026 /* GameCenterManager.swift in Sources */,
+				17A3BAB62978397B00D27026 /* GameCenterHelper.swift in Sources */,
 				179A103328D210A0009FB6E8 /* CreditsView.swift in Sources */,
 				BD21206928F59CFE0024C2BD /* Color+customColors.swift in Sources */,
 				179195E82AC30D290018B37A /* CustomAlertView.swift in Sources */,
 				17D84C0A28D195830055199F /* HomeView.swift in Sources */,
-				BDE929B528E4766900143268 /* SoundManager.swift in Sources */,
+				BDE929B528E4766900143268 /* SoundHelper.swift in Sources */,
 				BDDD882528B7F3D4005133A7 /* CleoView.swift in Sources */,
 				17FE14752A30C6EF002B31BE /* Font+customFonts.swift in Sources */,
 				17C2D2A428F83F1200F58B50 /* CGContext+drawImage.swift in Sources */,
@@ -368,7 +364,7 @@
 				17FE14732A30C4E5002B31BE /* Image+customImages.swift in Sources */,
 				17FE14772A30D5D2002B31BE /* View+customBackground.swift in Sources */,
 				175A79022A2A454100F45C4E /* DrawingViewModel.swift in Sources */,
-				BD15B1AF28E33BC100CCD292 /* HapticManager.swift in Sources */,
+				BD15B1AF28E33BC100CCD292 /* HapticsHelper.swift in Sources */,
 				17FE146F2A30B206002B31BE /* DeleteButtonStyle.swift in Sources */,
 				BD443B5328AD1EE000495FDE /* Line.swift in Sources */,
 				17FE14642A2E32A3002B31BE /* DrawingTopView.swift in Sources */,

@@ -1,17 +1,16 @@
 //
-//  SoundManager.swift
+//  SoundHelper.swift
 //  ProjectPompeii
 //
 //  Created by Ana Kiara Medeiros Braga on 28/09/22.
 //
 
-import Foundation
 import SwiftUI
 import AVKit
 
-class SoundManager {
+class SoundHelper {
     
-    static let instance = SoundManager()
+    static let instance = SoundHelper()
     
     var player: AVAudioPlayer?
     
