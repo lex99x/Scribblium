@@ -11,4 +11,5 @@ extension Image {
     static let backgroundImage = Image("padraoPortrait")
     static let paperBandRight = Image("Fitinha 1 Portrait darkmode")
     static let paperBandLeft = Image("Fitinha 2 Portrait darkmode")
+    static let howToPlayImage = Image("How To Play")
 }

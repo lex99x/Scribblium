@@ -18,10 +18,11 @@ struct HowToPlayView: View {
                 
                 ZStack(alignment: .top) {
                     
-                    Image("ModalHowToPlay")
+                    Image.howToPlayImage
                         .resizable()
-                    //sombra especifica
-                        .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25), radius: 11, x: -1, y: 6)
+                        .shadow(color: Color(.sRGB, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.25),
+                                radius: 11,
+                                x: -1, y: 6)
                         .ignoresSafeArea()
                     
                     HStack {
