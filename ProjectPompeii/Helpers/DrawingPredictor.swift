@@ -34,6 +34,10 @@ class DrawingPredictor {
         
     }
     
+}
+
+extension DrawingPredictor { // Helpers
+    
     static func normalize(drawing: Drawing) -> Drawing {
         let newDrawing = Drawing()
         for i in 0..<drawing.strokeCount() {
@@ -86,16 +90,6 @@ class DrawingPredictor {
         let finalRect = CGRect(x: 0.0, y: 0.0, width: 28.0, height: 28.0)
         finalBitmapContext?.drawImage(intermediateImage!, in: finalRect)
         return (finalBitmapContext?.makeImage())!
-    }
-    
-}
-
-extension DrawingPredictor {
-    
-    static func logPredictions(_ predictions: [Prediction], amount: Int) {
-        for prediction in predictions.prefix(amount) {
-            print(prediction.classification, String(prediction.confidence * 100.0) + " %")
-        }
     }
     
 }
